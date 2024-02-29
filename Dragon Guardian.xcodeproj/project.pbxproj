@@ -7,23 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A9F832B8D88F7009D35E2 /* CharacterStats.swift */; };
 		77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */; };
 		77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */; };
-		77DB72702B8AD47C00E410A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726F2B8AD47C00E410A2 /* ViewController.swift */; };
+		77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */; };
 		77DB72732B8AD47C00E410A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77DB72712B8AD47C00E410A2 /* Main.storyboard */; };
 		77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77DB72742B8AD47D00E410A2 /* Assets.xcassets */; };
 		77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77DB72762B8AD47D00E410A2 /* LaunchScreen.storyboard */; };
+		77DB72822B8BCDA300E410A2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72812B8BCDA300E410A2 /* Character.swift */; };
+		77DB72842B8BCE5200E410A2 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72832B8BCE5200E410A2 /* Hero.swift */; };
+		77DB72872B8BD05200E410A2 /* Dragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72862B8BD05200E410A2 /* Dragon.swift */; };
+		77DB72892B8BD09C00E410A2 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72882B8BD09C00E410A2 /* Action.swift */; };
+		77DB728C2B8BD22400E410A2 /* Villain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB728B2B8BD22400E410A2 /* Villain.swift */; };
+		77DB728E2B8BD4C600E410A2 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB728D2B8BD4C600E410A2 /* Attack.swift */; };
+		77DB72922B8BE28300E410A2 /* Actions List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72912B8BE28300E410A2 /* Actions List.swift */; };
+		77DB72952B8BEB5600E410A2 /* BattleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72942B8BEB5600E410A2 /* BattleManager.swift */; };
+		77DB72972B8BF12900E410A2 /* Guardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72962B8BF12900E410A2 /* Guardian.swift */; };
+		77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB729A2B8C474500E410A2 /* LittleDragon.swift */; };
+		77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB729E2B8C4D6200E410A2 /* CallToAction.swift */; };
+		77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72A02B8C53AB00E410A2 /* Magic.swift */; };
+		77F726432B904182008C3495 /* Character View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77F726422B904182008C3495 /* Character View.xib */; };
+		77F726472B904206008C3495 /* Character View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F726462B904206008C3495 /* Character View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		771A9F832B8D88F7009D35E2 /* CharacterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStats.swift; sourceTree = "<group>"; };
 		77DB72682B8AD47C00E410A2 /* Dragon Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon Guardian.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77DB726F2B8AD47C00E410A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		77DB72722B8AD47C00E410A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77DB72742B8AD47D00E410A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77DB72772B8AD47D00E410A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77DB72792B8AD47D00E410A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77DB72812B8BCDA300E410A2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		77DB72832B8BCE5200E410A2 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		77DB72862B8BD05200E410A2 /* Dragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dragon.swift; sourceTree = "<group>"; };
+		77DB72882B8BD09C00E410A2 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		77DB728B2B8BD22400E410A2 /* Villain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Villain.swift; sourceTree = "<group>"; };
+		77DB728D2B8BD4C600E410A2 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
+		77DB72912B8BE28300E410A2 /* Actions List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Actions List.swift"; sourceTree = "<group>"; };
+		77DB72942B8BEB5600E410A2 /* BattleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleManager.swift; sourceTree = "<group>"; };
+		77DB72962B8BF12900E410A2 /* Guardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
+		77DB729A2B8C474500E410A2 /* LittleDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDragon.swift; sourceTree = "<group>"; };
+		77DB729E2B8C4D6200E410A2 /* CallToAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToAction.swift; sourceTree = "<group>"; };
+		77DB72A02B8C53AB00E410A2 /* Magic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic.swift; sourceTree = "<group>"; };
+		77F726422B904182008C3495 /* Character View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Character View.xib"; sourceTree = "<group>"; };
+		77F726462B904206008C3495 /* Character View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77CC55EB2B901D070068E5A6 /* Character Views */ = {
+			isa = PBXGroup;
+			children = (
+				77F726422B904182008C3495 /* Character View.xib */,
+				77F726462B904206008C3495 /* Character View.swift */,
+			);
+			path = "Character Views";
+			sourceTree = "<group>";
+		};
 		77DB725F2B8AD47C00E410A2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +97,67 @@
 			children = (
 				77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */,
 				77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */,
-				77DB726F2B8AD47C00E410A2 /* ViewController.swift */,
+				77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */,
 				77DB72712B8AD47C00E410A2 /* Main.storyboard */,
 				77DB72742B8AD47D00E410A2 /* Assets.xcassets */,
 				77DB72762B8AD47D00E410A2 /* LaunchScreen.storyboard */,
 				77DB72792B8AD47D00E410A2 /* Info.plist */,
+				77DB72A22B8C550000E410A2 /* Battle Manager */,
+				77DB728A2B8BD20400E410A2 /* Action Models */,
+				77DB72852B8BCE5800E410A2 /* Character Models */,
+				77CC55EB2B901D070068E5A6 /* Character Views */,
 			);
 			path = "Dragon Guardian";
+			sourceTree = "<group>";
+		};
+		77DB72852B8BCE5800E410A2 /* Character Models */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72812B8BCDA300E410A2 /* Character.swift */,
+				771A9F832B8D88F7009D35E2 /* CharacterStats.swift */,
+				77DB72982B8C466200E410A2 /* Hero Models */,
+				77DB72992B8C466D00E410A2 /* Villain Models */,
+			);
+			path = "Character Models";
+			sourceTree = "<group>";
+		};
+		77DB728A2B8BD20400E410A2 /* Action Models */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72912B8BE28300E410A2 /* Actions List.swift */,
+				77DB72882B8BD09C00E410A2 /* Action.swift */,
+				77DB728D2B8BD4C600E410A2 /* Attack.swift */,
+				77DB729E2B8C4D6200E410A2 /* CallToAction.swift */,
+				77DB72A02B8C53AB00E410A2 /* Magic.swift */,
+			);
+			path = "Action Models";
+			sourceTree = "<group>";
+		};
+		77DB72982B8C466200E410A2 /* Hero Models */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72832B8BCE5200E410A2 /* Hero.swift */,
+				77DB72862B8BD05200E410A2 /* Dragon.swift */,
+				77DB72962B8BF12900E410A2 /* Guardian.swift */,
+			);
+			path = "Hero Models";
+			sourceTree = "<group>";
+		};
+		77DB72992B8C466D00E410A2 /* Villain Models */ = {
+			isa = PBXGroup;
+			children = (
+				77DB728B2B8BD22400E410A2 /* Villain.swift */,
+				77DB729A2B8C474500E410A2 /* LittleDragon.swift */,
+			);
+			path = "Villain Models";
+			sourceTree = "<group>";
+		};
+		77DB72A22B8C550000E410A2 /* Battle Manager */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72942B8BEB5600E410A2 /* BattleManager.swift */,
+			);
+			path = "Battle Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +221,7 @@
 				77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */,
 				77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */,
 				77DB72732B8AD47C00E410A2 /* Main.storyboard in Resources */,
+				77F726432B904182008C3495 /* Character View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +232,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77DB72702B8AD47C00E410A2 /* ViewController.swift in Sources */,
+				77DB72842B8BCE5200E410A2 /* Hero.swift in Sources */,
+				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
+				77F726472B904206008C3495 /* Character View.swift in Sources */,
+				77DB72872B8BD05200E410A2 /* Dragon.swift in Sources */,
+				77DB72952B8BEB5600E410A2 /* BattleManager.swift in Sources */,
 				77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */,
+				77DB72892B8BD09C00E410A2 /* Action.swift in Sources */,
+				77DB72922B8BE28300E410A2 /* Actions List.swift in Sources */,
 				77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */,
+				77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */,
+				77DB72972B8BF12900E410A2 /* Guardian.swift in Sources */,
+				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
+				771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */,
+				77DB728C2B8BD22400E410A2 /* Villain.swift in Sources */,
+				77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */,
+				77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */,
+				77DB728E2B8BD4C600E410A2 /* Attack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +396,7 @@
 		77DB727D2B8AD47D00E410A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,27 +404,31 @@
 				DEVELOPMENT_TEAM = 52P6SF79ST;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dragon Guardian/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DanielB.Dragon-Guardian";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		77DB727E2B8AD47D00E410A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -323,21 +436,24 @@
 				DEVELOPMENT_TEAM = 52P6SF79ST;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Dragon Guardian/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.adventure-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DanielB.Dragon-Guardian";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xrsimulator xros watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
