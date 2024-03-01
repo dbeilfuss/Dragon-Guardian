@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+struct VillainsList {
+    let hugeVillains: [Villain]
+    let bigVillains: [Villain]
+    let littleVillains: [Villain]
+}
+
 class BattleManager: battleViewControllerDelegate {
     
     let guardian = Guardian()
@@ -16,8 +22,10 @@ class BattleManager: battleViewControllerDelegate {
     var dragonHand: [Action] = []
     var guardianHand: [Action] = []
     
-    let littleDragon1 = LittleDragon()
-    let littleDragon2 = LittleDragon()
+    let villainsList: VillainsList = VillainsList(
+        hugeVillains: [LittleDragon()],
+        bigVillains: [LittleDragon()],
+        littleVillains: [LittleDragon(), LittleDragon(), LittleDragon()])
     
     let villains: [Villain] = []
     
@@ -27,11 +35,11 @@ class BattleManager: battleViewControllerDelegate {
     }
     
     func retrieveHeroHands() -> [[Action]] {
-        return [guardianHand, dragonHand]
+        return [dragonHand, guardianHand]
     }
     
-    func retrieveVillains() -> [Villain] {
-        [littleDragon1, littleDragon2]
+    func retrieveVillains() -> VillainsList {
+        villainsList
     }
     
 }

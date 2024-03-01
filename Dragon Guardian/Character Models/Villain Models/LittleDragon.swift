@@ -13,7 +13,7 @@ class LittleDragon: Villain {
     
     let customStartingStats = CharacterStats(
         name: "Little Dragon",
-        baseLevel: 1, 
+        baseLevel: 1,
         maxHealth: 30,
         health: 30,
         block: 0,

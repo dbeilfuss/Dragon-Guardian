@@ -11,10 +11,14 @@ class BattleViewController: UIViewController {
     
     //MARK: - UIElements
     
+    // Hands TableViews
     @IBOutlet weak var hero1HandTableView: UITableView!
     @IBOutlet weak var hero2HandTableView: UITableView!
     
-    @IBOutlet weak var villainView: Character_View!
+    // Villains StackViews
+    @IBOutlet weak var hugeVillainsStackView: UIStackView!
+    @IBOutlet weak var bigVillainsStackView: UIStackView!
+    @IBOutlet weak var littleVillainsStackView: UIStackView!
     
     //MARK: - Properties
     let battleDelegate: battleViewControllerDelegate = BattleManager()
@@ -45,21 +49,43 @@ class BattleViewController: UIViewController {
     }
     
     func initializeVillains(){
-        villainView.displayCharacter(for: battleDelegate.retrieveVillains()[0].startingStats)
+        let villainsList: VillainsList = battleDelegate.retrieveVillains()
+        displayVillains(villains: villainsList.hugeVillains, stackView: hugeVillainsStackView)
+        displayVillains(villains: villainsList.bigVillains, stackView: bigVillainsStackView)
+        displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
+        
+        }
+    
+    }
+    
+    func displayVillains(villains: [Villain], stackView: UIStackView) {
+        for villain in villains {
+            let villainView = Character_View()
+            villainView.translatesAutoresizingMaskIntoConstraints = false
+            villainView.displayCharacter(for: villain.startingStats)
+            
+            // Constraints
+            let aspectRatioConstraint = NSLayoutConstraint(item: villainView, attribute: .width, relatedBy: .equal, toItem: villainView, attribute: .height, multiplier: 1.0, constant: 0)
+            villainView.addConstraint(aspectRatioConstraint)
+            
+            stackView.addArrangedSubview(villainView)
     }
     
     func getNewHeroHands() {
-        let heroHands = battleDelegate.retrieveHeroHands()
+//        let heroHands = battleDelegate.retrieveHeroHands()
         
     }
     
 }
 
+//MARK: - Delegate: Battle View Controller
+
 protocol battleViewControllerDelegate {
     func retrieveHeroHands() -> [[Action]]
-    func retrieveVillains() -> [Villain]
+    func retrieveVillains() -> VillainsList
 }
 
+//MARK: - Extension: Hands TableView
 extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let heroHands = battleDelegate.retrieveHeroHands()
