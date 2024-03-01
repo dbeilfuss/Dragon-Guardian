@@ -26,6 +26,7 @@
 		77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB729A2B8C474500E410A2 /* LittleDragon.swift */; };
 		77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB729E2B8C4D6200E410A2 /* CallToAction.swift */; };
 		77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72A02B8C53AB00E410A2 /* Magic.swift */; };
+		77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF7FB12B92215C0037D21C /* BigDragon.swift */; };
 		77F726432B904182008C3495 /* Character View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77F726422B904182008C3495 /* Character View.xib */; };
 		77F726472B904206008C3495 /* Character View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F726462B904206008C3495 /* Character View.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		77DB729A2B8C474500E410A2 /* LittleDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDragon.swift; sourceTree = "<group>"; };
 		77DB729E2B8C4D6200E410A2 /* CallToAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToAction.swift; sourceTree = "<group>"; };
 		77DB72A02B8C53AB00E410A2 /* Magic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic.swift; sourceTree = "<group>"; };
+		77EF7FB12B92215C0037D21C /* BigDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDragon.swift; sourceTree = "<group>"; };
 		77F726422B904182008C3495 /* Character View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Character View.xib"; sourceTree = "<group>"; };
 		77F726462B904206008C3495 /* Character View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 			children = (
 				77DB728B2B8BD22400E410A2 /* Villain.swift */,
 				77DB729A2B8C474500E410A2 /* LittleDragon.swift */,
+				77EF7FB12B92215C0037D21C /* BigDragon.swift */,
 			);
 			path = "Villain Models";
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */,
 				77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */,
 				77DB728E2B8BD4C600E410A2 /* Attack.swift in Sources */,
+				77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

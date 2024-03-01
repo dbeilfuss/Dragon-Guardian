@@ -15,6 +15,7 @@ class Character_View: UIView {
     @IBOutlet weak var actionsRemainingLabel: UILabel!
     @IBOutlet weak var effectsLabel: UILabel!
     @IBOutlet weak var intentLabel: UILabel!
+    @IBOutlet weak var characterImageView: UIImageView!
     
     
     override init(frame: CGRect) {
@@ -34,6 +35,12 @@ class Character_View: UIView {
     }
     
     func displayCharacter(for character: CharacterStats) {
+        characterImageView.image = UIImage(named: character.name)
+        displayStats(for: character)
+
+    }
+
+    func displayStats(for character: CharacterStats) {
         nameLabel.text = character.name
         healthLabel.text = "HP: \(character.health)/\(character.health)"
         blockLabel.text = "Block: \(character.block)"
@@ -45,5 +52,4 @@ class Character_View: UIView {
             intentLabel.text = "Intent: \(safeIntent)"
         }
     }
-
 }
