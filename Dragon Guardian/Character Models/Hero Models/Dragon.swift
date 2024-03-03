@@ -12,7 +12,7 @@ class Dragon: Hero {
     
     var customStartingStats = CharacterStats(
         name: "Dragon",
-        baseLevel: nil, 
+        baseLevel: 1,
         maxHealth: 30,
         health: 30,
         block: 0,

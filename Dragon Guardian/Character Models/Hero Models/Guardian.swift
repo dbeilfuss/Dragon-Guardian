@@ -13,7 +13,7 @@ class Guardian: Hero {
     
     let customStartingStats = CharacterStats(
         name: "Guardian",
-        baseLevel: nil, 
+        baseLevel: 2,
         maxHealth: 20,
         health: 20,
         block: 0,

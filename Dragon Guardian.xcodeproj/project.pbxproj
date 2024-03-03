@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A9F832B8D88F7009D35E2 /* CharacterStats.swift */; };
+		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
+		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
 		77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */; };
 		77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */; };
 		77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		771A9F832B8D88F7009D35E2 /* CharacterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStats.swift; sourceTree = "<group>"; };
+		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
+		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
 		77DB72682B8AD47C00E410A2 /* Dragon Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon Guardian.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 			children = (
 				77F726422B904182008C3495 /* Character View.xib */,
 				77F726462B904206008C3495 /* Character View.swift */,
+				77574B3E2B93F786009CF89A /* Villager View.xib */,
+				77574B402B93F7DD009CF89A /* Villager View.swift */,
 			);
 			path = "Character Views";
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77574B3F2B93F786009CF89A /* Villager View.xib in Resources */,
 				77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */,
 				77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */,
 				77DB72732B8AD47C00E410A2 /* Main.storyboard in Resources */,
@@ -236,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DB72842B8BCE5200E410A2 /* Hero.swift in Sources */,
+				77574B412B93F7DD009CF89A /* Villager View.swift in Sources */,
 				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
 				77F726472B904206008C3495 /* Character View.swift in Sources */,
 				77DB72872B8BD05200E410A2 /* Dragon.swift in Sources */,

@@ -11,14 +11,23 @@ class BattleViewController: UIViewController {
     
     //MARK: - UIElements
     
-    // Hands TableViews
+    // Hero Hands TableViews
     @IBOutlet weak var hero1HandTableView: UITableView!
     @IBOutlet weak var hero2HandTableView: UITableView!
+    
+    // Heros StackView
+    @IBOutlet weak var herosStackView: UIStackView!
     
     // Villains StackViews
     @IBOutlet weak var hugeVillainsStackView: UIStackView!
     @IBOutlet weak var bigVillainsStackView: UIStackView!
     @IBOutlet weak var littleVillainsStackView: UIStackView!
+    
+    // Villains Constraints
+    @IBOutlet weak var hugeVillainBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bigVillainBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var littleVillainBottomConstraint: NSLayoutConstraint!
+    
     
     //MARK: - Properties
     let battleDelegate: battleViewControllerDelegate = BattleManager()
@@ -28,6 +37,7 @@ class BattleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeHands()
+        initializeHeros()
         initializeVillains()
     }
     
@@ -48,27 +58,88 @@ class BattleViewController: UIViewController {
         hero2HandTableView.dataSource = self
     }
     
+    func initializeHeros() {
+        let herosList = battleDelegate.retrieveHeros()
+        displayHero(herosList.guardian)
+        displayVillagers(herosList.guardian)
+        displayHero(herosList.dragon)
+    }
+    
     func initializeVillains(){
         let villainsList: VillainsList = battleDelegate.retrieveVillains()
+        
+        // Move up villainStackViews if there's room
+        if villainsList.hugeVillains.isEmpty {
+            bigVillainBottomConstraint.constant += 75
+            littleVillainBottomConstraint.constant += 75
+        }
+        if villainsList.bigVillains.isEmpty {
+            littleVillainBottomConstraint.constant += 75
+        }
+        
+        // Display Villains
         displayVillains(villains: villainsList.hugeVillains, stackView: hugeVillainsStackView)
         displayVillains(villains: villainsList.bigVillains, stackView: bigVillainsStackView)
         displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
         
         }
     
+    
+    func displayHero(_ hero: Hero) {
+        
+        let heroView: CharacterView = createCharacterView(hero.startingStats)
+        
+        // Add CharacterView to StackView
+        herosStackView.addArrangedSubview(heroView)
+    }
+    
+    func displayVillagers(_ villagerStats: Character) {
+        let villagerView: VillagerView = createVillagerView()
+        villagerView.updateVillagerCount(villagerStats.startingStats)
+        herosStackView.addArrangedSubview(villagerView)
+        
+//        let villagersView = UITextView()
+//        
+//        // Setup CharacterView()
+//        villagersView.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        // Adjust Constraints
+//        let aspectRatioConstraint = NSLayoutConstraint(item: villagersView, attribute: .width, relatedBy: .equal, toItem: villagersView, attribute: .height, multiplier: 1, constant: 0)
+//        villagersView.addConstraint(aspectRatioConstraint)
+//        villagersView.text = "Villagers: 5"
+//        herosStackView.addArrangedSubview(villagersView )
     }
     
     func displayVillains(villains: [Villain], stackView: UIStackView) {
         for villain in villains {
-            let villainView = Character_View()
-            villainView.translatesAutoresizingMaskIntoConstraints = false
-            villainView.displayCharacter(for: villain.startingStats)
-            
-            // Constraints
-            let aspectRatioConstraint = NSLayoutConstraint(item: villainView, attribute: .width, relatedBy: .equal, toItem: villainView, attribute: .height, multiplier: 1.0, constant: 0)
-            villainView.addConstraint(aspectRatioConstraint)
-            
+            let villainView: CharacterView = createCharacterView(villain.startingStats)
             stackView.addArrangedSubview(villainView)
+        }
+    }
+    
+    func createCharacterView(_ character: CharacterStats) -> CharacterView {
+        // Setup CharacterView()
+        let characterView = CharacterView()
+        characterView.translatesAutoresizingMaskIntoConstraints = false
+        characterView.displayCharacter(character)
+        
+        // Adjust Constraints
+        let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
+        characterView.addConstraint(aspectRatioConstraint)
+        
+        return characterView
+    }
+    
+    func createVillagerView() -> VillagerView {
+        // Setup CharacterView()
+        let villagerView = VillagerView()
+        villagerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Adjust Constraints
+        let aspectRatioConstraint = NSLayoutConstraint(item: villagerView, attribute: .width, relatedBy: .equal, toItem: villagerView, attribute: .height, multiplier: 1, constant: 0)
+        villagerView.addConstraint(aspectRatioConstraint)
+        
+        return villagerView
     }
     
     func getNewHeroHands() {
@@ -78,14 +149,15 @@ class BattleViewController: UIViewController {
     
 }
 
-//MARK: - Delegate: Battle View Controller
+//MARK: - Delegate: BattleViewController
 
 protocol battleViewControllerDelegate {
     func retrieveHeroHands() -> [[Action]]
+    func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsList
 }
 
-//MARK: - Extension: Hands TableView
+//MARK: - Extension: heroHandsTableViews - DataSource
 extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let heroHands = battleDelegate.retrieveHeroHands()

@@ -3,14 +3,14 @@
     <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Character_View" customModule="Dragon_Guardian" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterView" customModule="Dragon_Guardian" customModuleProvider="target">
             <connections>
                 <outlet property="actionsRemainingLabel" destination="H8z-Z8-Djq" id="fT0-5b-xxX"/>
                 <outlet property="blockLabel" destination="JTh-qa-Faz" id="Kzu-be-8D5"/>
+                <outlet property="characterImageHeight" destination="xoM-be-UWM" id="GMC-xz-eYz"/>
                 <outlet property="characterImageView" destination="Pnk-Ub-iiH" id="RuU-yy-4st"/>
                 <outlet property="effectsLabel" destination="Gox-s1-zug" id="TXZ-hO-rBy"/>
                 <outlet property="healthLabel" destination="KTM-qZ-HTr" id="MBp-Zm-Mce"/>
@@ -65,25 +65,20 @@
                     </subviews>
                 </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-Ub-iiH" userLabel="Character Image">
-                    <rect key="frame" x="16" y="24" width="305" height="274"/>
+                    <rect key="frame" x="16" y="30" width="305" height="268"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="bottom" id="Iso-ft-Snp"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KxP-Fj-hY6"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZSw-QO-tRx"/>
-                <constraint firstItem="Pnk-Ub-iiH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="gOf-nC-pVr"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hve-Ts-j2o"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>
+                <constraint firstItem="Pnk-Ub-iiH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="xoM-be-UWM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-55.975609756097562" y="-198.30508474576271"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>
