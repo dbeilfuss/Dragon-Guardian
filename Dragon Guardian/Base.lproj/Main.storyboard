@@ -32,9 +32,6 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lc8-Jo-efb" userLabel="Little Villains Stack View">
                                 <rect key="frame" x="502" y="527" width="175" height="123"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jfN-gW-YJn" userLabel="Heros Stack View">
-                                <rect key="frame" x="0.0" y="370" width="1160" height="410"/>
-                            </stackView>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-aU-YDd">
                                 <rect key="frame" x="30" y="44" width="118" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,6 +66,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjS-yp-LmB" userLabel="Hero1View">
+                                <rect key="frame" x="30" y="390" width="410" height="410"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WjS-yp-LmB" secondAttribute="height" multiplier="1:1" id="fpz-oT-Uod"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ije-BJ-AqK" userLabel="Hero2View">
+                                <rect key="frame" x="750" y="390" width="410" height="410"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ije-BJ-AqK" secondAttribute="height" multiplier="1:1" id="o8M-Nd-QMa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QM-5n-5PZ" userLabel="VillagersView">
+                                <rect key="frame" x="413" y="677" width="354" height="123"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -76,23 +91,29 @@
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2yy-qK-AwZ"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="4NB-7d-50z"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lc8-Jo-efb" secondAttribute="bottom" constant="150" id="64x-L2-BFi"/>
+                            <constraint firstItem="WjS-yp-LmB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="7iB-At-jAL"/>
+                            <constraint firstItem="9QM-5n-5PZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DOG-TM-olm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ije-BJ-AqK" secondAttribute="trailing" constant="20" id="EPX-vm-bzq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ije-BJ-AqK" secondAttribute="bottom" id="In1-hE-nDC"/>
+                            <constraint firstItem="9QM-5n-5PZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jfc-QT-DGh"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="KyT-SD-fDo"/>
+                            <constraint firstItem="ije-BJ-AqK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="LGq-3u-2uf"/>
                             <constraint firstItem="zHQ-lR-8k7" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="Ncl-33-hIE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jfN-gW-YJn" secondAttribute="trailing" id="ORd-ks-q9z"/>
+                            <constraint firstItem="9QM-5n-5PZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="PCV-1u-osH"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="PPE-yk-3Zd"/>
+                            <constraint firstItem="WjS-yp-LmB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="QfY-eS-JU8"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RIC-P1-N6W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fqs-zb-Smc" secondAttribute="trailing" constant="30" id="XJ7-ea-x0l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sfG-yz-zHU" secondAttribute="bottom" constant="225" id="Y0C-nv-WBu"/>
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZTd-6J-nGI"/>
-                            <constraint firstItem="jfN-gW-YJn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aJK-i3-Lxc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IyF-aU-YDd" secondAttribute="bottom" constant="346" id="c2d-Q4-DI4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jfN-gW-YJn" secondAttribute="bottom" constant="20" id="dwd-Zm-uCC"/>
                             <constraint firstItem="sfG-yz-zHU" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="gGV-EJ-qDh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zHQ-lR-8k7" secondAttribute="bottom" constant="-47" id="ijn-b0-1lk"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="top" secondItem="Fqs-zb-Smc" secondAttribute="top" id="kWP-Pj-B4e"/>
-                            <constraint firstItem="jfN-gW-YJn" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="pwx-Wi-Mtt"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="bottom" secondItem="Fqs-zb-Smc" secondAttribute="bottom" id="qla-nu-t9o"/>
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="tRc-Fx-6gu"/>
+                            <constraint firstItem="WjS-yp-LmB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xH6-jz-DMw"/>
+                            <constraint firstItem="9QM-5n-5PZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="y9q-Jk-OJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KLN-v6-7Ry" secondAttribute="bottom" constant="300" id="yB8-XJ-gF0"/>
                         </constraints>
                     </view>
@@ -100,12 +121,14 @@
                         <outlet property="bigVillainBottomConstraint" destination="Y0C-nv-WBu" id="nyx-bf-fOZ"/>
                         <outlet property="bigVillainsStackView" destination="sfG-yz-zHU" id="rzg-9n-gXL"/>
                         <outlet property="hero1HandTableView" destination="IyF-aU-YDd" id="v6U-f1-DVH"/>
+                        <outlet property="hero1View" destination="WjS-yp-LmB" id="izH-Gx-UqY"/>
                         <outlet property="hero2HandTableView" destination="Fqs-zb-Smc" id="Z1f-pg-Kfu"/>
-                        <outlet property="herosStackView" destination="jfN-gW-YJn" id="kHN-uR-69F"/>
+                        <outlet property="hero2View" destination="ije-BJ-AqK" id="u7v-pl-lYq"/>
                         <outlet property="hugeVillainBottomConstraint" destination="yB8-XJ-gF0" id="Opu-dM-YpF"/>
                         <outlet property="hugeVillainsStackView" destination="KLN-v6-7Ry" id="mYI-fy-e3M"/>
                         <outlet property="littleVillainBottomConstraint" destination="64x-L2-BFi" id="FV1-EM-igD"/>
                         <outlet property="littleVillainsStackView" destination="lc8-Jo-efb" id="lLf-pw-hNf"/>
+                        <outlet property="villagersView" destination="9QM-5n-5PZ" id="71h-pv-IgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

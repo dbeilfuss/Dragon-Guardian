@@ -16,7 +16,12 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var hero2HandTableView: UITableView!
     
     // Heros StackView
-    @IBOutlet weak var herosStackView: UIStackView!
+//    @IBOutlet weak var herosStackView: UIStackView!
+    
+    // Heros Views
+    @IBOutlet weak var hero1View: UIView!
+    @IBOutlet weak var hero2View: UIView!
+    @IBOutlet weak var villagersView: UIView!
     
     // Villains StackViews
     @IBOutlet weak var hugeVillainsStackView: UIStackView!
@@ -60,9 +65,8 @@ class BattleViewController: UIViewController {
     
     func initializeHeros() {
         let herosList = battleDelegate.retrieveHeros()
-        displayHero(herosList.guardian)
+        displayHeros(herosList)
         displayVillagers(herosList.guardian)
-        displayHero(herosList.dragon)
     }
     
     func initializeVillains(){
@@ -85,18 +89,31 @@ class BattleViewController: UIViewController {
         }
     
     
-    func displayHero(_ hero: Hero) {
+    func displayHeros(_ heros: HerosList) {
         
-        let heroView: CharacterView = createCharacterView(hero.startingStats)
+        let guardianView: CharacterView = createCharacterView(heros.guardian.startingStats)
+        let dragonView: CharacterView = createCharacterView(heros.dragon.startingStats)
         
-        // Add CharacterView to StackView
-        herosStackView.addArrangedSubview(heroView)
+        addToView(childView: guardianView, parentView: hero1View)
+        addToView(childView: dragonView, parentView: hero2View)
+        
+        func addToView(childView: CharacterView, parentView: UIView) {
+            // Add CharacterView to StackView
+            parentView.addSubview(childView as UIView)
+            NSLayoutConstraint.activate([
+                childView.topAnchor.constraint(equalTo: parentView.topAnchor),
+                childView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
+                childView.leftAnchor.constraint(equalTo: parentView.leftAnchor),
+                childView.rightAnchor.constraint(equalTo: parentView.rightAnchor)
+            ])
+        }
+//        herosStackView.addArrangedSubview(heroView)
     }
     
     func displayVillagers(_ villagerStats: Character) {
         let villagerView: VillagerView = createVillagerView()
         villagerView.updateVillagerCount(villagerStats.startingStats)
-        herosStackView.addArrangedSubview(villagerView)
+//        herosStackView.addArrangedSubview(villagerView)
         
 //        let villagersView = UITextView()
 //        
