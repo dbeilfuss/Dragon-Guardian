@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77073D392B96B92400570C33 /* Villagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77073D382B96B92400570C33 /* Villagers.swift */; };
 		771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A9F832B8D88F7009D35E2 /* CharacterStats.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77073D382B96B92400570C33 /* Villagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Villagers.swift; sourceTree = "<group>"; };
 		771A9F832B8D88F7009D35E2 /* CharacterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStats.swift; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				77DB72832B8BCE5200E410A2 /* Hero.swift */,
 				77DB72862B8BD05200E410A2 /* Dragon.swift */,
 				77DB72962B8BF12900E410A2 /* Guardian.swift */,
+				77073D382B96B92400570C33 /* Villagers.swift */,
 			);
 			path = "Hero Models";
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				77DB72922B8BE28300E410A2 /* Actions List.swift in Sources */,
 				77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */,
 				77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */,
+				77073D392B96B92400570C33 /* Villagers.swift in Sources */,
 				77DB72972B8BF12900E410A2 /* Guardian.swift in Sources */,
 				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
 				771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */,

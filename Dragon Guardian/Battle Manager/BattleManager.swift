@@ -16,7 +16,7 @@ struct VillainsList {
 
 struct HerosList {
     let guardian: Guardian
-    let villagers: Character? //Needs Updated when Villagers Character is Created
+    let villagers: Character //Needs Updated when Villagers Character is Created
     let dragon: Dragon
 }
 
@@ -24,9 +24,11 @@ class BattleManager: battleViewControllerDelegate {
     
     let guardian = Guardian()
     let dragon = Dragon()
+    let villagers = Villagers()
     
     var dragonHand: [Action] = []
     var guardianHand: [Action] = []
+    var villagersHand: [Action] = []
     
     let villainsList: VillainsList = VillainsList(
         hugeVillains: [BigDragon()],
@@ -45,7 +47,7 @@ class BattleManager: battleViewControllerDelegate {
     }
     
     func retrieveHeros() -> HerosList {
-        let herosList: HerosList = HerosList(guardian: guardian, villagers: nil, dragon: dragon)
+        let herosList: HerosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
         return herosList
     }
     

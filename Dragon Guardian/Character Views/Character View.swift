@@ -37,13 +37,15 @@ class CharacterView: UIView {
     func viewInit() {
         let xibView = Bundle.main.loadNibNamed("Character View", owner: self, options: nil)![0] as! UIView
         xibView.frame = self.bounds
+        xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(xibView)
     }
     
     func displayCharacter(_ character: CharacterStats) {
         var imageName: String
-        var imageHeightAdjustment: Int = 0
         
+        // Adjust imageHeight
+        var imageHeightAdjustment: Int = 0
         switch character.name {
         case "Guardian":
             imageName = "\(character.name)\(character.baseLevel!)"
@@ -54,7 +56,6 @@ class CharacterView: UIView {
         default:
             imageName = character.name
         }
-        
         characterImageHeight.constant -= CGFloat(imageHeightAdjustment)
         characterImageView.image = UIImage(named: imageName)
 

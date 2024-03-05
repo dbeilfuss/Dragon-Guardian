@@ -13,7 +13,10 @@ class VillagerView: UIView {
     
     //MARK: - Outlets
     @IBOutlet weak var characterViewArea: UIView!
+
     @IBOutlet weak var villagerCountLabel: UILabel!
+    @IBOutlet weak var subView: UIView!
+    
     
     //MARK: - Inits
     override init(frame: CGRect) {
@@ -27,20 +30,23 @@ class VillagerView: UIView {
     }
     
     func viewInit() {
+        
+        // xib setup
         let xibView = Bundle.main.loadNibNamed("Villager View", owner: self, options: nil)![0] as! UIView
         xibView.frame = self.bounds
+        xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(xibView)
+        
+        // UI Customization
+        characterViewArea.layer.borderWidth = 5
+        characterViewArea.layer.borderColor = UIColor.red.cgColor
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        print("adding border")
-        characterViewArea.layer.borderWidth = 10
-    }
-    
+
     func updateVillagerCount(_ villagerInfo: CharacterStats) {
-        villagerCountLabel.text = String(villagerInfo.health)
         print("villager count updated to: \(villagerInfo.health)")
+        villagerCountLabel.text = "Villagers: \(villagerInfo.health)"
     }
+    
+    
     
 }

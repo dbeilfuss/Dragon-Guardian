@@ -66,7 +66,6 @@ class BattleViewController: UIViewController {
     func initializeHeros() {
         let herosList = battleDelegate.retrieveHeros()
         displayHeros(herosList)
-        displayVillagers(herosList.guardian)
     }
     
     func initializeVillains(){
@@ -91,15 +90,16 @@ class BattleViewController: UIViewController {
     
     func displayHeros(_ heros: HerosList) {
         
-        let guardianView: CharacterView = createCharacterView(heros.guardian.startingStats)
-        let dragonView: CharacterView = createCharacterView(heros.dragon.startingStats)
+        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats())
+        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats())
+        let villagersView: VillagerView = createVillagerView(villagers: heros.villagers.currentStats())
         
         addToView(childView: guardianView, parentView: hero1View)
         addToView(childView: dragonView, parentView: hero2View)
+        addToView(childView: villagersView, parentView: self.villagersView)
         
-        func addToView(childView: CharacterView, parentView: UIView) {
-            // Add CharacterView to StackView
-            parentView.addSubview(childView as UIView)
+        func addToView(childView: UIView, parentView: UIView) {
+            parentView.addSubview(childView)
             NSLayoutConstraint.activate([
                 childView.topAnchor.constraint(equalTo: parentView.topAnchor),
                 childView.bottomAnchor.constraint(equalTo: parentView.bottomAnchor),
@@ -107,29 +107,13 @@ class BattleViewController: UIViewController {
                 childView.rightAnchor.constraint(equalTo: parentView.rightAnchor)
             ])
         }
-//        herosStackView.addArrangedSubview(heroView)
+
     }
-    
-    func displayVillagers(_ villagerStats: Character) {
-        let villagerView: VillagerView = createVillagerView()
-        villagerView.updateVillagerCount(villagerStats.startingStats)
-//        herosStackView.addArrangedSubview(villagerView)
-        
-//        let villagersView = UITextView()
-//        
-//        // Setup CharacterView()
-//        villagersView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        // Adjust Constraints
-//        let aspectRatioConstraint = NSLayoutConstraint(item: villagersView, attribute: .width, relatedBy: .equal, toItem: villagersView, attribute: .height, multiplier: 1, constant: 0)
-//        villagersView.addConstraint(aspectRatioConstraint)
-//        villagersView.text = "Villagers: 5"
-//        herosStackView.addArrangedSubview(villagersView )
-    }
+
     
     func displayVillains(villains: [Villain], stackView: UIStackView) {
         for villain in villains {
-            let villainView: CharacterView = createCharacterView(villain.startingStats)
+            let villainView: CharacterView = createCharacterView(villain.currentStats())
             stackView.addArrangedSubview(villainView)
         }
     }
@@ -147,14 +131,11 @@ class BattleViewController: UIViewController {
         return characterView
     }
     
-    func createVillagerView() -> VillagerView {
+    func createVillagerView(villagers: CharacterStats) -> VillagerView {
         // Setup CharacterView()
         let villagerView = VillagerView()
         villagerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Adjust Constraints
-        let aspectRatioConstraint = NSLayoutConstraint(item: villagerView, attribute: .width, relatedBy: .equal, toItem: villagerView, attribute: .height, multiplier: 1, constant: 0)
-        villagerView.addConstraint(aspectRatioConstraint)
+        villagerView.updateVillagerCount(villagers)
         
         return villagerView
     }

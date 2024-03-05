@@ -9,13 +9,19 @@ import Foundation
 
 class Character {
     let name: String
+    var maxHealth: Int
     var health: Int
-    var block: Int
+    var block: Int = 0
     var statusEffects: [String]
     
     var deck: [Action] = [humanAttacks().punch]
     var drawPile: [Action?] = []
     var discardPile: [Action?] = []
+    
+    var intent: String = "none"
+    var level: Int = 1
+    
+    var actionsRemaining: Int = 1
     
     var startingStats = CharacterStats(
         name: "Default",
@@ -29,11 +35,16 @@ class Character {
     
     init(startingStats: CharacterStats) {
         self.name = startingStats.name
+        self.maxHealth = startingStats.maxHealth
         self.health = startingStats.health
         self.block = startingStats.block
         self.statusEffects = startingStats.statusEffects
         
         self.startingStats = startingStats
+    }
+    
+    func currentStats() -> CharacterStats {
+        return CharacterStats(name: name, baseLevel: level, maxHealth: maxHealth, health: health, block: block, statusEffects: statusEffects, intent: intent, actionsCount: actionsRemaining, deck: deck)
     }
     
     func fetchNewHand(numberOfActions: Int) -> [Action] {

@@ -3,65 +3,51 @@
     <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VillagerView" customModule="Dragon_Guardian" customModuleProvider="target">
             <connections>
-                <outlet property="characterViewArea" destination="pyI-bj-Ogr" id="M6e-ot-Rdc"/>
-                <outlet property="villagerCountLabel" destination="dmw-Hi-Aq6" id="iu6-sB-Iii"/>
+                <outlet property="characterViewArea" destination="n2v-3h-h8K" id="DpX-yJ-jok"/>
+                <outlet property="subView" destination="n2v-3h-h8K" id="aU3-C4-YNJ"/>
+                <outlet property="villagerCountLabel" destination="yr6-cD-XGo" id="hZ5-aU-3vt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="E33-K3-74C">
-            <rect key="frame" x="0.0" y="0.0" width="744" height="486"/>
+            <rect key="frame" x="0.0" y="0.0" width="428" height="147"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyI-bj-Ogr">
-                    <rect key="frame" x="0.0" y="0.0" width="744" height="486"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JRe-tO-ETE">
-                            <rect key="frame" x="0.0" y="0.0" width="744" height="486"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmw-Hi-Aq6">
-                                    <rect key="frame" x="367" y="0.0" width="10.5" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22d-Bv-as3">
-                                    <rect key="frame" x="0.0" y="20.5" width="744" height="465.5"/>
-                                </stackView>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemGray2Color"/>
-                    <constraints>
-                        <constraint firstItem="JRe-tO-ETE" firstAttribute="leading" secondItem="pyI-bj-Ogr" secondAttribute="leading" id="Acs-ex-ReH"/>
-                        <constraint firstAttribute="bottom" secondItem="JRe-tO-ETE" secondAttribute="bottom" id="GzI-D2-LqX"/>
-                        <constraint firstAttribute="trailing" secondItem="JRe-tO-ETE" secondAttribute="trailing" id="hNS-Ug-5zA"/>
-                        <constraint firstItem="JRe-tO-ETE" firstAttribute="top" secondItem="pyI-bj-Ogr" secondAttribute="top" id="p0T-Tv-PqD"/>
-                    </constraints>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZA-QE-Bq9">
+                    <rect key="frame" x="0.0" y="0.0" width="428" height="147"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Villagers: 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yr6-cD-XGo" userLabel="Villager Count Label">
+                    <rect key="frame" x="167" y="10" width="94.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2v-3h-h8K">
+                    <rect key="frame" x="10" y="63.5" width="408" height="73.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="pyI-bj-Ogr" firstAttribute="top" secondItem="E33-K3-74C" secondAttribute="top" id="11s-jt-mjm"/>
-                <constraint firstAttribute="bottom" secondItem="pyI-bj-Ogr" secondAttribute="bottom" id="AQ7-UT-DMY"/>
-                <constraint firstAttribute="trailing" secondItem="pyI-bj-Ogr" secondAttribute="trailing" id="PRR-M8-zKn"/>
-                <constraint firstItem="pyI-bj-Ogr" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" id="ol0-wY-zkS"/>
+                <constraint firstItem="n2v-3h-h8K" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" constant="10" id="D4j-ed-gwi"/>
+                <constraint firstAttribute="bottom" secondItem="n2v-3h-h8K" secondAttribute="bottom" constant="10" id="HRj-ME-DQb"/>
+                <constraint firstAttribute="trailing" secondItem="iZA-QE-Bq9" secondAttribute="trailing" id="JER-OW-9e5"/>
+                <constraint firstItem="yr6-cD-XGo" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="LFM-eJ-slD"/>
+                <constraint firstAttribute="bottom" secondItem="iZA-QE-Bq9" secondAttribute="bottom" id="QJG-oE-7iN"/>
+                <constraint firstItem="iZA-QE-Bq9" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" id="jza-AW-bGf"/>
+                <constraint firstItem="yr6-cD-XGo" firstAttribute="top" secondItem="E33-K3-74C" secondAttribute="top" constant="10" id="neB-Yo-dN8"/>
+                <constraint firstItem="iZA-QE-Bq9" firstAttribute="top" secondItem="E33-K3-74C" secondAttribute="top" id="oKZ-Dd-mby"/>
+                <constraint firstItem="n2v-3h-h8K" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="pgl-ei-WYk"/>
+                <constraint firstAttribute="trailing" secondItem="n2v-3h-h8K" secondAttribute="trailing" constant="10" id="uWw-Y9-zyT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="114.14634146341463" y="-244.57627118644069"/>
+            <point key="canvasLocation" x="-1.4634146341463414" y="-158.38983050847457"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
