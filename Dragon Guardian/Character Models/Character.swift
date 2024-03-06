@@ -9,6 +9,7 @@ import Foundation
 
 class Character {
     let name: String
+    var level: Int
     var maxHealth: Int
     var health: Int
     var block: Int = 0
@@ -19,13 +20,12 @@ class Character {
     var discardPile: [Action?] = []
     
     var intent: String = "none"
-    var level: Int = 1
     
     var actionsRemaining: Int = 1
     
     var startingStats = CharacterStats(
         name: "Default",
-        baseLevel: 1,
+        level: 2,
         maxHealth: 10,
         health: 10,
         block: 0,
@@ -35,6 +35,7 @@ class Character {
     
     init(startingStats: CharacterStats) {
         self.name = startingStats.name
+        self.level = startingStats.level
         self.maxHealth = startingStats.maxHealth
         self.health = startingStats.health
         self.block = startingStats.block
@@ -44,7 +45,7 @@ class Character {
     }
     
     func currentStats() -> CharacterStats {
-        return CharacterStats(name: name, baseLevel: level, maxHealth: maxHealth, health: health, block: block, statusEffects: statusEffects, intent: intent, actionsCount: actionsRemaining, deck: deck)
+        return CharacterStats(name: name, level: level, maxHealth: maxHealth, health: health, block: block, statusEffects: statusEffects, intent: intent, actionsCount: actionsRemaining, deck: deck)
     }
     
     func fetchNewHand(numberOfActions: Int) -> [Action] {

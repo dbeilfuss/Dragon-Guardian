@@ -9,6 +9,10 @@ import UIKit
 
 class BattleViewController: UIViewController {
     
+    //MARK: - Environment Elements
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    
     //MARK: - UIElements
     
     // Hero Hands TableViews
@@ -41,22 +45,17 @@ class BattleViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeEnvironment()
         initializeHands()
         initializeHeros()
         initializeVillains()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            self.initialConfiguration()
-        }
+    func initializeEnvironment() {
+        let environments = ["Desert", "Forest"]
+        let environment: String = environments.randomElement()!
+        backgroundImage.image = UIImage(named: "\(environment)Background1")
     }
-    
-    
-//    func initialConfiguration() {
-//        getNewHeroHands()
-//        getNewVillains()
-//    }
     
     func initializeHands() {
         hero1HandTableView.dataSource = self

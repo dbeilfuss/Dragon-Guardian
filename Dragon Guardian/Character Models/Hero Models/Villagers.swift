@@ -12,9 +12,9 @@ class Villagers: Hero {
     
     var customStartingStats = CharacterStats(
         name: "Villagers",
-        baseLevel: 1,
+        level: 1,
         maxHealth: 10,
-        health: 10,
+        health: 3,
         block: 0,
         statusEffects: [String()],
         actionsCount: 0,

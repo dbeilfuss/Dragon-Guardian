@@ -9,7 +9,7 @@ import Foundation
 
 struct CharacterStats {
     let name: String
-    let baseLevel: Int?
+    let level: Int
     let maxHealth: Int
     var health: Int
     let block: Int

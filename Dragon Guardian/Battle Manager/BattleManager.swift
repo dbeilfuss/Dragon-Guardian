@@ -16,7 +16,7 @@ struct VillainsList {
 
 struct HerosList {
     let guardian: Guardian
-    let villagers: Character //Needs Updated when Villagers Character is Created
+    let villagers: Villagers
     let dragon: Dragon
 }
 
@@ -33,7 +33,7 @@ class BattleManager: battleViewControllerDelegate {
     let villainsList: VillainsList = VillainsList(
         hugeVillains: [BigDragon()],
         bigVillains: [],
-        littleVillains: [LittleDragon(), LittleDragon(), LittleDragon(), LittleDragon()])
+        littleVillains: [LittleDragon(), LittleDragon(), LittleDragon()])
     
     let villains: [Villain] = []
     
