@@ -49,6 +49,7 @@ class BattleViewController: UIViewController {
         initializeHands()
         initializeHeros()
         initializeVillains()
+        configureHandsTableViews()
     }
     
     func initializeEnvironment() {
@@ -139,6 +140,16 @@ class BattleViewController: UIViewController {
         return villagerView
     }
     
+    func configureHandsTableViews() {
+        let handTableView = [hero1HandTableView, hero2HandTableView]
+        for table in handTableView {
+            table?.delegate = self
+            table?.dataSource = self
+            table?.register(UINib(nibName: "actionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "actionViewTableViewCell")
+//            table?.backgroundColor = UIColor(named: "Clear Color")
+        }
+    }
+    
     func getNewHeroHands() {
 //        let heroHands = battleDelegate.retrieveHeroHands()
         
@@ -172,6 +183,8 @@ extension BattleViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // retrieve the hero hand
         let heroHands = battleDelegate.retrieveHeroHands()
         var thisHeroHand: [Action] = []
         
@@ -183,16 +196,24 @@ extension BattleViewController: UITableViewDataSource {
         default:
             print("heroTableView error: cannot find correct tag when determining which hand to use")
         }
-
-        let actionName = thisHeroHand[indexPath.row].name
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
         
-        content.text = actionName
-        cell.contentConfiguration = content
+        // create the cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionViewTableViewCell", for: indexPath) as! actionViewTableViewCell
+        cell.set(thisHeroHand[indexPath.row])
+
+//        let actionName = thisHeroHand[indexPath.row].name
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath)
+//        var content = cell.defaultContentConfiguration()
+//        
+//        content.text = actionName
+//        cell.contentConfiguration = content
         
         return cell
     }
     
+    
+}
+
+extension BattleViewController: UITableViewDelegate {
     
 }
