@@ -12,10 +12,21 @@ import UIKit
 class VillagerView: UIView {
     
     //MARK: - Outlets
-    @IBOutlet weak var characterViewArea: UIView!
+    @IBOutlet weak var villagerViewArea: UIView!
 
-    @IBOutlet weak var villagerCountLabel: UILabel!
-    @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var populationLabel: UILabel!
+    
+    // Population StackViews
+    @IBOutlet weak var populationStackView1: UIStackView!
+    @IBOutlet weak var populationStackView2: UIStackView!
+    @IBOutlet weak var populationStackView3: UIStackView!
+    @IBOutlet weak var populationStackView4: UIStackView!
+    // StackView Constraints
+    @IBOutlet weak var sv1BottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sv2BottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sv3BottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sv4BottomConstraint: NSLayoutConstraint!
+    
     
     
     //MARK: - Inits
@@ -38,15 +49,76 @@ class VillagerView: UIView {
         addSubview(xibView)
         
         // UI Customization
-        characterViewArea.layer.borderWidth = 5
-        characterViewArea.layer.borderColor = UIColor.red.cgColor
+        villagerViewArea.layer.borderWidth = 5
+        villagerViewArea.layer.borderColor = UIColor.red.cgColor
+        
     }
 
     func updateVillagerCount(_ villagerInfo: CharacterStats) {
-        print("villager count updated to: \(villagerInfo.health)")
-        villagerCountLabel.text = "Villagers: \(villagerInfo.health)"
+        let population = villagerInfo.health
+        
+        // adjust stackView properties
+        if population > 20 {
+            if population <= 35 {
+                sv1BottomConstraint.constant = 15
+                populationStackView1.alpha = 0.9
+            } else if population <= 45 {
+                sv1BottomConstraint.constant = 25
+                sv2BottomConstraint.constant = 15
+                populationStackView1.alpha = 0.8
+                populationStackView2.alpha = 0.9
+            } else {
+                sv1BottomConstraint.constant = 35
+                sv2BottomConstraint.constant = 25
+                sv3BottomConstraint.constant = 15
+                populationStackView1.alpha = 0.7
+                populationStackView2.alpha = 0.8
+                populationStackView3.alpha = 0.9
+            }
+        }
+        
+        // add villager images
+        populationLabel.text = "Villagers: \(population)"
+        for i in 1...population {
+            addVillagerImage(villagerNumber: i)
+        }
     }
     
+    func addVillagerImage(villagerNumber: Int) {
+        
+        let villagerName = "Villager\(Int.random(in: 1...2))"
+        
+        // choose stackView
+        var stackView: UIStackView = populationStackView1
+        if villagerNumber > 20 {
+            if villagerNumber <= 35 {
+                stackView = populationStackView2
+            } else if villagerNumber <= 45 {
+                stackView = populationStackView3
+            } else {
+                stackView = populationStackView4
+            }
+        }
+        
+        // add villager image
+        if let villagerImage = UIImage(named: villagerName) {
+            let imageView = UIImageView(image: villagerImage)
+            imageView.contentMode = .scaleAspectFit
+            stackView.addArrangedSubview(imageView)
+        }
+    }
     
+    func createCharacterView(_ character: CharacterStats) -> CharacterView {
+        // Setup CharacterView()
+        let characterView = CharacterView()
+        characterView.translatesAutoresizingMaskIntoConstraints = false
+        characterView.displayCharacter(character)
+        
+        // Adjust Constraints
+        let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
+        characterView.addConstraint(aspectRatioConstraint)
+        
+        return characterView
+    }
     
 }

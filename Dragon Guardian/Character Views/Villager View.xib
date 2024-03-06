@@ -8,9 +8,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VillagerView" customModule="Dragon_Guardian" customModuleProvider="target">
             <connections>
-                <outlet property="characterViewArea" destination="n2v-3h-h8K" id="DpX-yJ-jok"/>
-                <outlet property="subView" destination="n2v-3h-h8K" id="aU3-C4-YNJ"/>
-                <outlet property="villagerCountLabel" destination="yr6-cD-XGo" id="hZ5-aU-3vt"/>
+                <outlet property="populationLabel" destination="yr6-cD-XGo" id="hZ5-aU-3vt"/>
+                <outlet property="populationStackView1" destination="M2c-bu-Qzi" id="HRG-TZ-dXq"/>
+                <outlet property="populationStackView2" destination="hUg-fO-bJ3" id="O8V-nq-Ykn"/>
+                <outlet property="populationStackView3" destination="7Pw-oq-RTX" id="Dv2-fx-uef"/>
+                <outlet property="populationStackView4" destination="Cji-Pe-OKp" id="7M7-Cs-UZQ"/>
+                <outlet property="sv1BottomConstraint" destination="gkT-Gf-bOg" id="iVM-f4-qhx"/>
+                <outlet property="sv2BottomConstraint" destination="sBX-Im-n1X" id="Fx2-is-Ehl"/>
+                <outlet property="sv3BottomConstraint" destination="dYp-w7-0Kp" id="ZZy-79-srk"/>
+                <outlet property="sv4BottomConstraint" destination="z93-RN-0iy" id="DmD-Um-mzq"/>
+                <outlet property="villagerViewArea" destination="iZA-QE-Bq9" id="1BI-wn-ki6"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="428" height="147"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZA-QE-Bq9">
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZA-QE-Bq9" userLabel="Background View">
                     <rect key="frame" x="0.0" y="0.0" width="428" height="147"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
@@ -28,23 +35,43 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2v-3h-h8K">
-                    <rect key="frame" x="10" y="63.5" width="408" height="73.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="M2c-bu-Qzi" userLabel="Stack View 1">
+                    <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-fO-bJ3" userLabel="Stack View 2">
+                    <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7Pw-oq-RTX" userLabel="Stack View 3">
+                    <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-Pe-OKp" userLabel="Stack View 4">
+                    <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="n2v-3h-h8K" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" constant="10" id="D4j-ed-gwi"/>
-                <constraint firstAttribute="bottom" secondItem="n2v-3h-h8K" secondAttribute="bottom" constant="10" id="HRj-ME-DQb"/>
+                <constraint firstItem="7Pw-oq-RTX" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="0UO-Fr-sgJ"/>
+                <constraint firstItem="hUg-fO-bJ3" firstAttribute="width" relation="lessThanOrEqual" secondItem="iZA-QE-Bq9" secondAttribute="width" id="10T-E6-Nbc"/>
+                <constraint firstItem="7Pw-oq-RTX" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="5zt-5b-7mz"/>
                 <constraint firstAttribute="trailing" secondItem="iZA-QE-Bq9" secondAttribute="trailing" id="JER-OW-9e5"/>
                 <constraint firstItem="yr6-cD-XGo" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="LFM-eJ-slD"/>
                 <constraint firstAttribute="bottom" secondItem="iZA-QE-Bq9" secondAttribute="bottom" id="QJG-oE-7iN"/>
+                <constraint firstItem="Cji-Pe-OKp" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="Ree-hm-qf3"/>
+                <constraint firstItem="Cji-Pe-OKp" firstAttribute="width" relation="lessThanOrEqual" secondItem="iZA-QE-Bq9" secondAttribute="width" id="TLF-u2-KqS"/>
+                <constraint firstAttribute="bottom" secondItem="7Pw-oq-RTX" secondAttribute="bottom" id="dYp-w7-0Kp"/>
+                <constraint firstItem="M2c-bu-Qzi" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="eBN-r5-Oib"/>
+                <constraint firstItem="M2c-bu-Qzi" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="g8v-He-YdN"/>
+                <constraint firstAttribute="bottom" secondItem="M2c-bu-Qzi" secondAttribute="bottom" id="gkT-Gf-bOg"/>
+                <constraint firstItem="hUg-fO-bJ3" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="ifd-if-MZ6"/>
                 <constraint firstItem="iZA-QE-Bq9" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" id="jza-AW-bGf"/>
+                <constraint firstItem="M2c-bu-Qzi" firstAttribute="width" relation="lessThanOrEqual" secondItem="iZA-QE-Bq9" secondAttribute="width" id="kYu-R4-lET"/>
+                <constraint firstItem="Cji-Pe-OKp" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="keG-l5-JtJ"/>
                 <constraint firstItem="yr6-cD-XGo" firstAttribute="top" secondItem="E33-K3-74C" secondAttribute="top" constant="10" id="neB-Yo-dN8"/>
                 <constraint firstItem="iZA-QE-Bq9" firstAttribute="top" secondItem="E33-K3-74C" secondAttribute="top" id="oKZ-Dd-mby"/>
-                <constraint firstItem="n2v-3h-h8K" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="pgl-ei-WYk"/>
-                <constraint firstAttribute="trailing" secondItem="n2v-3h-h8K" secondAttribute="trailing" constant="10" id="uWw-Y9-zyT"/>
+                <constraint firstAttribute="bottom" secondItem="hUg-fO-bJ3" secondAttribute="bottom" id="sBX-Im-n1X"/>
+                <constraint firstItem="7Pw-oq-RTX" firstAttribute="width" relation="lessThanOrEqual" secondItem="iZA-QE-Bq9" secondAttribute="width" id="tA2-oo-jGI"/>
+                <constraint firstItem="hUg-fO-bJ3" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="yCF-Nz-UDM"/>
+                <constraint firstAttribute="bottom" secondItem="Cji-Pe-OKp" secondAttribute="bottom" id="z93-RN-0iy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-1.4634146341463414" y="-158.38983050847457"/>
