@@ -146,7 +146,7 @@ class BattleViewController: UIViewController {
             table?.delegate = self
             table?.dataSource = self
             table?.register(UINib(nibName: "actionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "actionViewTableViewCell")
-//            table?.backgroundColor = UIColor(named: "Clear Color")
+            table?.backgroundColor = UIColor.clear
         }
     }
     
@@ -200,6 +200,10 @@ extension BattleViewController: UITableViewDataSource {
         // create the cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionViewTableViewCell", for: indexPath) as! actionViewTableViewCell
         cell.set(thisHeroHand[indexPath.row])
+        cell.contentView.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
+//        cell.backgroundView?.backgroundColor = UIColor.clear
+//        cell.layer.backgroundColor = UIColor.clear.cgColor
 
 //        let actionName = thisHeroHand[indexPath.row].name
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath)

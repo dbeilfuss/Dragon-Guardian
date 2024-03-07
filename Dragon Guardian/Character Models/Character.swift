@@ -40,6 +40,7 @@ class Character {
         self.health = startingStats.health
         self.block = startingStats.block
         self.statusEffects = startingStats.statusEffects
+        self.deck = startingStats.deck
         
         self.startingStats = startingStats
     }

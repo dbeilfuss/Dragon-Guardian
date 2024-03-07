@@ -32,22 +32,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lc8-Jo-efb" userLabel="Little Villains Stack View">
                                 <rect key="frame" x="502" y="527" width="175" height="123"/>
                             </stackView>
-                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-aU-YDd">
-                                <rect key="frame" x="30" y="44" width="118" height="410"/>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-aU-YDd">
+                                <rect key="frame" x="30" y="44" width="75" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="118" id="m4l-EF-MHx"/>
+                                    <constraint firstAttribute="width" constant="75" id="m4l-EF-MHx"/>
                                 </constraints>
                             </tableView>
-                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqs-zb-Smc">
-                                <rect key="frame" x="1032" y="44" width="118" height="410"/>
+                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqs-zb-Smc">
+                                <rect key="frame" x="1075" y="44" width="75" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="118" id="pBP-NG-cGt"/>
-                                </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjS-yp-LmB" userLabel="Hero1View">
-                                <rect key="frame" x="30" y="390" width="410" height="410"/>
+                                <rect key="frame" x="30" y="472" width="328" height="328"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WjS-yp-LmB" secondAttribute="height" multiplier="1:1" id="fpz-oT-Uod"/>
@@ -81,11 +78,12 @@
                             <constraint firstItem="zHQ-lR-8k7" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="Ncl-33-hIE"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="PCV-1u-osH"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="PPE-yk-3Zd"/>
-                            <constraint firstItem="WjS-yp-LmB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="QfY-eS-JU8"/>
+                            <constraint firstItem="WjS-yp-LmB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="QfY-eS-JU8"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RIC-P1-N6W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fqs-zb-Smc" secondAttribute="trailing" constant="30" id="XJ7-ea-x0l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sfG-yz-zHU" secondAttribute="bottom" constant="225" id="Y0C-nv-WBu"/>
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZTd-6J-nGI"/>
+                            <constraint firstItem="Fqs-zb-Smc" firstAttribute="width" secondItem="IyF-aU-YDd" secondAttribute="width" id="bCh-Tb-8PL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IyF-aU-YDd" secondAttribute="bottom" constant="346" id="c2d-Q4-DI4"/>
                             <constraint firstItem="sfG-yz-zHU" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="gGV-EJ-qDh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zHQ-lR-8k7" secondAttribute="bottom" constant="-47" id="ijn-b0-1lk"/>

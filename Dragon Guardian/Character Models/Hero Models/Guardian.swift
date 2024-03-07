@@ -13,7 +13,7 @@ class Guardian: Hero {
     
     let customStartingStats = CharacterStats(
         name: "Guardian",
-        level: 3,
+        level: 1,
         maxHealth: 20,
         health: 20,
         block: 0,
@@ -25,11 +25,11 @@ class Guardian: Hero {
     init() {
         super .init(startingStats: customStartingStats)
         deck = drawStartingDeck()
-
+        print(deck)
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.slash, attacks.slash, attacks.throwRock]
+        let startingDeck = [attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.dagger, attacks.dagger, attacks.rock]
         return startingDeck
     }
     

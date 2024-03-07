@@ -11,12 +11,15 @@ class actionViewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backgroundUIView: UIView!
     @IBOutlet weak var actionLabel: UILabel!
+    @IBOutlet weak var actionImage: UIImageView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         backgroundUIView.layer.cornerRadius = 10
+//        self.backgroundColor = UIColor.clear
+//        self.isOpaque = false 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,6 +30,7 @@ class actionViewTableViewCell: UITableViewCell {
     
     func set(_ action: Action) {
         actionLabel.text = action.name
+        actionImage.image = UIImage(named: action.name)
     }
     
 }

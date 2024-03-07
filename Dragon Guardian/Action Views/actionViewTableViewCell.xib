@@ -8,46 +8,59 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="129" id="KGk-i7-Jjw" customClass="actionViewTableViewCell" customModule="Dragon_Guardian" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="103" height="129"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="116" id="KGk-i7-Jjw" customClass="actionViewTableViewCell" customModule="Dragon_Guardian" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="86" height="116"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="103" height="129"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="86" height="116"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03H-58-MHj" userLabel="Background View">
-                        <rect key="frame" x="16" y="11" width="70" height="100"/>
+                        <rect key="frame" x="0.0" y="5" width="86" height="106"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-rX-o1U">
-                                <rect key="frame" x="4" y="4" width="62" height="16"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="CKD-tS-40g">
+                                <rect key="frame" x="5" y="5" width="76" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-rX-o1U">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="13"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I5p-AI-bU1">
+                                        <rect key="frame" x="0.0" y="20" width="76" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="I5p-AI-bU1" secondAttribute="height" multiplier="1:1" id="ElW-yf-teF"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.82334013719999999" blue="0.63435690519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="Ejh-Bd-5yl"/>
-                            <constraint firstAttribute="trailing" secondItem="2wt-rX-o1U" secondAttribute="trailing" constant="4" id="IOb-xt-FB7"/>
-                            <constraint firstItem="2wt-rX-o1U" firstAttribute="top" secondItem="03H-58-MHj" secondAttribute="top" constant="4" id="PSe-q6-uOr"/>
-                            <constraint firstAttribute="height" constant="100" id="aqi-iD-Cz9"/>
-                            <constraint firstItem="2wt-rX-o1U" firstAttribute="leading" secondItem="03H-58-MHj" secondAttribute="leading" constant="4" id="u80-9w-Iq6"/>
+                            <constraint firstItem="CKD-tS-40g" firstAttribute="leading" secondItem="03H-58-MHj" secondAttribute="leading" constant="5" id="AWw-7E-aeP"/>
+                            <constraint firstAttribute="bottom" secondItem="CKD-tS-40g" secondAttribute="bottom" constant="5" id="BPf-g8-fuR"/>
+                            <constraint firstAttribute="trailing" secondItem="CKD-tS-40g" secondAttribute="trailing" constant="5" id="ZgP-OA-jJq"/>
+                            <constraint firstItem="CKD-tS-40g" firstAttribute="top" secondItem="03H-58-MHj" secondAttribute="top" constant="5" id="nqs-7X-YjR"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="03H-58-MHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="EF5-uO-ffA"/>
-                    <constraint firstItem="03H-58-MHj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="J3H-3Y-xxe"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="03H-58-MHj" secondAttribute="trailing" id="NJU-YU-krg"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="03H-58-MHj" secondAttribute="bottom" id="yPo-BU-mA6"/>
+                    <constraint firstItem="03H-58-MHj" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="IiR-jI-xCC"/>
+                    <constraint firstAttribute="bottom" secondItem="03H-58-MHj" secondAttribute="bottom" constant="5" id="NDk-pl-5iy"/>
+                    <constraint firstItem="03H-58-MHj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="jsm-TX-vL7"/>
+                    <constraint firstItem="03H-58-MHj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pR6-7e-sDe"/>
+                    <constraint firstItem="03H-58-MHj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qwK-LM-xpO"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="actionImage" destination="I5p-AI-bU1" id="oCr-IY-IOv"/>
                 <outlet property="actionLabel" destination="2wt-rX-o1U" id="l94-Ec-oAC"/>
                 <outlet property="backgroundUIView" destination="03H-58-MHj" id="ga1-Ex-eG0"/>
             </connections>
-            <point key="canvasLocation" x="57.439024390243901" y="42.457627118644069"/>
+            <point key="canvasLocation" x="49.756097560975611" y="43.728813559322035"/>
         </tableViewCell>
     </objects>
 </document>

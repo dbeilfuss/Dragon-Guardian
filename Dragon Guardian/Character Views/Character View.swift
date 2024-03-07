@@ -49,7 +49,7 @@ class CharacterView: UIView {
         switch character.name {
         case "Guardian":
             imageName = "\(character.name)\(character.level)"
-            imageHeightAdjustment += (3-character.level) * 75
+            imageHeightAdjustment += (3-character.level) * 50
         case "Dragon":
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 100
