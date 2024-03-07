@@ -61,6 +61,18 @@
                                 <rect key="frame" x="413" y="677" width="354" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-d1-DZh" userLabel="Target Image View 1">
+                                <rect key="frame" x="113" y="44" width="123" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7zF-d1-DZh" secondAttribute="height" multiplier="1:1" id="U52-hO-TdZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fVp-u9-mHg" userLabel="Target Image View 2">
+                                <rect key="frame" x="944" y="44" width="123" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fVp-u9-mHg" secondAttribute="height" multiplier="1:1" id="amd-4e-rgO"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -75,6 +87,7 @@
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jfc-QT-DGh"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="KyT-SD-fDo"/>
                             <constraint firstItem="ije-BJ-AqK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="LGq-3u-2uf"/>
+                            <constraint firstItem="7zF-d1-DZh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="LkP-T5-E7D"/>
                             <constraint firstItem="zHQ-lR-8k7" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="Ncl-33-hIE"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="PCV-1u-osH"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="PPE-yk-3Zd"/>
@@ -90,6 +103,7 @@
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="top" secondItem="Fqs-zb-Smc" secondAttribute="top" id="kWP-Pj-B4e"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="bottom" secondItem="Fqs-zb-Smc" secondAttribute="bottom" id="qla-nu-t9o"/>
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="tRc-Fx-6gu"/>
+                            <constraint firstItem="fVp-u9-mHg" firstAttribute="height" secondItem="7zF-d1-DZh" secondAttribute="height" id="uQa-WI-flu"/>
                             <constraint firstItem="WjS-yp-LmB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xH6-jz-DMw"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="y9q-Jk-OJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KLN-v6-7Ry" secondAttribute="bottom" constant="300" id="yB8-XJ-gF0"/>
@@ -107,6 +121,8 @@
                         <outlet property="hugeVillainsStackView" destination="KLN-v6-7Ry" id="mYI-fy-e3M"/>
                         <outlet property="littleVillainBottomConstraint" destination="64x-L2-BFi" id="FV1-EM-igD"/>
                         <outlet property="littleVillainsStackView" destination="lc8-Jo-efb" id="lLf-pw-hNf"/>
+                        <outlet property="targetImage1" destination="7zF-d1-DZh" id="AfB-a6-3JB"/>
+                        <outlet property="targetImage2" destination="fVp-u9-mHg" id="raX-gy-emR"/>
                         <outlet property="villagersView" destination="9QM-5n-5PZ" id="71h-pv-IgC"/>
                     </connections>
                 </viewController>

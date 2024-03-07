@@ -18,10 +18,7 @@ class BattleViewController: UIViewController {
     // Hero Hands TableViews
     @IBOutlet weak var hero1HandTableView: UITableView!
     @IBOutlet weak var hero2HandTableView: UITableView!
-    
-    // Heros StackView
-//    @IBOutlet weak var herosStackView: UIStackView!
-    
+        
     // Heros Views
     @IBOutlet weak var hero1View: UIView!
     @IBOutlet weak var hero2View: UIView!
@@ -36,6 +33,11 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var hugeVillainBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bigVillainBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var littleVillainBottomConstraint: NSLayoutConstraint!
+    
+    // Action Targets
+    @IBOutlet weak var targetImage1: UIImageView!
+    @IBOutlet weak var targetImage2: UIImageView!
+    
     
     
     //MARK: - Properties
@@ -61,6 +63,8 @@ class BattleViewController: UIViewController {
     func initializeHands() {
         hero1HandTableView.dataSource = self
         hero2HandTableView.dataSource = self
+        targetImage1.isHidden = true
+        targetImage2.isHidden = true
     }
     
     func initializeHeros() {
@@ -150,10 +154,13 @@ class BattleViewController: UIViewController {
         }
     }
     
+    //MARK: - Actions
+    
     func getNewHeroHands() {
 //        let heroHands = battleDelegate.retrieveHeroHands()
         
     }
+
     
 }
 
@@ -184,7 +191,7 @@ extension BattleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // retrieve the hero hand
+        // retrieve hero hand
         let heroHands = battleDelegate.retrieveHeroHands()
         var thisHeroHand: [Action] = []
         
@@ -197,20 +204,11 @@ extension BattleViewController: UITableViewDataSource {
             print("heroTableView error: cannot find correct tag when determining which hand to use")
         }
         
-        // create the cell
+        // create cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionViewTableViewCell", for: indexPath) as! actionViewTableViewCell
-        cell.set(thisHeroHand[indexPath.row])
+        cell.set(thisHeroHand[indexPath.row], cellNumber: indexPath.row, hero: tableView.tag, delegate: self)
         cell.contentView.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
-//        cell.backgroundView?.backgroundColor = UIColor.clear
-//        cell.layer.backgroundColor = UIColor.clear.cgColor
-
-//        let actionName = thisHeroHand[indexPath.row].name
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reusableCell", for: indexPath)
-//        var content = cell.defaultContentConfiguration()
-//        
-//        content.text = actionName
-//        cell.contentConfiguration = content
         
         return cell
     }
@@ -218,6 +216,61 @@ extension BattleViewController: UITableViewDataSource {
     
 }
 
+//MARK: - Extension: herosHandsTableView - Delegate
 extension BattleViewController: UITableViewDelegate {
+    
+}
+
+//MARK: - Extension: actionCellSelector - Delegate
+extension BattleViewController: actionCellSelectorDelegate {
+    func actionSelected(hero: Int, fingerPosition: CGPoint) {
+        print("actionSelected: hero: \(hero)")
+        print("fingerPosition: \(fingerPosition)")
+        
+        toggleTargetVisibility(hero: hero)
+        moveTarget(table: hero, fingerPosition: fingerPosition)
+
+    }
+    
+    func didDragToPoint(hero table: Int, fingerPosition: CGPoint) {
+        
+        print("actionSelected: hero: \(table)")
+        print("fingerPosition: \(fingerPosition)")
+        
+        moveTarget(table: table, fingerPosition: fingerPosition)
+        
+    }
+    
+    func didEndDragging(hero: Int, fingerPosition: CGPoint) {
+        toggleTargetVisibility(hero: hero)
+    }
+    
+    func toggleTargetVisibility(hero target: Int) {
+        let targetViews: [UIImageView] = [targetImage1, targetImage2]
+        let thisTarget = targetViews[target-1]
+        
+        if thisTarget.image == nil {
+            thisTarget.image = UIImage(named: "Target")
+        }
+        
+        thisTarget.isHidden = !thisTarget.isHidden
+    }
+    
+    func moveTarget(table: Int, fingerPosition: CGPoint) {
+        // identify correct target
+        let targetViews: [UIImageView] = [targetImage1, targetImage2]
+        let thisTarget = targetViews[table-1]
+        
+        // identify correct table - to base finger position off of
+        let tableViews: [UITableView] = [hero1HandTableView, hero2HandTableView]
+        let thisTable: UITableView = tableViews[table-1]
+        let convertedPoint = thisTable.convert(fingerPosition, to: view)
+        
+        print("move Target: hero: \(table)")
+        print("convertedFingerPosition: \(convertedPoint)")
+        
+        // move target
+        thisTarget.center = convertedPoint
+    }
     
 }

@@ -36,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="M2c-bu-Qzi" userLabel="Stack View 1">
-                    <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
+                    <rect key="frame" x="114" y="68.5" width="200" height="73.5"/>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-fO-bJ3" userLabel="Stack View 2">
                     <rect key="frame" x="114" y="73.5" width="200" height="73.5"/>
@@ -61,7 +61,7 @@
                 <constraint firstAttribute="bottom" secondItem="7Pw-oq-RTX" secondAttribute="bottom" id="dYp-w7-0Kp"/>
                 <constraint firstItem="M2c-bu-Qzi" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="eBN-r5-Oib"/>
                 <constraint firstItem="M2c-bu-Qzi" firstAttribute="height" secondItem="E33-K3-74C" secondAttribute="height" multiplier="0.5" id="g8v-He-YdN"/>
-                <constraint firstAttribute="bottom" secondItem="M2c-bu-Qzi" secondAttribute="bottom" id="gkT-Gf-bOg"/>
+                <constraint firstAttribute="bottom" secondItem="M2c-bu-Qzi" secondAttribute="bottom" constant="5" id="gkT-Gf-bOg"/>
                 <constraint firstItem="hUg-fO-bJ3" firstAttribute="centerX" secondItem="E33-K3-74C" secondAttribute="centerX" id="ifd-if-MZ6"/>
                 <constraint firstItem="iZA-QE-Bq9" firstAttribute="leading" secondItem="E33-K3-74C" secondAttribute="leading" id="jza-AW-bGf"/>
                 <constraint firstItem="M2c-bu-Qzi" firstAttribute="width" relation="lessThanOrEqual" secondItem="iZA-QE-Bq9" secondAttribute="width" id="kYu-R4-lET"/>
