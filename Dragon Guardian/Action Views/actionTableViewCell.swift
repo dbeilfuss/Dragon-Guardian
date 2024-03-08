@@ -1,5 +1,5 @@
 //
-//  actionViewTableViewCell.swift
+//  actionTableViewCell.swift
 //  Dragon Guardian
 //
 //  Created by Daniel Beilfuss on 3/6/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class actionViewTableViewCell: UITableViewCell {
+class actionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backgroundUIView: UIView!
     @IBOutlet weak var actionLabel: UILabel!

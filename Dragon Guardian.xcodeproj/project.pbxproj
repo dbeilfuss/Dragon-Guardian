@@ -12,8 +12,8 @@
 		771A9F842B8D88F7009D35E2 /* CharacterStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771A9F832B8D88F7009D35E2 /* CharacterStats.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
-		779D16722B99025E00597A30 /* actionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionViewTableViewCell.swift */; };
-		779D16732B99025E00597A30 /* actionViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionViewTableViewCell.xib */; };
+		779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionTableViewCell.swift */; };
+		779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionTableViewCell.xib */; };
 		77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */; };
 		77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */; };
 		77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */; };
@@ -43,8 +43,8 @@
 		771A9F832B8D88F7009D35E2 /* CharacterStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStats.swift; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
-		779D16702B99025E00597A30 /* actionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionViewTableViewCell.swift; sourceTree = "<group>"; };
-		779D16712B99025E00597A30 /* actionViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionViewTableViewCell.xib; sourceTree = "<group>"; };
+		779D16702B99025E00597A30 /* actionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionTableViewCell.swift; sourceTree = "<group>"; };
+		779D16712B99025E00597A30 /* actionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionTableViewCell.xib; sourceTree = "<group>"; };
 		77DB72682B8AD47C00E410A2 /* Dragon Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon Guardian.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 		779D166F2B9901F700597A30 /* Action Views */ = {
 			isa = PBXGroup;
 			children = (
-				779D16702B99025E00597A30 /* actionViewTableViewCell.swift */,
-				779D16712B99025E00597A30 /* actionViewTableViewCell.xib */,
+				779D16702B99025E00597A30 /* actionTableViewCell.swift */,
+				779D16712B99025E00597A30 /* actionTableViewCell.xib */,
 			);
 			path = "Action Views";
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			files = (
 				77574B3F2B93F786009CF89A /* Villager View.xib in Resources */,
 				77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */,
-				779D16732B99025E00597A30 /* actionViewTableViewCell.xib in Resources */,
+				779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */,
 				77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */,
 				77DB72732B8AD47C00E410A2 /* Main.storyboard in Resources */,
 				77F726432B904182008C3495 /* Character View.xib in Resources */,
@@ -273,7 +273,7 @@
 				77DB72892B8BD09C00E410A2 /* Action.swift in Sources */,
 				77DB72922B8BE28300E410A2 /* Actions List.swift in Sources */,
 				77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */,
-				779D16722B99025E00597A30 /* actionViewTableViewCell.swift in Sources */,
+				779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */,
 				77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */,
 				77073D392B96B92400570C33 /* Villagers.swift in Sources */,
 				77073D3B2B98267F00570C33 /* Environment.swift in Sources */,

@@ -149,7 +149,7 @@ class BattleViewController: UIViewController {
         let handTableView = [hero1HandTableView, hero2HandTableView]
         for table in handTableView {
             table?.dataSource = self
-            table?.register(UINib(nibName: "actionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "actionViewTableViewCell")
+            table?.register(UINib(nibName: "actionTableViewCell", bundle: nil), forCellReuseIdentifier: "actionTableViewCell")
             table?.backgroundColor = UIColor.clear
         }
     }
@@ -205,7 +205,7 @@ extension BattleViewController: UITableViewDataSource {
         }
         
         // create cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "actionViewTableViewCell", for: indexPath) as! actionViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionTableViewCell", for: indexPath) as! actionTableViewCell
         cell.set(thisHeroHand[indexPath.row], cellNumber: indexPath.row, hero: tableView.tag, delegate: self)
         cell.contentView.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
