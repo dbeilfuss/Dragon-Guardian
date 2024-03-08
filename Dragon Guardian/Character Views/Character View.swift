@@ -27,7 +27,8 @@ class CharacterView: UIView {
     @IBOutlet weak var characterImageHeight: NSLayoutConstraint!
     
     // Properties
-    var targetLock: Bool = false
+    var targetLock1: Bool = false
+    var targetLock2: Bool = false
     var enemyNumber: Int = 0
     
     //MARK: - Inits
@@ -97,8 +98,20 @@ class CharacterView: UIView {
         }
     }
     
-    func targetLock (_ receivedLock: Bool) { // when an action is locked on to this character
-        targetLock = receivedLock
-        targetImageView.isHidden = !receivedLock
+    func targetLock (_ receivedLock: Bool, hero: Int) { // when an action is locked on to this character
+        switch hero {
+        case 1:
+            targetLock1 = receivedLock
+        case 2:
+            targetLock2 = receivedLock
+        default:
+            break
+        }
+        
+        if targetLock1 || targetLock2 {
+            targetImageView.isHidden = false
+        } else {
+            targetImageView.isHidden = true
+        }
     }
 }

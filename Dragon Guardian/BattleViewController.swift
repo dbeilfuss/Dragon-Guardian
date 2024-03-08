@@ -233,12 +233,7 @@ extension BattleViewController: actionCellSelectorDelegate {
     }
     
     func didDragToPoint(hero table: Int, fingerPosition: CGPoint) {
-        
-//        print("actionSelected: hero: \(table)")
-//        print("fingerPosition: \(fingerPosition)")
-        
         moveTarget(table: table, fingerPosition: fingerPosition)
-        
     }
     
     func didEndDragging(hero: Int, fingerPosition: CGPoint) {
@@ -277,10 +272,10 @@ extension BattleViewController: actionCellSelectorDelegate {
                     stack.arrangedSubviews {
                 if let enemyCharacter = enemy as? CharacterView {
                     if !isTargetLocked && enemyCharacter.bounds.contains(thisTable.convert(fingerPosition, to: enemy)) {
-                        enemyCharacter.targetLock(true)
+                        enemyCharacter.targetLock(true, hero: table)
                         isTargetLocked = true
                     } else {
-                        enemyCharacter.targetLock(false)
+                        enemyCharacter.targetLock(false, hero: table)
                     }
                 }
             }
