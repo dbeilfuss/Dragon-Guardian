@@ -29,7 +29,7 @@ class actionTableViewCell: UITableViewCell {
             
             // Gesture Recognizer (Long Press)
             let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-            gestureRecognizer.minimumPressDuration = 0.2
+            gestureRecognizer.minimumPressDuration = 0.15
             self.addGestureRecognizer(gestureRecognizer)
         }
         

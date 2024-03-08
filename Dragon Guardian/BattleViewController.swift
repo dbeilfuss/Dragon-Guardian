@@ -12,7 +12,6 @@ class BattleViewController: UIViewController {
     //MARK: - Environment Elements
     @IBOutlet weak var backgroundImage: UIImageView!
     
-    
     //MARK: - UIElements
     
     // Hero Hands TableViews
@@ -61,8 +60,14 @@ class BattleViewController: UIViewController {
     }
     
     func initializeHands() {
-        hero1HandTableView.dataSource = self
-        hero2HandTableView.dataSource = self
+        // Tables
+        let tableViews: [UITableView] = [hero1HandTableView, hero2HandTableView]
+        for table in tableViews {
+            table.dataSource = self
+            table.showsVerticalScrollIndicator = false
+        }
+        
+        // Targets
         targetImage1.isHidden = true
         targetImage2.isHidden = true
     }
@@ -160,7 +165,6 @@ class BattleViewController: UIViewController {
 //        let heroHands = battleDelegate.retrieveHeroHands()
         
     }
-
     
 }
 
