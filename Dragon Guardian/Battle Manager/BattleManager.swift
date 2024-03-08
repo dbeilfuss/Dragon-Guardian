@@ -31,8 +31,8 @@ class BattleManager: battleViewControllerDelegate {
     var villagersHand: [Action] = []
     
     let villainsList: VillainsList = VillainsList(
-        hugeVillains: [BigDragon()],
-        bigVillains: [],
+        hugeVillains: [BigDragon(), BigDragon()],
+        bigVillains: [BigDragon()],
         littleVillains: [LittleDragon(), LittleDragon(), LittleDragon()])
     
     let villains: [Villain] = []

@@ -108,17 +108,17 @@ class VillagerView: UIView {
         }
     }
     
-    func createCharacterView(_ character: CharacterStats) -> CharacterView {
-        // Setup CharacterView()
-        let characterView = CharacterView()
-        characterView.translatesAutoresizingMaskIntoConstraints = false
-        characterView.displayCharacter(character)
-        
-        // Adjust Constraints
-        let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
-        characterView.addConstraint(aspectRatioConstraint)
-        
-        return characterView
-    }
+//    func createCharacterView(_ character: CharacterStats) -> CharacterView {
+//        // Setup CharacterView()
+//        let characterView = CharacterView()
+//        characterView.translatesAutoresizingMaskIntoConstraints = false
+//        characterView.displayCharacter(character)
+//        
+//        // Adjust Constraints
+//        let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
+//        characterView.addConstraint(aspectRatioConstraint)
+//        
+//        return characterView
+//    }
     
 }

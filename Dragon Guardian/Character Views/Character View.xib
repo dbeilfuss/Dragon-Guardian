@@ -16,6 +16,7 @@
                 <outlet property="healthLabel" destination="KTM-qZ-HTr" id="MBp-Zm-Mce"/>
                 <outlet property="intentLabel" destination="5ro-zm-Mq0" id="TR4-ri-1wN"/>
                 <outlet property="nameLabel" destination="kxx-BU-1RQ" id="viR-ew-Fn3"/>
+                <outlet property="targetImageView" destination="rGI-AZ-O7h" id="iV1-8E-kMy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,6 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="337" height="298"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Target" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-AZ-O7h">
+                    <rect key="frame" x="0.0" y="0.0" width="337" height="298"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oAJ-Ao-aEB">
                     <rect key="frame" x="81" y="63.5" width="175" height="171"/>
                     <subviews>
@@ -72,13 +76,20 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="bottom" id="Iso-ft-Snp"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KxP-Fj-hY6"/>
+                <constraint firstAttribute="bottom" secondItem="rGI-AZ-O7h" secondAttribute="bottom" id="MJh-Eg-S2Y"/>
+                <constraint firstAttribute="trailing" secondItem="rGI-AZ-O7h" secondAttribute="trailing" id="Wso-SU-mBW"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZSw-QO-tRx"/>
+                <constraint firstItem="rGI-AZ-O7h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dAL-0i-dkj"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hve-Ts-j2o"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="xoM-be-UWM"/>
+                <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yEq-Sv-tnp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-55.975609756097562" y="-198.30508474576271"/>
         </view>
     </objects>
+    <resources>
+        <image name="Target" width="810" height="794"/>
+    </resources>
 </document>

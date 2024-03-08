@@ -18,10 +18,17 @@ class CharacterView: UIView {
     @IBOutlet weak var actionsRemainingLabel: UILabel!
     @IBOutlet weak var effectsLabel: UILabel!
     @IBOutlet weak var intentLabel: UILabel!
+    
+    // imageViews
     @IBOutlet weak var characterImageView: UIImageView!
+    @IBOutlet weak var targetImageView: UIImageView!
     
     // Constraints
     @IBOutlet weak var characterImageHeight: NSLayoutConstraint!
+    
+    // Properties
+    var targetLock: Bool = false
+    var enemyNumber: Int = 0
     
     //MARK: - Inits
     override init(frame: CGRect) {
@@ -41,7 +48,7 @@ class CharacterView: UIView {
         addSubview(xibView)
     }
     
-    func displayCharacter(_ character: CharacterStats) {
+    func displayCharacter(_ character: CharacterStats, tag: Int) {
         var imageName: String
         
         // Adjust imageHeight
@@ -57,8 +64,12 @@ class CharacterView: UIView {
             imageName = character.name
         }
         characterImageHeight.constant -= CGFloat(imageHeightAdjustment)
+        
+        // uiImages
         characterImageView.image = UIImage(named: imageName)
-
+        targetImageView.isHidden = true
+        
+        enemyNumber = tag
         displayStats(for: character)
         hideStats()
 
@@ -84,5 +95,10 @@ class CharacterView: UIView {
         if let safeIntent = character.intent {
             intentLabel.text = "Intent: \(safeIntent)"
         }
+    }
+    
+    func targetLock (_ receivedLock: Bool) { // when an action is locked on to this character
+        targetLock = receivedLock
+        targetImageView.isHidden = !receivedLock
     }
 }

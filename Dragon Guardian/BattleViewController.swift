@@ -88,14 +88,12 @@ class BattleViewController: UIViewController {
         displayVillains(villains: villainsList.hugeVillains, stackView: hugeVillainsStackView)
         displayVillains(villains: villainsList.bigVillains, stackView: bigVillainsStackView)
         displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
-        
-        }
-    
+    }
     
     func displayHeros(_ heros: HerosList) {
         
-        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats())
-        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats())
+        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: 1)
+        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: 2)
         let villagersView: VillagerView = createVillagerView(villagers: heros.villagers.currentStats())
         
         addToView(childView: guardianView, parentView: hero1View)
@@ -116,17 +114,20 @@ class BattleViewController: UIViewController {
 
     
     func displayVillains(villains: [Villain], stackView: UIStackView) {
+        var i = 0
         for villain in villains {
-            let villainView: CharacterView = createCharacterView(villain.currentStats())
+            let villainView: CharacterView = createCharacterView(villain.currentStats(), tag: i)
+            villainView.tag = i
             stackView.addArrangedSubview(villainView)
+            i += 1
         }
     }
     
-    func createCharacterView(_ character: CharacterStats) -> CharacterView {
+    func createCharacterView(_ character: CharacterStats, tag: Int) -> CharacterView {
         // Setup CharacterView()
         let characterView = CharacterView()
         characterView.translatesAutoresizingMaskIntoConstraints = false
-        characterView.displayCharacter(character)
+        characterView.displayCharacter(character, tag: tag)
         
         // Adjust Constraints
         let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
@@ -147,7 +148,6 @@ class BattleViewController: UIViewController {
     func configureHandsTableViews() {
         let handTableView = [hero1HandTableView, hero2HandTableView]
         for table in handTableView {
-            table?.delegate = self
             table?.dataSource = self
             table?.register(UINib(nibName: "actionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "actionViewTableViewCell")
             table?.backgroundColor = UIColor.clear
@@ -217,9 +217,9 @@ extension BattleViewController: UITableViewDataSource {
 }
 
 //MARK: - Extension: herosHandsTableView - Delegate
-extension BattleViewController: UITableViewDelegate {
-    
-}
+//extension BattleViewController: UITableViewDelegate {
+//    
+//}
 
 //MARK: - Extension: actionCellSelector - Delegate
 extension BattleViewController: actionCellSelectorDelegate {
@@ -234,8 +234,8 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     func didDragToPoint(hero table: Int, fingerPosition: CGPoint) {
         
-        print("actionSelected: hero: \(table)")
-        print("fingerPosition: \(fingerPosition)")
+//        print("actionSelected: hero: \(table)")
+//        print("fingerPosition: \(fingerPosition)")
         
         moveTarget(table: table, fingerPosition: fingerPosition)
         
@@ -266,11 +266,25 @@ extension BattleViewController: actionCellSelectorDelegate {
         let thisTable: UITableView = tableViews[table-1]
         let convertedPoint = thisTable.convert(fingerPosition, to: view)
         
-        print("move Target: hero: \(table)")
-        print("convertedFingerPosition: \(convertedPoint)")
-        
         // move target
         thisTarget.center = convertedPoint
+        
+        // check for intersection with enemy
+        var isTargetLocked: Bool = false
+        let enemyStackViews: [UIStackView] = [littleVillainsStackView, bigVillainsStackView, hugeVillainsStackView]
+        for stack in enemyStackViews {
+            for enemy in
+                    stack.arrangedSubviews {
+                if let enemyCharacter = enemy as? CharacterView {
+                    if !isTargetLocked && enemyCharacter.bounds.contains(thisTable.convert(fingerPosition, to: enemy)) {
+                        enemyCharacter.targetLock(true)
+                        isTargetLocked = true
+                    } else {
+                        enemyCharacter.targetLock(false)
+                    }
+                }
+            }
+        }
     }
     
 }
