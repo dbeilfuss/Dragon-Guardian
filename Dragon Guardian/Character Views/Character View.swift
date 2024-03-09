@@ -12,8 +12,14 @@ class CharacterView: UIView {
     //MARK: - Outlets
     
     // Stats
+    
+    @IBOutlet weak var healthProgressView: UIProgressView!
+    
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var healthLabel: UILabel!
+    
+    
     @IBOutlet weak var blockLabel: UILabel!
     @IBOutlet weak var actionsRemainingLabel: UILabel!
     @IBOutlet weak var effectsLabel: UILabel!
@@ -43,22 +49,30 @@ class CharacterView: UIView {
     }
     
     func viewInit() {
+        // xib
         let xibView = Bundle.main.loadNibNamed("Character View", owner: self, options: nil)![0] as! UIView
         xibView.frame = self.bounds
         xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(xibView)
+        
+        // ui
+        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.5)
+        healthProgressView.progressViewStyle
     }
     
     func displayCharacter(_ character: CharacterStats, tag: Int) {
         var imageName: String
+        var isHero: Bool = false
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
         switch character.name {
         case "Guardian":
+            isHero = true
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 50
         case "Dragon":
+            isHero = true
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 100
         default:
@@ -66,28 +80,32 @@ class CharacterView: UIView {
         }
         characterImageHeight.constant -= CGFloat(imageHeightAdjustment)
         
+        
         // uiImages
         characterImageView.image = UIImage(named: imageName)
         targetImageView.isHidden = true
         
         enemyNumber = tag
-        displayStats(for: character)
+        displayStats(for: character, isHero: isHero)
         hideStats()
 
     }
     
     func hideStats() {
         nameLabel.text = ""
-        healthLabel.text = ""
         blockLabel.text = ""
         actionsRemainingLabel.text = ""
         effectsLabel.text = ""
         intentLabel.text = ""
     }
 
-    func displayStats(for character: CharacterStats) {
+    func displayStats(for character: CharacterStats, isHero: Bool) {
+        
+        // Health
+        healthProgressView.tintColor = isHero ? .green : .red
+        updateHealth(to: character.health, maxHealth: character.maxHealth)
+        
         nameLabel.text = character.name
-        healthLabel.text = "HP: \(character.health)/\(character.health)"
         blockLabel.text = "Block: \(character.block)"
         if let safeActionsCount = character.actionsCount {
             actionsRemainingLabel.text = "Actions: \(String(safeActionsCount))"
@@ -114,4 +132,11 @@ class CharacterView: UIView {
             targetImageView.isHidden = true
         }
     }
+    
+    func updateHealth(to newHealth: Int, maxHealth: Int) {
+        healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
+        healthLabel.text = "\(newHealth)/\(maxHealth)"
+        print("updating health to : \(newHealth)%")
+    }
+
 }

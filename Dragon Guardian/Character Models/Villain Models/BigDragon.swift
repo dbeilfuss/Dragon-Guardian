@@ -13,9 +13,9 @@ class BigDragon: Villain {
     
     let customStartingStats = CharacterStats(
         name: "Big Dragon",
-        level: 1,
-        maxHealth: 30,
-        health: 30,
+        level: 3,
+        maxHealth: 75,
+        health: 55,
         block: 0,
         statusEffects: [String()],
         actionsCount: nil,

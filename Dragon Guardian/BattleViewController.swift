@@ -232,16 +232,20 @@ extension BattleViewController: actionCellSelectorDelegate {
         print("fingerPosition: \(fingerPosition)")
         
         toggleTargetVisibility(hero: hero)
-        moveTarget(table: hero, fingerPosition: fingerPosition)
+        moveTargetSymbol(hero: hero, fingerPosition: fingerPosition)
 
     }
     
     func didDragToPoint(hero table: Int, fingerPosition: CGPoint) {
-        moveTarget(table: table, fingerPosition: fingerPosition)
+        moveTargetSymbol(hero: table, fingerPosition: fingerPosition)
     }
     
     func didEndDragging(hero: Int, fingerPosition: CGPoint) {
         toggleTargetVisibility(hero: hero)
+        let relativeTable = identifyRelativeTable(hero: hero)
+        let targetCharacter = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        targetCharacter.updateHealth(to: 50, maxHealth: 100)
+        targetCharacter.targetLock(false, hero: hero)
     }
     
     func toggleTargetVisibility(hero target: Int) {
@@ -255,35 +259,51 @@ extension BattleViewController: actionCellSelectorDelegate {
         thisTarget.isHidden = !thisTarget.isHidden
     }
     
-    func moveTarget(table: Int, fingerPosition: CGPoint) {
-        // identify correct target
+    func moveTargetSymbol(hero: Int, fingerPosition: CGPoint) {
+        // identify correct target symbol - the target that moves with finger position
         let targetViews: [UIImageView] = [targetImage1, targetImage2]
-        let thisTarget = targetViews[table-1]
+        let thisTarget = targetViews[hero-1]
         
-        // identify correct table - to base finger position off of
-        let tableViews: [UITableView] = [hero1HandTableView, hero2HandTableView]
-        let thisTable: UITableView = tableViews[table-1]
-        let convertedPoint = thisTable.convert(fingerPosition, to: view)
+        let relativeTable: UITableView = identifyRelativeTable(hero: hero)
+        let convertedPoint = relativeTable.convert(fingerPosition, to: view)
         
-        // move target
+        // move target symbol
         thisTarget.center = convertedPoint
         
-        // check for intersection with enemy
+        let _ = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        
+    }
+    
+    func identifyRelativeTable(hero: Int) -> UITableView {
+        // identify correct table - to base finger position off of
+        let tableViews: [UITableView] = [hero1HandTableView, hero2HandTableView]
+        return tableViews[hero-1]
+        
+    }
+    
+    func identifyTargetCharacter(fingerPosition: CGPoint, relativeTable: UITableView) -> CharacterView {
         var isTargetLocked: Bool = false
         let enemyStackViews: [UIStackView] = [littleVillainsStackView, bigVillainsStackView, hugeVillainsStackView]
+        var targetCharacter: CharacterView = CharacterView()
+        
         for stack in enemyStackViews {
             for enemy in
                     stack.arrangedSubviews {
                 if let enemyCharacter = enemy as? CharacterView {
-                    if !isTargetLocked && enemyCharacter.bounds.contains(thisTable.convert(fingerPosition, to: enemy)) {
-                        enemyCharacter.targetLock(true, hero: table)
+                    if !isTargetLocked && enemyCharacter.bounds.contains(relativeTable.convert(fingerPosition, to: enemy)) {
+                        enemyCharacter.targetLock(true, hero: relativeTable.tag)
                         isTargetLocked = true
+                        targetCharacter = enemyCharacter
                     } else {
-                        enemyCharacter.targetLock(false, hero: table)
+                        enemyCharacter.targetLock(false, hero: relativeTable.tag)
                     }
                 }
             }
         }
+        
+        print("target aquired: enemy tag: \(targetCharacter.enemyNumber)")
+        return targetCharacter
+        
     }
     
 }

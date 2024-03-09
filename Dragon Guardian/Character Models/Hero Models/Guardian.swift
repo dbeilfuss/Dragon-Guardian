@@ -13,9 +13,9 @@ class Guardian: Hero {
     
     let customStartingStats = CharacterStats(
         name: "Guardian",
-        level: 1,
+        level: 3,
         maxHealth: 20,
-        health: 20,
+        health: 15,
         block: 0,
         statusEffects: [String()],
         actionsCount: 3, 
@@ -29,7 +29,7 @@ class Guardian: Hero {
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.punch, attacks.dagger, attacks.dagger, attacks.rock]
+        let startingDeck = [attacks.punch, attacks.punch, attacks.dagger, attacks.dagger, attacks.rock]
         return startingDeck
     }
     

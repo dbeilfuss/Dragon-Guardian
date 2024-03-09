@@ -16,8 +16,8 @@ class Character {
     var statusEffects: [String]
     
     var deck: [Action] = [humanAttacks().punch]
-    var drawPile: [Action?] = []
-    var discardPile: [Action?] = []
+    var drawStack: [Action] = []
+    var discardPile: [Action] = []
     
     var intent: String = "none"
     
@@ -53,26 +53,37 @@ class Character {
         var hand: [Action] = []
         
         for _ in 1...numberOfActions {
-            hand.append(drawCardFromDeck())
+            if drawStack.count == 0 {
+                if discardPile.count == 0 {
+                    drawStack = deck.shuffled()
+                } else {
+                    shuffleDiscardPile()
+                }
+            }
+            hand.append(drawCard(from: drawStack))
         }
         
         return hand
         
     }
     
-    func drawCardFromDeck() -> Action {
-        
+    func shuffleDiscardPile() {
+        drawStack = discardPile.shuffled()
+        discardPile = []
+    }
+    
+    func drawCard(from: [Action]) -> Action {
         var card: Action
+        card = drawStack.remove(at: 0)
+        return card
+    }
+    
+    func drawRandomCard(from: [Action]) -> Action {
+        var card: Action
+        let randomInt = Int.random(in: 0...drawStack.count)
         
-        if drawPile.count == 0 {
-            if discardPile.count > 0 {
-                deck = discardPile.shuffled() as! [Action]
-            }
-        }
-        
-        let randomInt = Int.random(in: 0...drawPile.count)
-        card = deck[randomInt]
-        deck.remove(at: randomInt)
+        card = drawStack[randomInt]
+        drawStack.remove(at: randomInt)
         
         return card
     }

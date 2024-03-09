@@ -20,7 +20,7 @@ struct humanAttacks {
 struct dragonAttacks {
     let claw = Attack(level: 1, name: "Scratch", cost: 1, description: "Slash opponent", strength: 2)
     let bite = Attack(level: 1, name: "Bite", cost: 3, description: "Use your teeth", strength: 5)
-    let tail = Attack(level: 2, name: "Tail", cost: 2, description: "An unexpected blow from behind", strength: 10)
+    let tailWhip = Attack(level: 2, name: "Tail Whip", cost: 2, description: "An unexpected blow from behind", strength: 10)
 }
 
 struct callsToAction {

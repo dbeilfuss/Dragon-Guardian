@@ -15,7 +15,7 @@ class LittleDragon: Villain {
         name: "Little Dragon",
         level: 1,
         maxHealth: 30,
-        health: 30,
+        health: 7,
         block: 0,
         statusEffects: [String()],
         actionsCount: nil,

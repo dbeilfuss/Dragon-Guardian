@@ -12,9 +12,9 @@ class Dragon: Hero {
     
     var customStartingStats = CharacterStats(
         name: "Dragon",
-        level: 1,
+        level: 2,
         maxHealth: 30,
-        health: 30,
+        health: 25,
         block: 0,
         statusEffects: [String()],
         actionsCount: 2, 
@@ -28,7 +28,7 @@ class Dragon: Hero {
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.bite, attacks.bite, attacks.bite]
+        let startingDeck = [attacks.claw, attacks.claw,attacks.bite, attacks.bite, attacks.tailWhip]
         return startingDeck
     }
     

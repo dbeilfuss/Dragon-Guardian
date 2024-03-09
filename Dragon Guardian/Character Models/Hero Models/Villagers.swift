@@ -14,7 +14,7 @@ class Villagers: Hero {
         name: "Villagers",
         level: 1,
         maxHealth: 10,
-        health: 3,
+        health: 10,
         block: 0,
         statusEffects: [String()],
         actionsCount: 0,
