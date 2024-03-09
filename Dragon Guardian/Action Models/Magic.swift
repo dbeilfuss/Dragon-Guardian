@@ -16,7 +16,7 @@ class Magic: Action {
         super.init(level: level, name: name, cost: cost, description: description)
     }
     
-    override func action(on character: Character) {
-    }
+//    override func action(on character: Character) {
+//    }
     
 }

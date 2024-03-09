@@ -106,9 +106,7 @@ class CharacterView: UIView {
         
         nameLabel.text = character.name
         blockLabel.text = "Block: \(character.block)"
-        if let safeActionsCount = character.actionsCount {
-            actionsRemainingLabel.text = "Actions: \(String(safeActionsCount))"
-        }
+        actionsRemainingLabel.text = "Actions: \(String(character.energy))"
         effectsLabel.text = "Effect: \(character.statusEffects)"
         if let safeIntent = character.intent {
             intentLabel.text = "Intent: \(safeIntent)"
@@ -130,6 +128,13 @@ class CharacterView: UIView {
         } else {
             targetImageView.isHidden = true
         }
+    }
+    
+    //MARK: - Update After Action
+    
+    func updateCharacter(_ characterStats: CharacterStats) {
+        print("updating character: \(characterStats)")
+        updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
     }
     
     func updateHealth(to newHealth: Int, maxHealth: Int) {

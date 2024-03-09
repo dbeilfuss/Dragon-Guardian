@@ -10,21 +10,21 @@ import Foundation
 class Dragon: Hero {
     let attacks = dragonAttacks()
     
-    var customStartingStats = CharacterStats(
+    var startingStats = CharacterStats(
         name: "Dragon",
-        level: 2,
+        level: 1,
         maxHealth: 30,
         health: 25,
+        maxEnergy: 10,
+        energy: 10,
         block: 0,
         statusEffects: [String()],
-        actionsCount: 2, 
         deck: []
     )
     
     init() {
-        super .init(startingStats: customStartingStats)
-        deck = drawStartingDeck()
-
+        super .init(startingStats: startingStats)
+        stats.deck = drawStartingDeck()
     }
     
     func drawStartingDeck() -> [Action] {

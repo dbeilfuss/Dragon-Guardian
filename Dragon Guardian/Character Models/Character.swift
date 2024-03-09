@@ -8,45 +8,29 @@
 import Foundation
 
 class Character {
-    let name: String
-    var level: Int
-    var maxHealth: Int
-    var health: Int
-    var block: Int = 0
-    var statusEffects: [String]
+    var stats: CharacterStats = CharacterStats(
+        name: "Name",
+        level: 1,
+        maxHealth: 10,
+        health: 10,
+        maxEnergy: 1,
+        energy: 1,
+        block: 0,
+        statusEffects: [],
+        deck: []
+    )
     
-    var deck: [Action] = [humanAttacks().punch]
     var drawStack: [Action] = []
     var discardPile: [Action] = []
     
     var intent: String = "none"
     
-    var actionsRemaining: Int = 1
-    
-    var startingStats = CharacterStats(
-        name: "Default",
-        level: 2,
-        maxHealth: 10,
-        health: 10,
-        block: 0,
-        statusEffects: [],
-        actionsCount: 0,
-        deck: [])
-    
     init(startingStats: CharacterStats) {
-        self.name = startingStats.name
-        self.level = startingStats.level
-        self.maxHealth = startingStats.maxHealth
-        self.health = startingStats.health
-        self.block = startingStats.block
-        self.statusEffects = startingStats.statusEffects
-        self.deck = startingStats.deck
-        
-        self.startingStats = startingStats
+        self.stats = startingStats
     }
     
     func currentStats() -> CharacterStats {
-        return CharacterStats(name: name, level: level, maxHealth: maxHealth, health: health, block: block, statusEffects: statusEffects, intent: intent, actionsCount: actionsRemaining, deck: deck)
+        return stats
     }
     
     func fetchNewHand(numberOfActions: Int) -> [Action] {
@@ -55,7 +39,7 @@ class Character {
         for _ in 1...numberOfActions {
             if drawStack.count == 0 {
                 if discardPile.count == 0 {
-                    drawStack = deck.shuffled()
+                    drawStack = stats.deck.shuffled()
                 } else {
                     shuffleDiscardPile()
                 }

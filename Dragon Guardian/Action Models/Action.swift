@@ -20,11 +20,7 @@ class Action {
         self.description = description
     }
     
-    func action(on character: Character) {
-    }
-    
-    func action(on characters: [Character]) {
-        
+    func attack(from attacker: Character, to defender: Character) {
     }
     
 }

@@ -9,23 +9,23 @@ import Foundation
 
 class Guardian: Hero {
     
-    let attacks = humanAttacks()
+    let attacks = guardianAttacks()
     
-    let customStartingStats = CharacterStats(
+    let startingStats = CharacterStats(
         name: "Guardian",
-        level: 3,
+        level: 1,
         maxHealth: 20,
         health: 15,
+        maxEnergy: 10,
+        energy: 10,
         block: 0,
         statusEffects: [String()],
-        actionsCount: 3, 
         deck: []
     )
     
     init() {
-        super .init(startingStats: customStartingStats)
-        deck = drawStartingDeck()
-        print(deck)
+        super .init(startingStats: startingStats)
+        stats.deck = drawStartingDeck()
     }
     
     func drawStartingDeck() -> [Action] {

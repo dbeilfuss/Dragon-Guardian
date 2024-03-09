@@ -11,20 +11,21 @@ class BigDragon: Villain {
     
     let attacks = dragonAttacks()
     
-    let customStartingStats = CharacterStats(
+    let startingStats = CharacterStats(
         name: "Big Dragon",
         level: 3,
         maxHealth: 75,
-        health: 55,
+        health: 75,
+        maxEnergy: 1,
+        energy: 1,
         block: 0,
         statusEffects: [String()],
-        actionsCount: nil,
         deck: []
     )
     
     init () {
-        super .init(startingStats: customStartingStats)
-        deck = drawStartingDeck()
+        super .init(startingStats: startingStats)
+        stats.deck = drawStartingDeck()
     }
     
     func drawStartingDeck() -> [Action] {

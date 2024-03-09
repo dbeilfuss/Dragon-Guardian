@@ -1,5 +1,5 @@
 //
-//  CallsToAction.swift
+//  Attack.swift
 //  Dragon Guardian
 //
 //  Created by Daniel Beilfuss on 2/25/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CallToAction: Action {
+class basicAttack: Action {
     
     var strength: Int
     
@@ -16,7 +16,11 @@ class CallToAction: Action {
         super.init(level: level, name: name, cost: cost, description: description)
     }
     
-//    override func action(on character: Character) {
-//    }
+    override func attack(from attacker: Character, to defender: Character) {
+        print("defenderHealth: \(defender.stats.health)")
+        attacker.stats.energy -= cost
+        defender.stats.health -= self.strength
+        print("defenderHealth: \(defender.stats.health)")
+    }
     
 }

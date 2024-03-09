@@ -10,20 +10,21 @@ import Foundation
 class Villagers: Hero {
     let attacks = dragonAttacks()
     
-    var customStartingStats = CharacterStats(
+    var startingStats = CharacterStats(
         name: "Villagers",
         level: 1,
         maxHealth: 10,
         health: 10,
+        maxEnergy: 0,
+        energy: 0,
         block: 0,
         statusEffects: [String()],
-        actionsCount: 0,
         deck: []
     )
     
     init() {
-        super .init(startingStats: customStartingStats)
-        deck = drawStartingDeck()
+        super .init(startingStats: startingStats)
+        stats.deck = drawStartingDeck()
 
     }
     
