@@ -21,6 +21,8 @@ struct HerosList {
 }
 
 class BattleManager: battleViewControllerDelegate {
+
+    
     
     let guardian = Guardian()
     let dragon = Dragon()
@@ -38,12 +40,12 @@ class BattleManager: battleViewControllerDelegate {
     let villains: [Villain] = []
     
     init() {
-        self.dragonHand = guardian.fetchNewHand(numberOfActions: 5)
-        self.guardianHand = dragon.fetchNewHand(numberOfActions: 5)
+        self.guardianHand = guardian.fetchNewHand(numberOfActions: 5)
+        self.dragonHand = dragon.fetchNewHand(numberOfActions: 5)
     }
     
     func retrieveHeroHands() -> [[Action]] {
-        return [dragonHand, guardianHand]
+        return [guardianHand, dragonHand]
     }
     
     func retrieveHeros() -> HerosList {
@@ -55,4 +57,22 @@ class BattleManager: battleViewControllerDelegate {
         villainsList
     }
     
+    func actionPlayed(hero: Int, action: Int, villainList villainType: Int?, target: Int) {
+        print("action played")
+        
+        // Properties
+        let activeHero = hero == 1 ? guardian : dragon
+        let heroHand = hero == 1 ? guardianHand : dragonHand
+        let playedAction = heroHand[action]
+        var villainsList = villainType == 0 ? self.villainsList.hugeVillains : (villainType == 1 ? self.villainsList.bigVillains : self.villainsList.littleVillains)
+        var villain = villainsList[target]
+
+        // Feedback
+        print("hero: \(activeHero.name)")
+        print("playedAction: \(playedAction.name)")
+        print("villain: \(villain.name)")
+        
+        print(playedAction)
+        
+    }
 }

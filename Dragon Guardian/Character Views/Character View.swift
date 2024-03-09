@@ -57,7 +57,6 @@ class CharacterView: UIView {
         
         // ui
         healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.5)
-        healthProgressView.progressViewStyle
     }
     
     func displayCharacter(_ character: CharacterStats, tag: Int) {
@@ -102,7 +101,7 @@ class CharacterView: UIView {
     func displayStats(for character: CharacterStats, isHero: Bool) {
         
         // Health
-        healthProgressView.tintColor = isHero ? .green : .red
+        healthProgressView.tintColor = isHero ? .systemGreen : .red
         updateHealth(to: character.health, maxHealth: character.maxHealth)
         
         nameLabel.text = character.name

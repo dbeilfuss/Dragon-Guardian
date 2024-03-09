@@ -26,10 +26,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KLN-v6-7Ry" userLabel="Huge Villains Stack View">
                                 <rect key="frame" x="470" y="90" width="240" height="410"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sfG-yz-zHU" userLabel="Big Villains Stack View">
+                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sfG-yz-zHU" userLabel="Big Villains Stack View">
                                 <rect key="frame" x="502" y="329" width="175" height="246"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lc8-Jo-efb" userLabel="Little Villains Stack View">
+                            <stackView opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lc8-Jo-efb" userLabel="Little Villains Stack View">
                                 <rect key="frame" x="502" y="527" width="175" height="123"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WjS-yp-LmB" userLabel="Hero1View">

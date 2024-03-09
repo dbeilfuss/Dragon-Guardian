@@ -60,7 +60,7 @@ class actionTableViewCell: UITableViewCell {
             actionSelectorDelegate?.didDragToPoint(hero: hero, fingerPosition: location)
         case .ended:
             print("Drag ended")
-            actionSelectorDelegate?.didEndDragging(hero: hero, fingerPosition: location)
+            actionSelectorDelegate?.didEndDragging(hero: hero, fingerPosition: location, cellNumber: cellNumber)
 
         default:
             break
@@ -82,5 +82,5 @@ class actionTableViewCell: UITableViewCell {
 protocol actionCellSelectorDelegate {
     func actionSelected(hero: Int, fingerPosition: CGPoint)
     func didDragToPoint(hero: Int, fingerPosition: CGPoint)
-    func didEndDragging(hero: Int, fingerPosition: CGPoint)
+    func didEndDragging(hero: Int, fingerPosition: CGPoint, cellNumber: Int)
 }

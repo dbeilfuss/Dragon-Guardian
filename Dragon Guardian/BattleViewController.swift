@@ -168,13 +168,6 @@ class BattleViewController: UIViewController {
     
 }
 
-//MARK: - Delegate: BattleViewController
-
-protocol battleViewControllerDelegate {
-    func retrieveHeroHands() -> [[Action]]
-    func retrieveHeros() -> HerosList
-    func retrieveVillains() -> VillainsList
-}
 
 //MARK: - Extension: heroHandsTableViews - DataSource
 extension BattleViewController: UITableViewDataSource {
@@ -227,6 +220,13 @@ extension BattleViewController: UITableViewDataSource {
 
 //MARK: - Extension: actionCellSelector - Delegate
 extension BattleViewController: actionCellSelectorDelegate {
+    
+    struct TargetCharacter {
+        let villainRow: Int?
+        let characterNumber: Int
+        let character: CharacterView
+    }
+    
     func actionSelected(hero: Int, fingerPosition: CGPoint) {
         print("actionSelected: hero: \(hero)")
         print("fingerPosition: \(fingerPosition)")
@@ -240,12 +240,19 @@ extension BattleViewController: actionCellSelectorDelegate {
         moveTargetSymbol(hero: table, fingerPosition: fingerPosition)
     }
     
-    func didEndDragging(hero: Int, fingerPosition: CGPoint) {
-        toggleTargetVisibility(hero: hero)
+    func didEndDragging(hero: Int, fingerPosition: CGPoint, cellNumber: Int) {
+        
+        // identify target Character
         let relativeTable = identifyRelativeTable(hero: hero)
-        let targetCharacter = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
-        targetCharacter.updateHealth(to: 50, maxHealth: 100)
-        targetCharacter.targetLock(false, hero: hero)
+        let targetCharacter: TargetCharacter = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        
+        // UI
+        toggleTargetVisibility(hero: hero)
+        targetCharacter.character.targetLock(false, hero: hero)
+        
+        // BattleManager
+        battleDelegate.actionPlayed(hero: hero, action: cellNumber, villainList: targetCharacter.villainRow, target: targetCharacter.characterNumber)
+        
     }
     
     func toggleTargetVisibility(hero target: Int) {
@@ -281,10 +288,13 @@ extension BattleViewController: actionCellSelectorDelegate {
         
     }
     
-    func identifyTargetCharacter(fingerPosition: CGPoint, relativeTable: UITableView) -> CharacterView {
+    func identifyTargetCharacter(fingerPosition: CGPoint, relativeTable: UITableView) -> TargetCharacter {
         var isTargetLocked: Bool = false
         let enemyStackViews: [UIStackView] = [littleVillainsStackView, bigVillainsStackView, hugeVillainsStackView]
-        var targetCharacter: CharacterView = CharacterView()
+        
+        var villainRow: Int?
+        var characterNumber: Int = 0
+        var character: CharacterView = CharacterView()
         
         for stack in enemyStackViews {
             for enemy in
@@ -293,7 +303,9 @@ extension BattleViewController: actionCellSelectorDelegate {
                     if !isTargetLocked && enemyCharacter.bounds.contains(relativeTable.convert(fingerPosition, to: enemy)) {
                         enemyCharacter.targetLock(true, hero: relativeTable.tag)
                         isTargetLocked = true
-                        targetCharacter = enemyCharacter
+                        villainRow = stack.tag
+                        characterNumber = enemyCharacter.enemyNumber
+                        character = enemyCharacter
                     } else {
                         enemyCharacter.targetLock(false, hero: relativeTable.tag)
                     }
@@ -301,9 +313,19 @@ extension BattleViewController: actionCellSelectorDelegate {
             }
         }
         
-        print("target aquired: enemy tag: \(targetCharacter.enemyNumber)")
+        let targetCharacter: TargetCharacter = TargetCharacter(villainRow: villainRow, characterNumber: characterNumber, character: character)
         return targetCharacter
         
     }
     
+}
+
+
+//MARK: - Delegate: BattleViewController
+
+protocol battleViewControllerDelegate {
+    func retrieveHeroHands() -> [[Action]]
+    func retrieveHeros() -> HerosList
+    func retrieveVillains() -> VillainsList
+    func actionPlayed(hero: Int, action: Int, villainList: Int?, target: Int)
 }
