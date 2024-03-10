@@ -44,7 +44,7 @@ class actionTableViewCell: UITableViewCell {
             cardUIView.layer.cornerRadius = 10
             
             // stats
-            energyView.layer.cornerRadius = energyView.frame.width / 3
+            energyView.layer.cornerRadius = 7
             attackView.layer.cornerRadius = 7
             
             // Gesture Recognizer (Long Press)

@@ -46,12 +46,12 @@
                                     <constraint firstAttribute="width" secondItem="ije-BJ-AqK" secondAttribute="height" multiplier="1:1" id="o8M-Nd-QMa"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-aU-YDd">
-                                <rect key="frame" x="30" y="44" width="118" height="410"/>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IyF-aU-YDd">
+                                <rect key="frame" x="30" y="44" width="94.5" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqs-zb-Smc">
-                                <rect key="frame" x="1032" y="44" width="118" height="410"/>
+                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fqs-zb-Smc">
+                                <rect key="frame" x="1055.5" y="44" width="94.5" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QM-5n-5PZ" userLabel="VillagersView">
@@ -104,7 +104,7 @@
                             <constraint firstItem="WjS-yp-LmB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xH6-jz-DMw"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="y9q-Jk-OJc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KLN-v6-7Ry" secondAttribute="bottom" constant="300" id="yB8-XJ-gF0"/>
-                            <constraint firstItem="IyF-aU-YDd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="zL3-Wb-O6g"/>
+                            <constraint firstItem="IyF-aU-YDd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.08" id="zL3-Wb-O6g"/>
                         </constraints>
                     </view>
                     <connections>

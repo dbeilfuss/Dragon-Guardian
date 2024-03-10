@@ -59,7 +59,7 @@ class CharacterView: UIView {
         addSubview(xibView)
         
         // ui
-        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.5)
+        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
     }
     
     func displayCharacter(_ character: CharacterStats, tag: Int) {

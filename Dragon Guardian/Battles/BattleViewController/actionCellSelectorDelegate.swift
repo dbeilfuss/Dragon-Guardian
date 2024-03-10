@@ -29,12 +29,14 @@ extension BattleViewController: actionCellSelectorDelegate {
         let relativeTable = identifyRelativeTable(hero: hero)
         let targetVillain: TargetVillain = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
         
-        // UI
-        toggleTargetVisibility(hero: hero)
-        targetVillain.villainView?.targetLock(false, hero: hero)
-        
-        // BattleManager
-        battleDelegate.actionPlayed(hero: hero, action: cellNumber, villainAttacked: targetVillain)
+            // UI
+            toggleTargetVisibility(hero: hero)
+            targetVillain.villainView?.targetLock(false, hero: hero)
+            
+        if targetVillain.villainRow != nil {
+            // BattleManager
+            battleDelegate.actionPlayed(hero: hero, action: cellNumber, villainAttacked: targetVillain)
+        }
         
     }
     
