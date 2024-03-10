@@ -13,6 +13,11 @@
                 <outlet property="characterImageHeight" destination="xoM-be-UWM" id="GMC-xz-eYz"/>
                 <outlet property="characterImageView" destination="Pnk-Ub-iiH" id="RuU-yy-4st"/>
                 <outlet property="effectsLabel" destination="Gox-s1-zug" id="TXZ-hO-rBy"/>
+                <outlet property="energyImage" destination="E5e-Ws-OKQ" id="Nr6-Zv-3xz"/>
+                <outlet property="energyLabel" destination="pcm-7K-ip9" id="pnf-vC-RQH"/>
+                <outlet property="energyLeadingConstraint" destination="FUn-Z7-a75" id="yNh-1h-r4z"/>
+                <outlet property="energyTrailingConstraint" destination="OLb-QK-QPt" id="Jac-Pu-7wG"/>
+                <outlet property="energyView" destination="rOS-AF-I5c" id="M6D-0W-vFx"/>
                 <outlet property="healthLabel" destination="KTM-qZ-HTr" id="MBp-Zm-Mce"/>
                 <outlet property="healthProgressView" destination="IoG-X3-xWf" id="2De-a6-bmo"/>
                 <outlet property="intentLabel" destination="5ro-zm-Mq0" id="TR4-ri-1wN"/>
@@ -22,14 +27,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="337" height="500"/>
+            <rect key="frame" x="0.0" y="0.0" width="283" height="311"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Target" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-AZ-O7h">
-                    <rect key="frame" x="0.0" y="0.0" width="337" height="500"/>
+                    <rect key="frame" x="0.0" y="0.0" width="283" height="311"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oAJ-Ao-aEB">
-                    <rect key="frame" x="81" y="178.5" width="175" height="143.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oAJ-Ao-aEB" userLabel="Original Labels Stack View">
+                    <rect key="frame" x="54" y="84" width="175" height="143.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big Monster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-BU-1RQ">
                             <rect key="frame" x="15" y="0.0" width="145" height="33.5"/>
@@ -64,32 +69,62 @@
                     </subviews>
                 </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-Ub-iiH" userLabel="Character Image">
-                    <rect key="frame" x="16" y="50" width="305" height="450"/>
+                    <rect key="frame" x="16" y="31" width="251" height="280"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-62-ZqO">
-                    <rect key="frame" x="46.5" y="32" width="244" height="15.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="B0J-62-ZqO" userLabel="Health Stack View">
+                    <rect key="frame" x="41" y="10.5" width="201" height="18"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150/150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTM-qZ-HTr">
-                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="15.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150/150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTM-qZ-HTr" userLabel="Health Label">
+                            <rect key="frame" x="0.0" y="0.0" width="57" height="18"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <size key="shadowOffset" width="1" height="0.0"/>
                         </label>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IoG-X3-xWf">
-                            <rect key="frame" x="52.5" y="6" width="191.5" height="4"/>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IoG-X3-xWf" userLabel="Health Bar">
+                            <rect key="frame" x="60" y="7" width="141" height="4"/>
                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </progressView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOS-AF-I5c" userLabel="Energy View">
+                    <rect key="frame" x="233" y="261" width="50" height="50"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Energy" translatesAutoresizingMaskIntoConstraints="NO" id="E5e-Ws-OKQ" userLabel="Energy Image">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcm-7K-ip9" userLabel="Energy Label">
+                            <rect key="frame" x="16" y="8" width="18" height="34.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="1aJ-hk-LmZ"/>
+                        <constraint firstItem="E5e-Ws-OKQ" firstAttribute="top" secondItem="rOS-AF-I5c" secondAttribute="top" id="4Fz-BO-XMn"/>
+                        <constraint firstAttribute="trailing" secondItem="E5e-Ws-OKQ" secondAttribute="trailing" id="55R-KA-7sj"/>
+                        <constraint firstItem="pcm-7K-ip9" firstAttribute="centerX" secondItem="rOS-AF-I5c" secondAttribute="centerX" id="LBk-zW-J7A"/>
+                        <constraint firstAttribute="bottom" secondItem="E5e-Ws-OKQ" secondAttribute="bottom" id="hfJ-Js-KRB"/>
+                        <constraint firstAttribute="width" secondItem="rOS-AF-I5c" secondAttribute="height" multiplier="1:1" id="jaU-Qe-Yr8"/>
+                        <constraint firstItem="pcm-7K-ip9" firstAttribute="centerY" secondItem="rOS-AF-I5c" secondAttribute="centerY" id="qOq-vI-KtE"/>
+                        <constraint firstItem="E5e-Ws-OKQ" firstAttribute="leading" secondItem="rOS-AF-I5c" secondAttribute="leading" id="zqw-EO-uvE"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="rOS-AF-I5c" secondAttribute="bottom" id="2g3-Kp-0Re"/>
                 <constraint firstItem="B0J-62-ZqO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9CU-5p-bW6"/>
+                <constraint firstItem="rOS-AF-I5c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FUn-Z7-a75"/>
                 <constraint firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="bottom" id="Iso-ft-Snp"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="KxP-Fj-hY6"/>
                 <constraint firstAttribute="bottom" secondItem="rGI-AZ-O7h" secondAttribute="bottom" id="MJh-Eg-S2Y"/>
+                <constraint firstAttribute="trailing" secondItem="rOS-AF-I5c" secondAttribute="trailing" id="OLb-QK-QPt"/>
                 <constraint firstAttribute="trailing" secondItem="rGI-AZ-O7h" secondAttribute="trailing" id="Wso-SU-mBW"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="top" secondItem="B0J-62-ZqO" secondAttribute="bottom" constant="2.5" id="Yb8-nO-nsz"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZSw-QO-tRx"/>
@@ -101,10 +136,17 @@
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yEq-Sv-tnp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-55.975609756097562" y="-249.66101694915255"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="OLb-QK-QPt"/>
+                    <exclude reference="FUn-Z7-a75"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="-224.26829268292681" y="-201.61016949152543"/>
         </view>
     </objects>
     <resources>
+        <image name="Energy" width="470" height="472"/>
         <image name="Target" width="810" height="794"/>
     </resources>
 </document>

@@ -9,12 +9,28 @@ import UIKit
 
 class actionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var backgroundUIView: UIView!
+    //MARK: - Outlets
+    
+    // Cell
+    @IBOutlet weak var cellStackView: UIStackView!
+    
+    // card
+    @IBOutlet weak var cardUIView: UIView!
     @IBOutlet weak var actionLabel: UILabel!
     @IBOutlet weak var actionImage: UIImageView!
     
+    // energy
+    @IBOutlet weak var energyView: UIView!
+    @IBOutlet weak var energyLabel: UILabel!
+    
+    // attack
+    @IBOutlet weak var attackView: UIView!
+    @IBOutlet weak var attackLabel: UILabel!
+
+    //MARK: - Properties
     var cellNumber: Int = 0
     var hero: Int = 1
+    var flipped: Bool = false
     var actionSelectorDelegate: actionCellSelectorDelegate?
     
     //MARK: - awakeFromNib
@@ -24,8 +40,12 @@ class actionTableViewCell: UITableViewCell {
         
         func configureCell() {
             
-            // Visual Style
-            backgroundUIView.layer.cornerRadius = 10
+            // card
+            cardUIView.layer.cornerRadius = 10
+            
+            // stats
+            energyView.layer.cornerRadius = energyView.frame.width / 3
+            attackView.layer.cornerRadius = 7
             
             // Gesture Recognizer (Long Press)
             let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
@@ -35,17 +55,44 @@ class actionTableViewCell: UITableViewCell {
         
     }
     
+    // Cell
+    func flipCellForHero() {
+        if hero == 2 && !flipped {
+            print("reversing order")
+            // reverse the order of the subviews
+            let arrangedSubviews = cellStackView.arrangedSubviews
+            
+            arrangedSubviews.forEach { view in
+                cellStackView.removeArrangedSubview(view)
+                //                view.removeFromSuperview()
+            }
+            
+            arrangedSubviews.reversed().forEach { view in
+                cellStackView.addArrangedSubview(view)
+            }
+            
+            flipped = true
+        }
+    }
+    
     //MARK: - Set - Called by UITable during Setup
     func set(_ action: Action, cellNumber: Int, hero: Int, delegate: actionCellSelectorDelegate) {
         
         // cell properties
+        self.hero = hero
         self.cellNumber = cellNumber
         actionSelectorDelegate = delegate
-        self.hero = hero
         
-        // UI
+        // Cell
+        flipCellForHero()
+        
+        // Card
         actionLabel.text = action.name
         actionImage.image = UIImage(named: action.name)
+        
+        // Stats
+        energyLabel.text = String(action.cost)
+        attackLabel.text = String(action.attackStrength ?? 0)
     }
     
     //MARK: - Action

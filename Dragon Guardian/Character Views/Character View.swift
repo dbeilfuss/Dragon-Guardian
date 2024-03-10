@@ -12,14 +12,17 @@ class CharacterView: UIView {
     //MARK: - Outlets
     
     // Stats
-    
     @IBOutlet weak var healthProgressView: UIProgressView!
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var healthLabel: UILabel!
     
+    // Energy Orb
+    @IBOutlet weak var energyView: UIView!
+    @IBOutlet weak var energyImage: UIImageView!
+    @IBOutlet weak var energyLabel: UILabel!
+    @IBOutlet weak var energyTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var energyLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var blockLabel: UILabel!
     @IBOutlet weak var actionsRemainingLabel: UILabel!
     @IBOutlet weak var effectsLabel: UILabel!
@@ -62,16 +65,19 @@ class CharacterView: UIView {
     func displayCharacter(_ character: CharacterStats, tag: Int) {
         var imageName: String
         var isHero: Bool = false
+        var heroNumber: Int?
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
         switch character.name {
         case "Guardian":
             isHero = true
+            heroNumber = 1
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 50
         case "Dragon":
             isHero = true
+            heroNumber = 2
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 100
         default:
@@ -80,12 +86,12 @@ class CharacterView: UIView {
         characterImageHeight.constant -= CGFloat(imageHeightAdjustment)
         
         
-        // uiImages
+        // Character Images
         characterImageView.image = UIImage(named: imageName)
         targetImageView.isHidden = true
         
         enemyNumber = tag
-        displayStats(for: character, isHero: isHero)
+        displayStats(for: character, isHero: isHero, heroNumber: heroNumber)
         hideStats()
 
     }
@@ -98,11 +104,24 @@ class CharacterView: UIView {
         intentLabel.text = ""
     }
 
-    func displayStats(for character: CharacterStats, isHero: Bool) {
+    func displayStats(for character: CharacterStats, isHero: Bool, heroNumber: Int?) {
         
         // Health
         healthProgressView.tintColor = isHero ? .systemGreen : .red
         updateHealth(to: character.health, maxHealth: character.maxHealth)
+        
+        // Energy
+        if isHero {
+            updateEnergy(character.energy)
+            
+            if heroNumber == 1 {
+                energyLeadingConstraint.isActive = true
+            } else {
+                energyTrailingConstraint.isActive = true
+            }
+        } else {
+            energyView.alpha = 0
+        }
         
         nameLabel.text = character.name
         blockLabel.text = "Block: \(character.block)"
@@ -135,12 +154,17 @@ class CharacterView: UIView {
     func updateCharacter(_ characterStats: CharacterStats) {
         print("updating character: \(characterStats)")
         updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
+        updateEnergy(characterStats.energy)
     }
     
     func updateHealth(to newHealth: Int, maxHealth: Int) {
         healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
         healthLabel.text = "\(newHealth)/\(maxHealth)"
         print("updating health to : \(newHealth)%")
+    }
+    
+    func updateEnergy(_ energy: Int) {
+        energyLabel.text = "\(energy)"
     }
 
 }

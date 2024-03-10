@@ -13,7 +13,7 @@ class basicAttack: Action {
     
     init(level: Int, name: String, cost: Int, description: String, strength: Int) {
         self.strength = strength
-        super.init(level: level, name: name, cost: cost, description: description)
+        super.init(level: level, name: name, cost: cost, description: description, attackStrength: strength)
     }
     
     override func attack(from attacker: Character, to defender: Character) {
