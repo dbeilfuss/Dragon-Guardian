@@ -13,10 +13,10 @@ struct guardianAttacks {
     let dagger = BasicAttack(level: 3, name: "Dagger", cost: 3, description: "Use your dagger", strength: 8)
 }
 
-struct guardianDefense {
-    let block = BasicDefense(level: 1, name: "Block", cost: 1, description: "Block the incoming blow", strength: 2)
-    let dodge = BasicDefense(level: 2, name: "Dodge", cost: 2, description: "Move to the side.", strength: 4)
-    let roll = BasicDefense(level: 3, name: "Roll", cost: 3, description: "Roll out of the way.", strength: 8)
+struct guardianBlock {
+    let block = BasicBlock(level: 1, name: "Block", cost: 1, description: "Block the incoming blow", strength: 2)
+    let dodge = BasicBlock(level: 2, name: "Dodge", cost: 2, description: "Move to the side.", strength: 4)
+    let roll = BasicBlock(level: 3, name: "Roll", cost: 3, description: "Roll out of the way.", strength: 8)
 }
 
 struct dragonAttacks {
@@ -25,10 +25,10 @@ struct dragonAttacks {
     let bite = BasicAttack(level: 3, name: "Bite", cost: 4, description: "Use your teeth", strength: 10)
 }
 
-struct dragonDefense {
-    let growl = BasicDefense(level: 1, name: "Growl", cost: 1, description: "Make your enemies' knees shake", strength: 1)
-    let jumpBack = BasicDefense(level: 2, name: "Jump Back", cost: 2, description: "Move to the side.", strength: 2)
-    let flapWings = BasicDefense(level: 3, name: "Flap Wings", cost: 4, description: "Quickly Move Well out of the way", strength: 10)
+struct dragonBlock {
+    let growl = BasicBlock(level: 1, name: "Growl", cost: 1, description: "Make your enemies' knees shake", strength: 1)
+    let stepBack = BasicBlock(level: 2, name: "Step Back", cost: 2, description: "Take a step back, out of harms way.", strength: 2)
+    let wrapWings = BasicBlock(level: 3, name: "Flap Wings", cost: 4, description: "Your Wings encircle you in a protective shell", strength: 10)
 }
 
 //struct callsToAction {

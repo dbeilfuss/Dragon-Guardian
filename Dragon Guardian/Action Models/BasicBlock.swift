@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BasicDefense: Action {
+class BasicBlock: Action {
     
     var strength: Int
     

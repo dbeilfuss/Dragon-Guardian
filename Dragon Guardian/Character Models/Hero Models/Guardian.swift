@@ -10,7 +10,7 @@ import Foundation
 class Guardian: Hero {
     
     let attacks = guardianAttacks()
-    let defences = guardianDefense()
+    let defences = guardianBlock()
     
     let heroType: Heros = .guardian
     

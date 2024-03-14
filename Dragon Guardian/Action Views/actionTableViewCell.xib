@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2wt-rX-o1U">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="31.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I5p-AI-bU1">
@@ -105,6 +105,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xnu-dz-bhy" secondAttribute="height" multiplier="1:1" id="ZF7-Nh-ozi"/>
+                                            <constraint firstAttribute="width" secondItem="xnu-dz-bhy" secondAttribute="height" multiplier="1:1" id="gP9-Ka-b2L"/>
                                             <constraint firstItem="wc3-2L-ugn" firstAttribute="centerY" secondItem="xnu-dz-bhy" secondAttribute="centerY" id="tzV-dw-iwP"/>
                                             <constraint firstItem="wc3-2L-ugn" firstAttribute="centerX" secondItem="xnu-dz-bhy" secondAttribute="centerX" id="zJM-1a-mOU"/>
                                         </constraints>
@@ -122,9 +123,11 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.26044011350000001" green="0.62155268360000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="3UF-C6-h9t"/>
                                             <constraint firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="4ha-qT-PLz"/>
                                             <constraint firstItem="aoh-Ie-EYc" firstAttribute="centerY" secondItem="EU1-xq-NCL" secondAttribute="centerY" id="NzL-dm-4jw"/>
                                             <constraint firstItem="aoh-Ie-EYc" firstAttribute="centerX" secondItem="EU1-xq-NCL" secondAttribute="centerX" id="aIz-Sp-nYq"/>
+                                            <constraint firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="tTT-fT-rvs"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-X8-Sae" userLabel="Status Effect View">
@@ -140,20 +143,15 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="7ll-tG-dqF"/>
+                                            <constraint firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="K0X-fQ-yY6"/>
                                             <constraint firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="Xwb-Da-1u1"/>
+                                            <constraint firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="asO-w0-eMo"/>
                                             <constraint firstItem="Uze-v7-RfG" firstAttribute="centerX" secondItem="rXx-X8-Sae" secondAttribute="centerX" id="tfT-uJ-fzs"/>
                                             <constraint firstItem="Uze-v7-RfG" firstAttribute="centerY" secondItem="rXx-X8-Sae" secondAttribute="centerY" id="xhD-wg-Iyx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="EU1-xq-NCL" firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="3UF-C6-h9t"/>
-                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="7ll-tG-dqF"/>
-                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="K0X-fQ-yY6"/>
-                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="asO-w0-eMo"/>
-                                    <constraint firstItem="xnu-dz-bhy" firstAttribute="width" secondItem="xnu-dz-bhy" secondAttribute="height" multiplier="1:1" id="gP9-Ka-b2L"/>
-                                    <constraint firstItem="EU1-xq-NCL" firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="tTT-fT-rvs"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                     </stackView>

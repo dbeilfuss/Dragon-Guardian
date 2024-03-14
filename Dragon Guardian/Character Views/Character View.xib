@@ -175,7 +175,7 @@
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hve-Ts-j2o"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="xoM-be-UWM"/>
-                <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yEq-Sv-tnp"/>
+                <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="Pnk-Ub-iiH" secondAttribute="top" constant="-37.5" id="yEq-Sv-tnp"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">

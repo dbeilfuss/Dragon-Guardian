@@ -9,7 +9,7 @@ import Foundation
 
 class Dragon: Hero {
     let attacks = dragonAttacks()
-    let defences = dragonDefense()
+    let defences = dragonBlock()
     
     let heroType: Heros = .dragon
     
@@ -33,7 +33,7 @@ class Dragon: Hero {
     func drawStartingDeck() -> [Action] {
         let startingDeck = [
             attacks.claw, attacks.claw, attacks.claw, attacks.tailWhip, attacks.tailWhip, attacks.bite,
-            defences.growl, defences.growl, defences.growl, defences.jumpBack, defences.jumpBack, defences.flapWings
+            defences.growl, defences.growl, defences.growl, defences.stepBack, defences.stepBack, defences.wrapWings
         ]
         return startingDeck
     }
