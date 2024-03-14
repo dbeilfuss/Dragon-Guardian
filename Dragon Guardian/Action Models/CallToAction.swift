@@ -13,7 +13,7 @@ class CallToAction: Action {
     
     init(level: Int, name: String, cost: Int, description: String, strength: Int) {
         self.strength = strength
-        super.init(level: level, name: name, cost: cost, description: description, attackStrength: strength)
+        super.init(actionType: .attack, level: level, name: name, cost: cost, description: description, attackStrength: strength, defenseStrength: nil)
     }
     
 //    override func action(on character: Character) {

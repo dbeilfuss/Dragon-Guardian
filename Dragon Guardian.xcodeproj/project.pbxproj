@@ -12,10 +12,12 @@
 		770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */; };
 		770AAB712B9CBE3C006298DA /* actionCellSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */; };
 		770AAB732B9CC1A7006298DA /* battleManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */; };
+		772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
 		779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionTableViewCell.swift */; };
 		779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionTableViewCell.xib */; };
+		77B34F042BA2701D00E799F7 /* BasicDefense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B34F032BA2701D00E799F7 /* BasicDefense.swift */; };
 		77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */; };
 		77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */; };
 		77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */; };
@@ -27,7 +29,7 @@
 		77DB72872B8BD05200E410A2 /* Dragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72862B8BD05200E410A2 /* Dragon.swift */; };
 		77DB72892B8BD09C00E410A2 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72882B8BD09C00E410A2 /* Action.swift */; };
 		77DB728C2B8BD22400E410A2 /* Villain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB728B2B8BD22400E410A2 /* Villain.swift */; };
-		77DB728E2B8BD4C600E410A2 /* basicAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB728D2B8BD4C600E410A2 /* basicAttack.swift */; };
+		77DB728E2B8BD4C600E410A2 /* BasicAttack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB728D2B8BD4C600E410A2 /* BasicAttack.swift */; };
 		77DB72922B8BE28300E410A2 /* Actions List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72912B8BE28300E410A2 /* Actions List.swift */; };
 		77DB72952B8BEB5600E410A2 /* BattleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72942B8BEB5600E410A2 /* BattleManager.swift */; };
 		77DB72972B8BF12900E410A2 /* Guardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72962B8BF12900E410A2 /* Guardian.swift */; };
@@ -45,10 +47,12 @@
 		770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Data Types.swift"; sourceTree = "<group>"; };
 		770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionCellSelectorDelegate.swift; sourceTree = "<group>"; };
 		770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = battleManagerDelegate.swift; sourceTree = "<group>"; };
+		772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enemy Decision Manager.swift"; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
 		779D16702B99025E00597A30 /* actionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionTableViewCell.swift; sourceTree = "<group>"; };
 		779D16712B99025E00597A30 /* actionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionTableViewCell.xib; sourceTree = "<group>"; };
+		77B34F032BA2701D00E799F7 /* BasicDefense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDefense.swift; sourceTree = "<group>"; };
 		77DB72682B8AD47C00E410A2 /* Dragon Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dragon Guardian.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		77DB726B2B8AD47C00E410A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77DB726D2B8AD47C00E410A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		77DB72862B8BD05200E410A2 /* Dragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dragon.swift; sourceTree = "<group>"; };
 		77DB72882B8BD09C00E410A2 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		77DB728B2B8BD22400E410A2 /* Villain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Villain.swift; sourceTree = "<group>"; };
-		77DB728D2B8BD4C600E410A2 /* basicAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = basicAttack.swift; sourceTree = "<group>"; };
+		77DB728D2B8BD4C600E410A2 /* BasicAttack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAttack.swift; sourceTree = "<group>"; };
 		77DB72912B8BE28300E410A2 /* Actions List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Actions List.swift"; sourceTree = "<group>"; };
 		77DB72942B8BEB5600E410A2 /* BattleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleManager.swift; sourceTree = "<group>"; };
 		77DB72962B8BF12900E410A2 /* Guardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guardian.swift; sourceTree = "<group>"; };
@@ -165,9 +169,10 @@
 			children = (
 				77DB72912B8BE28300E410A2 /* Actions List.swift */,
 				77DB72882B8BD09C00E410A2 /* Action.swift */,
-				77DB728D2B8BD4C600E410A2 /* basicAttack.swift */,
+				77DB728D2B8BD4C600E410A2 /* BasicAttack.swift */,
 				77DB729E2B8C4D6200E410A2 /* CallToAction.swift */,
 				77DB72A02B8C53AB00E410A2 /* Magic.swift */,
+				77B34F032BA2701D00E799F7 /* BasicDefense.swift */,
 			);
 			path = "Action Models";
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				770AAB6F2B9CBDFB006298DA /* BattleViewController */,
 				77DB72942B8BEB5600E410A2 /* BattleManager.swift */,
 				770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */,
+				772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */,
 			);
 			path = Battles;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77DB72842B8BCE5200E410A2 /* Hero.swift in Sources */,
+				77B34F042BA2701D00E799F7 /* BasicDefense.swift in Sources */,
 				77574B412B93F7DD009CF89A /* Villager View.swift in Sources */,
 				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
 				77F726472B904206008C3495 /* Character View.swift in Sources */,
@@ -296,10 +303,11 @@
 				77DB72972B8BF12900E410A2 /* Guardian.swift in Sources */,
 				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
 				770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */,
+				772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */,
 				77DB728C2B8BD22400E410A2 /* Villain.swift in Sources */,
 				77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */,
 				77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */,
-				77DB728E2B8BD4C600E410A2 /* basicAttack.swift in Sources */,
+				77DB728E2B8BD4C600E410A2 /* BasicAttack.swift in Sources */,
 				77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,9 @@ import Foundation
 
 class Dragon: Hero {
     let attacks = dragonAttacks()
+    let defences = dragonDefense()
+    
+    let heroType: Heros = .dragon
     
     var startingStats = CharacterStats(
         name: "Dragon",
@@ -28,7 +31,10 @@ class Dragon: Hero {
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.claw, attacks.claw,attacks.bite, attacks.bite, attacks.tailWhip]
+        let startingDeck = [
+            attacks.claw, attacks.claw, attacks.claw, attacks.tailWhip, attacks.tailWhip, attacks.bite,
+            defences.growl, defences.growl, defences.growl, defences.jumpBack, defences.jumpBack, defences.flapWings
+        ]
         return startingDeck
     }
     

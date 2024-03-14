@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EL6-MP-0wa" userLabel="Stats Accent View">
-                        <rect key="frame" x="168" y="9" width="25" height="51.5"/>
+                        <rect key="frame" x="168" y="9" width="25" height="148.5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-rT-D6e" userLabel="Cell Stack View">
@@ -53,7 +53,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jik-1x-wNN" userLabel="Data Stack View">
-                                <rect key="frame" x="166" y="0.0" width="29" height="61.5"/>
+                                <rect key="frame" x="166" y="0.0" width="29" height="158.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEH-pd-odF" userLabel="Energy View">
                                         <rect key="frame" x="0.0" y="0.0" width="29" height="29.5"/>
@@ -91,7 +91,69 @@
                                             <constraint firstItem="2Ag-FV-LHd" firstAttribute="centerY" secondItem="D5Z-CN-OL1" secondAttribute="centerY" id="kow-1h-Cdk"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-dz-bhy" userLabel="Defend View">
+                                        <rect key="frame" x="0.0" y="64.5" width="29" height="29.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-2L-ugn" userLabel="Defend Label">
+                                                <rect key="frame" x="10.5" y="7" width="7.5" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xnu-dz-bhy" secondAttribute="height" multiplier="1:1" id="ZF7-Nh-ozi"/>
+                                            <constraint firstItem="wc3-2L-ugn" firstAttribute="centerY" secondItem="xnu-dz-bhy" secondAttribute="centerY" id="tzV-dw-iwP"/>
+                                            <constraint firstItem="wc3-2L-ugn" firstAttribute="centerX" secondItem="xnu-dz-bhy" secondAttribute="centerX" id="zJM-1a-mOU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-xq-NCL" userLabel="Heal View">
+                                        <rect key="frame" x="0.0" y="97" width="29" height="29"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-Ie-EYc" userLabel="Heal Label">
+                                                <rect key="frame" x="10.5" y="6.5" width="7.5" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.26044011350000001" green="0.62155268360000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="4ha-qT-PLz"/>
+                                            <constraint firstItem="aoh-Ie-EYc" firstAttribute="centerY" secondItem="EU1-xq-NCL" secondAttribute="centerY" id="NzL-dm-4jw"/>
+                                            <constraint firstItem="aoh-Ie-EYc" firstAttribute="centerX" secondItem="EU1-xq-NCL" secondAttribute="centerX" id="aIz-Sp-nYq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXx-X8-Sae" userLabel="Status Effect View">
+                                        <rect key="frame" x="0.0" y="129" width="29" height="29.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Uze-v7-RfG" userLabel="Status Effect Label">
+                                                <rect key="frame" x="10.5" y="7" width="7.5" height="15.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="Xwb-Da-1u1"/>
+                                            <constraint firstItem="Uze-v7-RfG" firstAttribute="centerX" secondItem="rXx-X8-Sae" secondAttribute="centerX" id="tfT-uJ-fzs"/>
+                                            <constraint firstItem="Uze-v7-RfG" firstAttribute="centerY" secondItem="rXx-X8-Sae" secondAttribute="centerY" id="xhD-wg-Iyx"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="EU1-xq-NCL" firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="3UF-C6-h9t"/>
+                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="7ll-tG-dqF"/>
+                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="K0X-fQ-yY6"/>
+                                    <constraint firstItem="rXx-X8-Sae" firstAttribute="width" secondItem="rXx-X8-Sae" secondAttribute="height" multiplier="1:1" id="asO-w0-eMo"/>
+                                    <constraint firstItem="xnu-dz-bhy" firstAttribute="width" secondItem="xnu-dz-bhy" secondAttribute="height" multiplier="1:1" id="gP9-Ka-b2L"/>
+                                    <constraint firstItem="EU1-xq-NCL" firstAttribute="width" secondItem="EU1-xq-NCL" secondAttribute="height" multiplier="1:1" id="tTT-fT-rvs"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                     </stackView>
@@ -117,13 +179,22 @@
                 <outlet property="attackView" destination="D5Z-CN-OL1" id="KRJ-77-OyZ"/>
                 <outlet property="cardUIView" destination="03H-58-MHj" id="ga1-Ex-eG0"/>
                 <outlet property="cellStackView" destination="cMb-rT-D6e" id="WT4-LJ-AAq"/>
+                <outlet property="defendLabel" destination="wc3-2L-ugn" id="yvb-N2-17F"/>
+                <outlet property="defendView" destination="xnu-dz-bhy" id="GMX-wn-vxV"/>
                 <outlet property="energyLabel" destination="EHJ-ZI-JQB" id="bME-6A-ewI"/>
                 <outlet property="energyView" destination="dEH-pd-odF" id="SYS-xf-JWN"/>
+                <outlet property="healLabel" destination="aoh-Ie-EYc" id="Ojl-lM-ULw"/>
+                <outlet property="healView" destination="EU1-xq-NCL" id="QsX-rS-1ft"/>
+                <outlet property="statusEffectLabel" destination="Uze-v7-RfG" id="u3l-iW-03d"/>
+                <outlet property="statusEffectView" destination="rXx-X8-Sae" id="gWW-9u-5aG"/>
             </connections>
             <point key="canvasLocation" x="53.780487804878049" y="57.96610169491526"/>
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

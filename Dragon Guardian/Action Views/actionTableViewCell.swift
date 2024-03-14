@@ -26,10 +26,39 @@ class actionTableViewCell: UITableViewCell {
     // attack
     @IBOutlet weak var attackView: UIView!
     @IBOutlet weak var attackLabel: UILabel!
+    
+    // defend
+    @IBOutlet weak var defendView: UIView!
+    @IBOutlet weak var defendLabel: UILabel!
+    
+    // heal
+    @IBOutlet weak var healView: UIView!
+    @IBOutlet weak var healLabel: UILabel!
+    
+    // statusEffect
+    @IBOutlet weak var statusEffectView: UIView!
+    @IBOutlet weak var statusEffectLabel: UILabel!
+    
+    func statViews() -> [UIView] {[
+        energyView,
+        attackView,
+        defendView,
+        healView,
+        statusEffectView
+    ]}
+    
+    func statLabels() -> [UILabel] {[
+        energyLabel,
+        attackLabel,
+        defendLabel,
+        healLabel,
+        statusEffectLabel
+    ]}
 
     //MARK: - Properties
     var cellNumber: Int = 0
-    var hero: Int = 1
+    var actionType: ActionType = .attack
+    var hero: Heros = .dragon
     var flipped: Bool = false
     var actionSelectorDelegate: actionCellSelectorDelegate?
     
@@ -44,8 +73,9 @@ class actionTableViewCell: UITableViewCell {
             cardUIView.layer.cornerRadius = 10
             
             // stats
-            energyView.layer.cornerRadius = 7
-            attackView.layer.cornerRadius = 7
+            for view in statViews() {
+                view.layer.cornerRadius = 7
+            }
             
             // Gesture Recognizer (Long Press)
             let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
@@ -57,8 +87,7 @@ class actionTableViewCell: UITableViewCell {
     
     // Cell
     func flipCellForHero() {
-        if hero == 2 && !flipped {
-            print("reversing order")
+        if hero == .dragon && !flipped {
             // reverse the order of the subviews
             let arrangedSubviews = cellStackView.arrangedSubviews
             
@@ -76,10 +105,11 @@ class actionTableViewCell: UITableViewCell {
     }
     
     //MARK: - Set - Called by UITable during Setup
-    func set(_ action: Action, cellNumber: Int, hero: Int, delegate: actionCellSelectorDelegate) {
+    func set(_ action: Action, cellNumber: Int, hero: Heros, delegate: actionCellSelectorDelegate) {
         
         // cell properties
         self.hero = hero
+        self.actionType = action.actionType
         self.cellNumber = cellNumber
         actionSelectorDelegate = delegate
         
@@ -91,8 +121,24 @@ class actionTableViewCell: UITableViewCell {
         actionImage.image = UIImage(named: action.name)
         
         // Stats
+        for view in statViews() {
+            view.isHidden = true
+        }
+        
+        energyView.isHidden = false
         energyLabel.text = String(action.cost)
-        attackLabel.text = String(action.attackStrength ?? 0)
+        
+        switch actionType {
+        case .attack:
+            attackView.isHidden = false
+            attackLabel.text = String(action.attackStrength ?? 0)
+        case .defend:
+            defendView.isHidden = false
+            defendLabel.text = String(action.defenseStrength ?? 0)
+        case .protect:
+            return
+        }
+        
     }
     
     //MARK: - Action
@@ -102,12 +148,12 @@ class actionTableViewCell: UITableViewCell {
         switch gesture.state {
         case .began:
             print("Drag started")
-            actionSelectorDelegate?.actionSelected(hero: hero, fingerPosition: location)
+            actionSelectorDelegate?.actionSelected(actionType: actionType, hero: hero, fingerPosition: location)
         case .changed:
-            actionSelectorDelegate?.didDragToPoint(hero: hero, fingerPosition: location)
+            actionSelectorDelegate?.didDragToPoint(actionType: actionType, hero: hero, fingerPosition: location)
         case .ended:
             print("Drag ended")
-            actionSelectorDelegate?.didEndDragging(hero: hero, fingerPosition: location, cellNumber: cellNumber)
+            actionSelectorDelegate?.didEndDragging(hero: hero, fingerPosition: location, cellNumber: cellNumber, actionType: actionType)
 
         default:
             break
@@ -121,13 +167,11 @@ class actionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-
-    
 }
 
 //MARK: - Protocol - For Battle View Controller
 protocol actionCellSelectorDelegate {
-    func actionSelected(hero: Int, fingerPosition: CGPoint)
-    func didDragToPoint(hero: Int, fingerPosition: CGPoint)
-    func didEndDragging(hero: Int, fingerPosition: CGPoint, cellNumber: Int)
+    func actionSelected(actionType: ActionType, hero: Heros, fingerPosition: CGPoint)
+    func didDragToPoint(actionType: ActionType, hero: Heros, fingerPosition: CGPoint)
+    func didEndDragging(hero: Heros, fingerPosition: CGPoint, cellNumber: Int, actionType: ActionType)
 }

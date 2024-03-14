@@ -9,34 +9,61 @@ import UIKit
 
 extension BattleViewController: actionCellSelectorDelegate {
     
+    
     //MARK: - UILongPressGestureRecognizer
     
-    func actionSelected(hero: Int, fingerPosition: CGPoint) {
+    func actionSelected(actionType: ActionType, hero: Heros, fingerPosition: CGPoint) {
+        
+        let heroNum = getHeroNum(hero: hero)
+        
         print("actionSelected: hero: \(hero)")
         print("fingerPosition: \(fingerPosition)")
         
-        toggleTargetVisibility(hero: hero)
-        moveTargetSymbol(hero: hero, fingerPosition: fingerPosition)
+        toggleTargetVisibility(hero: heroNum)
+        moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
     }
     
-    func didDragToPoint(hero table: Int, fingerPosition: CGPoint) {
-        moveTargetSymbol(hero: table, fingerPosition: fingerPosition)
+    func didDragToPoint(actionType: ActionType, hero: Heros, fingerPosition: CGPoint) {
+        let heroNum = getHeroNum(hero: hero)
+        moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
     }
     
-    func didEndDragging(hero: Int, fingerPosition: CGPoint, cellNumber: Int) {
+    func didEndDragging(hero: Heros, fingerPosition: CGPoint, cellNumber: Int, actionType: ActionType) {
         
-        // identify target Character
-        let relativeTable = identifyRelativeTable(hero: hero)
-        let targetVillain: TargetVillain = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        let heroNum = getHeroNum(hero: hero)
+        let relativeTable = identifyRelativeTable(hero: heroNum)
         
-            // UI
-            toggleTargetVisibility(hero: hero)
-            targetVillain.villainView?.targetLock(false, hero: hero)
+        switch actionType {
+        case .attack:
+            let targetVillain: TargetVillain = identifyTargetVillain(fingerPosition: fingerPosition, relativeTable: relativeTable)
             
-        if targetVillain.villainRow != nil {
-            // BattleManager
-            battleDelegate.actionPlayed(hero: hero, action: cellNumber, villainAttacked: targetVillain)
+            // UI
+            toggleTargetVisibility(hero: heroNum)
+            targetVillain.villainView?.targetLock(false, hero: heroNum)
+            
+            if targetVillain.villainRow != nil {
+                // BattleManager
+                battleDelegate.actionPlayed(actionType: .attack, hero: hero, action: cellNumber, targetVillain: targetVillain, targetHero: nil)
+            }
+            
+        case .defend:
+            let targetHero: TargetHero? = identifyTargetHero(hero: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
+            
+            // UI
+            toggleTargetVisibility(hero: heroNum)
+            targetHero?.heroView.targetLock(false, hero: heroNum)
+            
+            if targetHero != nil {
+                battleDelegate.actionPlayed(actionType: .defend, hero: hero, action: cellNumber, targetVillain: nil, targetHero: targetHero?.hero)
+            }
+            
+        case .protect:
+            return
         }
+        
+
+        
+        
         
     }
     
@@ -55,18 +82,25 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     //MARK: - Utility
     
-    func moveTargetSymbol(hero: Int, fingerPosition: CGPoint) {
+    func moveTargetSymbol(actionType: ActionType, heroType: Heros, heroNum: Int, fingerPosition: CGPoint) {
         // identify correct target symbol - the target that moves with finger position
         let targetViews: [UIImageView] = [targetImage1, targetImage2]
-        let thisTarget = targetViews[hero-1]
+        let thisTarget = targetViews[heroNum-1]
         
-        let relativeTable: UITableView = identifyRelativeTable(hero: hero)
+        let relativeTable: UITableView = identifyRelativeTable(hero: heroNum)
         let convertedPoint = relativeTable.convert(fingerPosition, to: view)
         
         // move target symbol
         thisTarget.center = convertedPoint
         
-        let _ = identifyTargetCharacter(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        switch actionType {
+        case .attack:
+            let _ = identifyTargetVillain(fingerPosition: fingerPosition, relativeTable: relativeTable)
+        case .defend:
+            let _ = identifyTargetHero(hero: heroType, fingerPosition: fingerPosition, relativeTable: relativeTable)
+        case .protect:
+            return
+        }
         
     }
     
@@ -79,7 +113,7 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     //MARK: - Identify Target
     
-    func identifyTargetCharacter(fingerPosition: CGPoint, relativeTable: UITableView) -> TargetVillain {
+    func identifyTargetVillain(fingerPosition: CGPoint, relativeTable: UITableView) -> TargetVillain {
         var isTargetLocked: Bool = false
         let enemyStackViews: [UIStackView] = [littleVillainsStackView, bigVillainsStackView, hugeVillainsStackView]
         
@@ -109,4 +143,19 @@ extension BattleViewController: actionCellSelectorDelegate {
         
     }
     
+    func identifyTargetHero(hero: Heros, fingerPosition: CGPoint, relativeTable: UITableView) -> TargetHero? {
+        var isTargetLocked: Bool = false
+        let heroNum = getHeroNum(hero: hero)
+        let heroView: CharacterView? = hero == .guardian ? hero1View.subviews.first as? CharacterView : hero2View.subviews.first as? CharacterView
+        
+        if heroView != nil {
+            if !isTargetLocked && heroView!.bounds.contains(relativeTable.convert(fingerPosition, to: heroView)) {
+                heroView!.targetLock(true, hero: relativeTable.tag)
+                isTargetLocked = true
+                return TargetHero(hero: hero, heroView: heroView!)
+            }
+            heroView!.targetLock(false, hero: relativeTable.tag)
+        }
+        return nil
+    }
 }

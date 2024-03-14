@@ -10,6 +10,9 @@ import Foundation
 class Guardian: Hero {
     
     let attacks = guardianAttacks()
+    let defences = guardianDefense()
+    
+    let heroType: Heros = .guardian
     
     let startingStats = CharacterStats(
         name: "Guardian",
@@ -29,7 +32,10 @@ class Guardian: Hero {
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.punch, attacks.punch, attacks.dagger, attacks.dagger, attacks.rock]
+        let startingDeck = [
+            attacks.punch, attacks.punch, attacks.punch, attacks.rock, attacks.rock, attacks.dagger,
+            defences.block, defences.block, defences.block, defences.dodge, defences.dodge, defences.roll
+        ]
         return startingDeck
     }
     

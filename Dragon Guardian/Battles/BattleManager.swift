@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 
-
 class BattleManager: battleViewControllerDelegate {
     
     //MARK: - Properties
@@ -18,14 +17,16 @@ class BattleManager: battleViewControllerDelegate {
     let dragon = Dragon()
     let villagers = Villagers()
     
+//    func herosList() -> [Hero] { [guardian, dragon, villagers] }
+    
     var dragonHand: [Action] = []
     var guardianHand: [Action] = []
     var villagersHand: [Action] = []
     
     let villainsList: VillainsList = VillainsList(
-        hugeVillains: [BigDragon()],
-        bigVillains: [BigDragon(), LittleDragon()],
-        littleVillains: [LittleDragon(), BigDragon(), LittleDragon()])
+        hugeVillains: [],
+        bigVillains: [BigDragon()],
+        littleVillains: [LittleDragon(), LittleDragon()])
     
     var delegate: battleManagerDelegate?
     
@@ -57,13 +58,27 @@ class BattleManager: battleViewControllerDelegate {
 
     //MARK: - Actions
     
-    func actionPlayed(hero activeHero: Int, action actionPlayed: Int, villainAttacked: TargetVillain) {
-        print("action played")
+    func actionPlayed(actionType: ActionType, hero: Heros, action actionNum: Int, targetVillain: TargetVillain?, targetHero: Heros?) {
+        let thisHero = hero == .dragon ? dragon : (hero == .guardian ? guardian : villagers)
+        let heroHand = hero == .dragon ? dragonHand : guardianHand
+        let action = heroHand[actionNum]
+
+        switch actionType {
+        case .attack:
+            if let villain = targetVillain {
+                attackPlayed(hero: thisHero, action: action, villainAttacked: villain)
+            }
+        case .defend:
+            defendPlayed(hero: thisHero, action: action)
+        case .protect:
+            return
+        }
+    }
+    
+    func attackPlayed(hero: Hero, action: Action, villainAttacked: TargetVillain) {
+        print("attack played")
         
         // Properties
-        let hero = activeHero == 1 ? guardian : dragon
-        let heroHand = activeHero == 1 ? guardianHand : dragonHand
-        let action = heroHand[actionPlayed]
         let villainsList = villainAttacked.villainRow == 0 ? self.villainsList.hugeVillains : (villainAttacked.villainRow == 1 ? self.villainsList.bigVillains : self.villainsList.littleVillains)
         let villain = villainsList[villainAttacked.villainNumber]
 
@@ -78,15 +93,29 @@ class BattleManager: battleViewControllerDelegate {
             action.attack(from: hero, to: villain)
             
             // updateUI
-            let herosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
-            
-            delegate?.updateCharacters(herosList: herosList, villainsList: self.villainsList)
+            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         } else {
             print("not enough energy \(hero.stats.energy)")
         }
 
+    }
+    
+    func defendPlayed(hero: Hero, action: Action) {
+        print("defend played")
+        print("hero: \(hero.stats.name)")
+        print("action: \(action.name)")
+        
+        if hero.stats.energy >= action.cost {
+            // Defend
+            action.defend(character: hero)
+            
+            // updateUI
+            let herosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
+            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
+        }
         
     }
+
     
 }
 

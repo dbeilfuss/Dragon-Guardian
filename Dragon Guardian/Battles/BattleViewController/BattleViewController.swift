@@ -46,6 +46,15 @@ class BattleViewController: UIViewController {
     //MARK: - Properties
     let battleDelegate: battleViewControllerDelegate = BattleManager()
 
+    enum heroNumbers: Int {
+        case dragon = 2
+        case guardian = 1
+        case villagers = 3
+    }
+    
+    func getHeroNum(hero: Heros) -> Int {
+        return hero == Heros.dragon ? heroNumbers.dragon.rawValue : (hero == .guardian ? heroNumbers.guardian.rawValue : heroNumbers.villagers.rawValue)
+    }
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -102,8 +111,8 @@ class BattleViewController: UIViewController {
     
     func displayHeros(_ heros: HerosList) {
         
-        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: 1)
-        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: 2)
+        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: heroNumbers.guardian.rawValue)
+        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: heroNumbers.dragon.rawValue)
         let villagersView: VillagerView = createVillagerView(villagers: heros.villagers.currentStats())
         
         addToView(childView: guardianView, parentView: hero1View)
@@ -133,7 +142,7 @@ class BattleViewController: UIViewController {
     }
     
     func createCharacterView(_ character: CharacterStats, tag: Int) -> CharacterView {
-        // Setup CharacterView()
+        // Setup CharacterView
         let characterView = CharacterView()
         characterView.translatesAutoresizingMaskIntoConstraints = false
         characterView.displayCharacter(character, tag: tag)
@@ -205,9 +214,11 @@ extension BattleViewController: UITableViewDataSource {
             print("heroTableView error: cannot find correct tag when determining which hand to use")
         }
         
+        let thisHero: Heros = tableView.tag == 1 ? .guardian : .dragon
+        
         // create cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionTableViewCell", for: indexPath) as! actionTableViewCell
-        cell.set(thisHeroHand[indexPath.row], cellNumber: indexPath.row, hero: tableView.tag, delegate: self)
+        cell.set(thisHeroHand[indexPath.row], cellNumber: indexPath.row, hero: thisHero, delegate: self)
         cell.contentView.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
         
@@ -232,5 +243,5 @@ protocol battleViewControllerDelegate {
     func retrieveHeroHands() -> [[Action]]
     func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsList
-    func actionPlayed(hero activeHero: Int, action actionPlayed: Int, villainAttacked: TargetVillain)
+    func actionPlayed(actionType: ActionType, hero: Heros, action: Int, targetVillain: TargetVillain?, targetHero: Heros?)
 }

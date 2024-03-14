@@ -7,10 +7,27 @@
 
 import Foundation
 
+enum Heros {
+    case guardian
+    case dragon
+    case villagers
+}
+
+enum ActionType {
+    case attack
+    case defend
+    case protect
+}
+
 struct TargetVillain {
     let villainRow: Int?
     let villainNumber: Int
     let villainView: CharacterView?
+}
+
+struct TargetHero {
+    let hero: Heros
+    let heroView: CharacterView
 }
 
 struct VillainsList {

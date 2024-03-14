@@ -15,6 +15,10 @@ class CharacterView: UIView {
     @IBOutlet weak var healthProgressView: UIProgressView!
     @IBOutlet weak var healthLabel: UILabel!
     
+    @IBOutlet weak var blockView: UIView!
+    @IBOutlet weak var blockImageView: UIImageView!
+    @IBOutlet weak var blockLabel: UILabel!
+    
     // Energy Orb
     @IBOutlet weak var energyView: UIView!
     @IBOutlet weak var energyImage: UIImageView!
@@ -23,7 +27,6 @@ class CharacterView: UIView {
     @IBOutlet weak var energyLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var blockLabel: UILabel!
     @IBOutlet weak var actionsRemainingLabel: UILabel!
     @IBOutlet weak var effectsLabel: UILabel!
     @IBOutlet weak var intentLabel: UILabel!
@@ -109,6 +112,7 @@ class CharacterView: UIView {
         // Health
         healthProgressView.tintColor = isHero ? .systemGreen : .red
         updateHealth(to: character.health, maxHealth: character.maxHealth)
+        updateBlock(to: character.block)
         
         // Energy
         if isHero {
@@ -149,22 +153,32 @@ class CharacterView: UIView {
         }
     }
     
-    //MARK: - Update After Action
+    //MARK: - Update Character
     
     func updateCharacter(_ characterStats: CharacterStats) {
-        print("updating character: \(characterStats)")
+        print("updating character: \(characterStats.name)")
         updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
+        updateBlock(to: characterStats.block)
+    }
+    
+    func updateEnergy(_ energy: Int) {
+        energyLabel.text = "\(energy)"
     }
     
     func updateHealth(to newHealth: Int, maxHealth: Int) {
         healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
         healthLabel.text = "\(newHealth)/\(maxHealth)"
-        print("updating health to : \(newHealth)%")
+        print("updating health to : \(newHealth)")
     }
     
-    func updateEnergy(_ energy: Int) {
-        energyLabel.text = "\(energy)"
+    func updateBlock(to newBlock: Int) {
+        if newBlock > 0 {
+            blockView.isHidden = false
+            blockLabel.text = String(newBlock)
+        } else {
+            blockView.isHidden = true
+        }
     }
 
 }

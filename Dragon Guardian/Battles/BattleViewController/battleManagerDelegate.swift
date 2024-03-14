@@ -19,6 +19,7 @@ extension BattleViewController: battleManagerDelegate {
     }
     
     func updateHeros(_ herosList: HerosList) {
+        print("updating heros")
         
         let herosArray: [CharacterView] = [
             hero1View.subviews[0] as! CharacterView,
