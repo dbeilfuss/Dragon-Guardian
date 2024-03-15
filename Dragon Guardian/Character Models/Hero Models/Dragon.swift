@@ -33,7 +33,7 @@ class Dragon: Hero {
     func drawStartingDeck() -> [Action] {
         let startingDeck = [
             attacks.claw, attacks.claw, attacks.claw, attacks.tailWhip, attacks.tailWhip, attacks.bite,
-            defences.growl, defences.growl, defences.growl, defences.stepBack, defences.stepBack, defences.wrapWings
+            defences.growl, defences.growl, defences.growl, defences.anticipate, defences.anticipate, defences.cocoon
         ]
         return startingDeck
     }

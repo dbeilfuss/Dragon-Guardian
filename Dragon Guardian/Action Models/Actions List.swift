@@ -27,8 +27,8 @@ struct dragonAttacks {
 
 struct dragonBlock {
     let growl = BasicBlock(level: 1, name: "Growl", cost: 1, description: "Make your enemies' knees shake", strength: 1)
-    let stepBack = BasicBlock(level: 2, name: "Step Back", cost: 2, description: "Take a step back, out of harms way.", strength: 2)
-    let wrapWings = BasicBlock(level: 3, name: "Flap Wings", cost: 4, description: "Your Wings encircle you in a protective shell", strength: 10)
+    let anticipate = BasicBlock(level: 2, name: "Anticipate", cost: 2, description: "Stop the incoming blow.", strength: 2)
+    let cocoon = BasicBlock(level: 3, name: "Cocoon", cost: 4, description: "Your Wings encircle you in a protective shell", strength: 10)
 }
 
 //struct callsToAction {
