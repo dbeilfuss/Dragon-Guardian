@@ -12,7 +12,7 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     //MARK: - UILongPressGestureRecognizer
     
-    func actionSelected(actionType: ActionType, hero: Heros, fingerPosition: CGPoint) {
+    func actionSelected(actionType: ActionType, hero: Hero, fingerPosition: CGPoint) {
         
         let heroNum = getHeroNum(hero: hero)
         
@@ -23,12 +23,12 @@ extension BattleViewController: actionCellSelectorDelegate {
         moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
     }
     
-    func didDragToPoint(actionType: ActionType, hero: Heros, fingerPosition: CGPoint) {
+    func didDragToPoint(actionType: ActionType, hero: Hero, fingerPosition: CGPoint) {
         let heroNum = getHeroNum(hero: hero)
         moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
     }
     
-    func didEndDragging(hero: Heros, fingerPosition: CGPoint, cellNumber: Int, actionType: ActionType) {
+    func didEndDragging(hero: Hero, fingerPosition: CGPoint, cellNumber: Int, actionType: ActionType) {
         
         let heroNum = getHeroNum(hero: hero)
         let relativeTable = identifyRelativeTable(hero: heroNum)
@@ -46,7 +46,7 @@ extension BattleViewController: actionCellSelectorDelegate {
                 battleDelegate.actionPlayed(actionType: .attack, hero: hero, action: cellNumber, targetVillain: targetVillain, targetHero: nil)
             }
             
-        case .defend:
+        case .block:
             let targetHero: TargetHero? = identifyTargetHero(hero: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
             
             // UI
@@ -54,7 +54,7 @@ extension BattleViewController: actionCellSelectorDelegate {
             targetHero?.heroView.targetLock(false, hero: heroNum)
             
             if targetHero != nil {
-                battleDelegate.actionPlayed(actionType: .defend, hero: hero, action: cellNumber, targetVillain: nil, targetHero: targetHero?.hero)
+                battleDelegate.actionPlayed(actionType: .block, hero: hero, action: cellNumber, targetVillain: nil, targetHero: targetHero?.hero)
             }
             
         case .protect:
@@ -82,7 +82,7 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     //MARK: - Utility
     
-    func moveTargetSymbol(actionType: ActionType, heroType: Heros, heroNum: Int, fingerPosition: CGPoint) {
+    func moveTargetSymbol(actionType: ActionType, heroType: Hero, heroNum: Int, fingerPosition: CGPoint) {
         // identify correct target symbol - the target that moves with finger position
         let targetViews: [UIImageView] = [targetImage1, targetImage2]
         let thisTarget = targetViews[heroNum-1]
@@ -96,7 +96,7 @@ extension BattleViewController: actionCellSelectorDelegate {
         switch actionType {
         case .attack:
             let _ = identifyTargetVillain(fingerPosition: fingerPosition, relativeTable: relativeTable)
-        case .defend:
+        case .block:
             let _ = identifyTargetHero(hero: heroType, fingerPosition: fingerPosition, relativeTable: relativeTable)
         case .protect:
             return
@@ -143,9 +143,8 @@ extension BattleViewController: actionCellSelectorDelegate {
         
     }
     
-    func identifyTargetHero(hero: Heros, fingerPosition: CGPoint, relativeTable: UITableView) -> TargetHero? {
+    func identifyTargetHero(hero: Hero, fingerPosition: CGPoint, relativeTable: UITableView) -> TargetHero? {
         var isTargetLocked: Bool = false
-        let heroNum = getHeroNum(hero: hero)
         let heroView: CharacterView? = hero == .guardian ? hero1View.subviews.first as? CharacterView : hero2View.subviews.first as? CharacterView
         
         if heroView != nil {

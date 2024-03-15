@@ -7,6 +7,6 @@
 
 import Foundation
 
-class Hero: Character {
+class HeroClass: Character {
 
 }

@@ -91,10 +91,10 @@
                                             <constraint firstItem="2Ag-FV-LHd" firstAttribute="centerY" secondItem="D5Z-CN-OL1" secondAttribute="centerY" id="kow-1h-Cdk"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-dz-bhy" userLabel="Defend View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnu-dz-bhy" userLabel="Block View">
                                         <rect key="frame" x="0.0" y="64.5" width="29" height="29.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-2L-ugn" userLabel="Defend Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wc3-2L-ugn" userLabel="Block Label">
                                                 <rect key="frame" x="10.5" y="7" width="7.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,10 +175,10 @@
                 <outlet property="actionLabel" destination="2wt-rX-o1U" id="l94-Ec-oAC"/>
                 <outlet property="attackLabel" destination="2Ag-FV-LHd" id="gT5-xk-3n2"/>
                 <outlet property="attackView" destination="D5Z-CN-OL1" id="KRJ-77-OyZ"/>
+                <outlet property="blockLabel" destination="wc3-2L-ugn" id="yvb-N2-17F"/>
+                <outlet property="blockView" destination="xnu-dz-bhy" id="GMX-wn-vxV"/>
                 <outlet property="cardUIView" destination="03H-58-MHj" id="ga1-Ex-eG0"/>
                 <outlet property="cellStackView" destination="cMb-rT-D6e" id="WT4-LJ-AAq"/>
-                <outlet property="defendLabel" destination="wc3-2L-ugn" id="yvb-N2-17F"/>
-                <outlet property="defendView" destination="xnu-dz-bhy" id="GMX-wn-vxV"/>
                 <outlet property="energyLabel" destination="EHJ-ZI-JQB" id="bME-6A-ewI"/>
                 <outlet property="energyView" destination="dEH-pd-odF" id="SYS-xf-JWN"/>
                 <outlet property="healLabel" destination="aoh-Ie-EYc" id="Ojl-lM-ULw"/>
@@ -191,10 +191,10 @@
     </objects>
     <resources>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

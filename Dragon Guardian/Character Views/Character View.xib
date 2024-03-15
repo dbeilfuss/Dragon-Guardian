@@ -102,7 +102,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="251" height="0.0"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-1d-34g" userLabel="Block View">
-                                    <rect key="frame" x="125.5" y="-25" width="0.0" height="50"/>
+                                    <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Block Icon" translatesAutoresizingMaskIntoConstraints="NO" id="UdF-ln-Wpm" userLabel="Block Image">
                                             <rect key="frame" x="-289" y="0.0" width="578" height="30"/>
@@ -125,9 +125,32 @@
                                         <constraint firstItem="0IZ-9j-DWP" firstAttribute="centerX" secondItem="QUQ-1d-34g" secondAttribute="centerX" id="mBm-7k-aSv"/>
                                     </constraints>
                                 </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNC-AK-mzI" userLabel="Protected View">
+                                    <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Protected Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fTr-l4-2AK" userLabel="Protected Image">
+                                            <rect key="frame" x="-313" y="0.0" width="626" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="rWj-4e-dxn"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt6-au-nIs" userLabel="Protected Label">
+                                            <rect key="frame" x="-8.5" y="0.0" width="17" height="50"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="fTr-l4-2AK" firstAttribute="centerY" secondItem="hNC-AK-mzI" secondAttribute="centerY" id="5Ge-7x-lsV"/>
+                                        <constraint firstItem="fTr-l4-2AK" firstAttribute="centerX" secondItem="hNC-AK-mzI" secondAttribute="centerX" id="Z5f-C0-cff"/>
+                                        <constraint firstItem="Yt6-au-nIs" firstAttribute="centerX" secondItem="hNC-AK-mzI" secondAttribute="centerX" id="irV-4k-1cU"/>
+                                        <constraint firstItem="Yt6-au-nIs" firstAttribute="centerY" secondItem="hNC-AK-mzI" secondAttribute="centerY" id="ttp-V6-3OV"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="QUQ-1d-34g" firstAttribute="centerX" secondItem="8A8-Iy-fOr" secondAttribute="centerX" id="5HV-xR-eYM"/>
                                 <constraint firstItem="QUQ-1d-34g" firstAttribute="centerY" secondItem="8A8-Iy-fOr" secondAttribute="centerY" id="dBB-Hm-Cae"/>
                             </constraints>
                         </stackView>
@@ -190,6 +213,7 @@
     <resources>
         <image name="Block Icon" width="578" height="680"/>
         <image name="Energy" width="470" height="472"/>
+        <image name="Protected Icon" width="626" height="712"/>
         <image name="Target" width="810" height="794"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

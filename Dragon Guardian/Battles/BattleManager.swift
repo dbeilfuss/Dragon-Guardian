@@ -13,9 +13,9 @@ class BattleManager: battleViewControllerDelegate {
     
     //MARK: - Properties
     
-    let guardian = Guardian()
-    let dragon = Dragon()
-    let villagers = Villagers()
+    let guardian = GuardianClass()
+    let dragon = DragonClass()
+    let villagers = VillagersClass()
     
 //    func herosList() -> [Hero] { [guardian, dragon, villagers] }
     
@@ -58,7 +58,7 @@ class BattleManager: battleViewControllerDelegate {
 
     //MARK: - Actions
     
-    func actionPlayed(actionType: ActionType, hero: Heros, action actionNum: Int, targetVillain: TargetVillain?, targetHero: Heros?) {
+    func actionPlayed(actionType: ActionType, hero: Hero, action actionNum: Int, targetVillain: TargetVillain?, targetHero: Hero?) {
         let thisHero = hero == .dragon ? dragon : (hero == .guardian ? guardian : villagers)
         let heroHand = hero == .dragon ? dragonHand : guardianHand
         let action = heroHand[actionNum]
@@ -68,14 +68,14 @@ class BattleManager: battleViewControllerDelegate {
             if let villain = targetVillain {
                 attackPlayed(hero: thisHero, action: action, villainAttacked: villain)
             }
-        case .defend:
-            defendPlayed(hero: thisHero, action: action)
+        case .block:
+            blockPlayed(hero: thisHero, action: action)
         case .protect:
             return
         }
     }
     
-    func attackPlayed(hero: Hero, action: Action, villainAttacked: TargetVillain) {
+    func attackPlayed(hero: HeroClass, action: Action, villainAttacked: TargetVillain) {
         print("attack played")
         
         // Properties
@@ -100,17 +100,36 @@ class BattleManager: battleViewControllerDelegate {
 
     }
     
-    func defendPlayed(hero: Hero, action: Action) {
-        print("defend played")
+    func blockPlayed(hero: HeroClass, action: Action) {
+        
+        // Feedback
+        print("block played")
         print("hero: \(hero.stats.name)")
         print("action: \(action.name)")
         
         if hero.stats.energy >= action.cost {
-            // Defend
-            action.defend(character: hero)
+            
+            // Block
+            action.block(character: hero)
             
             // updateUI
-            let herosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
+            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
+        }
+        
+    }
+    
+    func protectPlayed(protector: HeroClass, protected: HeroClass, action: Action) {
+        print("protect played")
+        print("protector: \(protector.stats.name)")
+        print("protected: \(protected.stats.name)")
+        print("action: \(action.name)")
+        
+        if protector.stats.energy >= action.cost {
+            
+            // Protect
+            action.protect(protector: protector, protected: protected)
+            
+            // updateUI
             delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         }
         

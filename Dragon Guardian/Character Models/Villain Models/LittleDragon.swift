@@ -19,6 +19,8 @@ class LittleDragon: Villain {
         maxEnergy: 0,
         energy: 0,
         block: 0,
+        protection: [],
+        protectingIDs: [],
         statusEffects: [String()],
         deck: []
     )

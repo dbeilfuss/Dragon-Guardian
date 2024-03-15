@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Dragon: Hero {
+class DragonClass: HeroClass {
     let attacks = dragonAttacks()
-    let defences = dragonBlock()
+    let blocks = dragonBlock()
     
-    let heroType: Heros = .dragon
+    let heroType: Hero = .dragon
     
     var startingStats = CharacterStats(
         name: "Dragon",
@@ -20,7 +20,9 @@ class Dragon: Hero {
         health: 25,
         maxEnergy: 10,
         energy: 10,
-        block: 0,
+        block: 0, 
+        protection: [],
+        protectingIDs: [],
         statusEffects: [String()],
         deck: []
     )
@@ -33,7 +35,7 @@ class Dragon: Hero {
     func drawStartingDeck() -> [Action] {
         let startingDeck = [
             attacks.claw, attacks.claw, attacks.claw, attacks.tailWhip, attacks.tailWhip, attacks.bite,
-            defences.growl, defences.growl, defences.growl, defences.anticipate, defences.anticipate, defences.cocoon
+            blocks.growl, blocks.growl, blocks.growl, blocks.anticipate, blocks.anticipate, blocks.cocoon
         ]
         return startingDeck
     }

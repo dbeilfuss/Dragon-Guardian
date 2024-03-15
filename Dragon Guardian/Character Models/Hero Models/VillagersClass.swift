@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Villagers: Hero {
+class VillagersClass: HeroClass {
     let attacks = dragonAttacks()
-    let heroType: Heros = .villagers
+    let heroType: Hero = .villagers
     
     var startingStats = CharacterStats(
         name: "Villagers",
@@ -19,6 +19,8 @@ class Villagers: Hero {
         maxEnergy: 0,
         energy: 0,
         block: 0,
+        protection: [],
+        protectingIDs: [],
         statusEffects: [String()],
         deck: []
     )

@@ -7,12 +7,12 @@
 
 import Foundation
 
-class Guardian: Hero {
+class GuardianClass: HeroClass {
     
     let attacks = guardianAttacks()
-    let defences = guardianBlock()
+    let blocks = guardianBlock()
     
-    let heroType: Heros = .guardian
+    let heroType: Hero = .guardian
     
     let startingStats = CharacterStats(
         name: "Guardian",
@@ -21,7 +21,9 @@ class Guardian: Hero {
         health: 15,
         maxEnergy: 10,
         energy: 10,
-        block: 0,
+        block: 0, 
+        protection: [],
+        protectingIDs: [],
         statusEffects: [String()],
         deck: []
     )
@@ -34,7 +36,7 @@ class Guardian: Hero {
     func drawStartingDeck() -> [Action] {
         let startingDeck = [
             attacks.punch, attacks.punch, attacks.punch, attacks.rock, attacks.rock, attacks.dagger,
-            defences.block, defences.block, defences.block, defences.dodge, defences.dodge, defences.roll
+            blocks.block, blocks.block, blocks.block, blocks.dodge, blocks.dodge, blocks.roll
         ]
         return startingDeck
     }

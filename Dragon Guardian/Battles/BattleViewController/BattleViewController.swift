@@ -52,8 +52,8 @@ class BattleViewController: UIViewController {
         case villagers = 3
     }
     
-    func getHeroNum(hero: Heros) -> Int {
-        return hero == Heros.dragon ? heroNumbers.dragon.rawValue : (hero == .guardian ? heroNumbers.guardian.rawValue : heroNumbers.villagers.rawValue)
+    func getHeroNum(hero: Hero) -> Int {
+        return hero == Hero.dragon ? heroNumbers.dragon.rawValue : (hero == .guardian ? heroNumbers.guardian.rawValue : heroNumbers.villagers.rawValue)
     }
     
     //MARK: - ViewDidLoad
@@ -214,7 +214,7 @@ extension BattleViewController: UITableViewDataSource {
             print("heroTableView error: cannot find correct tag when determining which hand to use")
         }
         
-        let thisHero: Heros = tableView.tag == 1 ? .guardian : .dragon
+        let thisHero: Hero = tableView.tag == 1 ? .guardian : .dragon
         
         // create cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionTableViewCell", for: indexPath) as! actionTableViewCell
@@ -243,5 +243,5 @@ protocol battleViewControllerDelegate {
     func retrieveHeroHands() -> [[Action]]
     func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsList
-    func actionPlayed(actionType: ActionType, hero: Heros, action: Int, targetVillain: TargetVillain?, targetHero: Heros?)
+    func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
 }

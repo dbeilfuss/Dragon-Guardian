@@ -14,23 +14,27 @@ class Action {
     var cost: Int
     let description: String
     var attackStrength: Int?
-    var defenseStrength: Int?
+    var blockStrength: Int?
     
-    init(actionType: ActionType, level: Int, name: String, cost: Int, description: String, attackStrength: Int?, defenseStrength: Int?) {
+    init(actionType: ActionType, level: Int, name: String, cost: Int, description: String, attackStrength: Int?, blockStrength: Int?) {
         self.actionType = actionType
         self.level = level
         self.name = name
         self.cost = cost
         self.description = description
         self.attackStrength = attackStrength
-        self.defenseStrength = defenseStrength
+        self.blockStrength = blockStrength
     }
     
     func attack(from attacker: Character, to target: Character) {
         
     }
     
-    func defend(character: Character) {
+    func block(character: Character) {
+        
+    }
+    
+    func protect(protector: Character, protected: Character) {
         
     }
     
