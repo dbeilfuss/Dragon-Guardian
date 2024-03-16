@@ -110,10 +110,10 @@
                                             <constraint firstItem="wc3-2L-ugn" firstAttribute="centerX" secondItem="xnu-dz-bhy" secondAttribute="centerX" id="zJM-1a-mOU"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-xq-NCL" userLabel="Heal View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-xq-NCL" userLabel="Protection View">
                                         <rect key="frame" x="0.0" y="97" width="29" height="29"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-Ie-EYc" userLabel="Heal Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aoh-Ie-EYc" userLabel="Protection Label">
                                                 <rect key="frame" x="10.5" y="6.5" width="7.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,8 +181,8 @@
                 <outlet property="cellStackView" destination="cMb-rT-D6e" id="WT4-LJ-AAq"/>
                 <outlet property="energyLabel" destination="EHJ-ZI-JQB" id="bME-6A-ewI"/>
                 <outlet property="energyView" destination="dEH-pd-odF" id="SYS-xf-JWN"/>
-                <outlet property="healLabel" destination="aoh-Ie-EYc" id="Ojl-lM-ULw"/>
-                <outlet property="healView" destination="EU1-xq-NCL" id="QsX-rS-1ft"/>
+                <outlet property="protectionLabel" destination="aoh-Ie-EYc" id="Ojl-lM-ULw"/>
+                <outlet property="protectionView" destination="EU1-xq-NCL" id="QsX-rS-1ft"/>
                 <outlet property="statusEffectLabel" destination="Uze-v7-RfG" id="u3l-iW-03d"/>
                 <outlet property="statusEffectView" destination="rXx-X8-Sae" id="gWW-9u-5aG"/>
             </connections>

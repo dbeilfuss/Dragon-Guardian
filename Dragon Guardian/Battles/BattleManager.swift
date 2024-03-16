@@ -71,7 +71,7 @@ class BattleManager: battleViewControllerDelegate {
         case .block:
             blockPlayed(hero: thisHero, action: action)
         case .protect:
-            let protectedHero = targetHero == .dragon ? dragon : (hero == .guardian ? guardian : villagers)
+            let protectedHero = targetHero == .dragon ? dragon : (targetHero == .guardian ? guardian : villagers)
             protectPlayed(protector: thisHero, protected: protectedHero, action: action)
         }
     }

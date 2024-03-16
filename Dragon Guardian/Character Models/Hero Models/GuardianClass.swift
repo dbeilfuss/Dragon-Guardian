@@ -13,7 +13,7 @@ class GuardianClass: HeroClass {
     
     // Actions
     let attacks = guardianAttacks()
-    let blocks = guardianBlock()
+    let blocks = guardianBlocks()
     let protects = guardianProtects()
     
     let startingStats = CharacterStats(
@@ -39,7 +39,7 @@ class GuardianClass: HeroClass {
         let startingDeck = [
             attacks.punch, attacks.punch, attacks.punch, attacks.rock, attacks.rock, attacks.dagger,
             blocks.block, blocks.block, blocks.block, blocks.dodge, blocks.dodge, blocks.roll,
-            protects.brave, protects.defiance, protects.price
+            protects.brave, protects.defiance, protects.aegis
         ]
         return startingDeck
     }

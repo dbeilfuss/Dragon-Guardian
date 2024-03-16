@@ -148,8 +148,7 @@
 				77DB72762B8AD47D00E410A2 /* LaunchScreen.storyboard */,
 				77DB72792B8AD47D00E410A2 /* Info.plist */,
 				77DB72A22B8C550000E410A2 /* Battles */,
-				77DB728A2B8BD20400E410A2 /* Action Models */,
-				779D166F2B9901F700597A30 /* Action Views */,
+				77EDFC832BA5F1F100292E75 /* Actions */,
 				77DB72852B8BCE5800E410A2 /* Character Models */,
 				77CC55EB2B901D070068E5A6 /* Character Views */,
 				77073D3A2B98267F00570C33 /* Environment.swift */,
@@ -210,6 +209,15 @@
 				772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */,
 			);
 			path = Battles;
+			sourceTree = "<group>";
+		};
+		77EDFC832BA5F1F100292E75 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				779D166F2B9901F700597A30 /* Action Views */,
+				77DB728A2B8BD20400E410A2 /* Action Models */,
+			);
+			path = Actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

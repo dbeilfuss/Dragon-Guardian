@@ -31,9 +31,9 @@ class actionTableViewCell: UITableViewCell {
     @IBOutlet weak var blockView: UIView!
     @IBOutlet weak var blockLabel: UILabel!
     
-    // heal
-    @IBOutlet weak var healView: UIView!
-    @IBOutlet weak var healLabel: UILabel!
+    // ptotection
+    @IBOutlet weak var protectionView: UIView!
+    @IBOutlet weak var protectionLabel: UILabel!
     
     // statusEffect
     @IBOutlet weak var statusEffectView: UIView!
@@ -43,7 +43,7 @@ class actionTableViewCell: UITableViewCell {
         energyView,
         attackView,
         blockView,
-        healView,
+        protectionView,
         statusEffectView
     ]}
     
@@ -51,7 +51,7 @@ class actionTableViewCell: UITableViewCell {
         energyLabel,
         attackLabel,
         blockLabel,
-        healLabel,
+        protectionLabel,
         statusEffectLabel
     ]}
 
@@ -136,7 +136,8 @@ class actionTableViewCell: UITableViewCell {
             blockView.isHidden = false
             blockLabel.text = String(action.blockStrength ?? 0)
         case .protect:
-            return
+            protectionView.isHidden = false
+            protectionLabel.text = String(action.blockStrength ?? 0)
         }
         
     }

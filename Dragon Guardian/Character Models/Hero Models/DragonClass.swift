@@ -13,7 +13,7 @@ class DragonClass: HeroClass {
     
     // Actions
     let attacks = dragonAttacks()
-    let blocks = dragonBlock()
+    let blocks = dragonBlocks()
     let protects = dragonProtects()
     
     var startingStats = CharacterStats(

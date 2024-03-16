@@ -102,14 +102,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-d0-lVr" userLabel="Stats Stack View">
                     <rect key="frame" x="16" y="-74" width="251" height="80"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-Iy-fOr" userLabel="Other Stats Stack View">
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-Iy-fOr" userLabel="Other Stats Stack View">
                             <rect key="frame" x="125.5" y="0.0" width="0.0" height="0.0"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-1d-34g" userLabel="Block View">
                                     <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Block Icon" translatesAutoresizingMaskIntoConstraints="NO" id="UdF-ln-Wpm" userLabel="Block Image">
-                                            <rect key="frame" x="-289" y="10" width="578" height="30"/>
+                                            <rect key="frame" x="0.0" y="10" width="0.0" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="gue-HS-6Uf"/>
                                             </constraints>
@@ -124,6 +124,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="UdF-ln-Wpm" firstAttribute="centerX" secondItem="QUQ-1d-34g" secondAttribute="centerX" id="0rO-K1-Ue9"/>
+                                        <constraint firstAttribute="width" secondItem="UdF-ln-Wpm" secondAttribute="width" multiplier="0.0865052" id="1Xl-4M-XB3"/>
                                         <constraint firstItem="0IZ-9j-DWP" firstAttribute="centerY" secondItem="QUQ-1d-34g" secondAttribute="centerY" id="Ulw-1t-6wP"/>
                                         <constraint firstItem="UdF-ln-Wpm" firstAttribute="centerY" secondItem="QUQ-1d-34g" secondAttribute="centerY" id="ZOw-7J-ZKt"/>
                                         <constraint firstItem="0IZ-9j-DWP" firstAttribute="centerX" secondItem="QUQ-1d-34g" secondAttribute="centerX" id="mBm-7k-aSv"/>
@@ -133,7 +134,7 @@
                                     <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Protected Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fTr-l4-2AK" userLabel="Protected Image">
-                                            <rect key="frame" x="-313" y="10" width="626" height="30"/>
+                                            <rect key="frame" x="0.0" y="10" width="0.0" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="rWj-4e-dxn"/>
                                             </constraints>
@@ -148,6 +149,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="fTr-l4-2AK" firstAttribute="centerY" secondItem="hNC-AK-mzI" secondAttribute="centerY" id="5Ge-7x-lsV"/>
+                                        <constraint firstAttribute="width" secondItem="fTr-l4-2AK" secondAttribute="width" multiplier="0.0798722" id="SvA-kA-Ocj"/>
                                         <constraint firstItem="fTr-l4-2AK" firstAttribute="centerX" secondItem="hNC-AK-mzI" secondAttribute="centerX" id="Z5f-C0-cff"/>
                                         <constraint firstItem="Yt6-au-nIs" firstAttribute="centerX" secondItem="hNC-AK-mzI" secondAttribute="centerX" id="irV-4k-1cU"/>
                                         <constraint firstItem="Yt6-au-nIs" firstAttribute="centerY" secondItem="hNC-AK-mzI" secondAttribute="centerY" id="ttp-V6-3OV"/>
@@ -157,7 +159,7 @@
                                     <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Protector Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bJ2-y1-2af" userLabel="Protector Image">
-                                            <rect key="frame" x="-291" y="10" width="582" height="30"/>
+                                            <rect key="frame" x="0.0" y="10" width="0.0" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="7Jq-Sh-TMm"/>
                                             </constraints>
@@ -174,6 +176,7 @@
                                         <constraint firstItem="mW1-aR-qny" firstAttribute="centerY" secondItem="Eh5-Je-30g" secondAttribute="centerY" id="3lb-9d-8wv"/>
                                         <constraint firstItem="mW1-aR-qny" firstAttribute="centerX" secondItem="Eh5-Je-30g" secondAttribute="centerX" id="CC6-Dh-FhY"/>
                                         <constraint firstItem="bJ2-y1-2af" firstAttribute="centerY" secondItem="Eh5-Je-30g" secondAttribute="centerY" id="G4v-jk-p5K"/>
+                                        <constraint firstAttribute="width" secondItem="bJ2-y1-2af" secondAttribute="width" multiplier="0.0859107" id="QsU-BF-EHS"/>
                                         <constraint firstItem="bJ2-y1-2af" firstAttribute="centerX" secondItem="Eh5-Je-30g" secondAttribute="centerX" id="SNA-4O-HED"/>
                                     </constraints>
                                 </view>
