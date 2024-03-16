@@ -7,71 +7,74 @@
 
 import Foundation
 
-class EnemyDecisionManager {
+class villainDecisionManager {
     
     var deck: [Action] = []
-    var discardPile: [Action] = []
-    var scripted: Bool
     
-    var biasedToward: heros?
-    var biasedStrength: biasStrength?
-    
-    enum heros: Int {
-        case guardian = 1
-        case dragon = 2
-        case villagers = 3
-    }
-    
-    enum biasStrength: Int {
-        case none = 0
-        case minor = 1
-        case major = 3
-        case always = 8
-    }
-    
-    init(deck: [Action], discardPile: [Action], scripted: Bool, biasedToward: heros? = nil, biasedStrength: biasStrength) {
-        self.deck = deck
-        self.discardPile = discardPile
-        self.scripted = scripted
-        self.biasedToward = biasedToward
-        self.biasedStrength = biasedStrength
-    }
-    
-    func identifyTarget() -> Int {
+    func formIntent(deck: [Action], villainSelf: TargetVillain, villainsList: VillainsList) -> VillainIntent {
+        var targetHero: Hero?
+        var targetVillain: TargetVillain?
+        let action = chooseAction(deck)
         
-        var heros = [
-            heros.dragon.rawValue,
-            heros.guardian.rawValue,
-            heros.villagers.rawValue
-        ]
-        
-        for i in 0...(biasedStrength?.rawValue ?? 0) {
-            if biasedToward != nil {
-                heros.append(biasedToward!.rawValue)
-            }
-            print(heros)
+        switch action.actionType {
+        case .attack:
+            targetHero = identifyTargetHero()
+        case .block:
+            targetVillain = villainSelf
+        case .protect:
+            targetVillain = identifyTargetVillain(villainSelf: villainSelf, villainsList: villainsList)
         }
         
-        let target = heros.randomElement()!
+        let intent = VillainIntent(targetHero: targetHero, targetVillain: targetVillain, action: action, unusedActions: self.deck)
+        
+        return intent
+    }
+    
+    func chooseAction(_ deck: [Action]) -> Action {
+        // Properties
+        let i = Int.random(in: 0...deck.count-1)
+        self.deck = deck
+        let action = self.deck.remove(at: i)
+        
+        // Response
+        print("action chosen: \(action)")
+        return action
+    }
+    
+    func identifyTargetVillain(villainSelf: TargetVillain, villainsList: VillainsList) -> TargetVillain {
+        
+        // properties
+        var allVillains: [TargetVillain] = []
+        let allVillainsLists: [[Villain]] = [villainsList.hugeVillains, villainsList.bigVillains, villainsList.littleVillains]
+        
+        // conversion and selection
+        for x in 0...allVillainsLists.count - 1 {
+            if allVillainsLists[x].count > 0 {
+                for i in 0...allVillainsLists[x].count - 1 {
+                    let targetVillain = TargetVillain(villainRow: x, villainNumber: i, villainView: nil)
+                    
+                    let isSelf: Bool = { targetVillain.villainRow == villainSelf.villainRow && targetVillain.villainNumber == villainSelf.villainNumber }()
+                    
+                    if !isSelf {
+                        allVillains.append(targetVillain)
+                    }
+                }
+            }
+        }
+        
+        let targetVillain: TargetVillain = allVillains.randomElement()!
+        
+        print("targetChosen: \(targetVillain)")
+        return targetVillain
+    }
+    
+    func identifyTargetHero() -> Hero {
+        
+        let heros: [Hero] = [.dragon, .guardian, .villagers]
+        let target: Hero = heros.randomElement()!
+        
         print("targetChosen: \(target)")
         return target
-    }
-    
-    func choseAction() -> Action {
-        if scripted {
-            let action = deck[0]
-            deck.remove(at: 0)
-            discardPile.append(action)
-            print("action chosen: \(action)")
-            return action
-        } else {
-            let i = Int.random(in: 0...deck.count)
-            let action = deck[i]
-            deck.remove(at: i)
-            discardPile.append(action)
-            print("action chosen: \(action)")
-            return action
-        }
     }
     
 }

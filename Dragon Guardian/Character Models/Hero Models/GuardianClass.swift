@@ -27,7 +27,8 @@ class GuardianClass: HeroClass {
         protection: [],
         protectionIDs: [],
         statusEffects: [String()],
-        deck: []
+        deck: [], 
+        discardPile: []
     )
     
     init() {

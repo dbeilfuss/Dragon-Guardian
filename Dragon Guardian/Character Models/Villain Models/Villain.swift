@@ -9,8 +9,16 @@ import Foundation
 
 class Villain: Character {
     
+    var decisionManager: villainDecisionManager = villainDecisionManager()
+    
     func takeAction() {
         
+    }
+    
+    func formIntent(villainsList: VillainsList, villainSelf: TargetVillain) {
+        let intent = decisionManager.formIntent(deck: stats.deck, villainSelf: villainSelf, villainsList: villainsList)
+        stats.intent = intent
+            stats.deck = intent.unusedActions as! [Action]
     }
     
 }

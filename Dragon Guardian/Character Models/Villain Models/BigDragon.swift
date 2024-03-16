@@ -10,6 +10,7 @@ import Foundation
 class BigDragon: Villain {
     
     let attacks = dragonAttacks()
+    let protects = dragonProtects()
     
     let startingStats = CharacterStats(
         name: "Big Dragon",
@@ -22,7 +23,8 @@ class BigDragon: Villain {
         protection: [],
         protectionIDs: [],
         statusEffects: [String()],
-        deck: []
+        deck: [], 
+        discardPile: []
     )
     
     init () {
@@ -31,7 +33,10 @@ class BigDragon: Villain {
     }
     
     func drawStartingDeck() -> [Action] {
-        let startingDeck = [attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.bite, attacks.bite, attacks.bite]
+        let startingDeck = [
+            attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.bite, attacks.bite, attacks.bite,
+            protects.pact, protects.pact, protects.pact, protects.shield, protects.shield, protects.sacrifice
+        ]
         return startingDeck
     }
     

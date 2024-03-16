@@ -33,8 +33,14 @@ class BattleManager: battleViewControllerDelegate {
     //MARK: - Init
     
     init() {
+        
+        // Heros
         self.guardianHand = guardian.fetchNewHand(numberOfActions: 5)
         self.dragonHand = dragon.fetchNewHand(numberOfActions: 5)
+        
+        // Villains
+        formIntents()
+        
     }
     
     func setDelegate(_ delegate: battleManagerDelegate) {
@@ -87,6 +93,7 @@ class BattleManager: battleViewControllerDelegate {
         print("hero: \(hero.stats.name)")
         print("action: \(action.name)")
         print("target: \(villain.stats.name)")
+        print("targetNumber: \(villainAttacked.villainNumber)")
         
         // Cost
         if hero.stats.energy >= action.cost {
@@ -136,6 +143,19 @@ class BattleManager: battleViewControllerDelegate {
         
     }
 
+    //MARK: - Villain Actions
+    
+    func formIntents() {
+        let allVillainLists: [[Villain]] = [villainsList.hugeVillains, villainsList.bigVillains, villainsList.littleVillains]
+        for x in 0...allVillainLists.count - 1 {
+            if allVillainLists[x].count > 0 {
+                for i in 0...allVillainLists[x].count - 1 {
+                    let villainSelf = TargetVillain(villainRow: x, villainNumber: i, villainView: nil)
+                    allVillainLists[x][i].formIntent(villainsList: villainsList, villainSelf: villainSelf)
+                }
+            }
+        }
+    }
     
 }
 

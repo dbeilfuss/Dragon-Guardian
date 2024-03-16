@@ -10,6 +10,7 @@ import Foundation
 class Character {
     var stats: CharacterStats = CharacterStats(
         name: "Name",
+        hero: nil,
         level: 1,
         maxHealth: 10,
         health: 10,
@@ -19,13 +20,10 @@ class Character {
         protection: [],
         protectionIDs: [],
         statusEffects: [],
-        deck: []
+        intent: nil,
+        deck: [],
+        discardPile: []
     )
-    
-    var drawStack: [Action] = []
-    var discardPile: [Action] = []
-    
-    var intent: String = "none"
     
     init(startingStats: CharacterStats) {
         self.stats = startingStats
@@ -39,14 +37,10 @@ class Character {
         var hand: [Action] = []
         
         for _ in 1...numberOfActions {
-            if drawStack.count == 0 {
-                if discardPile.count == 0 {
-                    drawStack = stats.deck.shuffled()
-                } else {
-                    shuffleDiscardPile()
-                }
+            if stats.deck.count == 0 {
+                shuffleDiscardPile()
             }
-            hand.append(drawCard(from: drawStack))
+            hand.append(drawRandomCard(from: stats.deck))
         }
         
         return hand
@@ -54,22 +48,23 @@ class Character {
     }
     
     func shuffleDiscardPile() {
-        drawStack = discardPile.shuffled()
-        discardPile = []
+        if stats.discardPile.count > 0 {
+            stats.deck = stats.discardPile.shuffled() as! [Action]
+            stats.discardPile = []
+        }
     }
     
-    func drawCard(from: [Action]) -> Action {
+    func drawNextCard(from: [Action]) -> Action {
         var card: Action
-        card = drawStack.remove(at: 0)
+        card = stats.deck.remove(at: 0)
         return card
     }
     
-    func drawRandomCard(from: [Action]) -> Action {
+    func drawRandomCard(from options: [Action]) -> Action {
         var card: Action
-        let randomInt = Int.random(in: 0...drawStack.count)
+        let randomInt = Int.random(in: 0...options.count-1)
         
-        card = drawStack[randomInt]
-        drawStack.remove(at: randomInt)
+        card = stats.deck.remove(at: randomInt)
         
         return card
     }

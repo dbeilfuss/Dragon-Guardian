@@ -72,23 +72,27 @@ class CharacterView: UIView {
         healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
     }
     
-    func displayCharacter(_ character: CharacterStats, tag: Int) {
+    func displayCharacter(_ character: CharacterStats, tag enemyNumber: Int) {
         var imageName: String
+        self.enemyNumber = enemyNumber
+
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
-        switch character.name {
-        case "Guardian":
+        
+        switch character.hero {
+        case .guardian:
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 50
             hero = character.hero
-        case "Dragon":
+        case .dragon:
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 100
             hero = character.hero
         default:
             imageName = character.name
         }
+        
         characterImageHeight.constant -= CGFloat(imageHeightAdjustment)
         
         
@@ -188,13 +192,11 @@ class CharacterView: UIView {
     func updateProtect(with protectionArray: [Protection], ids idArray: [Int]) {
         
         // Protected
-        print("ProtectionArray: \(protectionArray)")
         var totalProtection = 0
         for protection in protectionArray {
             totalProtection += protection.strength
         }
         
-        print(totalProtection)
         if totalProtection > 0 {
             protectedView.isHidden = false
             protectedLabel.text = String(totalProtection)
@@ -203,7 +205,6 @@ class CharacterView: UIView {
         }
         
         // Protector
-        print("ProtectionIDs: \(idArray)")
         if idArray.count > 0 {
             protectorView.isHidden = false
         } else {

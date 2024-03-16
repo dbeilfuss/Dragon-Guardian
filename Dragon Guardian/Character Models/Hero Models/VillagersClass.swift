@@ -22,7 +22,8 @@ class VillagersClass: HeroClass {
         protection: [],
         protectionIDs: [],
         statusEffects: [String()],
-        deck: []
+        deck: [], 
+        discardPile: []
     )
     
     init() {

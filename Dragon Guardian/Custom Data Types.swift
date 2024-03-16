@@ -60,6 +60,14 @@ struct CharacterStats {
     var protection: [Protection]
     var protectionIDs: [Int]
     var statusEffects: [String]
-    var intent: String?
+    var intent: VillainIntent?
     var deck: [Action]
+    var discardPile: [Action?]
+}
+
+struct VillainIntent {
+    var targetHero: Hero?
+    var targetVillain: TargetVillain?
+    var action: Action
+    var unusedActions: [Action?]
 }
