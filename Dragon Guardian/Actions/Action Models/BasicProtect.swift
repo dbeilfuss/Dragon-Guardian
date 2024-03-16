@@ -26,7 +26,7 @@ class BasicProtect: Action {
         // Add Protection
         let protectionID = Int.random(in: 1...1000)
         let protection = Protection(strength: strength, protector: protector, id: protectionID)
-        protected.stats.protection.append(protection)
+        protected.stats.protection.protectionArray.append(protection)
         protector.stats.protectionIDs.append(protectionID)
         
         print("with a strength of: \(strength)")

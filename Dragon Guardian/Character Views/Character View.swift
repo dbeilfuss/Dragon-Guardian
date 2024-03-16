@@ -122,7 +122,7 @@ class CharacterView: UIView {
         updateHealth(to: character.health, maxHealth: character.maxHealth)
         updateBlock(to: character.block)
         
-        updateProtect(with: character.protection, ids: character.protectionIDs)
+        updateProtect(with: character.protection.protectionArray, ids: character.protectionIDs)
         
         // Energy
         if hero != nil {
@@ -169,7 +169,7 @@ class CharacterView: UIView {
         updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
         updateBlock(to: characterStats.block)
-        updateProtect(with: characterStats.protection, ids: characterStats.protectionIDs)
+        updateProtect(with: characterStats.protection.protectionArray, ids: characterStats.protectionIDs)
     }
     
     func updateEnergy(_ energy: Int) {

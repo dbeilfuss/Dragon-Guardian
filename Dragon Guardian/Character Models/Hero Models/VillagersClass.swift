@@ -20,7 +20,7 @@ class VillagersClass: HeroClass {
         maxEnergy: 0,
         energy: 0,
         block: 0,
-        protection: [],
+        protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],
         statusEffects: [String()],
         deck: [], 

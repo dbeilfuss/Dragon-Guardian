@@ -20,7 +20,7 @@ class BigDragon: Villain {
         maxEnergy: 1,
         energy: 1,
         block: 0,
-        protection: [],
+        protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],
         statusEffects: [String()],
         deck: [], 

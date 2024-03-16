@@ -25,7 +25,7 @@ class GuardianClass: HeroClass {
         maxEnergy: 10,
         energy: 10,
         block: 0, 
-        protection: [],
+        protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],
         statusEffects: [String()],
         deck: [], 

@@ -23,6 +23,12 @@ struct TargetVillain {
     let villainRow: Int?
     let villainNumber: Int
     let villainView: CharacterView?
+    
+    func getVillainObject(from villainsList: VillainsList) -> Villain {
+        let villainsList = villainRow == 0 ? villainsList.hugeVillains : (villainRow == 1 ? villainsList.bigVillains : villainsList.littleVillains)
+        let villainObject = villainsList[villainNumber]
+        return villainObject
+    }
 }
 
 struct TargetHero {
@@ -34,18 +40,22 @@ struct VillainsList {
     let hugeVillains: [Villain]
     let bigVillains: [Villain]
     let littleVillains: [Villain]
+    
+    func getVillainObject(from targetVillain: TargetVillain) -> Villain {
+        let villainsList = targetVillain.villainRow == 0 ? hugeVillains : (targetVillain.villainRow == 1 ? bigVillains : littleVillains)
+        let villainObject = villainsList[targetVillain.villainNumber]
+        return villainObject
+    }
+    
+    func forEach(do func: ()) {
+        
+    }
 }
 
 struct HerosList {
     let guardian: GuardianClass
     let villagers: VillagersClass
     let dragon: DragonClass
-}
-
-struct Protection {
-    let strength: Int
-    let protector: Character
-    let id: Int
 }
 
 struct CharacterStats {
@@ -57,7 +67,7 @@ struct CharacterStats {
     var maxEnergy: Int
     var energy: Int
     var block: Int
-    var protection: [Protection]
+    var protection: ProtectionArray
     var protectionIDs: [Int]
     var statusEffects: [String]
     var intent: VillainIntent?

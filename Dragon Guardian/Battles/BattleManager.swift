@@ -86,8 +86,7 @@ class BattleManager: battleViewControllerDelegate {
         print("attack played")
         
         // Properties
-        let villainsList = villainAttacked.villainRow == 0 ? self.villainsList.hugeVillains : (villainAttacked.villainRow == 1 ? self.villainsList.bigVillains : self.villainsList.littleVillains)
-        let villain = villainsList[villainAttacked.villainNumber]
+        let villain = villainAttacked.getVillainObject(from: villainsList)
 
         // Feedback
         print("hero: \(hero.stats.name)")
@@ -155,7 +154,6 @@ class BattleManager: battleViewControllerDelegate {
             }
         }
     }
-    
 }
 
 //MARK: - Protocol: View Controller
