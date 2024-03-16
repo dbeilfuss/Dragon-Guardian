@@ -13,6 +13,7 @@ class VillagersClass: HeroClass {
     
     var startingStats = CharacterStats(
         name: "Villagers",
+        hero: .villagers,
         level: 1,
         maxHealth: 10,
         health: 10,

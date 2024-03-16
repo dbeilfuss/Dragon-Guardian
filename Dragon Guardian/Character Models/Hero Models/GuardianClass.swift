@@ -18,6 +18,7 @@ class GuardianClass: HeroClass {
     
     let startingStats = CharacterStats(
         name: "Guardian",
+        hero: .guardian,
         level: 1,
         maxHealth: 20,
         health: 15,

@@ -93,7 +93,6 @@ class BattleManager: battleViewControllerDelegate {
         print("hero: \(hero.stats.name)")
         print("action: \(action.name)")
         print("target: \(villain.stats.name)")
-        print("targetNumber: \(villainAttacked.villainNumber)")
         
         // Cost
         if hero.stats.energy >= action.cost {

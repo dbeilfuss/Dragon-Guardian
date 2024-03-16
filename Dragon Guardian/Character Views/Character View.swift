@@ -80,6 +80,8 @@ class CharacterView: UIView {
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
         
+        print(character.hero)
+        
         switch character.hero {
         case .guardian:
             imageName = "\(character.name)\(character.level)"
@@ -164,7 +166,6 @@ class CharacterView: UIView {
     //MARK: - Update Character
     
     func updateCharacter(_ characterStats: CharacterStats) {
-        print("updating character: \(characterStats.name)")
         updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
         updateBlock(to: characterStats.block)

@@ -18,6 +18,7 @@ class DragonClass: HeroClass {
     
     var startingStats = CharacterStats(
         name: "Dragon",
+        hero: .dragon,
         level: 1,
         maxHealth: 30,
         health: 25,

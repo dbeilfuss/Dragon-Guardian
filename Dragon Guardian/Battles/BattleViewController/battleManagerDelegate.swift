@@ -10,16 +10,11 @@ import UIKit
 extension BattleViewController: battleManagerDelegate {
     
     func updateCharacters(herosList: HerosList, villainsList: VillainsList) {
-        
-        print("updating characters")
-        
         updateHeros(herosList)
         updateVillains(villainsList)
-        
     }
     
     func updateHeros(_ herosList: HerosList) {
-        print("updating heros")
         
         let herosArray: [CharacterView] = [
             hero1View.subviews[0] as! CharacterView,
@@ -34,10 +29,6 @@ extension BattleViewController: battleManagerDelegate {
         for i in 0...herosArray.count - 1 {
             herosArray[i].updateCharacter(herosStatsArray[i])
         }
-        
-//        let villagersView =             villagersView.subviews[0] as! VillagerView
-//        let villagerStats = herosList.villagers.currentStats()
-//        villagersView.update()
         
     }
     
