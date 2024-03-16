@@ -50,6 +50,7 @@ struct Protection {
 
 struct CharacterStats {
     let name: String
+    var hero: Hero?
     var level: Int
     var maxHealth: Int
     var health: Int
@@ -57,7 +58,7 @@ struct CharacterStats {
     var energy: Int
     var block: Int
     var protection: [Protection]
-    var protectingIDs: [Int]
+    var protectionIDs: [Int]
     var statusEffects: [String]
     var intent: String?
     var deck: [Action]

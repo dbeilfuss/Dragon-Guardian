@@ -16,6 +16,9 @@ class VillagerView: UIView {
 
     @IBOutlet weak var populationLabel: UILabel!
     
+    @IBOutlet weak var targetImageView: UIImageView!
+    
+    
     // Population StackViews
     @IBOutlet weak var populationStackView1: UIStackView!
     @IBOutlet weak var populationStackView2: UIStackView!
@@ -27,7 +30,10 @@ class VillagerView: UIView {
     @IBOutlet weak var sv3BottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var sv4BottomConstraint: NSLayoutConstraint!
     
-    
+    // Properties
+    var targetLock1: Bool = false
+    var targetLock2: Bool = false
+    var hero: Hero?
     
     //MARK: - Inits
     override init(frame: CGRect) {
@@ -51,7 +57,7 @@ class VillagerView: UIView {
         // UI Customization
         villagerViewArea.layer.borderWidth = 5
         villagerViewArea.layer.borderColor = UIColor.red.cgColor
-        
+        targetImageView.isHidden = true
     }
 
     func updateVillagerCount(_ villagerInfo: CharacterStats) {
@@ -108,17 +114,21 @@ class VillagerView: UIView {
         }
     }
     
-//    func createCharacterView(_ character: CharacterStats) -> CharacterView {
-//        // Setup CharacterView()
-//        let characterView = CharacterView()
-//        characterView.translatesAutoresizingMaskIntoConstraints = false
-//        characterView.displayCharacter(character)
-//        
-//        // Adjust Constraints
-//        let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
-//        characterView.addConstraint(aspectRatioConstraint)
-//        
-//        return characterView
-//    }
+    func targetLock (_ receivedLock: Bool, hero: Hero) { // when an action is locked on to this character
+        switch hero {
+        case .guardian:
+            targetLock1 = receivedLock
+        case .dragon:
+            targetLock2 = receivedLock
+        default:
+            break
+        }
+        
+        if targetLock1 || targetLock2 {
+            targetImageView.isHidden = false
+        } else {
+            targetImageView.isHidden = true
+        }
+    }
     
 }

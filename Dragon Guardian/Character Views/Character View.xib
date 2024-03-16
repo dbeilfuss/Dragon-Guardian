@@ -25,6 +25,10 @@
                 <outlet property="healthProgressView" destination="IoG-X3-xWf" id="2De-a6-bmo"/>
                 <outlet property="intentLabel" destination="5ro-zm-Mq0" id="TR4-ri-1wN"/>
                 <outlet property="nameLabel" destination="kxx-BU-1RQ" id="viR-ew-Fn3"/>
+                <outlet property="protectedImageView" destination="fTr-l4-2AK" id="ed4-9v-pMU"/>
+                <outlet property="protectedLabel" destination="Yt6-au-nIs" id="Cdy-eB-w0s"/>
+                <outlet property="protectedView" destination="hNC-AK-mzI" id="wIf-6M-M3H"/>
+                <outlet property="protectorView" destination="Eh5-Je-30g" id="tYP-XG-qLa"/>
                 <outlet property="targetImageView" destination="rGI-AZ-O7h" id="iV1-8E-kMy"/>
             </connections>
         </placeholder>
@@ -95,23 +99,23 @@
                         <constraint firstItem="E5e-Ws-OKQ" firstAttribute="leading" secondItem="rOS-AF-I5c" secondAttribute="leading" id="zqw-EO-uvE"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-d0-lVr" userLabel="Stats Stack View">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mvM-d0-lVr" userLabel="Stats Stack View">
                     <rect key="frame" x="16" y="-74" width="251" height="80"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-Iy-fOr" userLabel="Other Stats Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="251" height="0.0"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-Iy-fOr" userLabel="Other Stats Stack View">
+                            <rect key="frame" x="125.5" y="0.0" width="0.0" height="0.0"/>
                             <subviews>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-1d-34g" userLabel="Block View">
                                     <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Block Icon" translatesAutoresizingMaskIntoConstraints="NO" id="UdF-ln-Wpm" userLabel="Block Image">
-                                            <rect key="frame" x="-289" y="0.0" width="578" height="30"/>
+                                            <rect key="frame" x="-289" y="10" width="578" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="gue-HS-6Uf"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IZ-9j-DWP" userLabel="Block Label">
-                                            <rect key="frame" x="-8.5" y="0.0" width="17" height="50"/>
+                                            <rect key="frame" x="-8.5" y="16" width="17" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -129,13 +133,13 @@
                                     <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Protected Icon" translatesAutoresizingMaskIntoConstraints="NO" id="fTr-l4-2AK" userLabel="Protected Image">
-                                            <rect key="frame" x="-313" y="0.0" width="626" height="30"/>
+                                            <rect key="frame" x="-313" y="10" width="626" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="rWj-4e-dxn"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt6-au-nIs" userLabel="Protected Label">
-                                            <rect key="frame" x="-8.5" y="0.0" width="17" height="50"/>
+                                            <rect key="frame" x="-8.5" y="16" width="17" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -149,6 +153,30 @@
                                         <constraint firstItem="Yt6-au-nIs" firstAttribute="centerY" secondItem="hNC-AK-mzI" secondAttribute="centerY" id="ttp-V6-3OV"/>
                                     </constraints>
                                 </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eh5-Je-30g" userLabel="Protector View">
+                                    <rect key="frame" x="0.0" y="-25" width="0.0" height="50"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Protector Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bJ2-y1-2af" userLabel="Protector Image">
+                                            <rect key="frame" x="-291" y="10" width="582" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="7Jq-Sh-TMm"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW1-aR-qny" userLabel="Protected Label">
+                                            <rect key="frame" x="0.0" y="25" width="0.0" height="0.0"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="mW1-aR-qny" firstAttribute="centerY" secondItem="Eh5-Je-30g" secondAttribute="centerY" id="3lb-9d-8wv"/>
+                                        <constraint firstItem="mW1-aR-qny" firstAttribute="centerX" secondItem="Eh5-Je-30g" secondAttribute="centerX" id="CC6-Dh-FhY"/>
+                                        <constraint firstItem="bJ2-y1-2af" firstAttribute="centerY" secondItem="Eh5-Je-30g" secondAttribute="centerY" id="G4v-jk-p5K"/>
+                                        <constraint firstItem="bJ2-y1-2af" firstAttribute="centerX" secondItem="Eh5-Je-30g" secondAttribute="centerX" id="SNA-4O-HED"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="QUQ-1d-34g" firstAttribute="centerY" secondItem="8A8-Iy-fOr" secondAttribute="centerY" id="dBB-Hm-Cae"/>
@@ -158,7 +186,7 @@
                             <rect key="frame" x="0.0" y="30" width="251" height="50"/>
                             <subviews>
                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IoG-X3-xWf" userLabel="Health Bar">
-                                    <rect key="frame" x="-18" y="23" width="287" height="4"/>
+                                    <rect key="frame" x="25" y="23" width="201" height="4"/>
                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </progressView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="150/150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTM-qZ-HTr" userLabel="Health Label">
@@ -174,7 +202,7 @@
                             <constraints>
                                 <constraint firstItem="KTM-qZ-HTr" firstAttribute="centerX" secondItem="3YX-Dd-8Kn" secondAttribute="centerX" id="4bX-7B-Plk"/>
                                 <constraint firstItem="IoG-X3-xWf" firstAttribute="centerX" secondItem="3YX-Dd-8Kn" secondAttribute="centerX" id="DbY-e9-kPB"/>
-                                <constraint firstItem="IoG-X3-xWf" firstAttribute="width" secondItem="3YX-Dd-8Kn" secondAttribute="width" multiplier="1.14205" id="PrI-a6-OxW"/>
+                                <constraint firstItem="IoG-X3-xWf" firstAttribute="width" secondItem="3YX-Dd-8Kn" secondAttribute="width" multiplier="0.8" id="PrI-a6-OxW"/>
                                 <constraint firstItem="KTM-qZ-HTr" firstAttribute="centerY" secondItem="3YX-Dd-8Kn" secondAttribute="centerY" id="uIX-vO-7p0"/>
                             </constraints>
                         </view>
@@ -197,6 +225,7 @@
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dAL-0i-dkj"/>
                 <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hve-Ts-j2o"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>
+                <constraint firstItem="3YX-Dd-8Kn" firstAttribute="width" secondItem="Pnk-Ub-iiH" secondAttribute="width" id="raq-oL-0wK"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="xoM-be-UWM"/>
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="Pnk-Ub-iiH" secondAttribute="top" constant="-37.5" id="yEq-Sv-tnp"/>
             </constraints>
@@ -214,6 +243,7 @@
         <image name="Block Icon" width="578" height="680"/>
         <image name="Energy" width="470" height="472"/>
         <image name="Protected Icon" width="626" height="712"/>
+        <image name="Protector Icon" width="582" height="706"/>
         <image name="Target" width="810" height="794"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

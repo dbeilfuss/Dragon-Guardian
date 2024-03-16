@@ -19,6 +19,12 @@ class CharacterView: UIView {
     @IBOutlet weak var blockImageView: UIImageView!
     @IBOutlet weak var blockLabel: UILabel!
     
+    @IBOutlet weak var protectedView: UIView!
+    @IBOutlet weak var protectedImageView: UIImageView!
+    @IBOutlet weak var protectedLabel: UILabel!
+    
+    @IBOutlet weak var protectorView: UIView!
+    
     // Energy Orb
     @IBOutlet weak var energyView: UIView!
     @IBOutlet weak var energyImage: UIImageView!
@@ -42,6 +48,7 @@ class CharacterView: UIView {
     var targetLock1: Bool = false
     var targetLock2: Bool = false
     var enemyNumber: Int = 0
+    var hero: Hero?
     
     //MARK: - Inits
     override init(frame: CGRect) {
@@ -67,22 +74,18 @@ class CharacterView: UIView {
     
     func displayCharacter(_ character: CharacterStats, tag: Int) {
         var imageName: String
-        var isHero: Bool = false
-        var heroNumber: Int?
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
         switch character.name {
         case "Guardian":
-            isHero = true
-            heroNumber = 1
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 50
+            hero = character.hero
         case "Dragon":
-            isHero = true
-            heroNumber = 2
             imageName = "\(character.name)\(character.level)"
             imageHeightAdjustment += (3-character.level) * 100
+            hero = character.hero
         default:
             imageName = character.name
         }
@@ -93,8 +96,7 @@ class CharacterView: UIView {
         characterImageView.image = UIImage(named: imageName)
         targetImageView.isHidden = true
         
-        enemyNumber = tag
-        displayStats(for: character, isHero: isHero, heroNumber: heroNumber)
+        displayStats(for: character)
         hideStats()
 
     }
@@ -107,18 +109,20 @@ class CharacterView: UIView {
         intentLabel.text = ""
     }
 
-    func displayStats(for character: CharacterStats, isHero: Bool, heroNumber: Int?) {
+    func displayStats(for character: CharacterStats) {
         
         // Health
-        healthProgressView.tintColor = isHero ? .systemGreen : .red
+        healthProgressView.tintColor = (hero != nil) ? .systemGreen : .red // appearance
         updateHealth(to: character.health, maxHealth: character.maxHealth)
         updateBlock(to: character.block)
         
+        updateProtect(with: character.protection, ids: character.protectionIDs)
+        
         // Energy
-        if isHero {
+        if hero != nil {
             updateEnergy(character.energy)
             
-            if heroNumber == 1 {
+            if hero == .guardian {
                 energyLeadingConstraint.isActive = true
             } else {
                 energyTrailingConstraint.isActive = true
@@ -136,11 +140,11 @@ class CharacterView: UIView {
         }
     }
     
-    func targetLock (_ receivedLock: Bool, hero: Int) { // when an action is locked on to this character
+    func targetLock (_ receivedLock: Bool, hero: Hero) { // when an action is locked on to this character
         switch hero {
-        case 1:
+        case .dragon:
             targetLock1 = receivedLock
-        case 2:
+        case .guardian:
             targetLock2 = receivedLock
         default:
             break
@@ -160,6 +164,7 @@ class CharacterView: UIView {
         updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
         updateBlock(to: characterStats.block)
+        updateProtect(with: characterStats.protection, ids: characterStats.protectionIDs)
     }
     
     func updateEnergy(_ energy: Int) {
@@ -169,7 +174,6 @@ class CharacterView: UIView {
     func updateHealth(to newHealth: Int, maxHealth: Int) {
         healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
         healthLabel.text = "\(newHealth)/\(maxHealth)"
-        print("updating health to : \(newHealth)")
     }
     
     func updateBlock(to newBlock: Int) {
@@ -178,6 +182,32 @@ class CharacterView: UIView {
             blockLabel.text = String(newBlock)
         } else {
             blockView.isHidden = true
+        }
+    }
+    
+    func updateProtect(with protectionArray: [Protection], ids idArray: [Int]) {
+        
+        // Protected
+        print("ProtectionArray: \(protectionArray)")
+        var totalProtection = 0
+        for protection in protectionArray {
+            totalProtection += protection.strength
+        }
+        
+        print(totalProtection)
+        if totalProtection > 0 {
+            protectedView.isHidden = false
+            protectedLabel.text = String(totalProtection)
+        } else {
+            protectedView.isHidden = true
+        }
+        
+        // Protector
+        print("ProtectionIDs: \(idArray)")
+        if idArray.count > 0 {
+            protectorView.isHidden = false
+        } else {
+            protectorView.isHidden = true
         }
     }
 

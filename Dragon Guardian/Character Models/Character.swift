@@ -17,7 +17,7 @@ class Character {
         energy: 1,
         block: 0,
         protection: [],
-        protectingIDs: [],
+        protectionIDs: [],
         statusEffects: [],
         deck: []
     )

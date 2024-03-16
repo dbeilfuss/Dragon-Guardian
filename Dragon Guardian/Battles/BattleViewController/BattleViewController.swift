@@ -44,7 +44,7 @@ class BattleViewController: UIViewController {
     
     
     //MARK: - Properties
-    let battleDelegate: battleViewControllerDelegate = BattleManager()
+    let battleManager: battleViewControllerDelegate = BattleManager()
 
     enum heroNumbers: Int {
         case dragon = 2
@@ -59,7 +59,7 @@ class BattleViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        battleDelegate.setDelegate(self)
+        battleManager.setDelegate(self)
         initializeEnvironment()
         initializeHands()
         initializeHeros()
@@ -87,12 +87,12 @@ class BattleViewController: UIViewController {
     }
     
     func initializeHeros() {
-        let herosList = battleDelegate.retrieveHeros()
+        let herosList = battleManager.retrieveHeros()
         displayHeros(herosList)
     }
     
     func initializeVillains(){
-        let villainsList: VillainsList = battleDelegate.retrieveVillains()
+        let villainsList: VillainsList = battleManager.retrieveVillains()
         
         // Move up villainStackViews if there's room
         if villainsList.hugeVillains.isEmpty {
@@ -185,7 +185,7 @@ class BattleViewController: UIViewController {
 //MARK: - Extension: heroHandsTableViews - DataSource
 extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let heroHands = battleDelegate.retrieveHeroHands()
+        let heroHands = battleManager.retrieveHeroHands()
         
         switch tableView.tag {
         case 1:
@@ -202,7 +202,7 @@ extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // retrieve hero hand
-        let heroHands = battleDelegate.retrieveHeroHands()
+        let heroHands = battleManager.retrieveHeroHands()
         var thisHeroHand: [Action] = []
         
         switch tableView.tag {

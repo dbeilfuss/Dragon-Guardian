@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Guardian
 struct guardianAttacks {
     let punch = BasicAttack(level: 1, name: "Punch", cost: 1, description: "Strike with a closed fist.", strength: 2)
     let rock = BasicAttack(level: 2, name: "Rock", cost: 2, description: "Hurl nearby object.", strength: 4)
@@ -19,6 +20,13 @@ struct guardianBlock {
     let roll = BasicBlock(level: 3, name: "Roll", cost: 3, description: "Roll out of the way.", strength: 8)
 }
 
+struct guardianProtects {
+    let brave = BasicProtect(level: 1, name: "Brave", cost: 1, description: "Bravely attempt to stop the incoming attack.", strength: 2)
+    let defiance = BasicProtect(level: 2, name: "Defiance", cost: 2, description: "Stand between the enemy, and your ally.", strength: 4)
+    let price = BasicProtect(level: 3, name: "Price", cost: 3, description: "Willingly risk it all to protect your friend", strength: 8)
+}
+
+//MARK: - Dragon
 struct dragonAttacks {
     let claw = BasicAttack(level: 1, name: "Claw", cost: 1, description: "Slash opponent", strength: 2)
     let tailWhip = BasicAttack(level: 2, name: "Tail Whip", cost: 2, description: "An unexpected blow from behind", strength: 4)
@@ -31,8 +39,9 @@ struct dragonBlock {
     let cocoon = BasicBlock(level: 3, name: "Cocoon", cost: 4, description: "Your Wings encircle you in a protective shell", strength: 10)
 }
 
-//struct callsToAction {
-//    let pray = CallToAction(level: 1, name: "Pray", cost: 3, description: "Call the villagers to pray", strength: 25)
-//    let volley = CallToAction(level: 2, name: "Volley", cost: 3, description: "Let loose a volley of arrows", strength: 50)
-//}
+struct dragonProtects {
+    let pact = BasicProtect(level: 1, name: "Pact", cost: 1, description: "Honorably attempt to stop the incoming attack.", strength: 2)
+    let shield = BasicProtect(level: 2, name: "Shield", cost: 2, description: "Provide cover for your ally.", strength: 4)
+    let sacrifice = BasicProtect(level: 3, name: "Sacrifice", cost: 3, description: "Willingly risk it all to protect your friend", strength: 8)
+}
 
