@@ -62,6 +62,8 @@ struct ProtectionArray {
             }
         }
         
+        protectionArray.removeAll { $0.strength == 0 }
+        
         return remainingDamage
     }
 }
