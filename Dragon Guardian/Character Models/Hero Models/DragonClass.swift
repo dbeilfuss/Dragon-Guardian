@@ -23,7 +23,7 @@ class DragonClass: HeroClass {
         maxHealth: 30,
         health: 25,
         maxEnergy: 10,
-        energy: 10,
+        energy: 2,
         block: 0, 
         protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],

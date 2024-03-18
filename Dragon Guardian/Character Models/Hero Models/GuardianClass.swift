@@ -23,7 +23,7 @@ class GuardianClass: HeroClass {
         maxHealth: 20,
         health: 15,
         maxEnergy: 10,
-        energy: 10,
+        energy: 1,
         block: 0, 
         protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],

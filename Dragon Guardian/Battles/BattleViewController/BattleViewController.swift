@@ -215,10 +215,11 @@ extension BattleViewController: UITableViewDataSource {
         }
         
         let thisHero: Hero = tableView.tag == 1 ? .guardian : .dragon
+        let heroEnergy: Int = battleManager.retrieveEnergy(for: thisHero)
         
         // create cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionTableViewCell", for: indexPath) as! actionTableViewCell
-        cell.set(thisHeroHand[indexPath.row], cellNumber: indexPath.row, hero: thisHero, delegate: self)
+        cell.set(thisHeroHand[indexPath.row], availableEnergy: heroEnergy, cellNumber: indexPath.row, hero: thisHero, delegate: self)
         cell.contentView.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
         
@@ -241,6 +242,7 @@ extension BattleViewController: UITableViewDataSource {
 protocol battleViewControllerDelegate {
     func setDelegate(_: battleManagerDelegate)
     func retrieveHeroHands() -> [[Action]]
+    func retrieveEnergy(for: Hero) -> Int
     func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsList
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)

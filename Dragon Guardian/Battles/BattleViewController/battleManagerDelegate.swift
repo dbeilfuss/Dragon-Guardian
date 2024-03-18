@@ -12,6 +12,7 @@ extension BattleViewController: battleManagerDelegate {
     func updateCharacters(herosList: HerosList, villainsList: VillainsList) {
         updateHeros(herosList)
         updateVillains(villainsList)
+        updateHands()
     }
     
     func updateHeros(_ herosList: HerosList) {
@@ -58,6 +59,11 @@ extension BattleViewController: battleManagerDelegate {
                 }
             }
         }
+    }
+    
+    func updateHands() {
+        hero1HandTableView.reloadData()
+        hero2HandTableView.reloadData()
     }
     
 }

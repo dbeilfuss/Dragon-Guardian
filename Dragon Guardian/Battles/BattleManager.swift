@@ -11,6 +11,7 @@ import UIKit
 
 class BattleManager: battleViewControllerDelegate {
     
+    
     //MARK: - Properties
     
     let guardian = GuardianClass()
@@ -60,6 +61,13 @@ class BattleManager: battleViewControllerDelegate {
     
     func retrieveVillains() -> VillainsList {
         villainsList
+    }
+    
+    func retrieveEnergy(for hero: Hero) -> Int {
+        let guardianEnergy = guardian.stats.energy
+        let dragonEnergy = dragon.stats.energy
+        let energyResponse = hero == .guardian ? guardianEnergy : (hero == .dragon ? dragonEnergy : 0)
+        return energyResponse
     }
 
     //MARK: - Actions

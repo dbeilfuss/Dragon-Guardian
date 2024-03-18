@@ -105,7 +105,7 @@ class actionTableViewCell: UITableViewCell {
     }
     
     //MARK: - Set - Called by UITable during Setup
-    func set(_ action: Action, cellNumber: Int, hero: Hero, delegate: actionCellSelectorDelegate) {
+    func set(_ action: Action, availableEnergy: Int, cellNumber: Int, hero: Hero, delegate: actionCellSelectorDelegate) {
         
         // cell properties
         self.hero = hero
@@ -125,8 +125,12 @@ class actionTableViewCell: UITableViewCell {
             view.isHidden = true
         }
         
+        /// Energy
         energyView.isHidden = false
         energyLabel.text = String(action.cost)
+        if action.cost > availableEnergy {
+            contentView.alpha = 0.3
+        }
         
         switch actionType {
         case .attack:
