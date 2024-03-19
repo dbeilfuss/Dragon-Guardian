@@ -9,13 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterView" customModule="Dragon_Guardian" customModuleProvider="target">
             <connections>
-                <outlet property="actionsRemainingLabel" destination="H8z-Z8-Djq" id="fT0-5b-xxX"/>
                 <outlet property="blockImageView" destination="UdF-ln-Wpm" id="ypm-X0-qlG"/>
                 <outlet property="blockLabel" destination="0IZ-9j-DWP" id="yFV-Hf-SBJ"/>
                 <outlet property="blockView" destination="QUQ-1d-34g" id="hpW-Xy-1fi"/>
                 <outlet property="characterImageHeight" destination="xoM-be-UWM" id="GMC-xz-eYz"/>
                 <outlet property="characterImageView" destination="Pnk-Ub-iiH" id="RuU-yy-4st"/>
-                <outlet property="effectsLabel" destination="Gox-s1-zug" id="TXZ-hO-rBy"/>
                 <outlet property="energyImage" destination="E5e-Ws-OKQ" id="Nr6-Zv-3xz"/>
                 <outlet property="energyLabel" destination="pcm-7K-ip9" id="pnf-vC-RQH"/>
                 <outlet property="energyLeadingConstraint" destination="FUn-Z7-a75" id="yNh-1h-r4z"/>
@@ -23,13 +21,11 @@
                 <outlet property="energyView" destination="rOS-AF-I5c" id="M6D-0W-vFx"/>
                 <outlet property="healthLabel" destination="KTM-qZ-HTr" id="MBp-Zm-Mce"/>
                 <outlet property="healthProgressView" destination="IoG-X3-xWf" id="2De-a6-bmo"/>
-                <outlet property="intentLabel" destination="5ro-zm-Mq0" id="TR4-ri-1wN"/>
-                <outlet property="nameLabel" destination="kxx-BU-1RQ" id="viR-ew-Fn3"/>
                 <outlet property="protectedImageView" destination="fTr-l4-2AK" id="ed4-9v-pMU"/>
                 <outlet property="protectedLabel" destination="Yt6-au-nIs" id="Cdy-eB-w0s"/>
                 <outlet property="protectedView" destination="hNC-AK-mzI" id="wIf-6M-M3H"/>
                 <outlet property="protectorView" destination="Eh5-Je-30g" id="tYP-XG-qLa"/>
-                <outlet property="statsView" destination="g5V-cF-tbr" id="yN2-Oz-pe9"/>
+                <outlet property="statsBarView" destination="g5V-cF-tbr" id="yN2-Oz-pe9"/>
                 <outlet property="targetImageView" destination="rGI-AZ-O7h" id="iV1-8E-kMy"/>
             </connections>
         </placeholder>
@@ -41,35 +37,6 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Target" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-AZ-O7h">
                     <rect key="frame" x="0.0" y="3.5" width="303" height="367.5"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="oAJ-Ao-aEB" userLabel="Original Labels Stack View">
-                    <rect key="frame" x="64" y="127.5" width="175" height="116"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Big Monster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxx-BU-1RQ">
-                            <rect key="frame" x="15" y="0.0" width="145" height="33.5"/>
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actions: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8z-Z8-Djq">
-                            <rect key="frame" x="49.5" y="40.5" width="76.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Effects: Poisoned 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gox-s1-zug">
-                            <rect key="frame" x="14" y="68" width="147" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intent: Attack Guardian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ro-zm-Mq0" userLabel="Intent">
-                            <rect key="frame" x="0.0" y="95.5" width="175" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pnk-Ub-iiH" userLabel="Character Image">
                     <rect key="frame" x="16" y="41" width="271" height="334"/>
                 </imageView>
@@ -214,7 +181,7 @@
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-cF-tbr" userLabel="Stats View" customClass="StatsBarView" customModule="Dragon_Guardian" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="-34" width="303" height="75"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="Ht4-tv-YT9"/>
                     </constraints>
@@ -231,10 +198,8 @@
                 <constraint firstAttribute="bottom" secondItem="rGI-AZ-O7h" secondAttribute="bottom" id="MJh-Eg-S2Y"/>
                 <constraint firstAttribute="trailing" secondItem="rOS-AF-I5c" secondAttribute="trailing" id="OLb-QK-QPt"/>
                 <constraint firstAttribute="trailing" secondItem="rGI-AZ-O7h" secondAttribute="trailing" id="Wso-SU-mBW"/>
-                <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZSw-QO-tRx"/>
                 <constraint firstItem="mvM-d0-lVr" firstAttribute="leading" secondItem="Pnk-Ub-iiH" secondAttribute="leading" id="cqu-QN-mc6"/>
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dAL-0i-dkj"/>
-                <constraint firstItem="oAJ-Ao-aEB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hve-Ts-j2o"/>
                 <constraint firstItem="g5V-cF-tbr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="n1y-VI-yco"/>
                 <constraint firstItem="g5V-cF-tbr" firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="top" id="p7Z-YU-sVU"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>

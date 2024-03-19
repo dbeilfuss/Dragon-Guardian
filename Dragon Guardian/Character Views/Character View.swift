@@ -13,7 +13,7 @@ class CharacterView: UIView {
     
     // Stats
     
-    @IBOutlet weak var statsView: StatsBarView!
+    @IBOutlet weak var statsBarView: StatsBarView!
     
     @IBOutlet weak var healthProgressView: UIProgressView!
     @IBOutlet weak var healthLabel: UILabel!
@@ -34,11 +34,6 @@ class CharacterView: UIView {
     @IBOutlet weak var energyLabel: UILabel!
     @IBOutlet weak var energyTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var energyLeadingConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var actionsRemainingLabel: UILabel!
-    @IBOutlet weak var effectsLabel: UILabel!
-    @IBOutlet weak var intentLabel: UILabel!
     
     // imageViews
     @IBOutlet weak var characterImageView: UIImageView!
@@ -72,9 +67,8 @@ class CharacterView: UIView {
         addSubview(xibView)
         
         // ui
-        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
-        
-        statsView.viewInit()
+//        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
+//        statsBarView.viewInit()
     }
     
     func displayCharacter(_ character: CharacterStats, tag enemyNumber: Int) {
@@ -84,9 +78,7 @@ class CharacterView: UIView {
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
-        
-        print(character.hero)
-        
+                
         switch character.hero {
         case .guardian:
             imageName = "\(character.name)\(character.level)"
@@ -108,26 +100,17 @@ class CharacterView: UIView {
         targetImageView.isHidden = true
         
         displayStats(for: character)
-        hideStats()
 
-    }
-    
-    func hideStats() {
-        nameLabel.text = ""
-        blockLabel.text = ""
-        actionsRemainingLabel.text = ""
-        effectsLabel.text = ""
-        intentLabel.text = ""
     }
 
     func displayStats(for character: CharacterStats) {
         
-        // Health
-        healthProgressView.tintColor = (hero != nil) ? .systemGreen : .red // appearance
-        updateHealth(to: character.health, maxHealth: character.maxHealth)
-        updateBlock(to: character.block)
-        
-        updateProtect(with: character.protection.protectionArray, ids: character.protectionIDs)
+//        // Health
+//        healthProgressView.tintColor = (hero != nil) ? .systemGreen : .red // appearance
+//        updateHealth(to: character.health, maxHealth: character.maxHealth)
+//        updateBlock(to: character.block)
+//        
+//        updateProtect(with: character.protection.protectionArray, ids: character.protectionIDs)
         
         // Energy
         if hero != nil {
@@ -142,13 +125,9 @@ class CharacterView: UIView {
             energyView.alpha = 0
         }
         
-        nameLabel.text = character.name
-        blockLabel.text = "Block: \(character.block)"
-        actionsRemainingLabel.text = "Actions: \(String(character.energy))"
-        effectsLabel.text = "Effect: \(character.statusEffects)"
-        if let safeIntent = character.intent {
-            intentLabel.text = "Intent: \(safeIntent)"
-        }
+        statsBarView.displayStats(for: character)
+        
+//        blockLabel.text = "Block: \(character.block)"
     }
     
     func targetLock (_ receivedLock: Bool, hero: Hero) { // when an action is locked on to this character
@@ -171,51 +150,51 @@ class CharacterView: UIView {
     //MARK: - Update Character
     
     func updateCharacter(_ characterStats: CharacterStats) {
-        updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
+//        updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
-        updateBlock(to: characterStats.block)
-        updateProtect(with: characterStats.protection.protectionArray, ids: characterStats.protectionIDs)
+//        updateBlock(to: characterStats.block)
+//        updateProtect(with: characterStats.protection.protectionArray, ids: characterStats.protectionIDs)
     }
     
     func updateEnergy(_ energy: Int) {
         energyLabel.text = "\(energy)"
     }
     
-    func updateHealth(to newHealth: Int, maxHealth: Int) {
-        healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
-        healthLabel.text = "\(newHealth)/\(maxHealth)"
-    }
-    
-    func updateBlock(to newBlock: Int) {
-        if newBlock > 0 {
-            blockView.isHidden = false
-            blockLabel.text = String(newBlock)
-        } else {
-            blockView.isHidden = true
-        }
-    }
-    
-    func updateProtect(with protectionArray: [Protection], ids idArray: [Int]) {
-        
-        // Protected
-        var totalProtection = 0
-        for protection in protectionArray {
-            totalProtection += protection.strength
-        }
-        
-        if totalProtection > 0 {
-            protectedView.isHidden = false
-            protectedLabel.text = String(totalProtection)
-        } else {
-            protectedView.isHidden = true
-        }
-        
-        // Protector
-        if idArray.count > 0 {
-            protectorView.isHidden = false
-        } else {
-            protectorView.isHidden = true
-        }
-    }
+//    func updateHealth(to newHealth: Int, maxHealth: Int) {
+//        healthProgressView.setProgress(Float(newHealth) / Float(maxHealth), animated: true)
+//        healthLabel.text = "\(newHealth)/\(maxHealth)"
+//    }
+//    
+//    func updateBlock(to newBlock: Int) {
+//        if newBlock > 0 {
+//            blockView.isHidden = false
+//            blockLabel.text = String(newBlock)
+//        } else {
+//            blockView.isHidden = true
+//        }
+//    }
+//    
+//    func updateProtect(with protectionArray: [Protection], ids idArray: [Int]) {
+//        
+//        // Protected
+//        var totalProtection = 0
+//        for protection in protectionArray {
+//            totalProtection += protection.strength
+//        }
+//        
+//        if totalProtection > 0 {
+//            protectedView.isHidden = false
+//            protectedLabel.text = String(totalProtection)
+//        } else {
+//            protectedView.isHidden = true
+//        }
+//        
+//        // Protector
+//        if idArray.count > 0 {
+//            protectorView.isHidden = false
+//        } else {
+//            protectorView.isHidden = true
+//        }
+//    }
 
 }
