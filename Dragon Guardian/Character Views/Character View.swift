@@ -12,6 +12,9 @@ class CharacterView: UIView {
     //MARK: - Outlets
     
     // Stats
+    
+    @IBOutlet weak var statsView: StatsBarView!
+    
     @IBOutlet weak var healthProgressView: UIProgressView!
     @IBOutlet weak var healthLabel: UILabel!
     
@@ -70,6 +73,8 @@ class CharacterView: UIView {
         
         // ui
         healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
+        
+        statsView.viewInit()
     }
     
     func displayCharacter(_ character: CharacterStats, tag enemyNumber: Int) {

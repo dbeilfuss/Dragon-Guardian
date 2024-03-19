@@ -12,6 +12,7 @@
 		770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */; };
 		770AAB712B9CBE3C006298DA /* actionCellSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */; };
 		770AAB732B9CC1A7006298DA /* battleManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */; };
+		771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C295B2BA9285900289E2E /* Stats Bar View.swift */; };
 		772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
@@ -40,6 +41,7 @@
 		77EDFC852BA646E800292E75 /* Protection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EDFC842BA646E800292E75 /* Protection.swift */; };
 		77EDFC892BA8C5B400292E75 /* ActionDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC882BA8C5B400292E75 /* ActionDescription.xib */; };
 		77EDFC8D2BA8CA8000292E75 /* Action Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EDFC8C2BA8CA8000292E75 /* Action Description.swift */; };
+		77EDFC8F2BA9133400292E75 /* Stats Bar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC8E2BA9133400292E75 /* Stats Bar.xib */; };
 		77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF7FB12B92215C0037D21C /* BigDragon.swift */; };
 		77F726432B904182008C3495 /* Character View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77F726422B904182008C3495 /* Character View.xib */; };
 		77F726472B904206008C3495 /* Character View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F726462B904206008C3495 /* Character View.swift */; };
@@ -51,6 +53,7 @@
 		770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Data Types.swift"; sourceTree = "<group>"; };
 		770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionCellSelectorDelegate.swift; sourceTree = "<group>"; };
 		770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = battleManagerDelegate.swift; sourceTree = "<group>"; };
+		771C295B2BA9285900289E2E /* Stats Bar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stats Bar View.swift"; sourceTree = "<group>"; };
 		772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enemy Decision Manager.swift"; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		77EDFC842BA646E800292E75 /* Protection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protection.swift; sourceTree = "<group>"; };
 		77EDFC882BA8C5B400292E75 /* ActionDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDescription.xib; sourceTree = "<group>"; };
 		77EDFC8C2BA8CA8000292E75 /* Action Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Description.swift"; sourceTree = "<group>"; };
+		77EDFC8E2BA9133400292E75 /* Stats Bar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Stats Bar.xib"; sourceTree = "<group>"; };
 		77EF7FB12B92215C0037D21C /* BigDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDragon.swift; sourceTree = "<group>"; };
 		77F726422B904182008C3495 /* Character View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Character View.xib"; sourceTree = "<group>"; };
 		77F726462B904206008C3495 /* Character View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character View.swift"; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				77F726462B904206008C3495 /* Character View.swift */,
 				77574B3E2B93F786009CF89A /* Villager View.xib */,
 				77574B402B93F7DD009CF89A /* Villager View.swift */,
+				77EDFC8E2BA9133400292E75 /* Stats Bar.xib */,
+				771C295B2BA9285900289E2E /* Stats Bar View.swift */,
 			);
 			path = "Character Views";
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			files = (
 				77574B3F2B93F786009CF89A /* Villager View.xib in Resources */,
 				77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */,
+				77EDFC8F2BA9133400292E75 /* Stats Bar.xib in Resources */,
 				77EDFC892BA8C5B400292E75 /* ActionDescription.xib in Resources */,
 				779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */,
 				77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */,
@@ -332,6 +339,7 @@
 				77DB72972B8BF12900E410A2 /* GuardianClass.swift in Sources */,
 				77EDFC852BA646E800292E75 /* Protection.swift in Sources */,
 				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
+				771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */,
 				770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */,
 				772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */,
 				77B8B1DC2BA3E50B00744B37 /* BasicProtect.swift in Sources */,
