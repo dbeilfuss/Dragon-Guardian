@@ -193,7 +193,7 @@ extension BattleViewController: UITableViewDataSource {
         case 2:
             return heroHands[1].count
         default:
-            print("heroTableView error: cannot find correct tag when counting rows")
+            print("Error: heroTableView error: cannot find correct tag when counting rows")
             return 5
         }
         
@@ -211,7 +211,7 @@ extension BattleViewController: UITableViewDataSource {
         case 2:
             thisHeroHand = heroHands[1]
         default:
-            print("heroTableView error: cannot find correct tag when determining which hand to use")
+            print("Error: heroTableView error: cannot find correct tag when determining which hand to use")
         }
         
         let thisHero: Hero = tableView.tag == 1 ? .guardian : .dragon

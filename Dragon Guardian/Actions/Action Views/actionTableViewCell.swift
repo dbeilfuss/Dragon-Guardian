@@ -129,7 +129,9 @@ class actionTableViewCell: UITableViewCell {
         energyView.isHidden = false
         energyLabel.text = String(action.cost)
         if action.cost > availableEnergy {
-            contentView.alpha = 0.3
+            contentView.alpha = 0.5
+        } else {
+            contentView.alpha = 1
         }
         
         switch actionType {
