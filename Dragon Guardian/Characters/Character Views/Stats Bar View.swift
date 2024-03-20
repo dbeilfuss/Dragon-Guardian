@@ -131,7 +131,7 @@ class StatsBarView: UIView {
             // UI
             intentionView.isHidden = false
             intentionView.backgroundColor = styleSheet.red
-            intentionImage.isHidden = false
+//            intentionImage.isHidden = false
             
             // Target Hero Icon
             var imageName: String = ""
@@ -150,12 +150,14 @@ class StatsBarView: UIView {
             intentionView.isHidden = false
             intentionView.backgroundColor = styleSheet.gray
             intentionLabel.text = String(intention!.action.blockStrength!)
-            intentionImage.isHidden = true
+            intentionImage.image = UIImage(named: "Block Icon")
+//            intentionImage.isHidden = true
         case .protect:
             // UI
             intentionView.isHidden = false
             intentionView.backgroundColor = styleSheet.blue
-            intentionImage.isHidden = true
+            intentionImage.image = UIImage(named: "Protector Icon")
+//            intentionImage.isHidden = true
         case .none:
             intentionView.isHidden = true
         }
