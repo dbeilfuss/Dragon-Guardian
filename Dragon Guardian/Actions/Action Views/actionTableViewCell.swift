@@ -56,6 +56,7 @@ class actionTableViewCell: UITableViewCell {
     ]}
 
     //MARK: - Properties
+    let styleSheet = StyleSheet()
     var cellNumber: Int = 0
     var actionType: ActionType = .attack
     var hero: Hero = .dragon
@@ -70,12 +71,17 @@ class actionTableViewCell: UITableViewCell {
         func configureCell() {
             
             // card
-            cardUIView.layer.cornerRadius = 10
+            cardUIView.layer.cornerRadius = styleSheet.cornerRadius
             
             // stats
             for view in statViews() {
                 view.layer.cornerRadius = 7
             }
+            energyView.backgroundColor = styleSheet.gold
+            attackView.backgroundColor = styleSheet.red
+            blockView.backgroundColor = styleSheet.gray
+            protectionView.backgroundColor = styleSheet.blue
+            statusEffectView.backgroundColor = styleSheet.green
             
             // Gesture Recognizer (Long Press)
             let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))

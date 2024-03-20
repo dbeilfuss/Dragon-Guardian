@@ -9,9 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacterView" customModule="Dragon_Guardian" customModuleProvider="target">
             <connections>
-                <outlet property="blockImageView" destination="UdF-ln-Wpm" id="ypm-X0-qlG"/>
-                <outlet property="blockLabel" destination="0IZ-9j-DWP" id="yFV-Hf-SBJ"/>
-                <outlet property="blockView" destination="QUQ-1d-34g" id="hpW-Xy-1fi"/>
                 <outlet property="characterImageHeight" destination="xoM-be-UWM" id="GMC-xz-eYz"/>
                 <outlet property="characterImageView" destination="Pnk-Ub-iiH" id="RuU-yy-4st"/>
                 <outlet property="energyImage" destination="E5e-Ws-OKQ" id="Nr6-Zv-3xz"/>
@@ -19,12 +16,6 @@
                 <outlet property="energyLeadingConstraint" destination="FUn-Z7-a75" id="yNh-1h-r4z"/>
                 <outlet property="energyTrailingConstraint" destination="OLb-QK-QPt" id="Jac-Pu-7wG"/>
                 <outlet property="energyView" destination="rOS-AF-I5c" id="M6D-0W-vFx"/>
-                <outlet property="healthLabel" destination="KTM-qZ-HTr" id="MBp-Zm-Mce"/>
-                <outlet property="healthProgressView" destination="IoG-X3-xWf" id="2De-a6-bmo"/>
-                <outlet property="protectedImageView" destination="fTr-l4-2AK" id="ed4-9v-pMU"/>
-                <outlet property="protectedLabel" destination="Yt6-au-nIs" id="Cdy-eB-w0s"/>
-                <outlet property="protectedView" destination="hNC-AK-mzI" id="wIf-6M-M3H"/>
-                <outlet property="protectorView" destination="Eh5-Je-30g" id="tYP-XG-qLa"/>
                 <outlet property="statsBarView" destination="g5V-cF-tbr" id="yN2-Oz-pe9"/>
                 <outlet property="targetImageView" destination="rGI-AZ-O7h" id="iV1-8E-kMy"/>
             </connections>

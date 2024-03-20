@@ -43,6 +43,7 @@
 		77EDFC8D2BA8CA8000292E75 /* Action Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EDFC8C2BA8CA8000292E75 /* Action Description.swift */; };
 		77EDFC8F2BA9133400292E75 /* Stats Bar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC8E2BA9133400292E75 /* Stats Bar.xib */; };
 		77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF7FB12B92215C0037D21C /* BigDragon.swift */; };
+		77F563C22BAA702900F0E9FA /* Style Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F563C12BAA702800F0E9FA /* Style Sheet.swift */; };
 		77F726432B904182008C3495 /* Character View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77F726422B904182008C3495 /* Character View.xib */; };
 		77F726472B904206008C3495 /* Character View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F726462B904206008C3495 /* Character View.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		77EDFC8C2BA8CA8000292E75 /* Action Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Description.swift"; sourceTree = "<group>"; };
 		77EDFC8E2BA9133400292E75 /* Stats Bar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Stats Bar.xib"; sourceTree = "<group>"; };
 		77EF7FB12B92215C0037D21C /* BigDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDragon.swift; sourceTree = "<group>"; };
+		77F563C12BAA702800F0E9FA /* Style Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style Sheet.swift"; sourceTree = "<group>"; };
 		77F726422B904182008C3495 /* Character View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Character View.xib"; sourceTree = "<group>"; };
 		77F726462B904206008C3495 /* Character View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,8 +165,7 @@
 				77EDFC862BA6470800292E75 /* Custom Data Types */,
 				77DB72A22B8C550000E410A2 /* Battles */,
 				77EDFC832BA5F1F100292E75 /* Actions */,
-				77DB72852B8BCE5800E410A2 /* Character Models */,
-				77CC55EB2B901D070068E5A6 /* Character Views */,
+				77F563C32BAA772F00F0E9FA /* Characters */,
 				77073D3A2B98267F00570C33 /* Environment.swift */,
 			);
 			path = "Dragon Guardian";
@@ -239,8 +240,18 @@
 			children = (
 				770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */,
 				77EDFC842BA646E800292E75 /* Protection.swift */,
+				77F563C12BAA702800F0E9FA /* Style Sheet.swift */,
 			);
 			path = "Custom Data Types";
+			sourceTree = "<group>";
+		};
+		77F563C32BAA772F00F0E9FA /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72852B8BCE5800E410A2 /* Character Models */,
+				77CC55EB2B901D070068E5A6 /* Character Views */,
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
 				771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */,
 				770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */,
+				77F563C22BAA702900F0E9FA /* Style Sheet.swift in Sources */,
 				772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */,
 				77B8B1DC2BA3E50B00744B37 /* BasicProtect.swift in Sources */,
 				77EDFC8D2BA8CA8000292E75 /* Action Description.swift in Sources */,

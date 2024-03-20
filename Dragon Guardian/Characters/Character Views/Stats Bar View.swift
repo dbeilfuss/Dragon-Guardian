@@ -9,6 +9,8 @@ import UIKit
 
 class StatsBarView: UIView {
     
+    //MARK: - Outlets
+    
     // Health
     @IBOutlet weak var healthProgressView: UIProgressView!
     @IBOutlet weak var healthLabel: UILabel!
@@ -22,8 +24,14 @@ class StatsBarView: UIView {
     @IBOutlet weak var protectedLabel: UILabel!
     @IBOutlet weak var protectorImage: UIImageView!
     
+    // Intention
+    @IBOutlet weak var intentionView: UIView!
+    @IBOutlet weak var intentionLabel: UILabel!
+    @IBOutlet weak var intentionImage: UIImageView!
+    
     
     // Properties
+    let styleSheet = StyleSheet()
     var hero: Hero?
     
     //MARK: - Inits
@@ -48,9 +56,13 @@ class StatsBarView: UIView {
         
     }
     
-    func initializeHealthBar() {
+    func initializeUI() {
+        // Health
         healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
-        healthProgressView.tintColor = (hero != nil) ? .systemGreen : .red // appearance
+        healthProgressView.tintColor = (hero != nil) ? styleSheet.green : styleSheet.red // appearance
+        
+        // Intentions
+        intentionView.layer.cornerRadius = styleSheet.cornerRadius
     }
     
     //MARK: - Stats
@@ -60,14 +72,17 @@ class StatsBarView: UIView {
         // Properties
         self.hero = character.hero
         
-        initializeHealthBar()
+        initializeUI()
+        updateCharacter(character)
         
-        updateHealth(to: character.health, maxHealth: character.maxHealth)
-        updateBlock(to: character.block)
-        
-        updateProtection(with: character.protection.protectionArray, ids: character.protectionIDs)
-        
-        blockLabel.text = "Block: \(character.block)"
+    }
+    
+    func updateCharacter(_ characterStats: CharacterStats) {
+        updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
+//        updateEnergy(characterStats.energy)
+        updateBlock(to: characterStats.block)
+        updateProtection(with: characterStats.protection.protectionArray, ids: characterStats.protectionIDs)
+        updateIntention(characterStats.intent)
     }
     
     func updateHealth(to newHealth: Int, maxHealth: Int) {
@@ -107,7 +122,44 @@ class StatsBarView: UIView {
         }
     }
     
-    func updateIntention(character: CharacterStats) {
+    func updateIntention(_ intention: VillainIntent?) {
+        switch intention?.action.actionType {
+        case .attack:
+            // Properties
+            let targetHero: Hero = intention!.targetHero!
+            
+            // UI
+            intentionView.isHidden = false
+            intentionView.backgroundColor = styleSheet.red
+            intentionImage.isHidden = false
+            
+            // Target Hero Icon
+            var imageName: String = ""
+            switch targetHero {
+            case .dragon: imageName = "Dragon Icon"
+            case .guardian: imageName = "Guardian Icon"
+            case .villagers: imageName = "Villagers Icon"
+            }
+            intentionImage.image = UIImage(named: imageName)
+            
+            // Strength
+            intentionLabel.text = String(intention!.action.attackStrength!)
+            
+        case .block:
+            // UI
+            intentionView.isHidden = false
+            intentionView.backgroundColor = styleSheet.gray
+            intentionLabel.text = String(intention!.action.blockStrength!)
+            intentionImage.isHidden = true
+        case .protect:
+            // UI
+            intentionView.isHidden = false
+            intentionView.backgroundColor = styleSheet.blue
+            intentionImage.isHidden = true
+        case .none:
+            intentionView.isHidden = true
+        }
+        
         
     }
     

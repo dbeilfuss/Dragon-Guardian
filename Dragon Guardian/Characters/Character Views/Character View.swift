@@ -15,18 +15,18 @@ class CharacterView: UIView {
     
     @IBOutlet weak var statsBarView: StatsBarView!
     
-    @IBOutlet weak var healthProgressView: UIProgressView!
-    @IBOutlet weak var healthLabel: UILabel!
+//    @IBOutlet weak var healthProgressView: UIProgressView!
+//    @IBOutlet weak var healthLabel: UILabel!
     
-    @IBOutlet weak var blockView: UIView!
-    @IBOutlet weak var blockImageView: UIImageView!
-    @IBOutlet weak var blockLabel: UILabel!
+//    @IBOutlet weak var blockView: UIView!
+//    @IBOutlet weak var blockImageView: UIImageView!
+//    @IBOutlet weak var blockLabel: UILabel!
     
-    @IBOutlet weak var protectedView: UIView!
-    @IBOutlet weak var protectedImageView: UIImageView!
-    @IBOutlet weak var protectedLabel: UILabel!
+//    @IBOutlet weak var protectedView: UIView!
+//    @IBOutlet weak var protectedImageView: UIImageView!
+//    @IBOutlet weak var protectedLabel: UILabel!
     
-    @IBOutlet weak var protectorView: UIView!
+//    @IBOutlet weak var protectorView: UIView!
     
     // Energy Orb
     @IBOutlet weak var energyView: UIView!
@@ -150,6 +150,7 @@ class CharacterView: UIView {
     //MARK: - Update Character
     
     func updateCharacter(_ characterStats: CharacterStats) {
+        statsBarView.updateCharacter(characterStats)
 //        updateHealth(to: characterStats.health, maxHealth: characterStats.maxHealth)
         updateEnergy(characterStats.energy)
 //        updateBlock(to: characterStats.block)

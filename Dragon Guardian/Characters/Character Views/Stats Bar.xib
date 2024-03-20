@@ -13,6 +13,9 @@
                 <outlet property="blockView" destination="ZzC-Ii-vmC" id="4lH-tw-ocj"/>
                 <outlet property="healthLabel" destination="CBr-0j-QkZ" id="lsr-5z-A9G"/>
                 <outlet property="healthProgressView" destination="lgr-vY-YeG" id="Ofc-Vr-fdC"/>
+                <outlet property="intentionImage" destination="kWX-12-haI" id="Za0-Vf-eUD"/>
+                <outlet property="intentionLabel" destination="QK7-v8-FUf" id="Td3-Sa-HRw"/>
+                <outlet property="intentionView" destination="ed2-Z2-KPq" id="eTX-f7-mdP"/>
                 <outlet property="protectedLabel" destination="xYg-Pq-uAD" id="wg6-Cv-GPP"/>
                 <outlet property="protectedView" destination="amt-Jm-MQe" id="71r-dP-1f0"/>
                 <outlet property="protectorImage" destination="X8N-3l-KXu" id="ui7-jM-yQq"/>
@@ -97,13 +100,13 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V3E-Vx-ORl" userLabel="Attack Stack View">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-v8-FUf" userLabel="Block Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-v8-FUf" userLabel="Intention Label">
                                                     <rect key="frame" x="0.0" y="6" width="25" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dragon Icon" translatesAutoresizingMaskIntoConstraints="NO" id="kWX-12-haI">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dragon Icon" translatesAutoresizingMaskIntoConstraints="NO" id="kWX-12-haI" userLabel="Intention Image">
                                                     <rect key="frame" x="25" y="5" width="25" height="20"/>
                                                 </imageView>
                                             </subviews>
