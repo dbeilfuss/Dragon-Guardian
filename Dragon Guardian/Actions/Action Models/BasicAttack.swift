@@ -10,10 +10,11 @@ import Foundation
 class BasicAttack: Action {
     
     var strength: Int
+    let attackTip = "Drag attack cards to enemies to attack them."
     
     init(level: Int, name: String, cost: Int, description: String, strength: Int) {
         self.strength = strength
-        super.init(actionType: .attack, level: level, name: name, cost: cost, description: description, attackStrength: strength, blockStrength: nil)
+        super.init(actionType: .attack, level: level, name: name, cost: cost, description: description, attackStrength: strength, blockStrength: nil, tip: attackTip)
     }
     
     override func attack(from attacker: Character, to target: Character) {

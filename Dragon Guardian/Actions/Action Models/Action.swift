@@ -15,8 +15,9 @@ class Action {
     let description: String
     var attackStrength: Int?
     var blockStrength: Int?
+    var tip: String
     
-    init(actionType: ActionType, level: Int, name: String, cost: Int, description: String, attackStrength: Int?, blockStrength: Int?) {
+    init(actionType: ActionType, level: Int, name: String, cost: Int, description: String, attackStrength: Int?, blockStrength: Int?, tip: String) {
         self.actionType = actionType
         self.level = level
         self.name = name
@@ -24,6 +25,7 @@ class Action {
         self.description = description
         self.attackStrength = attackStrength
         self.blockStrength = blockStrength
+        self.tip = tip
     }
     
     func attack(from attacker: Character, to target: Character) {

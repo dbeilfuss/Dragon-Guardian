@@ -65,10 +65,6 @@ class CharacterView: UIView {
         xibView.frame = self.bounds
         xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(xibView)
-        
-        // ui
-//        healthProgressView.transform = CGAffineTransform(scaleX: 1, y: 2.75)
-//        statsBarView.viewInit()
     }
     
     func displayCharacter(_ character: CharacterStats, tag enemyNumber: Int) {
