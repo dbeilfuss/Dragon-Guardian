@@ -109,7 +109,7 @@ class BattleViewController: UIViewController {
         displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
     }
     
-    func displayHeros(_ heros: HerosList) {
+    func displayHeros(_ heros: HerosClass) {
         
         let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: heroNumbers.guardian.rawValue)
         let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: heroNumbers.dragon.rawValue)
@@ -243,7 +243,7 @@ protocol battleViewControllerDelegate {
     func setDelegate(_: battleManagerDelegate)
     func retrieveHeroHands() -> [[Action]]
     func retrieveEnergy(for: Hero) -> Int
-    func retrieveHeros() -> HerosList
+    func retrieveHeros() -> HerosClass
     func retrieveVillains() -> VillainsList
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
 }

@@ -11,7 +11,7 @@ class villainDecisionManager {
     
     var deck: [Action] = []
     
-    func formIntent(deck: [Action], villainSelf: TargetVillain, villainsList: VillainsList) -> VillainIntent {
+    func formIntent(deck: [Action], villainSelf: TargetVillain, villainsList: VillainsList) -> VillainIntentions {
         var targetHero: Hero?
         var targetVillain: TargetVillain?
         let action = chooseAction(deck)
@@ -25,7 +25,7 @@ class villainDecisionManager {
             targetVillain = identifyTargetVillain(villainSelf: villainSelf, villainsList: villainsList)
         }
         
-        let intent = VillainIntent(targetHero: targetHero, targetVillain: targetVillain, action: action, unusedActions: self.deck)
+        let intent = VillainIntentions(targetHero: targetHero, targetVillain: targetVillain, action: action, unusedActions: self.deck)
         
         return intent
     }

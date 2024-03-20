@@ -28,7 +28,7 @@ class BattleManager: battleViewControllerDelegate {
         hugeVillains: [],
         bigVillains: [BigDragon()],
         littleVillains: [LittleDragon(), LittleDragon()])
-    
+        
     var delegate: battleManagerDelegate?
     
     //MARK: - Init
@@ -40,7 +40,7 @@ class BattleManager: battleViewControllerDelegate {
         self.dragonHand = dragon.fetchNewHand(numberOfActions: 5)
         
         // Villains
-        formIntents()
+        villainsList.formIntentions()
         
     }
     
@@ -54,8 +54,8 @@ class BattleManager: battleViewControllerDelegate {
         return [guardianHand, dragonHand]
     }
     
-    func retrieveHeros() -> HerosList {
-        let herosList: HerosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
+    func retrieveHeros() -> HerosClass {
+        let herosList: HerosClass = HerosClass(guardian: guardian, villagers: villagers, dragon: dragon)
         return herosList
     }
     
@@ -149,22 +149,35 @@ class BattleManager: battleViewControllerDelegate {
         
     }
 
-    //MARK: - Villain Actions
+    //MARK: - Take Turns
     
-    func formIntents() {
-        let allVillainLists: [[Villain]] = [villainsList.hugeVillains, villainsList.bigVillains, villainsList.littleVillains]
-        for x in 0...allVillainLists.count - 1 {
-            if allVillainLists[x].count > 0 {
-                for i in 0...allVillainLists[x].count - 1 {
-                    let villainSelf = TargetVillain(villainRow: x, villainNumber: i, villainView: nil)
-                    allVillainLists[x][i].formIntent(villainsList: villainsList, villainSelf: villainSelf)
-                }
-            }
-        }
+    func nextTurn() {
+        // Villains
+        let actionsCarriedOut = executeIntentions()
+        resetVillainsForNextTurn()
+        villainsList.formIntentions()
+
+        // Heros
+        resetHerosForNextTurn()
     }
+    
+    func executeIntentions() -> [VillainIntentions] {
+        let actionsCarriedOut: [VillainIntentions] = villainsList.map { $0.currentStats().intent! }
+        villainsList.forEach(smallestFirst: true) { $0.takeAction() }
+        return actionsCarriedOut
+    }
+    
+    
+    func resetVillainsForNextTurn() {
+    }
+    
+    func resetHerosForNextTurn() {
+    }
+    
 }
 
 //MARK: - Protocol: View Controller
 protocol battleManagerDelegate {
-    func updateCharacters(herosList: HerosList, villainsList: VillainsList)
+    func updateCharacters(herosList: HerosClass, villainsList: VillainsList)
+    func nextTurn(actionsCarriedOut: [VillainIntentions], updatedHerosList: HerosClass, updatedVillainsList: VillainsList)
 }

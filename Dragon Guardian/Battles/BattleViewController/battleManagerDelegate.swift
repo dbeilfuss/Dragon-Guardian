@@ -8,14 +8,16 @@
 import UIKit
 
 extension BattleViewController: battleManagerDelegate {
+
+    //MARK: - Update Characters
     
-    func updateCharacters(herosList: HerosList, villainsList: VillainsList) {
+    func updateCharacters(herosList: HerosClass, villainsList: VillainsList) {
         updateHeros(herosList)
         updateVillains(villainsList)
         updateHands()
     }
     
-    func updateHeros(_ herosList: HerosList) {
+    func updateHeros(_ herosList: HerosClass) {
         
         let herosArray: [CharacterView] = [
             hero1View.subviews[0] as! CharacterView,
@@ -64,6 +66,12 @@ extension BattleViewController: battleManagerDelegate {
     func updateHands() {
         hero1HandTableView.reloadData()
         hero2HandTableView.reloadData()
+    }
+    
+    //MARK: - Next Turn
+    
+    func nextTurn(actionsCarriedOut: [VillainIntentions], updatedHerosList: HerosClass, updatedVillainsList: VillainsList) {
+        print("actionsCarriedOut: \(actionsCarriedOut)")
     }
     
 }
