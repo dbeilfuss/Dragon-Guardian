@@ -54,6 +54,14 @@
                                 <rect key="frame" x="1055.5" y="44" width="94.5" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-fc-neM" userLabel="Next Turn Button">
+                                <rect key="frame" x="541" y="642" width="98" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Next Turn"/>
+                                <connections>
+                                    <action selector="nextTurnButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rTK-6L-PPx"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QM-5n-5PZ" userLabel="VillagersView">
                                 <rect key="frame" x="413" y="677" width="354" height="123"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,11 +93,13 @@
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="KyT-SD-fDo"/>
                             <constraint firstItem="ije-BJ-AqK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="LGq-3u-2uf"/>
                             <constraint firstItem="7zF-d1-DZh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="LkP-T5-E7D"/>
+                            <constraint firstItem="tNk-fc-neM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mll-wc-ikv"/>
                             <constraint firstItem="zHQ-lR-8k7" firstAttribute="centerX" secondItem="sfG-yz-zHU" secondAttribute="centerX" id="Ncl-33-hIE"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="PCV-1u-osH"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="PPE-yk-3Zd"/>
                             <constraint firstItem="WjS-yp-LmB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="QfY-eS-JU8"/>
                             <constraint firstItem="KLN-v6-7Ry" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RIC-P1-N6W"/>
+                            <constraint firstItem="tNk-fc-neM" firstAttribute="bottom" secondItem="9QM-5n-5PZ" secondAttribute="top" id="VjG-e4-Ky7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fqs-zb-Smc" secondAttribute="trailing" constant="30" id="XJ7-ea-x0l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sfG-yz-zHU" secondAttribute="bottom" constant="225" id="Y0C-nv-WBu"/>
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZTd-6J-nGI"/>

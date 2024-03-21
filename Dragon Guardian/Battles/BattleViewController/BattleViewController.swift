@@ -23,9 +23,6 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var hero1View: UIView!
     @IBOutlet weak var hero2View: UIView!
     @IBOutlet weak var villagersView: UIView!
-//    var guardianView: CharacterView = CharacterView()
-//    var dragonView: CharacterView = CharacterView()
-//    var villagersSubView: VillagerView = VillagerView()
     
     // Villains StackViews
     @IBOutlet weak var hugeVillainsStackView: UIStackView!
@@ -40,7 +37,6 @@ class BattleViewController: UIViewController {
     // Action Targets
     @IBOutlet weak var targetImage1: UIImageView!
     @IBOutlet weak var targetImage2: UIImageView!
-    
     
     
     //MARK: - Properties
@@ -109,7 +105,7 @@ class BattleViewController: UIViewController {
         displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
     }
     
-    func displayHeros(_ heros: HerosClass) {
+    func displayHeros(_ heros: HerosList) {
         
         let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: heroNumbers.guardian.rawValue)
         let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: heroNumbers.dragon.rawValue)
@@ -179,6 +175,10 @@ class BattleViewController: UIViewController {
         
     }
     
+    @IBAction func nextTurnButton(_ sender: UIButton) {
+        battleManager.nextTurn()
+    }
+    
 }
 
 
@@ -243,7 +243,8 @@ protocol battleViewControllerDelegate {
     func setDelegate(_: battleManagerDelegate)
     func retrieveHeroHands() -> [[Action]]
     func retrieveEnergy(for: Hero) -> Int
-    func retrieveHeros() -> HerosClass
+    func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsList
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
+    func nextTurn()
 }

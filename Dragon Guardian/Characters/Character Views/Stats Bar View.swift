@@ -122,7 +122,7 @@ class StatsBarView: UIView {
         }
     }
     
-    func updateIntention(_ intention: VillainIntentions?) {
+    func updateIntention(_ intention: VillainIntention?) {
         switch intention?.action.actionType {
         case .attack:
             // Properties

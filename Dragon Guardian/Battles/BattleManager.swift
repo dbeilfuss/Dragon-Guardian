@@ -54,8 +54,8 @@ class BattleManager: battleViewControllerDelegate {
         return [guardianHand, dragonHand]
     }
     
-    func retrieveHeros() -> HerosClass {
-        let herosList: HerosClass = HerosClass(guardian: guardian, villagers: villagers, dragon: dragon)
+    func retrieveHeros() -> HerosList {
+        let herosList: HerosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
         return herosList
     }
     
@@ -153,31 +153,94 @@ class BattleManager: battleViewControllerDelegate {
     
     func nextTurn() {
         // Villains
-        let actionsCarriedOut = executeIntentions()
+        let intentions = villainsList.map { $0.currentStats().intent! }
+        print("intentions: \(intentions)")
+        executeIntentions()
         resetVillainsForNextTurn()
         villainsList.formIntentions()
 
         // Heros
         resetHerosForNextTurn()
+        delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: villainsList)
     }
     
-    func executeIntentions() -> [VillainIntentions] {
-        let actionsCarriedOut: [VillainIntentions] = villainsList.map { $0.currentStats().intent! }
-        villainsList.forEach(smallestFirst: true) { $0.takeAction() }
-        return actionsCarriedOut
+    func executeIntentions(){
+        villainsList.forEach(smallestFirst: true) { $0.takeAction(battleManager: self) }
     }
     
     
     func resetVillainsForNextTurn() {
+        villainsList.forEach(smallestFirst: false) { $0.resetForNextTurn() }
     }
     
     func resetHerosForNextTurn() {
+        let herosList = retrieveHeros()
+        herosList.forEach { $0.resetForNextTurn() }
     }
     
 }
 
+//MARK: - Villain Actions
+extension BattleManager: VillainBattleManager {
+    func villainActionTaken(self thisVillain: Villain, intent: VillainIntention) {
+        let targetHero: HeroClass = intent.targetHero == .dragon ? dragon : (intent.targetHero == .guardian ? guardian : villagers)
+        let action = intent.action
+        let targetVillain = intent.targetVillain
+        
+        switch action.actionType {
+        case .attack:
+            villainAttackPlayed(targetHero: targetHero, action: action, villain: thisVillain)
+        case .block:
+            villainBlockPlayed(self: thisVillain, action: action)
+        case .protect:
+            if let protectedVillain = targetVillain {
+                villainProtectPlayed(protector: thisVillain, protected: protectedVillain, action: action)
+            }
+        }
+    }
+    
+    func villainAttackPlayed(targetHero: HeroClass, action: Action, villain: Villain) {
+        print("attack played")
+        
+        // Feedback
+        print("villain: \(villain.stats.name)")
+        print("action: \(action.name)")
+        print("target: \(targetHero.stats.name)")
+
+        
+        // Attack
+        action.attack(from: villain, to: targetHero)
+        
+    }
+    
+    func villainBlockPlayed(self villain: Villain, action: Action) {
+        
+        // Feedback
+        print("block played")
+        print("villain: \(villain.stats.name)")
+        print("action: \(action.name)")
+        
+        // Block
+        action.block(character: villain)
+        
+    }
+    
+    func villainProtectPlayed(protector: Villain, protected: TargetVillain, action: Action) {
+        let protectedVillain = villainsList.getVillainObject(from: protected)
+        
+        print("protect played")
+        print("protector: \(protector.stats.name)")
+        print("protected: \(protectedVillain.stats.name)")
+        print("action: \(action.name)")
+        
+        // Protect
+        action.protect(protector: protector, protected: protectedVillain)
+        
+    }
+}
+
 //MARK: - Protocol: View Controller
 protocol battleManagerDelegate {
-    func updateCharacters(herosList: HerosClass, villainsList: VillainsList)
-    func nextTurn(actionsCarriedOut: [VillainIntentions], updatedHerosList: HerosClass, updatedVillainsList: VillainsList)
+    func updateCharacters(herosList: HerosList, villainsList: VillainsList)
+    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsList)
 }

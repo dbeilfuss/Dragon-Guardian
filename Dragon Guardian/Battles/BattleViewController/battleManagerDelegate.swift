@@ -11,13 +11,13 @@ extension BattleViewController: battleManagerDelegate {
 
     //MARK: - Update Characters
     
-    func updateCharacters(herosList: HerosClass, villainsList: VillainsList) {
+    func updateCharacters(herosList: HerosList, villainsList: VillainsList) {
         updateHeros(herosList)
         updateVillains(villainsList)
         updateHands()
     }
     
-    func updateHeros(_ herosList: HerosClass) {
+    func updateHeros(_ herosList: HerosList) {
         
         let herosArray: [CharacterView] = [
             hero1View.subviews[0] as! CharacterView,
@@ -70,7 +70,7 @@ extension BattleViewController: battleManagerDelegate {
     
     //MARK: - Next Turn
     
-    func nextTurn(actionsCarriedOut: [VillainIntentions], updatedHerosList: HerosClass, updatedVillainsList: VillainsList) {
+    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsList) {
         print("actionsCarriedOut: \(actionsCarriedOut)")
     }
     

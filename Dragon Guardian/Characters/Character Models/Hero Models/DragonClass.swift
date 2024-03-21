@@ -46,4 +46,24 @@ class DragonClass: HeroClass {
         return startingDeck
     }
     
+    override func resetForNextTurn() {
+        super.resetForNextTurn()
+        
+        
+//    name: "Name",
+//    hero: nil,
+//    level: 1,
+//    maxHealth: 10,
+//    health: 10,
+//    maxEnergy: 1,
+//    energy: 1,
+//    block: 0,
+//    protection: ProtectionArray(protectionArray: []),
+//    protectionIDs: [],
+//    statusEffects: [],
+//    intent: nil,
+//    deck: [],
+//    discardPile: []
+    }
+    
 }

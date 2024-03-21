@@ -7,16 +7,35 @@
 
 import Foundation
 
+enum CharacterType {
+    case hero
+    case villain
+}
+
 enum Hero {
     case guardian
     case dragon
     case villagers
 }
 
-struct HerosClass {
+struct HerosList {
     let guardian: GuardianClass
     let villagers: VillagersClass
     let dragon: DragonClass
+    
+    func forEach(do action: (HeroClass) -> Void) {
+        // Properties
+        var herosList = allHeros()
+        
+        // Action
+        for hero in herosList {
+            action(hero)
+        }
+        
+    }
+    
+    func allHeros() -> [HeroClass] { return [dragon, guardian, villagers] }
+
 }
 
 struct CharacterStats {
@@ -31,7 +50,7 @@ struct CharacterStats {
     var protection: ProtectionArray
     var protectionIDs: [Int]
     var statusEffects: [String]
-    var intent: VillainIntentions?
+    var intent: VillainIntention?
     var deck: [Action]
     var discardPile: [Action?]
 }
@@ -59,7 +78,7 @@ struct TargetHero {
     let heroView: CharacterView
 }
 
-struct VillainIntentions {
+struct VillainIntention {
     var targetHero: Hero?
     var targetVillain: TargetVillain?
     var action: Action
