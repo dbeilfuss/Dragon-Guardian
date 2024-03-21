@@ -36,8 +36,8 @@ class BattleManager: battleViewControllerDelegate {
     init() {
         
         // Heros
-        self.guardianHand = guardian.fetchNewHand(numberOfActions: 5)
-        self.dragonHand = dragon.fetchNewHand(numberOfActions: 5)
+        self.guardianHand = guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
+        self.dragonHand = dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
         
         // Villains
         villainsList.formIntentions()
@@ -80,51 +80,58 @@ class BattleManager: battleViewControllerDelegate {
         switch actionType {
         case .attack:
             if let villain = targetVillain {
-                attackPlayed(hero: thisHero, action: action, villainAttacked: villain)
+                attackPlayed(heroType: hero, heroClass: thisHero, action: action, actionNum: actionNum, villainAttacked: villain)
             }
         case .block:
-            blockPlayed(hero: thisHero, action: action)
+            blockPlayed(heroType: hero, heroClass: thisHero, action: action, actionNum: actionNum)
         case .protect:
             let protectedHero = targetHero == .dragon ? dragon : (targetHero == .guardian ? guardian : villagers)
-            protectPlayed(protector: thisHero, protected: protectedHero, action: action)
+            protectPlayed(heroType: hero, protector: thisHero, protected: protectedHero, action: action, actionNum: actionNum)
         }
+        
     }
     
-    func attackPlayed(hero: HeroClass, action: Action, villainAttacked: TargetVillain) {
+    func attackPlayed(heroType: Hero, heroClass: HeroClass, action: Action, actionNum: Int, villainAttacked: TargetVillain) {
         print("attack played")
         
         // Properties
         let villain = villainAttacked.getVillainObject(from: villainsList)
 
         // Feedback
-        print("hero: \(hero.stats.name)")
+        print("hero: \(heroClass.stats.name)")
         print("action: \(action.name)")
         print("target: \(villain.stats.name)")
         
         // Cost
-        if hero.stats.energy >= action.cost {
+        if heroClass.stats.energy >= action.cost {
             // Attack
-            action.attack(from: hero, to: villain)
+            action.attack(from: heroClass, to: villain)
+            
+            // DiscardAction
+            discardAction(hero: heroType, heroClass: heroClass, action: action, actionNum: actionNum)
             
             // updateUI
             delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         } else {
-            print("not enough energy \(hero.stats.energy)")
+            print("not enough energy \(heroClass.stats.energy)")
         }
 
     }
     
-    func blockPlayed(hero: HeroClass, action: Action) {
+    func blockPlayed(heroType: Hero, heroClass: HeroClass, action: Action, actionNum: Int) {
         
         // Feedback
         print("block played")
-        print("hero: \(hero.stats.name)")
+        print("hero: \(heroClass.stats.name)")
         print("action: \(action.name)")
         
-        if hero.stats.energy >= action.cost {
+        if heroClass.stats.energy >= action.cost {
             
             // Block
-            action.block(character: hero)
+            action.block(character: heroClass)
+            
+            // DiscardAction
+            discardAction(hero: heroType, heroClass: heroClass, action: action, actionNum: actionNum)
             
             // updateUI
             delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
@@ -132,7 +139,7 @@ class BattleManager: battleViewControllerDelegate {
         
     }
     
-    func protectPlayed(protector: HeroClass, protected: HeroClass, action: Action) {
+    func protectPlayed(heroType: Hero, protector: HeroClass, protected: HeroClass, action: Action, actionNum: Int) {
         print("protect played")
         print("protector: \(protector.stats.name)")
         print("protected: \(protected.stats.name)")
@@ -143,9 +150,26 @@ class BattleManager: battleViewControllerDelegate {
             // Protect
             action.protect(protector: protector, protected: protected)
             
+            // DiscardAction
+            discardAction(hero: heroType, heroClass: protector, action: action, actionNum: actionNum)
+            
             // updateUI
             delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         }
+        
+    }
+    
+    func discardAction(hero: Hero, heroClass: HeroClass, action: Action, actionNum: Int) {
+        switch hero {
+        case .guardian:
+            guardianHand.remove(at: actionNum)
+        case .dragon:
+            dragonHand.remove(at: actionNum)
+        case .villagers:
+            print("no villager hand to discard from")
+        }
+        
+        heroClass.discardCard(action: action)
         
     }
 
@@ -162,6 +186,7 @@ class BattleManager: battleViewControllerDelegate {
         // Heros
         resetHerosForNextTurn()
         delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: villainsList)
+        
     }
     
     func executeIntentions(){
@@ -176,6 +201,8 @@ class BattleManager: battleViewControllerDelegate {
     func resetHerosForNextTurn() {
         let herosList = retrieveHeros()
         herosList.forEach { $0.resetForNextTurn() }
+        dragonHand = herosList.dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
+        guardianHand = herosList.guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
     }
     
 }
