@@ -16,7 +16,7 @@ class LittleDragon: Villain {
         name: "Little Dragon",
         level: 1,
         maxHealth: 30,
-        health: 30,
+        health: 5,
         maxEnergy: 0,
         energy: 0,
         block: 0,

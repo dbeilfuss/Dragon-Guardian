@@ -17,7 +17,7 @@ class Villain: Character {
         }
     }
     
-    func formIntent(villainsList: VillainsList, villainSelf: TargetVillain) {
+    func formIntent(villainsList: VillainsObjects, villainSelf: TargetVillain) {
         let intent = decisionManager.formIntent(deck: stats.deck, villainSelf: villainSelf, villainsList: villainsList)
         stats.intent = intent
             stats.deck = intent.unusedActions as! [Action]

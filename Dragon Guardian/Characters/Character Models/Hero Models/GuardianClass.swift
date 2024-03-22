@@ -21,7 +21,7 @@ class GuardianClass: HeroClass {
         hero: .guardian,
         level: 1,
         maxHealth: 20,
-        health: 15,
+        health: 20,
         maxEnergy: 5,
         energy: 5,
         block: 0, 

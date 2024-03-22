@@ -11,7 +11,7 @@ extension BattleViewController: battleManagerDelegate {
 
     //MARK: - Update Characters
     
-    func updateCharacters(herosList: HerosList, villainsList: VillainsList) {
+    func updateCharacters(herosList: HerosList, villainsList: VillainsObjects) {
         updateHeros(herosList)
         updateVillains(villainsList)
         updateHands()
@@ -35,7 +35,7 @@ extension BattleViewController: battleManagerDelegate {
         
     }
     
-    func updateVillains(_ villainsList: VillainsList) {
+    func updateVillains(_ villainsList: VillainsObjects) {
         
         let villainsStackViews: [UIStackView] = [
             hugeVillainsStackView,
@@ -68,9 +68,18 @@ extension BattleViewController: battleManagerDelegate {
         hero2HandTableView.reloadData()
     }
     
+    func removeVillain(_ villain: TargetVillain) {
+        
+        let villansList = VillainsUIStackViews(hugeVillainsStackView: hugeVillainsStackView, bigVillainsStackView: bigVillainsStackView, littleVillainsStackView: littleVillainsStackView)
+        
+        let thisVillain = villansList.getVillainUIView(target: villain)
+        thisVillain.removeFromSuperview()
+        
+    }
+    
     //MARK: - Next Turn
     
-    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsList) {
+    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsObjects) {
         print("actionsCarriedOut: \(actionsCarriedOut)")
     }
     

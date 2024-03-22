@@ -21,7 +21,7 @@ class DragonClass: HeroClass {
         hero: .dragon,
         level: 1,
         maxHealth: 30,
-        health: 25,
+        health: 30,
         maxEnergy: 5,
         energy: 5,
         block: 0, 

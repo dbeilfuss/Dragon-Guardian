@@ -12,16 +12,17 @@ struct Protection {
     let protector: Character
     let id: Int
     
-    mutating func dealDamage(of damage: Int) -> Int {
+    mutating func dealDamage(of attackDamage: Int) -> Int {
         
         // Properties
-        var remainingDamage = damage
+        var remainingDamage = attackDamage
         
         // Protected
         var protectorDamage = 0
-        if strength > damage {
-            strength -= damage
-            protectorDamage = damage / 2
+        if strength > attackDamage {
+            strength -= attackDamage
+            protectorDamage = attackDamage / 2
+            remainingDamage = 0
         } else {
             protectorDamage = strength / 2
             remainingDamage -= strength

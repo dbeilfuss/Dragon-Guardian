@@ -24,8 +24,7 @@ class BattleManager: battleViewControllerDelegate {
     var guardianHand: [Action] = []
     var villagersHand: [Action] = []
     
-    let villainsList: VillainsList = VillainsList(
-        hugeVillains: [],
+    var villainsList: VillainsObjects = VillainsObjects(hugeVillains: [],
         bigVillains: [BigDragon()],
         littleVillains: [LittleDragon(), LittleDragon()])
         
@@ -59,7 +58,7 @@ class BattleManager: battleViewControllerDelegate {
         return herosList
     }
     
-    func retrieveVillains() -> VillainsList {
+    func retrieveVillains() -> VillainsObjects {
         villainsList
     }
     
@@ -89,6 +88,23 @@ class BattleManager: battleViewControllerDelegate {
             protectPlayed(heroType: hero, protector: thisHero, protected: protectedHero, action: action, actionNum: actionNum)
         }
         
+        // Remove Dead Villain
+        if let thisVillain = targetVillain?.getVillainObject(from: villainsList) {
+            let villainIsDead = thisVillain.stats.health <= 0 ? true : false
+            if villainIsDead {
+                print("villain is Dead")
+                print(villainsList)
+                villainsList.removeVillain(target: targetVillain!)
+                print(villainsList)
+                
+                delegate?.removeVillain(targetVillain!)
+            }
+        }
+        
+        // updateUI
+        delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
+        
+        
     }
     
     func attackPlayed(heroType: Hero, heroClass: HeroClass, action: Action, actionNum: Int, villainAttacked: TargetVillain) {
@@ -109,9 +125,6 @@ class BattleManager: battleViewControllerDelegate {
             
             // DiscardAction
             discardAction(hero: heroType, heroClass: heroClass, action: action, actionNum: actionNum)
-            
-            // updateUI
-            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         } else {
             print("not enough energy \(heroClass.stats.energy)")
         }
@@ -132,9 +145,7 @@ class BattleManager: battleViewControllerDelegate {
             
             // DiscardAction
             discardAction(hero: heroType, heroClass: heroClass, action: action, actionNum: actionNum)
-            
-            // updateUI
-            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
+
         }
         
     }
@@ -152,9 +163,7 @@ class BattleManager: battleViewControllerDelegate {
             
             // DiscardAction
             discardAction(hero: heroType, heroClass: protector, action: action, actionNum: actionNum)
-            
-            // updateUI
-            delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
+
         }
         
     }
@@ -268,6 +277,7 @@ extension BattleManager: VillainBattleManager {
 
 //MARK: - Protocol: View Controller
 protocol battleManagerDelegate {
-    func updateCharacters(herosList: HerosList, villainsList: VillainsList)
-    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsList)
+    func updateCharacters(herosList: HerosList, villainsList: VillainsObjects)
+    func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsObjects)
+    func removeVillain(_: TargetVillain)
 }

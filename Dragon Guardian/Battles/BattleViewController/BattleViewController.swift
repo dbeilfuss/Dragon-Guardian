@@ -88,7 +88,7 @@ class BattleViewController: UIViewController {
     }
     
     func initializeVillains(){
-        let villainsList: VillainsList = battleManager.retrieveVillains()
+        let villainsList: VillainsObjects = battleManager.retrieveVillains()
         
         // Move up villainStackViews if there's room
         if villainsList.hugeVillains.isEmpty {
@@ -244,7 +244,7 @@ protocol battleViewControllerDelegate {
     func retrieveHeroHands() -> [[Action]]
     func retrieveEnergy(for: Hero) -> Int
     func retrieveHeros() -> HerosList
-    func retrieveVillains() -> VillainsList
+    func retrieveVillains() -> VillainsObjects
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
     func nextTurn()
 }
