@@ -67,7 +67,7 @@ class CharacterView: UIView {
         addSubview(xibView)
     }
     
-    func displayCharacter(_ character: CharacterStats, tag enemyNumber: Int) {
+    func displayCharacter(_ character: CharacterStats, index enemyNumber: Int) {
         var imageName: String
         self.enemyNumber = enemyNumber
 

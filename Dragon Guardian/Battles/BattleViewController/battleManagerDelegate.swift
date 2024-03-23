@@ -75,6 +75,7 @@ extension BattleViewController: battleManagerDelegate {
         let thisVillain = villansList.getVillainUIView(target: villain)
         thisVillain.removeFromSuperview()
         
+        
     }
     
     //MARK: - Next Turn

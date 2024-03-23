@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="gLM-6X-faf">
+            <objects>
+                <viewController id="HIx-eQ-EW4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Vo-Cr-JhL">
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="780"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tFc-bQ-Llf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wx3-cK-33s"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1MO-W6-2qf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="694"/>
+        </scene>
         <!--Battle View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -150,6 +166,7 @@
                         <outlet property="tipViewLeft" destination="XZ1-Zb-xQt" id="8Y7-ez-zDC"/>
                         <outlet property="tipViewRight" destination="HRw-xt-UNY" id="0U5-zI-9pJ"/>
                         <outlet property="villagersView" destination="9QM-5n-5PZ" id="71h-pv-IgC"/>
+                        <segue destination="HIx-eQ-EW4" kind="show" id="mcg-sd-DQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

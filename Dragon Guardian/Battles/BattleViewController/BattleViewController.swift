@@ -115,8 +115,8 @@ class BattleViewController: UIViewController {
     
     func displayHeros(_ heros: HerosList) {
         
-        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), tag: heroNumbers.guardian.rawValue)
-        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), tag: heroNumbers.dragon.rawValue)
+        let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), index: heroNumbers.guardian.rawValue)
+        let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), index: heroNumbers.dragon.rawValue)
         let villagersView: VillagerView = createVillagerView(villagers: heros.villagers.currentStats())
         
         addToView(childView: guardianView, parentView: hero1View)
@@ -138,18 +138,17 @@ class BattleViewController: UIViewController {
     func displayVillains(villains: [Villain], stackView: UIStackView) {
         var i = 0
         for villain in villains {
-            let villainView: CharacterView = createCharacterView(villain.currentStats(), tag: i)
-            villainView.tag = i
+            let villainView: CharacterView = createCharacterView(villain.currentStats(), index: i)
             stackView.addArrangedSubview(villainView)
             i += 1
         }
     }
     
-    func createCharacterView(_ character: CharacterStats, tag: Int) -> CharacterView {
+    func createCharacterView(_ character: CharacterStats, index: Int) -> CharacterView {
         // Setup CharacterView
         let characterView = CharacterView()
         characterView.translatesAutoresizingMaskIntoConstraints = false
-        characterView.displayCharacter(character, tag: tag)
+        characterView.displayCharacter(character, index: index)
         
         // Adjust Constraints
         let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
@@ -189,14 +188,15 @@ class BattleViewController: UIViewController {
 extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let heroHands = battleManager.retrieveHeroHands()
+        let thisTableView: HeroHandTableView = tableView as! HeroHandTableView
         
-        switch tableView.tag {
-        case 1:
+        switch thisTableView.hero {
+        case .guardian:
             return heroHands[0].count
-        case 2:
+        case .dragon:
             return heroHands[1].count
         default:
-            print("Error: heroTableView error: cannot find correct tag when counting rows")
+            print("Error: heroTableView error: cannot find correct hero when counting rows")
             return 5
         }
         
@@ -205,19 +205,20 @@ extension BattleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // retrieve hero hand
+        let thisTableView: HeroHandTableView = tableView as! HeroHandTableView
+        let thisHero = thisTableView.hero
         let heroHands = battleManager.retrieveHeroHands()
         var thisHeroHand: [Action] = []
         
-        switch tableView.tag {
-        case 1:
+        switch thisTableView.hero {
+        case .guardian:
             thisHeroHand = heroHands[0]
-        case 2:
+        case .dragon:
             thisHeroHand = heroHands[1]
         default:
-            print("Error: heroTableView error: cannot find correct tag when determining which hand to use")
+            print("Error: heroTableView error: cannot find correct hero when determining which hand to use")
         }
         
-        let thisHero: Hero = tableView.tag == 1 ? .guardian : .dragon
         let heroEnergy: Int = battleManager.retrieveEnergy(for: thisHero)
         
         // create cell
