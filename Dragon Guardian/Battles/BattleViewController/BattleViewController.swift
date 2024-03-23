@@ -181,6 +181,21 @@ class BattleViewController: UIViewController {
         battleManager.nextTurn()
     }
     
+    //MARK: - End of Battle / Pause
+
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "battleToEndOfRoundSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "battleToEndOfRoundSegue" {
+            let endOfRoundViewController = segue.destination as! EndOfRoundViewController
+            print(endOfRoundViewController.gameState)
+            endOfRoundViewController.set(gameState: .inProgress, villagersSaved: 3)
+            print(endOfRoundViewController.gameState)
+        }
+    }
+    
 }
 
 

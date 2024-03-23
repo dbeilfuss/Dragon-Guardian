@@ -8,17 +8,88 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--End Of Round View Controller-->
         <scene sceneID="gLM-6X-faf">
             <objects>
-                <viewController id="HIx-eQ-EW4" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Vo-Cr-JhL">
+                <viewController id="HIx-eQ-EW4" customClass="EndOfRoundViewController" customModule="Dragon_Guardian" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="4Vo-Cr-JhL">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victory!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jd-3K-C7W">
+                                <rect key="frame" x="305.5" y="30" width="93.5" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Fg-8V-TAV" userLabel="Message Stack View">
+                                <rect key="frame" x="140.5" y="344.5" width="423.5" height="91.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have defeated the evil villains and saved 8 villagers." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llc-gG-Xs6" userLabel="Message">
+                                        <rect key="frame" x="0.0" y="0.0" width="423.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Villagers Saved:  8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-tW-NBu" userLabel="Stats 1">
+                                        <rect key="frame" x="0.0" y="35.5" width="423.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But Look!  Another group of villagers is under attack!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE0-Ib-hhC" userLabel="Next Screen Message">
+                                        <rect key="frame" x="0.0" y="71" width="423.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Sif-nK-6cg" userLabel="Buttons Stack View">
+                                <rect key="frame" x="99" y="670.5" width="506" height="34.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mD6-6H-xWT" userLabel="Back Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="34.5"/>
+                                        <color key="tintColor" red="0.26044011350000001" green="0.62155268360000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Return to Battle!"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltg-i2-DSL">
+                                        <rect key="frame" x="179" y="0.0" width="148" height="34.5"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Save Them!"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4P8-Wi-bkC">
+                                        <rect key="frame" x="358" y="0.0" width="148" height="34.5"/>
+                                        <color key="tintColor" red="0.60604280229999996" green="0.1089707986" blue="0.1206393316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Scoreboard"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tFc-bQ-Llf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Fg-8V-TAV" firstAttribute="centerX" secondItem="4Vo-Cr-JhL" secondAttribute="centerX" id="5c2-np-0gP"/>
+                            <constraint firstItem="tFc-bQ-Llf" firstAttribute="bottom" secondItem="Sif-nK-6cg" secondAttribute="bottom" constant="75" id="GeV-DC-SoM"/>
+                            <constraint firstItem="7jd-3K-C7W" firstAttribute="centerX" secondItem="4Vo-Cr-JhL" secondAttribute="centerX" id="LZC-Dh-p2G"/>
+                            <constraint firstItem="6Fg-8V-TAV" firstAttribute="centerY" secondItem="4Vo-Cr-JhL" secondAttribute="centerY" id="QPs-z1-1zU"/>
+                            <constraint firstItem="7jd-3K-C7W" firstAttribute="top" secondItem="tFc-bQ-Llf" secondAttribute="top" constant="30" id="eYZ-WZ-d8V"/>
+                            <constraint firstItem="Sif-nK-6cg" firstAttribute="centerX" secondItem="4Vo-Cr-JhL" secondAttribute="centerX" id="kNc-sF-CcR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wx3-cK-33s"/>
+                    <connections>
+                        <outlet property="backButton" destination="mD6-6H-xWT" id="Lca-Rw-Tj6"/>
+                        <outlet property="messageLabel" destination="Llc-gG-Xs6" id="CZ0-CP-xXH"/>
+                        <outlet property="nextBattleButton" destination="mD6-6H-xWT" id="aP0-zD-t6u"/>
+                        <outlet property="nextScreenMessageLabel" destination="DE0-Ib-hhC" id="Mh5-nj-ZTn"/>
+                        <outlet property="scoreboardButton" destination="4P8-Wi-bkC" id="5Go-eX-1Ma"/>
+                        <outlet property="statsLabel" destination="BF6-tW-NBu" id="xZB-kS-Jf0"/>
+                        <outlet property="titleLabel" destination="7jd-3K-C7W" id="Kii-hm-lBe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MO-W6-2qf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +143,8 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNk-fc-neM" userLabel="Next Turn Button">
                                 <rect key="frame" x="541" y="642" width="98" height="35"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Next Turn"/>
                                 <connections>
@@ -102,6 +175,15 @@
                                 <rect key="frame" x="847" y="44" width="188.5" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QQ-9u-d7J" userLabel="Pause Button">
+                                <rect key="frame" x="569" y="24" width="42" height="34"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="pause.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="pauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jyy-4h-nX3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -110,6 +192,7 @@
                             <constraint firstItem="HRw-xt-UNY" firstAttribute="trailing" secondItem="Fqs-zb-Smc" secondAttribute="leading" constant="-20" id="1i5-5V-CWu"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="2yy-qK-AwZ"/>
                             <constraint firstItem="IyF-aU-YDd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="4NB-7d-50z"/>
+                            <constraint firstItem="1QQ-9u-d7J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4vP-aq-GXX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lc8-Jo-efb" secondAttribute="bottom" constant="150" id="64x-L2-BFi"/>
                             <constraint firstItem="WjS-yp-LmB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="7iB-At-jAL"/>
                             <constraint firstItem="9QM-5n-5PZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DOG-TM-olm"/>
@@ -132,6 +215,7 @@
                             <constraint firstItem="lc8-Jo-efb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZTd-6J-nGI"/>
                             <constraint firstItem="Fqs-zb-Smc" firstAttribute="width" secondItem="IyF-aU-YDd" secondAttribute="width" id="bCh-Tb-8PL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IyF-aU-YDd" secondAttribute="bottom" constant="346" id="c2d-Q4-DI4"/>
+                            <constraint firstItem="1QQ-9u-d7J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fKn-qu-9Oq"/>
                             <constraint firstItem="HRw-xt-UNY" firstAttribute="width" secondItem="Fqs-zb-Smc" secondAttribute="width" multiplier="2" id="ftV-AB-Ujn"/>
                             <constraint firstItem="sfG-yz-zHU" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="gGV-EJ-qDh"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zHQ-lR-8k7" secondAttribute="bottom" constant="-47" id="ijn-b0-1lk"/>
@@ -166,7 +250,7 @@
                         <outlet property="tipViewLeft" destination="XZ1-Zb-xQt" id="8Y7-ez-zDC"/>
                         <outlet property="tipViewRight" destination="HRw-xt-UNY" id="0U5-zI-9pJ"/>
                         <outlet property="villagersView" destination="9QM-5n-5PZ" id="71h-pv-IgC"/>
-                        <segue destination="HIx-eQ-EW4" kind="show" id="mcg-sd-DQh"/>
+                        <segue destination="HIx-eQ-EW4" kind="presentation" identifier="battleToEndOfRoundSegue" id="Blh-xv-4Es"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -176,8 +260,12 @@
     </scenes>
     <resources>
         <image name="DesertBackground1" width="1024" height="1024"/>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
