@@ -1,5 +1,5 @@
 //
-//  battleVCDelegate.swift
+//  battleManagerDelegate.swift
 //  Dragon Guardian
 //
 //  Created by Daniel Beilfuss on 3/9/24.

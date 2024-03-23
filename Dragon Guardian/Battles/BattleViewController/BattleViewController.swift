@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class BattleViewController: UIViewController {
     
     //MARK: - Environment Elements
@@ -16,8 +15,8 @@ class BattleViewController: UIViewController {
     //MARK: - UIElements
     
     // Hero Hands TableViews
-    @IBOutlet weak var hero1HandTableView: UITableView!
-    @IBOutlet weak var hero2HandTableView: UITableView!
+    @IBOutlet weak var hero1HandTableView: HeroHandTableView!
+    @IBOutlet weak var hero2HandTableView: HeroHandTableView!
         
     // Heros Views
     @IBOutlet weak var hero1View: UIView!
@@ -37,6 +36,12 @@ class BattleViewController: UIViewController {
     // Action Targets
     @IBOutlet weak var targetImage1: UIImageView!
     @IBOutlet weak var targetImage2: UIImageView!
+    
+    // Tips Views
+    @IBOutlet weak var tipViewRight: TipsView!
+    @IBOutlet weak var tipViewLeft: TipsView!
+    
+    
     
     
     //MARK: - Properties
@@ -71,9 +76,12 @@ class BattleViewController: UIViewController {
     
     func initializeHands() {
         // Tables
+        hero1HandTableView.set(hero: .guardian)
+        hero2HandTableView.set(hero: .dragon)
         let tableViews: [UITableView] = [hero1HandTableView, hero2HandTableView]
         for table in tableViews {
             table.dataSource = self
+            table.delegate = self
             table.showsVerticalScrollIndicator = false
         }
         
@@ -168,12 +176,7 @@ class BattleViewController: UIViewController {
         }
     }
     
-    //MARK: - Actions
-    
-    func getNewHeroHands() {
-//        let heroHands = battleDelegate.retrieveHeroHands()
-        
-    }
+    //MARK: - Next Turn
     
     @IBAction func nextTurnButton(_ sender: UIButton) {
         battleManager.nextTurn()
@@ -230,11 +233,50 @@ extension BattleViewController: UITableViewDataSource {
 }
 
 //MARK: - Extension: herosHandsTableView - Delegate
-//extension BattleViewController: UITableViewDelegate {
-//    
-//}
+
+extension BattleViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Properties
+        let thisTableView = tableView as! HeroHandTableView
+        let hero = thisTableView.hero
+        let action = battleManager.retrieveAction(hero: hero, action: indexPath.row)
+        
+        // Tip
+        print(action)
+        let tipLocation: TipLocation = hero == .guardian ? .left : .right
+        viewTip(action: action, size: .large, location: tipLocation)
+    }
+    
+}
 
 
+//MARK: - Extension: Tips
+
+extension BattleViewController {
+    
+    enum TipSize {
+        case small
+        case medium
+        case large
+    }
+    
+    enum TipLocation {
+        case left
+        case center
+        case right
+    }
+        
+    func viewTip(action: Action?, size: TipSize, location: TipLocation) {
+        
+        let tipView: TipsView = location == .left ? tipViewLeft : tipViewRight
+        
+        tipView.isHidden = false
+        tipView.set(action: action)
+    }
+    
+}
 
 
 //MARK: - Delegate: BattleViewController
@@ -245,6 +287,7 @@ protocol battleViewControllerDelegate {
     func retrieveEnergy(for: Hero) -> Int
     func retrieveHeros() -> HerosList
     func retrieveVillains() -> VillainsObjects
+    func retrieveAction(hero: Hero, action: Int) -> Action
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
     func nextTurn()
 }

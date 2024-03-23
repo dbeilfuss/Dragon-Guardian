@@ -16,6 +16,8 @@
 		772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
+		776D81772BADBEFC0058C0D5 /* Tips View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81762BADBEFC0058C0D5 /* Tips View.swift */; };
+		776D817B2BAF2DC40058C0D5 /* HeroHandTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D817A2BAF2DC40058C0D5 /* HeroHandTableView.swift */; };
 		779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionTableViewCell.swift */; };
 		779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionTableViewCell.xib */; };
 		77B34F042BA2701D00E799F7 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B34F032BA2701D00E799F7 /* BasicBlock.swift */; };
@@ -39,8 +41,7 @@
 		77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB729E2B8C4D6200E410A2 /* CallToAction.swift */; };
 		77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB72A02B8C53AB00E410A2 /* Magic.swift */; };
 		77EDFC852BA646E800292E75 /* Protection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EDFC842BA646E800292E75 /* Protection.swift */; };
-		77EDFC892BA8C5B400292E75 /* ActionDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC882BA8C5B400292E75 /* ActionDescription.xib */; };
-		77EDFC8D2BA8CA8000292E75 /* Action Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EDFC8C2BA8CA8000292E75 /* Action Description.swift */; };
+		77EDFC892BA8C5B400292E75 /* Tips View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC882BA8C5B400292E75 /* Tips View.xib */; };
 		77EDFC8F2BA9133400292E75 /* Stats Bar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77EDFC8E2BA9133400292E75 /* Stats Bar.xib */; };
 		77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF7FB12B92215C0037D21C /* BigDragon.swift */; };
 		77F563C22BAA702900F0E9FA /* Style Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F563C12BAA702800F0E9FA /* Style Sheet.swift */; };
@@ -58,6 +59,8 @@
 		772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enemy Decision Manager.swift"; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
+		776D81762BADBEFC0058C0D5 /* Tips View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tips View.swift"; sourceTree = "<group>"; };
+		776D817A2BAF2DC40058C0D5 /* HeroHandTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHandTableView.swift; sourceTree = "<group>"; };
 		779D16702B99025E00597A30 /* actionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionTableViewCell.swift; sourceTree = "<group>"; };
 		779D16712B99025E00597A30 /* actionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionTableViewCell.xib; sourceTree = "<group>"; };
 		77B34F032BA2701D00E799F7 /* BasicBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBlock.swift; sourceTree = "<group>"; };
@@ -83,8 +86,7 @@
 		77DB729E2B8C4D6200E410A2 /* CallToAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallToAction.swift; sourceTree = "<group>"; };
 		77DB72A02B8C53AB00E410A2 /* Magic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magic.swift; sourceTree = "<group>"; };
 		77EDFC842BA646E800292E75 /* Protection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protection.swift; sourceTree = "<group>"; };
-		77EDFC882BA8C5B400292E75 /* ActionDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionDescription.xib; sourceTree = "<group>"; };
-		77EDFC8C2BA8CA8000292E75 /* Action Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Action Description.swift"; sourceTree = "<group>"; };
+		77EDFC882BA8C5B400292E75 /* Tips View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Tips View.xib"; sourceTree = "<group>"; };
 		77EDFC8E2BA9133400292E75 /* Stats Bar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Stats Bar.xib"; sourceTree = "<group>"; };
 		77EF7FB12B92215C0037D21C /* BigDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigDragon.swift; sourceTree = "<group>"; };
 		77F563C12BAA702800F0E9FA /* Style Sheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style Sheet.swift"; sourceTree = "<group>"; };
@@ -109,6 +111,9 @@
 				77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */,
 				770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */,
 				770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */,
+				77EDFC882BA8C5B400292E75 /* Tips View.xib */,
+				776D81762BADBEFC0058C0D5 /* Tips View.swift */,
+				776D817A2BAF2DC40058C0D5 /* HeroHandTableView.swift */,
 			);
 			path = BattleViewController;
 			sourceTree = "<group>";
@@ -118,8 +123,6 @@
 			children = (
 				779D16702B99025E00597A30 /* actionTableViewCell.swift */,
 				779D16712B99025E00597A30 /* actionTableViewCell.xib */,
-				77EDFC882BA8C5B400292E75 /* ActionDescription.xib */,
-				77EDFC8C2BA8CA8000292E75 /* Action Description.swift */,
 			);
 			path = "Action Views";
 			sourceTree = "<group>";
@@ -315,7 +318,7 @@
 				77574B3F2B93F786009CF89A /* Villager View.xib in Resources */,
 				77DB72782B8AD47D00E410A2 /* LaunchScreen.storyboard in Resources */,
 				77EDFC8F2BA9133400292E75 /* Stats Bar.xib in Resources */,
-				77EDFC892BA8C5B400292E75 /* ActionDescription.xib in Resources */,
+				77EDFC892BA8C5B400292E75 /* Tips View.xib in Resources */,
 				779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */,
 				77DB72752B8AD47D00E410A2 /* Assets.xcassets in Resources */,
 				77DB72732B8AD47C00E410A2 /* Main.storyboard in Resources */,
@@ -335,6 +338,7 @@
 				77574B412B93F7DD009CF89A /* Villager View.swift in Sources */,
 				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
 				77F726472B904206008C3495 /* Character View.swift in Sources */,
+				776D81772BADBEFC0058C0D5 /* Tips View.swift in Sources */,
 				77DB72872B8BD05200E410A2 /* DragonClass.swift in Sources */,
 				77DB72952B8BEB5600E410A2 /* BattleManager.swift in Sources */,
 				77DB726C2B8AD47C00E410A2 /* AppDelegate.swift in Sources */,
@@ -355,11 +359,11 @@
 				77F563C22BAA702900F0E9FA /* Style Sheet.swift in Sources */,
 				772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */,
 				77B8B1DC2BA3E50B00744B37 /* BasicProtect.swift in Sources */,
-				77EDFC8D2BA8CA8000292E75 /* Action Description.swift in Sources */,
 				77DB728C2B8BD22400E410A2 /* Villain.swift in Sources */,
 				77DB729F2B8C4D6200E410A2 /* CallToAction.swift in Sources */,
 				77DB72A12B8C53AB00E410A2 /* Magic.swift in Sources */,
 				77DB728E2B8BD4C600E410A2 /* BasicAttack.swift in Sources */,
+				776D817B2BAF2DC40058C0D5 /* HeroHandTableView.swift in Sources */,
 				77EF7FB22B92215C0037D21C /* BigDragon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
