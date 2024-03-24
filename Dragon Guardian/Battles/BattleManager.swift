@@ -11,31 +11,37 @@ import UIKit
 
 class BattleManager: battleViewControllerDelegate {
     
+    
     //MARK: - Properties
     
-    let guardian = GuardianClass()
-    let dragon = DragonClass()
-    let villagers = VillagersClass()
+    var narrativeManager = NarrativeManager()
+    var delegate: battleManagerDelegate?
     
-//    func herosList() -> [Hero] { [guardian, dragon, villagers] }
-    
+    // Heros
+    var herosList: HerosList = HerosList(
+        guardian: GuardianClass(),
+        villagers: VillagersClass(),
+        dragon: DragonClass()
+    )
     var dragonHand: [Action] = []
     var guardianHand: [Action] = []
-    var villagersHand: [Action] = []
     
+    // Villains
     var villainsList: VillainsObjects = VillainsObjects(hugeVillains: [],
-        bigVillains: [BigDragon()],
-        littleVillains: [LittleDragon(), LittleDragon()])
+        bigVillains: [],
+        littleVillains: [LittleDragon()])
         
-    var delegate: battleManagerDelegate?
     
     //MARK: - Init
     
     init() {
+        let roundSetup = narrativeManager.newRound()
+        herosList = roundSetup.heros
+        villainsList = roundSetup.villains
         
         // Heros
-        self.guardianHand = guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
-        self.dragonHand = dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
+        self.guardianHand = herosList.guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
+        self.dragonHand = herosList.dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
         
         // Villains
         villainsList.formIntentions()
@@ -48,12 +54,19 @@ class BattleManager: battleViewControllerDelegate {
     
     //MARK: - Retrieve Data
     
+    func retrieveEnvironment() -> String? {
+        if let environment = narrativeManager.currentRoundSetup?.environment {
+            return environment
+        }
+        
+        return nil
+    }
+    
     func retrieveHeroHands() -> [[Action]] {
         return [guardianHand, dragonHand]
     }
     
     func retrieveHeros() -> HerosList {
-        let herosList: HerosList = HerosList(guardian: guardian, villagers: villagers, dragon: dragon)
         return herosList
     }
     
@@ -62,8 +75,8 @@ class BattleManager: battleViewControllerDelegate {
     }
     
     func retrieveEnergy(for hero: Hero) -> Int {
-        let guardianEnergy = guardian.stats.energy
-        let dragonEnergy = dragon.stats.energy
+        let guardianEnergy = herosList.guardian.stats.energy
+        let dragonEnergy = herosList.dragon.stats.energy
         let energyResponse = hero == .guardian ? guardianEnergy : (hero == .dragon ? dragonEnergy : 0)
         return energyResponse
     }
@@ -77,7 +90,7 @@ class BattleManager: battleViewControllerDelegate {
     //MARK: - Actions
     
     func actionPlayed(actionType: ActionType, hero: Hero, action actionNum: Int, targetVillain: TargetVillain?, targetHero: Hero?) {
-        let thisHero = hero == .dragon ? dragon : (hero == .guardian ? guardian : villagers)
+        let thisHero = herosList.getHero(hero: hero)
         let heroHand = hero == .dragon ? dragonHand : guardianHand
         let action = heroHand[actionNum]
 
@@ -89,7 +102,7 @@ class BattleManager: battleViewControllerDelegate {
         case .block:
             blockPlayed(heroType: hero, heroClass: thisHero, action: action, actionNum: actionNum)
         case .protect:
-            let protectedHero = targetHero == .dragon ? dragon : (targetHero == .guardian ? guardian : villagers)
+            let protectedHero = herosList.getHero(hero: targetHero!)
             protectPlayed(heroType: hero, protector: thisHero, protected: protectedHero, action: action, actionNum: actionNum)
         }
         
@@ -219,65 +232,6 @@ class BattleManager: battleViewControllerDelegate {
         guardianHand = herosList.guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
     }
     
-}
-
-//MARK: - Villain Actions
-extension BattleManager: VillainBattleManager {
-    func villainActionTaken(self thisVillain: Villain, intent: VillainIntention) {
-        let targetHero: HeroClass = intent.targetHero == .dragon ? dragon : (intent.targetHero == .guardian ? guardian : villagers)
-        let action = intent.action
-        let targetVillain = intent.targetVillain
-        
-        switch action.actionType {
-        case .attack:
-            villainAttackPlayed(targetHero: targetHero, action: action, villain: thisVillain)
-        case .block:
-            villainBlockPlayed(self: thisVillain, action: action)
-        case .protect:
-            if let protectedVillain = targetVillain {
-                villainProtectPlayed(protector: thisVillain, protected: protectedVillain, action: action)
-            }
-        }
-    }
-    
-    func villainAttackPlayed(targetHero: HeroClass, action: Action, villain: Villain) {
-        print("attack played")
-        
-        // Feedback
-        print("villain: \(villain.stats.name)")
-        print("action: \(action.name)")
-        print("target: \(targetHero.stats.name)")
-
-        
-        // Attack
-        action.attack(from: villain, to: targetHero)
-        
-    }
-    
-    func villainBlockPlayed(self villain: Villain, action: Action) {
-        
-        // Feedback
-        print("block played")
-        print("villain: \(villain.stats.name)")
-        print("action: \(action.name)")
-        
-        // Block
-        action.block(character: villain)
-        
-    }
-    
-    func villainProtectPlayed(protector: Villain, protected: TargetVillain, action: Action) {
-        let protectedVillain = villainsList.getVillainObject(from: protected)
-        
-        print("protect played")
-        print("protector: \(protector.stats.name)")
-        print("protected: \(protectedVillain.stats.name)")
-        print("action: \(action.name)")
-        
-        // Protect
-        action.protect(protector: protector, protected: protectedVillain)
-        
-    }
 }
 
 //MARK: - Protocol: View Controller

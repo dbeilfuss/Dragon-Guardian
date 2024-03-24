@@ -69,9 +69,14 @@ class BattleViewController: UIViewController {
     }
     
     func initializeEnvironment() {
-        let environments = ["Desert", "Forest"]
-        let environment: String = environments.randomElement()!
-        backgroundImage.image = UIImage(named: "\(environment)Background1")
+
+        let defaultEnvironment = ""
+        if let environment: String = battleManager.retrieveEnvironment() {
+            backgroundImage.image = UIImage(named: "\(environment)Background1")
+        } else {
+            print("failed to import environment")
+            backgroundImage.image = UIImage(named: "\(defaultEnvironment)Background1")
+        }
     }
     
     func initializeHands() {
@@ -306,4 +311,5 @@ protocol battleViewControllerDelegate {
     func retrieveAction(hero: Hero, action: Int) -> Action
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
     func nextTurn()
+    func retrieveEnvironment() -> String?
 }

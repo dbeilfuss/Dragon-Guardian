@@ -9,8 +9,8 @@ import Foundation
 
 class LittleDragon: Villain {
     
-    let attacks = dragonAttacks()
-    let blocks = dragonBlocks()
+    let attacks = DragonAttacks()
+    let blocks = DragonBlocks()
     
     let startingStats = CharacterStats(
         name: "Little Dragon",

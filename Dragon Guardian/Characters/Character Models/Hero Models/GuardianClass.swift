@@ -12,9 +12,9 @@ class GuardianClass: HeroClass {
     let heroType: Hero = .guardian
     
     // Actions
-    let attacks = guardianAttacks()
-    let blocks = guardianBlocks()
-    let protects = guardianProtects()
+    let attacks = GuardianAttacks()
+    let blocks = GuardianBlocks()
+    let protects = GuardianProtects()
     
     let startingStats = CharacterStats(
         name: "Guardian",

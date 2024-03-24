@@ -12,9 +12,9 @@ class DragonClass: HeroClass {
     let heroType: Hero = .dragon
     
     // Actions
-    let attacks = dragonAttacks()
-    let blocks = dragonBlocks()
-    let protects = dragonProtects()
+    let attacks = DragonAttacks()
+    let blocks = DragonBlocks()
+    let protects = DragonProtects()
     
     var startingStats = CharacterStats(
         name: "Dragon",

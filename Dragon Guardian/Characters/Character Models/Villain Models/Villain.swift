@@ -18,9 +18,17 @@ class Villain: Character {
     }
     
     func formIntent(villainsList: VillainsObjects, villainSelf: TargetVillain) {
+        
+        // Safety First
+        if stats.deck.count == 0 {
+            stats.deck = stats.discardPile as! [Action]
+            stats.discardPile = []
+        }
+        
+        // Form Intent
         let intent = decisionManager.formIntent(deck: stats.deck, villainSelf: villainSelf, villainsList: villainsList)
         stats.intent = intent
-            stats.deck = intent.unusedActions as! [Action]
+        stats.deck = intent.unusedActions as! [Action]
     }
     
 }

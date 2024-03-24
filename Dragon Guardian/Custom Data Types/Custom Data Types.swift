@@ -36,6 +36,11 @@ struct HerosList {
     
     func allHeros() -> [HeroClass] { return [dragon, guardian, villagers] }
 
+    func getHero(hero: Hero) -> HeroClass {
+        let thisHero = hero == .dragon ? dragon : (hero == .guardian ? guardian : villagers)
+        return thisHero
+    }
+    
 }
 
 struct CharacterStats {

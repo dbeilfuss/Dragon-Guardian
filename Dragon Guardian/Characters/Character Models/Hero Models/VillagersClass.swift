@@ -8,7 +8,7 @@
 import Foundation
 
 class VillagersClass: HeroClass {
-    let attacks = dragonAttacks()
+    let attacks = DragonAttacks()
     let heroType: Hero = .villagers
     
     var startingStats = CharacterStats(
