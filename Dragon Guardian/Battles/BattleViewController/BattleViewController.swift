@@ -122,7 +122,7 @@ class BattleViewController: UIViewController {
         
         let guardianView: CharacterView = createCharacterView(heros.guardian.currentStats(), index: heroNumbers.guardian.rawValue)
         let dragonView: CharacterView = createCharacterView(heros.dragon.currentStats(), index: heroNumbers.dragon.rawValue)
-        let villagersView: VillagerView = createVillagerView(villagers: heros.villagers.currentStats())
+        let villagersView: VillagersView = createVillagerView(villagers: heros.villagers.currentStats())
         
         addToView(childView: guardianView, parentView: hero1View)
         addToView(childView: dragonView, parentView: hero2View)
@@ -162,9 +162,9 @@ class BattleViewController: UIViewController {
         return characterView
     }
     
-    func createVillagerView(villagers: CharacterStats) -> VillagerView {
+    func createVillagerView(villagers: CharacterStats) -> VillagersView {
         // Setup CharacterView()
-        let villagerView = VillagerView()
+        let villagerView = VillagersView()
         villagerView.translatesAutoresizingMaskIntoConstraints = false
         villagerView.updateVillagerCount(villagers)
         
@@ -300,7 +300,7 @@ extension BattleViewController {
 }
 
 
-//MARK: - Delegate: BattleViewController
+//MARK: - Protocol: BattleViewControllerDelegate
 
 protocol battleViewControllerDelegate {
     func setDelegate(_: battleManagerDelegate)
@@ -312,4 +312,11 @@ protocol battleViewControllerDelegate {
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
     func nextTurn()
     func retrieveEnvironment() -> String?
+}
+
+//MARK: - Protocol: CharacterViewUpdateDelegate
+
+protocol CharacterViewUpdateDelegate {
+    func targetLock(_: Bool, hero: Hero)
+    func updateCharacter(_: CharacterStats)
 }

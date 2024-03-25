@@ -51,7 +51,7 @@ extension BattleViewController: actionCellSelectorDelegate {
             
             // UI
             toggleTargetVisibility(hero: heroNum)
-            targetHero?.heroView.targetLock(false, hero: hero)
+            targetHero?.heroView?.targetLock(false, hero: hero)
             
             // BattleManager
             if targetHero != nil {
@@ -64,7 +64,8 @@ extension BattleViewController: actionCellSelectorDelegate {
             
             // UI
             toggleTargetVisibility(hero: heroNum)
-            protectedHero?.heroView.targetLock(false, hero: hero)
+            protectedHero?.heroView?.targetLock(false, hero: hero)
+            protectedHero?.villagerView?.targetLock(false, hero: hero)
             
             // BattleManager
             if protectedHero != nil {
@@ -129,17 +130,17 @@ extension BattleViewController: actionCellSelectorDelegate {
         var character: CharacterView = CharacterView()
         
         for stack in enemyStackViews {
-            for enemy in
+            for villain in
                     stack.arrangedSubviews {
-                if let enemyCharacter = enemy as? CharacterView {
-                    if !isTargetLocked && enemyCharacter.bounds.contains(relativeTable.convert(fingerPosition, to: enemy)) {
-                        enemyCharacter.targetLock(true, hero: hero)
+                if let targetableVillain = villain as? CharacterView {
+                    if !isTargetLocked && targetableVillain.bounds.contains(relativeTable.convert(fingerPosition, to: villain)) {
+                        targetableVillain.targetLock(true, hero: hero)
                         isTargetLocked = true
                         villainRow = stack.tag
-                        characterNumber = enemyCharacter.enemyNumber
-                        character = enemyCharacter
+                        characterNumber = targetableVillain.enemyNumber
+                        character = targetableVillain
                     } else {
-                        enemyCharacter.targetLock(false, hero: hero)
+                        targetableVillain.targetLock(false, hero: hero)
                     }
                 }
             }
@@ -158,7 +159,7 @@ extension BattleViewController: actionCellSelectorDelegate {
             if !isTargetLocked && heroView!.bounds.contains(relativeTable.convert(fingerPosition, to: heroView)) {
                 heroView!.targetLock(true, hero: hero)
                 isTargetLocked = true
-                return TargetHero(hero: hero, heroView: heroView!)
+                return TargetHero(hero: hero, heroView: heroView!, villagerView: nil)
             }
             heroView!.targetLock(false, hero: hero)
         }
@@ -169,28 +170,26 @@ extension BattleViewController: actionCellSelectorDelegate {
 
         var isTargetLocked: Bool = false
         
-        let otherHeroView: CharacterView? = protector == .dragon ? hero1View.subviews.first as? CharacterView : hero2View.subviews.first as? CharacterView
-        let otherMainHero: Hero = protector == .dragon ? .guardian : .dragon
-        let villagerView: VillagerView = villagersView.subviews.first as! VillagerView
-        if otherHeroView != nil {
-            if !isTargetLocked && otherHeroView!.bounds.contains(relativeTable.convert(fingerPosition, to: otherHeroView)) {
-                otherHeroView!.targetLock(true, hero: protector)
-                isTargetLocked = true
-                print("protecting")
-
-                return TargetHero(hero: otherMainHero, heroView: otherHeroView!)
-            }
-            otherHeroView!.targetLock(false, hero: protector)
-        } else {
-            if !isTargetLocked && villagerView.bounds.contains(relativeTable.convert(fingerPosition, to: villagerView)) {
-                villagerView.targetLock(true, hero: protector)
-                isTargetLocked = true
-                print("protecting")
-
-                return TargetHero(hero: otherMainHero, heroView: otherHeroView!)
-            }
-            villagerView.targetLock(false, hero: protector)
+        let protectedHeroView1: CharacterView? = protector == .dragon ? hero1View.subviews.first as? CharacterView : hero2View.subviews.first as? CharacterView
+        let protectedHero1: Hero = protector == .dragon ? .guardian : .dragon
+        let villagerView: VillagersView = villagersView.subviews.first as! VillagersView
+        if !isTargetLocked && protectedHeroView1!.bounds.contains(relativeTable.convert(fingerPosition, to: protectedHeroView1)) {
+            protectedHeroView1!.targetLock(true, hero: protector)
+            isTargetLocked = true
+            print("protecting")
+            
+            return TargetHero(hero: protectedHero1, heroView: protectedHeroView1!, villagerView: nil)
         }
+        protectedHeroView1!.targetLock(false, hero: protector)
+        
+        if !isTargetLocked && villagerView.bounds.contains(relativeTable.convert(fingerPosition, to: villagerView)) {
+            villagerView.targetLock(true, hero: protector)
+            isTargetLocked = true
+            print("protecting")
+            
+            return TargetHero(hero: .villagers, heroView: nil, villagerView: villagerView)
+        }
+        villagerView.targetLock(false, hero: protector)
         return nil
     }
 }

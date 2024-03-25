@@ -19,19 +19,22 @@ extension BattleViewController: battleManagerDelegate {
     
     func updateHeros(_ herosList: HerosList) {
         
-        let herosArray: [CharacterView] = [
-            hero1View.subviews[0] as! CharacterView,
-            hero2View.subviews[0] as! CharacterView,
+        let herosArray: [CharacterViewUpdateDelegate] = [
+            hero1View.subviews[0] as! CharacterViewUpdateDelegate,
+            hero2View.subviews[0] as! CharacterViewUpdateDelegate,
+            villagersView.subviews[0] as! CharacterViewUpdateDelegate
         ]
         
         let herosStatsArray: [CharacterStats] = [
             herosList.guardian.currentStats(),
             herosList.dragon.currentStats(),
+            herosList.villagers.currentStats()
         ]
         
         for i in 0...herosArray.count - 1 {
             herosArray[i].updateCharacter(herosStatsArray[i])
         }
+        
         
     }
     

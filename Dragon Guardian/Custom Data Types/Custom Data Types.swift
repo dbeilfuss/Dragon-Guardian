@@ -62,7 +62,8 @@ struct HerosList {
 
 struct TargetHero {
     let hero: Hero
-    let heroView: CharacterView
+    let heroView: CharacterView?
+    let villagerView: VillagersView?
 }
 
 

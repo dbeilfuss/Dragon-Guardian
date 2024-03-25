@@ -9,7 +9,7 @@ import Foundation
 
 import UIKit
 
-class VillagerView: UIView {
+class VillagersView: UIView {
     
     //MARK: - Outlets
     @IBOutlet weak var villagerViewArea: UIView!
@@ -18,6 +18,9 @@ class VillagerView: UIView {
     
     @IBOutlet weak var targetImageView: UIImageView!
     
+    // Protection
+    @IBOutlet weak var protectionView: UIView!
+    @IBOutlet weak var protectionLabel: UILabel!
     
     // Population StackViews
     @IBOutlet weak var populationStackView1: UIStackView!
@@ -61,7 +64,7 @@ class VillagerView: UIView {
     }
 
     func updateVillagerCount(_ villagerInfo: CharacterStats) {
-        let population = villagerInfo.health
+        let population = villagerInfo.health > 0 ? villagerInfo.health : 0
         
         // adjust stackView properties
         if population > 20 {
@@ -84,9 +87,29 @@ class VillagerView: UIView {
         }
         
         // add villager images
-        populationLabel.text = "Villagers: \(population)"
-        for i in 1...population {
-            addVillagerImage(villagerNumber: i)
+        
+        let formerPopulation: Int = populationStackView1.arrangedSubviews.count + populationStackView2.arrangedSubviews.count + populationStackView3.arrangedSubviews.count + populationStackView4.arrangedSubviews.count
+        let newPopulation = villagerInfo.health
+        
+        if newPopulation != formerPopulation {
+            // Clear Stack Views
+            let populationStackViews: [UIStackView] = [populationStackView1, populationStackView2, populationStackView3, populationStackView4]
+            for stackView in populationStackViews {
+                for subView in stackView.arrangedSubviews {
+                    subView.removeFromSuperview()
+                }
+            }
+            
+            // Re-Populate Stack Views
+            
+            populationLabel.text = "Villagers: \(population)"
+            if population > 0 {
+                for i in 1...population {
+                    addVillagerImage(villagerNumber: i)
+                }
+            }
+        } else {
+            
         }
     }
     
@@ -114,6 +137,15 @@ class VillagerView: UIView {
         }
     }
     
+    func updateProtection(_ protection: ProtectionArray) {
+        if protection.sumOfProtection() > 0 {
+            protectionView.isHidden = false
+            protectionLabel.text = String(protection.sumOfProtection())
+        } else {
+            protectionView.isHidden = true
+        }
+    }
+    
     func targetLock (_ receivedLock: Bool, hero: Hero) { // when an action is locked on to this character
         switch hero {
         case .guardian:
@@ -129,6 +161,17 @@ class VillagerView: UIView {
         } else {
             targetImageView.isHidden = true
         }
+    }
+    
+}
+
+//MARK: - Extensions
+
+extension VillagersView: CharacterViewUpdateDelegate {
+    
+    func updateCharacter(_ villagerInfo: CharacterStats) {
+        updateVillagerCount(villagerInfo)
+        updateProtection(villagerInfo.protection)
     }
     
 }
