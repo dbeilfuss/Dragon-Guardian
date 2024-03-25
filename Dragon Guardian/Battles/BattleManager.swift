@@ -27,7 +27,7 @@ class BattleManager: battleViewControllerDelegate {
     var guardianHand: [Action] = []
     
     // Villains
-    var villainsList: VillainsObjects = VillainsObjects(hugeVillains: [],
+    var villainsList: VillainsObjects = VillainsObjects(hugeVillains: [HugeDragon()],
         bigVillains: [],
         littleVillains: [LittleDragon()])
         
@@ -111,11 +111,20 @@ class BattleManager: battleViewControllerDelegate {
             let villainIsDead = thisVillain.stats.health <= 0 ? true : false
             if villainIsDead {
                 print("villain is Dead")
-                print(villainsList)
-                villainsList.removeVillain(target: targetVillain!)
-                print(villainsList)
                 
+                // Protection
+                if thisVillain.stats.protectionIDs.count > 0 {
+                    for id in thisVillain.stats.protectionIDs {
+                        villainsList.removeProtection(protectionID: id)
+                    }
+                }
+                
+                // VillainsList
+                villainsList.removeVillain(target: targetVillain!)
+                
+                // UI
                 delegate?.removeVillain(targetVillain!)
+                delegate?.updateCharacters(herosList: herosList, villainsList: villainsList)
             }
         }
         
@@ -206,8 +215,8 @@ class BattleManager: battleViewControllerDelegate {
         // Villains
         let intentions = villainsList.map { $0.currentStats().intent! }
         print("intentions: \(intentions)")
-        executeIntentions()
         resetVillainsForNextTurn()
+        executeIntentions()
         villainsList.formIntentions()
 
         // Heros

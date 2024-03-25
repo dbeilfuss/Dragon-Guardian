@@ -9,7 +9,7 @@ import Foundation
 
 class BasicAttack: Action {
     
-    var strength: Int
+    let strength: Int
     let attackTip = "Drag attack cards to enemies to attack them."
     
     init(level: Int, name: String, cost: Int, description: String, strength: Int) {
@@ -18,19 +18,30 @@ class BasicAttack: Action {
     }
     
     override func attack(from attacker: Character, to target: Character) {
+        var strength = self.strength
         print("targetHealth: \(target.stats.health)")
         attacker.stats.energy -= cost
 
         // Block
         let block = target.stats.block
+        print("strength: \(strength)")
+        print("block: \(block)")
         if block > strength {
             target.stats.block -= strength
         } else {
             strength -= block
             target.stats.block = 0
+            print("block: \(block)")
+            print("strength: \(strength)")
+
             
             // Protect
+            print("protect: \(target.stats.protection.sumOfProtection())")
             strength = target.stats.protection.dealDamage(of: strength)
+            print("protect: \(target.stats.protection.sumOfProtection())")
+            print("strength: \(strength)")
+
+
         }
         
         target.stats.health -= strength

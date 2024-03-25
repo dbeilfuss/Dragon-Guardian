@@ -73,7 +73,15 @@ extension BattleViewController: battleManagerDelegate {
         let villansList = VillainsUIStackViews(hugeVillainsStackView: hugeVillainsStackView, bigVillainsStackView: bigVillainsStackView, littleVillainsStackView: littleVillainsStackView)
         
         let thisVillain = villansList.getVillainUIView(target: villain)
+        let superView = thisVillain.superview as! UIStackView
         thisVillain.removeFromSuperview()
+        
+        // Retag
+        for i in superView.arrangedSubviews.indices {
+            let subview = superView.arrangedSubviews[i] as! CharacterView
+            subview.tag = i
+            subview.enemyNumber = i
+        }
         
         
     }

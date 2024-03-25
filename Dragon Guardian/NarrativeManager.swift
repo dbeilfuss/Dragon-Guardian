@@ -13,7 +13,7 @@ struct NarrativeManager {
     var currentRoundSetup: RoundSetup?
     
     mutating func newRound() -> RoundSetup {
-        currentRoundNum = 1
+        currentRoundNum = 2
         currentRoundSetup = RoundSetup(
             environment: chooseEnvironment(),
             villains: chooseVillains(),
@@ -29,15 +29,22 @@ struct NarrativeManager {
         } else {
             return environments[0]
         }
-        
-//        let environment: String = environments.randomElement()!
-//        return environment
     }
         
     func chooseVillains() -> VillainsObjects {
-        let villains = VillainsObjects(hugeVillains: [],
-                                       bigVillains: [BigDragon()],
-                                       littleVillains: [LittleDragon(), LittleDragon()])
+        let villainsList = VillainsList()
+        
+        let villainRounds: [VillainRound] = [
+            VillainRound(hugeVillains: 0, bigVillains: 0, littlVillains: 1),
+            VillainRound(hugeVillains: 0, bigVillains: 0, littlVillains: 2),
+            VillainRound(hugeVillains: 0, bigVillains: 1, littlVillains: 0),
+            VillainRound(hugeVillains: 0, bigVillains: 0, littlVillains: 3),
+            VillainRound(hugeVillains: 0, bigVillains: 1, littlVillains: 2),
+            VillainRound(hugeVillains: 1, bigVillains: 0, littlVillains: 0)
+            ]
+        
+        let villains = villainsList.getVillains(for: villainRounds[currentRoundNum - 1])
+        
         return villains
     }
     
@@ -63,12 +70,13 @@ struct NarrativeManager {
         
         // Energy
         let baseEnergy = 3
+        let updatedEnergy = baseEnergy + heroLevel - 1
         
         // Hand
-        let guardianDeck = getDeck(heroLevel: heroLevel, hero: .guardian)
+        let guardianDeck = getHeroDeck(heroLevel: heroLevel, hero: .guardian)
         heros.guardian.stats.deck = guardianDeck
         
-        let dragonDeck = getDeck(heroLevel: heroLevel, hero: .dragon)
+        let dragonDeck = getHeroDeck(heroLevel: heroLevel, hero: .dragon)
         heros.dragon.stats.deck = dragonDeck
 
         // Configure
@@ -76,18 +84,17 @@ struct NarrativeManager {
             $0.stats.level = heroLevel
             $0.stats.maxHealth = $0.stats.maxHealth * Int(healthMultiplier * 100) / 100
             $0.stats.health = $0.stats.maxHealth
-            $0.stats.energy = baseEnergy + heroLevel - 1
+            $0.stats.maxEnergy = updatedEnergy
+            $0.stats.energy = updatedEnergy
         }
         
         // Villagers
-        
-        
-        
+
         
         return heros
     }
     
-    func getDeck(heroLevel: Int, hero: Hero) -> [Action] {
+    func getHeroDeck(heroLevel: Int, hero: Hero) -> [Action] {
         // Properties
         let guardianActions = GuardianActions()
         let availableGuardianActions = guardianActions.getActions(heroLevel: heroLevel)

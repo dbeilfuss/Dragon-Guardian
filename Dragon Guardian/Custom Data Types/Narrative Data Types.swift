@@ -78,3 +78,9 @@ struct DeckSetup {   // Count of how many of each action the hand receives at ea
         return deck
     }
 }
+
+struct VillainRound {
+    let hugeVillains: Int
+    let bigVillains: Int
+    let littlVillains: Int
+}

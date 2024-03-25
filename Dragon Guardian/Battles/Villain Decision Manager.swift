@@ -1,5 +1,5 @@
 //
-//  EnemyDecisionManager.swift
+//  VillainDecisionManager.swift
 //  Dragon Guardian
 //
 //  Created by Daniel Beilfuss on 3/10/24.
@@ -11,10 +11,10 @@ class villainDecisionManager {
     
     var deck: [Action] = []
     
-    func formIntent(deck: [Action], villainSelf: TargetVillain, villainsList: VillainsObjects) -> VillainIntention {
+    func formIntent(deck: [Action], discardPile: [Action?], villainSelf: TargetVillain, villainsList: VillainsObjects) -> VillainIntention {
         var targetHero: Hero?
         var targetVillain: TargetVillain?
-        let action = chooseAction(deck)
+        let action = chooseAction(deck, villainsList: villainsList, discardPile: discardPile)
         
         switch action.actionType {
         case .attack:
@@ -30,10 +30,24 @@ class villainDecisionManager {
         return intent
     }
     
-    func chooseAction(_ deck: [Action]) -> Action {
+    func chooseAction(_ deck: [Action], villainsList: VillainsObjects, discardPile: [Action?]) -> Action {
+        var filteredDeck = deck
+        // Remove Protect Cards if Solo
+        let isSolo: Bool = villainsList.count() == 1
+        if isSolo {
+            filteredDeck = filteredDeck.filter { $0.actionType != .protect }
+            if filteredDeck.isEmpty {
+                if !discardPile.isEmpty {
+                    filteredDeck = discardPile as! [Action]
+                    filteredDeck = filteredDeck.filter { $0.actionType != .protect
+                    }
+                }
+            }
+        }
+        
         // Properties
-        let i = Int.random(in: 0...deck.count-1)
-        self.deck = deck
+        let i = Int.random(in: 0...filteredDeck.count-1)
+        self.deck = filteredDeck
         let action = self.deck.remove(at: i)
         
         // Response

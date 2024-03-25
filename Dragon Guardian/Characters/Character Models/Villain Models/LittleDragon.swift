@@ -9,14 +9,11 @@ import Foundation
 
 class LittleDragon: Villain {
     
-    let attacks = DragonAttacks()
-    let blocks = DragonBlocks()
-    
     let startingStats = CharacterStats(
         name: "Little Dragon",
         level: 1,
         maxHealth: 30,
-        health: 5,
+        health: 30,
         maxEnergy: 0,
         energy: 0,
         block: 0,
@@ -27,17 +24,9 @@ class LittleDragon: Villain {
         discardPile: []
     )
     
-    init () {
+    required init () {
         super .init(startingStats: startingStats)
         stats.deck = drawStartingDeck()
-    }
-    
-    func drawStartingDeck() -> [Action] {
-        let startingDeck = [
-            attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.claw, attacks.tailWhip, attacks.tailWhip, attacks.bite, attacks.bite,
-            blocks.growl, blocks.growl, blocks.growl, blocks.anticipate, blocks.anticipate, blocks.cocoon
-        ]
-        return startingDeck
     }
     
 }

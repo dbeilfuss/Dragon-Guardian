@@ -26,9 +26,14 @@ class Villain: Character {
         }
         
         // Form Intent
-        let intent = decisionManager.formIntent(deck: stats.deck, villainSelf: villainSelf, villainsList: villainsList)
+        let intent = decisionManager.formIntent(deck: stats.deck, discardPile: stats.discardPile, villainSelf: villainSelf, villainsList: villainsList)
         stats.intent = intent
         stats.deck = intent.unusedActions as! [Action]
+    }
+    
+    func drawStartingDeck() -> [Action] {
+        let startingDeck = DragonActions().getActions(heroLevel: stats.level)
+        return startingDeck
     }
     
 }

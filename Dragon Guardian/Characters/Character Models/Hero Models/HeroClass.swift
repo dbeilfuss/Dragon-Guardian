@@ -9,6 +9,8 @@ import Foundation
 
 class HeroClass: Character {
     
+    //MARK: - Actions
+    
     func fetchNewHand(numberOfActions: Int, oldHand: [Action?]) -> [Action] {
         // Old Hand
         if oldHand.count > 0 {
@@ -55,6 +57,22 @@ class HeroClass: Character {
     
     func discardCard(action: Action) {
         stats.discardPile.append(action)
+    }
+    
+    //MARK: - Stats
+    
+    func heal(percentage: Double) {
+        // Calculate
+        var calculatedHealth = stats.health * Int(percentage * 100) / 100
+        
+        // Must not be larger than maxHealth
+        if calculatedHealth > stats.maxHealth {
+            calculatedHealth = stats.maxHealth
+        }
+        
+        // Heal
+        stats.health = calculatedHealth
+        
     }
 
 }

@@ -29,40 +29,16 @@ extension BattleManager: VillainBattleManager {
     }
     
     func villainAttackPlayed(targetHero: HeroClass, action: Action, villain: Villain) {
-        print("attack played")
-        
-        // Feedback
-        print("villain: \(villain.stats.name)")
-        print("action: \(action.name)")
-        print("target: \(targetHero.stats.name)")
-        
-        // Attack
         action.attack(from: villain, to: targetHero)
         
     }
     
     func villainBlockPlayed(self villain: Villain, action: Action) {
-        
-        // Feedback
-        print("block played")
-        print("villain: \(villain.stats.name)")
-        print("action: \(action.name)")
-        
-        // Block
         action.block(character: villain)
-        
     }
     
     func villainProtectPlayed(protector: Villain, protected: TargetVillain, action: Action) {
         let protectedVillain = villainsList.getVillainObject(from: protected)
-        
-        print("protect played")
-        print("protector: \(protector.stats.name)")
-        print("protected: \(protectedVillain.stats.name)")
-        print("action: \(action.name)")
-        
-        // Protect
         action.protect(protector: protector, protected: protectedVillain)
-        
     }
 }

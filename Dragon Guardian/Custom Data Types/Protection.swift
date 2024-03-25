@@ -67,4 +67,20 @@ struct ProtectionArray {
         
         return remainingDamage
     }
+    
+    mutating func removeProtection(protectionID: Int) {
+        if protectionArray.count > 0 {
+            print("checking for protection id: \(protectionID)")
+            for i in 0...protectionArray.count - 1 {
+                let protection = protectionArray[i]
+                if protection.id == protectionID {
+                    print("protection id found, removing")
+                    print("protectionArray: \(protectionArray)")
+                    protectionArray.remove(at: i)
+                    print("protectionArray: \(protectionArray)")
+
+                }
+            }
+        }
+    }
 }

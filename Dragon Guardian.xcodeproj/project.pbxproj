@@ -13,7 +13,7 @@
 		770AAB712B9CBE3C006298DA /* actionCellSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */; };
 		770AAB732B9CC1A7006298DA /* battleManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */; };
 		771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C295B2BA9285900289E2E /* Stats Bar View.swift */; };
-		772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */; };
+		772C1D182B9E652E00AF3980 /* Villain Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
 		776D81772BADBEFC0058C0D5 /* Tips View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81762BADBEFC0058C0D5 /* Tips View.swift */; };
@@ -22,6 +22,9 @@
 		776D817F2BAF634D0058C0D5 /* Narrative Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D817E2BAF634D0058C0D5 /* Narrative Data Types.swift */; };
 		776D81812BAF96DA0058C0D5 /* NarrativeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81802BAF96DA0058C0D5 /* NarrativeManager.swift */; };
 		776D81832BAFC73B0058C0D5 /* Villain Battle Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81822BAFC73B0058C0D5 /* Villain Battle Manager.swift */; };
+		776D81852BB0BAC20058C0D5 /* HugeDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81842BB0BAC20058C0D5 /* HugeDragon.swift */; };
+		776D81872BB0C3070058C0D5 /* Villain Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81862BB0C3070058C0D5 /* Villain Data Types.swift */; };
+		776D81892BB0CA280058C0D5 /* Villains List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81882BB0CA280058C0D5 /* Villains List.swift */; };
 		779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionTableViewCell.swift */; };
 		779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionTableViewCell.xib */; };
 		77B34F042BA2701D00E799F7 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B34F032BA2701D00E799F7 /* BasicBlock.swift */; };
@@ -60,7 +63,7 @@
 		770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionCellSelectorDelegate.swift; sourceTree = "<group>"; };
 		770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = battleManagerDelegate.swift; sourceTree = "<group>"; };
 		771C295B2BA9285900289E2E /* Stats Bar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stats Bar View.swift"; sourceTree = "<group>"; };
-		772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enemy Decision Manager.swift"; sourceTree = "<group>"; };
+		772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villain Decision Manager.swift"; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
 		776D81762BADBEFC0058C0D5 /* Tips View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tips View.swift"; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		776D817E2BAF634D0058C0D5 /* Narrative Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Narrative Data Types.swift"; sourceTree = "<group>"; };
 		776D81802BAF96DA0058C0D5 /* NarrativeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NarrativeManager.swift; sourceTree = "<group>"; };
 		776D81822BAFC73B0058C0D5 /* Villain Battle Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villain Battle Manager.swift"; sourceTree = "<group>"; };
+		776D81842BB0BAC20058C0D5 /* HugeDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugeDragon.swift; sourceTree = "<group>"; };
+		776D81862BB0C3070058C0D5 /* Villain Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villain Data Types.swift"; sourceTree = "<group>"; };
+		776D81882BB0CA280058C0D5 /* Villains List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villains List.swift"; sourceTree = "<group>"; };
 		779D16702B99025E00597A30 /* actionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionTableViewCell.swift; sourceTree = "<group>"; };
 		779D16712B99025E00597A30 /* actionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionTableViewCell.xib; sourceTree = "<group>"; };
 		77B34F032BA2701D00E799F7 /* BasicBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBlock.swift; sourceTree = "<group>"; };
@@ -222,9 +228,11 @@
 		77DB72992B8C466D00E410A2 /* Villain Models */ = {
 			isa = PBXGroup;
 			children = (
+				776D81882BB0CA280058C0D5 /* Villains List.swift */,
 				77DB728B2B8BD22400E410A2 /* Villain.swift */,
 				77DB729A2B8C474500E410A2 /* LittleDragon.swift */,
 				77EF7FB12B92215C0037D21C /* BigDragon.swift */,
+				776D81842BB0BAC20058C0D5 /* HugeDragon.swift */,
 			);
 			path = "Villain Models";
 			sourceTree = "<group>";
@@ -235,7 +243,7 @@
 				770AAB6F2B9CBDFB006298DA /* BattleViewController */,
 				77DB72942B8BEB5600E410A2 /* BattleManager.swift */,
 				776D81822BAFC73B0058C0D5 /* Villain Battle Manager.swift */,
-				772C1D172B9E652E00AF3980 /* Enemy Decision Manager.swift */,
+				772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */,
 			);
 			path = Battles;
 			sourceTree = "<group>";
@@ -253,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */,
+				776D81862BB0C3070058C0D5 /* Villain Data Types.swift */,
 				77EDFC842BA646E800292E75 /* Protection.swift */,
 				77F563C12BAA702800F0E9FA /* Style Sheet.swift */,
 				776D817E2BAF634D0058C0D5 /* Narrative Data Types.swift */,
@@ -345,10 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776D81892BB0CA280058C0D5 /* Villains List.swift in Sources */,
 				77DB72842B8BCE5200E410A2 /* HeroClass.swift in Sources */,
+				776D81852BB0BAC20058C0D5 /* HugeDragon.swift in Sources */,
 				77B34F042BA2701D00E799F7 /* BasicBlock.swift in Sources */,
 				77574B412B93F7DD009CF89A /* Villager View.swift in Sources */,
 				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
+				776D81872BB0C3070058C0D5 /* Villain Data Types.swift in Sources */,
 				77F726472B904206008C3495 /* Character View.swift in Sources */,
 				776D81772BADBEFC0058C0D5 /* Tips View.swift in Sources */,
 				77DB72872B8BD05200E410A2 /* DragonClass.swift in Sources */,
@@ -369,7 +381,7 @@
 				771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */,
 				770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */,
 				77F563C22BAA702900F0E9FA /* Style Sheet.swift in Sources */,
-				772C1D182B9E652E00AF3980 /* Enemy Decision Manager.swift in Sources */,
+				772C1D182B9E652E00AF3980 /* Villain Decision Manager.swift in Sources */,
 				776D81832BAFC73B0058C0D5 /* Villain Battle Manager.swift in Sources */,
 				776D817F2BAF634D0058C0D5 /* Narrative Data Types.swift in Sources */,
 				77B8B1DC2BA3E50B00744B37 /* BasicProtect.swift in Sources */,
