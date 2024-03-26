@@ -15,15 +15,15 @@ class VillagersClass: HeroClass {
         name: "Villagers",
         hero: .villagers,
         level: 1,
-        maxHealth: 28,
-        health: 28,
+        maxHealth: 46,
+        health: 46,
         maxEnergy: 0,
         energy: 0,
         block: 0,
         protection: ProtectionArray(protectionArray: []),
         protectionIDs: [],
         statusEffects: [String()],
-        deck: [], 
+        deck: [],
         discardPile: []
     )
     

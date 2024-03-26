@@ -7,14 +7,14 @@
 
 import UIKit
 
-class EndOfRoundViewController: UIViewController {
+class TransitionViewController: UIViewController {
     
     // Title
     @IBOutlet weak var titleLabel: UILabel!
     
     // Messages & Stats
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var statsLabel: UILabel!
+    @IBOutlet weak var villagerStatsLabel: UILabel!
     @IBOutlet weak var nextScreenMessageLabel: UILabel!
     
     // Buttons
@@ -26,42 +26,44 @@ class EndOfRoundViewController: UIViewController {
     let styleSheet = StyleSheet()
     var gameState: GameState = .inProgress
     var villagersSaved: Int = 0
+    var roundNum: Int = 0
+    var delegate: transitionScreenDelegate?
     
     //MARK: - Text
     
-    struct EndOfRoundData {
+    struct transitionScreenData {
         let title: String
         var message: String
-        let stats: String
-        let nextScreenMessage: String
+        var villagerStats: String
+        var nextScreenMessage: String
         let backButtonIsHidden: Bool
         let nextBattleButtonIsHidden: Bool
         let scoreboardButtonIsHidden: Bool
     }
     
-    let pausedData = EndOfRoundData(
+    let pausedData = transitionScreenData(
         title: "Game Paused", message: "",
-        stats: "Total Villagers Saved this game: ##",
-        nextScreenMessage: "The villagers still need your help!", 
+        villagerStats: "You have ## villagers remaining!",
+        nextScreenMessage: "Can you keep them safe until the end?",
         backButtonIsHidden: false,
         nextBattleButtonIsHidden: true, scoreboardButtonIsHidden: true
     )
     
-    let victoryData = EndOfRoundData(
+    let victoryData = transitionScreenData(
         title: "Victory!",
-        message: "You have defeated the evil villains and saved ## villagers.",
-        stats: "Total Villagers Saved:  ##",
-        nextScreenMessage: "But Look!  Another group of villagers is under attack!",
+        message: "You have defeated the evil villains",
+        villagerStats: "and ## villagers remain.",
+        nextScreenMessage: "Time passes.  You begin to grow.",
         backButtonIsHidden: true,
         nextBattleButtonIsHidden: false,
         scoreboardButtonIsHidden: true
     )
     
-    let defeatData = EndOfRoundData(
+    let defeatData = transitionScreenData(
         title: "Defeat!",
-        message: "You have been defeated by the evil villains and this group of villagers have perished.",
-        stats: "Total Villagers Saved:  ##",
-        nextScreenMessage: "",
+        message: "You have been defeated by the evil villains and the villagers have perished.",
+        villagerStats: "You died on round ##.",
+        nextScreenMessage: "..💀..",
         backButtonIsHidden: true,
         nextBattleButtonIsHidden: true,
         scoreboardButtonIsHidden: false
@@ -69,17 +71,19 @@ class EndOfRoundViewController: UIViewController {
     
     //MARK: - viewWillAppear
         
-    func set(gameState: GameState, villagersSaved: Int) {
+    func set(gameState: GameState, villagersSaved: Int, roundNum: Int, delegate: transitionScreenDelegate) {
         // Properties
         self.gameState = gameState
         self.villagersSaved = villagersSaved
+        self.roundNum = roundNum
+        self.delegate = delegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Init
         initializeButtons()
-        let data = initializeData(villagersSaved: villagersSaved)
+        let data = initializeData(villagersSaved: villagersSaved, roundNum: roundNum)
         print(data)
         refreshScreen(data: data)
     }
@@ -90,22 +94,40 @@ class EndOfRoundViewController: UIViewController {
         scoreboardButton.tintColor = styleSheet.red
     }
     
-    func initializeData(villagersSaved: Int) -> EndOfRoundData {
-        var thisData: EndOfRoundData = gameState == .inProgress ? pausedData : (gameState == .victory ? victoryData : defeatData)
+    func initializeData(villagersSaved: Int, roundNum: Int) -> transitionScreenData {
+        var thisData: transitionScreenData = gameState == .inProgress ? pausedData : (gameState == .victory ? victoryData : defeatData)
         
-        thisData.message = thisData.message.replacingOccurrences(of: "##", with: String(villagersSaved))
+        thisData.villagerStats = thisData.villagerStats.replacingOccurrences(of: "##", with: String(villagersSaved))
+        thisData.nextScreenMessage = thisData.nextScreenMessage.replacingOccurrences(of: "##", with: String(roundNum))
         
         return thisData
     }
     
-    func refreshScreen(data: EndOfRoundData) {
+    func refreshScreen(data: transitionScreenData) {
         titleLabel.text = data.title
         messageLabel.text = data.message
-        statsLabel.text = data.stats
+        villagerStatsLabel.text = data.villagerStats
         nextScreenMessageLabel.text = data.nextScreenMessage
         backButton.isHidden = data.backButtonIsHidden
         nextBattleButton.isHidden = data.nextBattleButtonIsHidden
         scoreboardButton.isHidden = data.scoreboardButtonIsHidden
     }
     
+    //MARK: - Buttons
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func nextBattleButtonTapped(_ sender: UIButton) {
+        delegate?.loadNextRound()
+        self.dismiss(animated: true)
+    }
+    
+    
+}
+
+
+protocol transitionScreenDelegate {
+    func loadNextRound()
 }

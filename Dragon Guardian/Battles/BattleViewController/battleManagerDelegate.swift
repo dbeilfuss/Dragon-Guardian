@@ -95,4 +95,14 @@ extension BattleViewController: battleManagerDelegate {
         print("actionsCarriedOut: \(actionsCarriedOut)")
     }
     
+    //MARK: - Victory & Defeat
+    
+    func declareVictory() {
+        transitionScreen()
+    }
+    
+    func updateForNewRound() {
+        initializeBattle()
+    }
+    
 }

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--End Of Round View Controller-->
+        <!--Transition View Controller-->
         <scene sceneID="gLM-6X-faf">
             <objects>
-                <viewController id="HIx-eQ-EW4" customClass="EndOfRoundViewController" customModule="Dragon_Guardian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HIx-eQ-EW4" customClass="TransitionViewController" customModule="Dragon_Guardian" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="4Vo-Cr-JhL">
                         <rect key="frame" x="0.0" y="0.0" width="704" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,23 +22,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Fg-8V-TAV" userLabel="Message Stack View">
-                                <rect key="frame" x="140.5" y="344.5" width="423.5" height="91.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6Fg-8V-TAV" userLabel="Message Stack View">
+                                <rect key="frame" x="88" y="344.5" width="528" height="91.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have defeated the evil villains and saved 8 villagers." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llc-gG-Xs6" userLabel="Message">
-                                        <rect key="frame" x="0.0" y="0.0" width="423.5" height="20.5"/>
+                                        <rect key="frame" x="52.5" y="0.0" width="423.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Villagers Saved:  8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-tW-NBu" userLabel="Stats 1">
-                                        <rect key="frame" x="0.0" y="35.5" width="423.5" height="20.5"/>
+                                        <rect key="frame" x="173.5" y="35.5" width="181.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But Look!  Another group of villagers is under attack!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE0-Ib-hhC" userLabel="Next Screen Message">
-                                        <rect key="frame" x="0.0" y="71" width="423.5" height="20.5"/>
+                                        <rect key="frame" x="64.5" y="71" width="399.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -53,12 +53,18 @@
                                         <color key="tintColor" red="0.26044011350000001" green="0.62155268360000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Return to Battle!"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="HIx-eQ-EW4" eventType="touchUpInside" id="HAt-mJ-PSm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltg-i2-DSL">
                                         <rect key="frame" x="179" y="0.0" width="148" height="34.5"/>
                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Save Them!"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="To Battle!"/>
+                                        <connections>
+                                            <action selector="nextBattleButtonTapped:" destination="HIx-eQ-EW4" eventType="touchUpInside" id="DaN-St-7FV"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4P8-Wi-bkC">
                                         <rect key="frame" x="358" y="0.0" width="148" height="34.5"/>
@@ -72,6 +78,7 @@
                         <viewLayoutGuide key="safeArea" id="tFc-bQ-Llf"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Fg-8V-TAV" firstAttribute="width" secondItem="tFc-bQ-Llf" secondAttribute="width" multiplier="0.75" id="4YH-4S-zMX"/>
                             <constraint firstItem="6Fg-8V-TAV" firstAttribute="centerX" secondItem="4Vo-Cr-JhL" secondAttribute="centerX" id="5c2-np-0gP"/>
                             <constraint firstItem="tFc-bQ-Llf" firstAttribute="bottom" secondItem="Sif-nK-6cg" secondAttribute="bottom" constant="75" id="GeV-DC-SoM"/>
                             <constraint firstItem="7jd-3K-C7W" firstAttribute="centerX" secondItem="4Vo-Cr-JhL" secondAttribute="centerX" id="LZC-Dh-p2G"/>
@@ -84,11 +91,11 @@
                     <connections>
                         <outlet property="backButton" destination="mD6-6H-xWT" id="Lca-Rw-Tj6"/>
                         <outlet property="messageLabel" destination="Llc-gG-Xs6" id="CZ0-CP-xXH"/>
-                        <outlet property="nextBattleButton" destination="mD6-6H-xWT" id="aP0-zD-t6u"/>
+                        <outlet property="nextBattleButton" destination="ltg-i2-DSL" id="YpK-bF-6l9"/>
                         <outlet property="nextScreenMessageLabel" destination="DE0-Ib-hhC" id="Mh5-nj-ZTn"/>
                         <outlet property="scoreboardButton" destination="4P8-Wi-bkC" id="5Go-eX-1Ma"/>
-                        <outlet property="statsLabel" destination="BF6-tW-NBu" id="xZB-kS-Jf0"/>
                         <outlet property="titleLabel" destination="7jd-3K-C7W" id="Kii-hm-lBe"/>
+                        <outlet property="villagerStatsLabel" destination="BF6-tW-NBu" id="xZB-kS-Jf0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MO-W6-2qf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

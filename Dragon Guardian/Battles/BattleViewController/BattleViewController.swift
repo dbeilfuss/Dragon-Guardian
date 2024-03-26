@@ -60,6 +60,10 @@ class BattleViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeBattle()
+    }
+    
+    func initializeBattle() {
         battleManager.setDelegate(self)
         initializeEnvironment()
         initializeHands()
@@ -189,14 +193,19 @@ class BattleViewController: UIViewController {
     //MARK: - End of Battle / Pause
 
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        transitionScreen()
+    }
+    
+    func transitionScreen() {
         performSegue(withIdentifier: "battleToEndOfRoundSegue", sender: self)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "battleToEndOfRoundSegue" {
-            let endOfRoundViewController = segue.destination as! EndOfRoundViewController
+            let endOfRoundViewController = segue.destination as! TransitionViewController
             print(endOfRoundViewController.gameState)
-            endOfRoundViewController.set(gameState: .inProgress, villagersSaved: 3)
+            endOfRoundViewController.set(gameState: battleManager.getGamestate(), villagersSaved: battleManager.getVillagerCount(), roundNum: battleManager.getRoundNumber(), delegate: self)
             print(endOfRoundViewController.gameState)
         }
     }
@@ -299,6 +308,15 @@ extension BattleViewController {
     
 }
 
+//MARK: - Extention: TransitionScreenDelegate
+
+extension BattleViewController: transitionScreenDelegate {
+    func loadNextRound() {
+        battleManager.loadNextRound()
+    }
+    
+}
+
 
 //MARK: - Protocol: BattleViewControllerDelegate
 
@@ -312,6 +330,10 @@ protocol battleViewControllerDelegate {
     func actionPlayed(actionType: ActionType, hero: Hero, action: Int, targetVillain: TargetVillain?, targetHero: Hero?)
     func nextTurn()
     func retrieveEnvironment() -> String?
+    func getGamestate() -> GameState
+    func getRoundNumber() -> Int
+    func getVillagerCount() -> Int
+    func loadNextRound()
 }
 
 //MARK: - Protocol: CharacterViewUpdateDelegate

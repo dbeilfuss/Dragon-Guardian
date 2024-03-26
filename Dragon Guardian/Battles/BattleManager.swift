@@ -11,11 +11,11 @@ import UIKit
 
 class BattleManager: battleViewControllerDelegate {
     
-    
     //MARK: - Properties
     
     var narrativeManager = NarrativeManager()
     var delegate: battleManagerDelegate?
+    var gameState: GameState = .inProgress
     
     // Heros
     var herosList: HerosList = HerosList(
@@ -35,6 +35,11 @@ class BattleManager: battleViewControllerDelegate {
     //MARK: - Init
     
     init() {
+        initializeGameData()
+    }
+    
+    func initializeGameData() {
+        gameState = .inProgress
         let roundSetup = narrativeManager.newRound()
         herosList = roundSetup.heros
         villainsList = roundSetup.villains
@@ -45,7 +50,6 @@ class BattleManager: battleViewControllerDelegate {
         
         // Villains
         villainsList.formIntentions()
-        
     }
     
     func setDelegate(_ delegate: battleManagerDelegate) {
@@ -86,6 +90,20 @@ class BattleManager: battleViewControllerDelegate {
         let action = hand[action]
         return action
     }
+    
+    func getGamestate() -> GameState {
+        return gameState
+    }
+    
+    func getVillagerCount() -> Int {
+        return herosList.villagers.stats.health
+    }
+    
+    func getRoundNumber() -> Int {
+        narrativeManager.currentRoundNum
+    }
+    
+    
 
     //MARK: - Actions
     
@@ -127,10 +145,12 @@ class BattleManager: battleViewControllerDelegate {
                 delegate?.updateCharacters(herosList: herosList, villainsList: villainsList)
             }
         }
-        
+
         // updateUI
         delegate?.updateCharacters(herosList: retrieveHeros(), villainsList: self.villainsList)
         
+        // Victory & Defeat
+        checkForVictory()
         
     }
     
@@ -208,6 +228,26 @@ class BattleManager: battleViewControllerDelegate {
         heroClass.discardCard(action: action)
         
     }
+    
+    //MARK: - Victory & Defeat
+    
+    func checkForVictory() {
+        
+        if villainsList.count() == 0 {
+            gameState = .victory
+        }
+        
+        if gameState == .victory {
+            narrativeManager.declareVictory()
+            delegate?.declareVictory()
+        }
+        
+    }
+    
+    func loadNextRound() {
+        initializeGameData()
+        delegate?.updateForNewRound()
+    }
 
     //MARK: - Take Turns
     
@@ -243,9 +283,11 @@ class BattleManager: battleViewControllerDelegate {
     
 }
 
-//MARK: - Protocol: View Controller
+//MARK: - Protocol: battleManagerDelegate
 protocol battleManagerDelegate {
     func updateCharacters(herosList: HerosList, villainsList: VillainsObjects)
     func nextTurn(actionsCarriedOut: [VillainIntention], updatedHerosList: HerosList, updatedVillainsList: VillainsObjects)
     func removeVillain(_: TargetVillain)
+    func declareVictory()
+    func updateForNewRound()
 }

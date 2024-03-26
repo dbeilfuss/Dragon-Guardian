@@ -82,7 +82,7 @@ struct DragonActions {
 struct DragonAttacks {
     let claw = BasicAttack(level: 1, name: "Claw", cost: 1, description: "Slash opponent", strength: 6)
     let tailWhip = BasicAttack(level: 2, name: "Tail Whip", cost: 2, description: "An unexpected blow from behind", strength: 15)
-    let bite = BasicAttack(level: 3, name: "Bite", cost: 4, description: "Use your teeth", strength: 25)
+    let bite = BasicAttack(level: 3, name: "Bite", cost: 3, description: "Use your teeth", strength: 25)
     
     func getAllActions() -> [Action] {
         let allActions = [claw, tailWhip, bite]
@@ -93,7 +93,7 @@ struct DragonAttacks {
 struct DragonBlocks {
     let growl = BasicBlock(level: 1, name: "Growl", cost: 1, description: "Make your enemies' knees shake", strength: 5)
     let anticipate = BasicBlock(level: 2, name: "Anticipate", cost: 2, description: "Stop the incoming blow.", strength: 12)
-    let cocoon = BasicBlock(level: 3, name: "Cocoon", cost: 4, description: "Your Wings encircle you in a protective shell", strength: 20)
+    let cocoon = BasicBlock(level: 3, name: "Cocoon", cost: 3, description: "Your Wings encircle you in a protective shell", strength: 20)
     
     func getAllActions() -> [Action] {
         let allActions = [growl, anticipate, cocoon]

@@ -11,9 +11,11 @@ struct NarrativeManager {
     
     var currentRoundNum = 0
     var currentRoundSetup: RoundSetup?
+    var gameState: GameState = .inProgress
     
     mutating func newRound() -> RoundSetup {
-        currentRoundNum = 5
+        gameState = .inProgress
+        currentRoundNum += 1
         currentRoundSetup = RoundSetup(
             environment: chooseEnvironment(),
             villains: chooseVillains(),
@@ -68,7 +70,7 @@ struct NarrativeManager {
         
         // Energy
         let baseEnergy = 3
-        let updatedEnergy = baseEnergy + heroLevel - 1
+        let updatedEnergy = baseEnergy
         
         // Hand
         var guardianDeck: [Action] = []
@@ -128,6 +130,16 @@ struct NarrativeManager {
         
         return deck
         
+    }
+    
+    func getRoundNumber() -> Int {
+        return currentRoundNum
+    }
+    
+    //MARK: - Next Round
+    
+    mutating func declareVictory() {
+        gameState = .victory
     }
     
 }
