@@ -13,7 +13,7 @@ struct NarrativeManager {
     var currentRoundSetup: RoundSetup?
     
     mutating func newRound() -> RoundSetup {
-        currentRoundNum = 1
+        currentRoundNum = 5
         currentRoundSetup = RoundSetup(
             environment: chooseEnvironment(),
             villains: chooseVillains(),
@@ -55,9 +55,9 @@ struct NarrativeManager {
         
         // Level
         var heroLevel = 1
-        if currentRoundNum <= 6 {
-            heroLevel = 2
-        } else if currentRoundNum <= 12 {
+        if currentRoundNum <= 2 {
+            heroLevel = 1
+        } else if currentRoundNum <= 4 {
             heroLevel = 2
         } else {
             heroLevel = 3
@@ -71,12 +71,20 @@ struct NarrativeManager {
         let updatedEnergy = baseEnergy + heroLevel - 1
         
         // Hand
-        let guardianDeck = getHeroDeck(heroLevel: heroLevel, hero: .guardian)
+        var guardianDeck: [Action] = []
+        for i in 1...heroLevel {
+            let nextLevelCards = getHeroDeck(heroLevel: i, hero: .guardian)
+            guardianDeck = guardianDeck + nextLevelCards
+        }
         heros.guardian.stats.deck = guardianDeck
         
-        let dragonDeck = getHeroDeck(heroLevel: heroLevel, hero: .dragon)
+        var dragonDeck: [Action] = []
+        for i in 1...heroLevel {
+            let nextLevelCards = getHeroDeck(heroLevel: i, hero: .dragon)
+            dragonDeck = dragonDeck + nextLevelCards
+        }
         heros.dragon.stats.deck = dragonDeck
-
+        
         // Configure
         heros.forEach {
             $0.stats.level = heroLevel
