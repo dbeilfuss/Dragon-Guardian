@@ -211,7 +211,7 @@ class BattleViewController: UIViewController {
         battleManager.nextTurn()
     }
     
-    //MARK: - End of Battle / Pause
+    //MARK: - Segue - Transition Screen
 
     @IBAction func pauseButtonTapped(_ sender: UIButton) {
         transitionScreen()

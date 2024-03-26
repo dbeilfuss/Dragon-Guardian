@@ -69,8 +69,8 @@ struct NarrativeManager {
         let healthMultiplier = 1.1
         
         // Energy
-        let baseEnergy = 3
-        let updatedEnergy = baseEnergy
+        let baseEnergy = 1
+        let updatedEnergy = baseEnergy + heroLevel - 1
         
         // Hand
         var guardianDeck: [Action] = []
