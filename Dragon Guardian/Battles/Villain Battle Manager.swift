@@ -38,7 +38,8 @@ extension BattleManager: VillainBattleManager {
     }
     
     func villainProtectPlayed(protector: Villain, protected: TargetVillain, action: Action) {
-        let protectedVillain = villainsList.getVillainObject(from: protected)
-        action.protect(protector: protector, protected: protectedVillain)
+        if let protectedVillain = villainsList.getVillainObject(from: protected) {
+            action.protect(protector: protector, protected: protectedVillain)
+        }
     }
 }

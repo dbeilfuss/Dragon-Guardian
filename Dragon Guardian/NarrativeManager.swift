@@ -13,7 +13,7 @@ struct NarrativeManager {
     var currentRoundSetup: RoundSetup?
     
     mutating func newRound() -> RoundSetup {
-        currentRoundNum = 2
+        currentRoundNum = 1
         currentRoundSetup = RoundSetup(
             environment: chooseEnvironment(),
             villains: chooseVillains(),
@@ -22,12 +22,10 @@ struct NarrativeManager {
     }
     
     func chooseEnvironment() -> String {
-        let environments = ["Desert", "Forest"]
-        
         if (currentRoundNum / 3) % 2 == 0 {
-            return environments[1]
+            return Environment.forest.rawValue
         } else {
-            return environments[0]
+            return Environment.desert.rawValue
         }
     }
         
@@ -58,7 +56,7 @@ struct NarrativeManager {
         // Level
         var heroLevel = 1
         if currentRoundNum <= 6 {
-            heroLevel = 1
+            heroLevel = 2
         } else if currentRoundNum <= 12 {
             heroLevel = 2
         } else {

@@ -68,9 +68,12 @@ struct VillainsObjects {
     var bigVillains: [Villain]
     var littleVillains: [Villain]
     
-    func getVillainObject(from targetVillain: TargetVillain) -> Villain {
+    func getVillainObject(from targetVillain: TargetVillain) -> Villain? {
         let villainsList = targetVillain.villainRow == 0 ? hugeVillains : (targetVillain.villainRow == 1 ? bigVillains : littleVillains)
-        let villainObject = villainsList[targetVillain.villainNumber]
+        var villainObject: Villain?
+        if villainsList.count > targetVillain.villainNumber {
+            villainObject = villainsList[targetVillain.villainNumber]
+        }
         return villainObject
     }
     
