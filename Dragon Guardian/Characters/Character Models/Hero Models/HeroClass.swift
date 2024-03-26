@@ -9,9 +9,12 @@ import Foundation
 
 class HeroClass: Character {
     
+    //MARK: - Properties
+    var handSize = 3
+    
     //MARK: - Actions
     
-    func fetchNewHand(numberOfActions: Int, oldHand: [Action?]) -> [Action] {
+    func fetchNewHand(oldHand: [Action?]) -> [Action] {
         // Old Hand
         if oldHand.count > 0 {
             for action in oldHand {
@@ -22,7 +25,7 @@ class HeroClass: Character {
         // New Hand
         var hand: [Action] = []
         
-        for _ in 1...numberOfActions {
+        for _ in 1...handSize {
             if stats.deck.count == 0 {
                 shuffleDiscardPile()
             }

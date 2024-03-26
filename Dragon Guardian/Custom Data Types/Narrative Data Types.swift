@@ -8,6 +8,7 @@
 import Foundation
 
 enum GameState {
+    case initializing
     case inProgress
     case victory
     case defeat

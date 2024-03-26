@@ -15,7 +15,7 @@ class BattleManager: battleViewControllerDelegate {
     
     var narrativeManager = NarrativeManager()
     var delegate: battleManagerDelegate?
-    var gameState: GameState = .inProgress
+    var gameState: GameState = .initializing
     
     // Heros
     var herosList: HerosList = HerosList(
@@ -39,17 +39,21 @@ class BattleManager: battleViewControllerDelegate {
     }
     
     func initializeGameData() {
-        gameState = .inProgress
-        let roundSetup = narrativeManager.newRound()
+        var oldHerosList = gameState == .initializing ? nil : herosList
+        
+        let roundSetup = narrativeManager.newRound(oldHerosList: oldHerosList)
         herosList = roundSetup.heros
         villainsList = roundSetup.villains
         
         // Heros
-        self.guardianHand = herosList.guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
-        self.dragonHand = herosList.dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
+        self.guardianHand = herosList.guardian.fetchNewHand(oldHand: guardianHand)
+        self.dragonHand = herosList.dragon.fetchNewHand(oldHand: dragonHand)
         
         // Villains
         villainsList.formIntentions()
+        
+        // Game State
+        gameState = .inProgress
     }
     
     func setDelegate(_ delegate: battleManagerDelegate) {
@@ -277,8 +281,8 @@ class BattleManager: battleViewControllerDelegate {
     func resetHerosForNextTurn() {
         let herosList = retrieveHeros()
         herosList.forEach { $0.resetForNextTurn() }
-        dragonHand = herosList.dragon.fetchNewHand(numberOfActions: 5, oldHand: dragonHand)
-        guardianHand = herosList.guardian.fetchNewHand(numberOfActions: 5, oldHand: guardianHand)
+        dragonHand = herosList.dragon.fetchNewHand(oldHand: dragonHand)
+        guardianHand = herosList.guardian.fetchNewHand(oldHand: guardianHand)
     }
     
 }

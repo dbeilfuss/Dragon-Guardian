@@ -13,13 +13,13 @@ struct NarrativeManager {
     var currentRoundSetup: RoundSetup?
     var gameState: GameState = .inProgress
     
-    mutating func newRound() -> RoundSetup {
+    mutating func newRound(oldHerosList: HerosList?) -> RoundSetup {
         gameState = .inProgress
         currentRoundNum += 1
         currentRoundSetup = RoundSetup(
             environment: chooseEnvironment(),
             villains: chooseVillains(),
-            heros: configureHeros())
+            heros: configureHeros(oldHerosList: oldHerosList))
         return currentRoundSetup!
     }
     
@@ -48,12 +48,16 @@ struct NarrativeManager {
         return villains
     }
     
-    func configureHeros() -> HerosList {
-        let heros = HerosList(
+    func configureHeros(oldHerosList: HerosList?) -> HerosList {
+        var heros = HerosList(
             guardian: GuardianClass(),
             villagers: VillagersClass(),
             dragon: DragonClass()
         )
+        
+        if oldHerosList != nil {
+            heros = oldHerosList!
+        }
         
         // Level
         var heroLevel = 1
@@ -66,13 +70,13 @@ struct NarrativeManager {
         }
         
         // Health
-        let healthMultiplier = 1.1
+//        let healthMultiplier = 1.1
         
         // Energy
         let baseEnergy = 1
         let updatedEnergy = baseEnergy + heroLevel - 1
         
-        // Hand
+        // Deck & Hand
         var guardianDeck: [Action] = []
         for i in 1...heroLevel {
             let nextLevelCards = getHeroDeck(heroLevel: i, hero: .guardian)
@@ -87,13 +91,17 @@ struct NarrativeManager {
         }
         heros.dragon.stats.deck = dragonDeck
         
+        let baseHandSize = 3
+        var updatedHandSize = baseHandSize + heroLevel - 1
+        
         // Configure
         heros.forEach {
             $0.stats.level = heroLevel
-            $0.stats.maxHealth = $0.stats.maxHealth * Int(healthMultiplier * 100) / 100
-            $0.stats.health = $0.stats.maxHealth
+//            $0.stats.maxHealth = $0.stats.maxHealth * Int(healthMultiplier * 100) / 100
+//            $0.stats.health = $0.stats.maxHealth
             $0.stats.maxEnergy = updatedEnergy
             $0.stats.energy = updatedEnergy
+            $0.handSize = updatedHandSize
         }
         
         // Villagers
