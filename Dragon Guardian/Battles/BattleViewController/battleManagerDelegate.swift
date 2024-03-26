@@ -102,6 +102,9 @@ extension BattleViewController: battleManagerDelegate {
     }
     
     func updateForNewRound() {
+        resetHands()
+        resetHeros()
+        resetVillains()
         initializeBattle()
     }
     

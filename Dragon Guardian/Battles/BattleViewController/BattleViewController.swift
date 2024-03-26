@@ -33,6 +33,10 @@ class BattleViewController: UIViewController {
     @IBOutlet weak var bigVillainBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var littleVillainBottomConstraint: NSLayoutConstraint!
     
+    let hugeVillainBottomConstant: CGFloat = 300
+    let bigVillainBottomConstant: CGFloat = 225
+    let littleVillainBottomConstant: CGFloat = 150
+    
     // Action Targets
     @IBOutlet weak var targetImage1: UIImageView!
     @IBOutlet weak var targetImage2: UIImageView!
@@ -99,9 +103,20 @@ class BattleViewController: UIViewController {
         targetImage2.isHidden = true
     }
     
+    func resetHands() {
+        hero1HandTableView.reloadData()
+        hero2HandTableView.reloadData()
+    }
+    
     func initializeHeros() {
         let herosList = battleManager.retrieveHeros()
         displayHeros(herosList)
+    }
+    
+    func resetHeros() {
+        hero1View.subviews.forEach { $0.removeFromSuperview() }
+        hero2View.subviews.forEach { $0.removeFromSuperview() }
+        villagersView.subviews.forEach { $0.removeFromSuperview() }
     }
     
     func initializeVillains(){
@@ -120,6 +135,12 @@ class BattleViewController: UIViewController {
         displayVillains(villains: villainsList.hugeVillains, stackView: hugeVillainsStackView)
         displayVillains(villains: villainsList.bigVillains, stackView: bigVillainsStackView)
         displayVillains(villains: villainsList.littleVillains, stackView: littleVillainsStackView)
+    }
+    
+    func resetVillains() {
+        hugeVillainBottomConstraint.constant = hugeVillainBottomConstant
+        bigVillainBottomConstraint.constant = bigVillainBottomConstant
+        littleVillainBottomConstraint.constant = littleVillainBottomConstant
     }
     
     func displayHeros(_ heros: HerosList) {
