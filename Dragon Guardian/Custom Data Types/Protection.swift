@@ -29,6 +29,7 @@ struct Protection {
             strength = 0
         }
         
+        
         // Protector
         let startingHealth = protector.stats.health
 
@@ -75,9 +76,14 @@ struct ProtectionArray {
                 let protection = protectionArray[i]
                 if protection.id == protectionID {
                     print("protection id found, removing")
-                    print("protectionArray: \(protectionArray)")
+                    
+                    // Remove Protector's ID
+                    let protector: Character = protection.protector
+                    protector.stats.protectionIDs.remove(at: protectionID)
+                    
+                    // Remove Protection from Protected
                     protectionArray.remove(at: i)
-                    print("protectionArray: \(protectionArray)")
+                    
 
                 }
             }

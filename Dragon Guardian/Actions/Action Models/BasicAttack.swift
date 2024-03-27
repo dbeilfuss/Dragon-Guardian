@@ -37,9 +37,20 @@ class BasicAttack: Action {
             
             // Protect
             print("protect: \(target.stats.protection.sumOfProtection())")
-            strength = target.stats.protection.dealDamage(of: strength)
-            print("protect: \(target.stats.protection.sumOfProtection())")
-            print("strength: \(strength)")
+            
+            // Verify not protecting self
+            let protector = target.stats.protection.protectionArray.first?.protector
+            var protectorIsAlsoTarget = false
+            if target.stats.protection.protectionArray.first?.id == protector?.stats.protection.protectionArray.first?.id {
+                protectorIsAlsoTarget = true
+                print("protectorIsAlsoTarget, bypassing protection")
+            }
+            
+            if !protectorIsAlsoTarget {
+                strength = target.stats.protection.dealDamage(of: strength)
+                print("protect: \(target.stats.protection.sumOfProtection())")
+                print("strength: \(strength)")
+            }
 
 
         }

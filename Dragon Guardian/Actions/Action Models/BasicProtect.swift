@@ -30,7 +30,14 @@ class BasicProtect: Action {
         protected.stats.protection.protectionArray.append(protection)
         protector.stats.protectionIDs.append(protectionID)
         
-        print("with a strength of: \(strength)")
+        // Remove Protection if Protecting Self
+        if protector.stats.protection.protectionArray.first?.id == protectionID {
+            print("protectorIsAlsoTarget, removing protection")
+            protected.stats.protection.protectionArray[0].strength = 0
+            protector.stats.protectionIDs.remove(at: 0)
+        } else {
+            print("with a strength of: \(strength)")
+        }
     }
     
 }
