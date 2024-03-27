@@ -29,6 +29,8 @@ class CharacterView: UIView {
     @IBOutlet weak var characterImageHeight: NSLayoutConstraint!
     
     // Properties
+    var delegate: CharacterViewDelegate?
+    
     var targetLock1: Bool = false
     var targetLock2: Bool = false
     var enemyNumber: Int = 0
@@ -53,10 +55,11 @@ class CharacterView: UIView {
         addSubview(xibView)
     }
     
-    func displayCharacter(_ character: CharacterStats, index enemyNumber: Int) {
+    func displayCharacter(_ character: CharacterStats, index enemyNumber: Int, delegate: CharacterViewDelegate) {
+        self.delegate = delegate
+        
         var imageName: String
         self.enemyNumber = enemyNumber
-
         
         // Adjust imageHeight
         var imageHeightAdjustment: Int = 0
@@ -129,10 +132,23 @@ class CharacterView: UIView {
     func updateEnergy(_ energy: Int) {
         energyLabel.text = "\(energy)"
     }
+    
+    //MARK: - Tips
+    
+    @IBAction func tipsButtonTapped(_ sender: UIButton) {
+        
+    }
+    
 
 }
 
 //MARK: - Extensions
 extension CharacterView: CharacterViewUpdateDelegate {
     
+}
+
+//MARK: - Protocols
+
+protocol CharacterViewDelegate {
+    func displayTip(enemyNumber: Int)
 }

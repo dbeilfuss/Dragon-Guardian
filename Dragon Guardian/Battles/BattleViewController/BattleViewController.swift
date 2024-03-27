@@ -180,7 +180,7 @@ class BattleViewController: UIViewController {
         // Setup CharacterView
         let characterView = CharacterView()
         characterView.translatesAutoresizingMaskIntoConstraints = false
-        characterView.displayCharacter(character, index: index)
+        characterView.displayCharacter(character, index: index, delegate: self)
         
         // Adjust Constraints
         let aspectRatioConstraint = NSLayoutConstraint(item: characterView, attribute: .width, relatedBy: .equal, toItem: characterView, attribute: .height, multiplier: 1.0, constant: 0)
@@ -242,6 +242,14 @@ class BattleViewController: UIViewController {
 extension BattleViewController: transitionScreenDelegate {
     func loadNextRound() {
         battleManager.loadNextRound()
+    }
+    
+}
+
+//MARK: - Extension: CharacterViewDelegate
+extension BattleViewController: CharacterViewDelegate {
+    func displayTip(enemyNumber: Int) {
+        viewTip(villain: <#T##Villain#>, size: .large, location: <#T##TipLocation#>)
     }
     
 }

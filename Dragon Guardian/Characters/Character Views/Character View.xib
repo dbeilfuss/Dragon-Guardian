@@ -177,11 +177,20 @@
                         <constraint firstAttribute="height" constant="75" id="Ht4-tv-YT9"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vom-Tu-DhB" userLabel="Tips Button">
+                    <rect key="frame" x="0.0" y="-34" width="303" height="405"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain"/>
+                    <connections>
+                        <action selector="tipsButtonTapped:" destination="-1" eventType="touchUpInside" id="LFJ-j4-bcy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="rOS-AF-I5c" secondAttribute="bottom" id="2g3-Kp-0Re"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="top" secondItem="mvM-d0-lVr" secondAttribute="bottom" constant="10" id="6sB-0U-0me"/>
+                <constraint firstItem="Vom-Tu-DhB" firstAttribute="top" secondItem="g5V-cF-tbr" secondAttribute="top" id="9vi-Wt-Tq3"/>
                 <constraint firstItem="rOS-AF-I5c" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FUn-Z7-a75"/>
                 <constraint firstItem="mvM-d0-lVr" firstAttribute="centerX" secondItem="Pnk-Ub-iiH" secondAttribute="centerX" id="HPl-z4-XQj"/>
                 <constraint firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="bottom" constant="-4" id="Iso-ft-Snp"/>
@@ -191,11 +200,14 @@
                 <constraint firstAttribute="trailing" secondItem="rGI-AZ-O7h" secondAttribute="trailing" id="Wso-SU-mBW"/>
                 <constraint firstItem="mvM-d0-lVr" firstAttribute="leading" secondItem="Pnk-Ub-iiH" secondAttribute="leading" id="cqu-QN-mc6"/>
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dAL-0i-dkj"/>
+                <constraint firstAttribute="trailing" secondItem="Vom-Tu-DhB" secondAttribute="trailing" id="eWr-zE-lOP"/>
+                <constraint firstAttribute="bottom" secondItem="Vom-Tu-DhB" secondAttribute="bottom" id="hfc-D9-2WF"/>
                 <constraint firstItem="g5V-cF-tbr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="n1y-VI-yco"/>
                 <constraint firstItem="g5V-cF-tbr" firstAttribute="bottom" secondItem="Pnk-Ub-iiH" secondAttribute="top" id="p7Z-YU-sVU"/>
                 <constraint firstAttribute="trailing" secondItem="Pnk-Ub-iiH" secondAttribute="trailing" constant="16" id="q49-3X-m4n"/>
                 <constraint firstItem="g5V-cF-tbr" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="r3e-0e-11e"/>
                 <constraint firstItem="3YX-Dd-8Kn" firstAttribute="width" secondItem="Pnk-Ub-iiH" secondAttribute="width" id="raq-oL-0wK"/>
+                <constraint firstItem="Vom-Tu-DhB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wWZ-mM-QTC"/>
                 <constraint firstItem="Pnk-Ub-iiH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.9" id="xoM-be-UWM"/>
                 <constraint firstItem="rGI-AZ-O7h" firstAttribute="top" secondItem="Pnk-Ub-iiH" secondAttribute="top" constant="-37.5" id="yEq-Sv-tnp"/>
             </constraints>

@@ -45,7 +45,7 @@ class TipsView: UIView {
     
     struct TipsData {
         var title: String
-        var info: [String]
+        var info: [String?]
     }
     
     enum LabelType {
@@ -75,14 +75,16 @@ class TipsView: UIView {
     
     //MARK: - Set
     
-    func set(action: Action?) {
+    func set(action: Action) {
+        clearContents()
+        var tipsData = createActionData(action)
+        createLabels(tipsData)
+    }
+    
+    func set(villain: Villain) {
         clearContents()
         
-        var tipsData = TipsData(title: "", info: [])
-
-        if let thisAction: Action = action {
-            tipsData = createActionData(thisAction)
-            }
+        var tipsData = createVillainData(villain)
         
         createLabels(tipsData)
         
@@ -120,12 +122,39 @@ class TipsView: UIView {
         return tipsData
     }
     
+    func createVillainData(_ villain: Villain) -> TipsData {
+        
+        var tipsData = TipsData(title: "", info: [])
+
+        // Properties
+        let blockStrength = villain.stats.block
+        let protectStrength = villain.stats.protection.sumOfProtection()
+        let isProtecting = villain.stats.protectionIDs.count < 0
+        let intent = villain.stats.intent
+        
+        // Text
+        let name = villain.stats.name
+        let level = "Level: \(String(villain.stats.level))"
+        let block: String? = blockStrength > 0 ? "Block: \(String(blockStrength))" : nil
+        let protect: String? = protectStrength > 0 ? "Protected: \(String(protectStrength))" : nil
+        let protecting: String? = isProtecting ? "Currently Protecting another Villain." : nil
+        let intention = "Current Intent: The Villain Intends to \(intent?.action.name ?? "think") on their next turn."
+                
+        // Set
+        tipsData.title = name
+        tipsData.info = [name, level, block, protect, protecting, intention]
+        
+        return tipsData
+    }
+    
     func createLabels(_ data: TipsData) {
         
         createLabelView(type: .title, text: data.title) // Title
         
         for textLine in data.info { // Data
-            createLabelView(type: .data, text: textLine)
+            if textLine != nil {
+                createLabelView(type: .data, text: textLine!)
+            }
         }
     }
     

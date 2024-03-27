@@ -24,12 +24,16 @@ extension BattleViewController {
         case right
     }
         
-    func viewTip(action: Action?, size: TipSize, location: TipLocation) {
-        
+    func viewTip(action: Action, size: TipSize, location: TipLocation) {
         let tipView: TipsView = location == .left ? tipViewLeft : tipViewRight
-        
         tipView.isHidden = false
         tipView.set(action: action)
     }
     
+    func viewTip(villain: Villain, size: TipSize, location: TipLocation) {
+        let tipView: TipsView = location == .left ? tipViewLeft : tipViewRight
+        tipView.isHidden = false
+        tipView.set(villain: villain)
+    }
+        
 }
