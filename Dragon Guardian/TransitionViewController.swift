@@ -34,7 +34,7 @@ class TransitionViewController: UIViewController {
     struct transitionScreenData {
         let title: String
         var message: String
-        var villagerStats: String
+        var statsMessage: String
         var nextScreenMessage: String
         let backButtonIsHidden: Bool
         let nextBattleButtonIsHidden: Bool
@@ -43,7 +43,7 @@ class TransitionViewController: UIViewController {
     
     let pausedData = transitionScreenData(
         title: "Game Paused", message: "",
-        villagerStats: "You have ## villagers remaining!",
+        statsMessage: "You have ## villagers remaining!",
         nextScreenMessage: "Can you keep them safe until the end?",
         backButtonIsHidden: false,
         nextBattleButtonIsHidden: true, scoreboardButtonIsHidden: true
@@ -52,7 +52,7 @@ class TransitionViewController: UIViewController {
     let victoryData = transitionScreenData(
         title: "Victory!",
         message: "You have defeated the evil villains",
-        villagerStats: "and ## villagers remain.",
+        statsMessage: "and ## villagers remain.",
         nextScreenMessage: "Time passes.  You begin to grow.",
         backButtonIsHidden: true,
         nextBattleButtonIsHidden: false,
@@ -62,7 +62,7 @@ class TransitionViewController: UIViewController {
     let defeatData = transitionScreenData(
         title: "Defeat!",
         message: "You have been defeated by the evil villains and the villagers have perished.",
-        villagerStats: "You died on round ##.",
+        statsMessage: "You died on round ##.",
         nextScreenMessage: "..💀..",
         backButtonIsHidden: true,
         nextBattleButtonIsHidden: true,
@@ -97,8 +97,9 @@ class TransitionViewController: UIViewController {
     func initializeData(villagersSaved: Int, roundNum: Int) -> transitionScreenData {
         var thisData: transitionScreenData = gameState == .inProgress ? pausedData : (gameState == .victory ? victoryData : defeatData)
         
-        thisData.villagerStats = thisData.villagerStats.replacingOccurrences(of: "##", with: String(villagersSaved))
-        thisData.nextScreenMessage = thisData.nextScreenMessage.replacingOccurrences(of: "##", with: String(roundNum))
+        let statsData = gameState == .victory ? villagersSaved : roundNum
+        
+        thisData.statsMessage = thisData.statsMessage.replacingOccurrences(of: "##", with: String(statsData))
         
         return thisData
     }
@@ -106,7 +107,7 @@ class TransitionViewController: UIViewController {
     func refreshScreen(data: transitionScreenData) {
         titleLabel.text = data.title
         messageLabel.text = data.message
-        villagerStatsLabel.text = data.villagerStats
+        villagerStatsLabel.text = data.statsMessage
         nextScreenMessageLabel.text = data.nextScreenMessage
         backButton.isHidden = data.backButtonIsHidden
         nextBattleButton.isHidden = data.nextBattleButtonIsHidden
@@ -126,7 +127,6 @@ class TransitionViewController: UIViewController {
     
     
 }
-
 
 protocol transitionScreenDelegate {
     func loadNextRound()

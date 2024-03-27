@@ -14,62 +14,68 @@ extension BattleViewController: actionCellSelectorDelegate {
     
     func actionSelected(actionType: ActionType, hero: Hero, fingerPosition: CGPoint) {
         
-        let heroNum = getHeroNum(hero: hero)
-        
-        print("actionSelected: hero: \(hero)")
-        print("fingerPosition: \(fingerPosition)")
-        
-        toggleTargetVisibility(hero: heroNum)
-        moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
+        if gameState == .inProgress {
+            let heroNum = getHeroNum(hero: hero)
+            
+            print("actionSelected: hero: \(hero)")
+            print("fingerPosition: \(fingerPosition)")
+            
+            toggleTargetVisibility(hero: heroNum)
+            moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
+        }
     }
     
     func didDragToPoint(actionType: ActionType, hero: Hero, fingerPosition: CGPoint) {
-        let heroNum = getHeroNum(hero: hero)
-        moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
+        if gameState == .inProgress {
+            let heroNum = getHeroNum(hero: hero)
+            moveTargetSymbol(actionType: actionType, heroType: hero, heroNum: heroNum, fingerPosition: fingerPosition)
+        }
     }
     
     func didEndDragging(hero: Hero, fingerPosition: CGPoint, cellNumber: Int, actionType: ActionType) {
         
-        let heroNum = getHeroNum(hero: hero)
-        let relativeTable = identifyRelativeTable(hero: heroNum)
-        
-        switch actionType {
-        case .attack:
-            let targetVillain: TargetVillain = identifyTargetVillain(fingerPosition: fingerPosition, relativeTable: relativeTable, hero: hero)
+        if gameState == .inProgress {
+            let heroNum = getHeroNum(hero: hero)
+            let relativeTable = identifyRelativeTable(hero: heroNum)
             
-            // UI
-            toggleTargetVisibility(hero: heroNum)
-            targetVillain.villainView?.targetLock(false, hero: hero)
-            
-            // BattleManager
-            if targetVillain.villainRow != nil {
-                battleManager.actionPlayed(actionType: .attack, hero: hero, action: cellNumber, targetVillain: targetVillain, targetHero: nil)
-            }
-            
-        case .block:
-            let targetHero: TargetHero? = identifyThisHero(hero: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
-            
-            // UI
-            toggleTargetVisibility(hero: heroNum)
-            targetHero?.heroView?.targetLock(false, hero: hero)
-            
-            // BattleManager
-            if targetHero != nil {
-                battleManager.actionPlayed(actionType: .block, hero: hero, action: cellNumber, targetVillain: nil, targetHero: targetHero?.hero)
-            }
-            
-        case .protect:
-            
-            let protectedHero: TargetHero? = identifyOtherHeros(protector: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
-            
-            // UI
-            toggleTargetVisibility(hero: heroNum)
-            protectedHero?.heroView?.targetLock(false, hero: hero)
-            protectedHero?.villagerView?.targetLock(false, hero: hero)
-            
-            // BattleManager
-            if protectedHero != nil {
-                battleManager.actionPlayed(actionType: .protect, hero: hero, action: cellNumber, targetVillain: nil, targetHero: protectedHero?.hero)
+            switch actionType {
+            case .attack:
+                let targetVillain: TargetVillain = identifyTargetVillain(fingerPosition: fingerPosition, relativeTable: relativeTable, hero: hero)
+                
+                // UI
+                toggleTargetVisibility(hero: heroNum)
+                targetVillain.villainView?.targetLock(false, hero: hero)
+                
+                // BattleManager
+                if targetVillain.villainRow != nil {
+                    battleManager.actionPlayed(actionType: .attack, hero: hero, action: cellNumber, targetVillain: targetVillain, targetHero: nil)
+                }
+                
+            case .block:
+                let targetHero: TargetHero? = identifyThisHero(hero: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
+                
+                // UI
+                toggleTargetVisibility(hero: heroNum)
+                targetHero?.heroView?.targetLock(false, hero: hero)
+                
+                // BattleManager
+                if targetHero != nil {
+                    battleManager.actionPlayed(actionType: .block, hero: hero, action: cellNumber, targetVillain: nil, targetHero: targetHero?.hero)
+                }
+                
+            case .protect:
+                
+                let protectedHero: TargetHero? = identifyOtherHeros(protector: hero, fingerPosition: fingerPosition, relativeTable: relativeTable)
+                
+                // UI
+                toggleTargetVisibility(hero: heroNum)
+                protectedHero?.heroView?.targetLock(false, hero: hero)
+                protectedHero?.villagerView?.targetLock(false, hero: hero)
+                
+                // BattleManager
+                if protectedHero != nil {
+                    battleManager.actionPlayed(actionType: .protect, hero: hero, action: cellNumber, targetVillain: nil, targetHero: protectedHero?.hero)
+                }
             }
         }
         

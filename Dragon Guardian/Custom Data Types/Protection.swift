@@ -79,12 +79,12 @@ struct ProtectionArray {
                     
                     // Remove Protector's ID
                     let protector: Character = protection.protector
-                    protector.stats.protectionIDs.remove(at: protectionID)
+                        protector.stats.protectionIDs.removeAll(where: {$0 == protectionID})
                     
                     // Remove Protection from Protected
                     protectionArray.remove(at: i)
                     
-
+                    
                 }
             }
         }

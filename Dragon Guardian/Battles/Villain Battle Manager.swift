@@ -31,6 +31,9 @@ extension BattleManager: VillainBattleManager {
     func villainAttackPlayed(targetHero: HeroClass, action: Action, villain: Villain) {
         action.attack(from: villain, to: targetHero)
         
+        // Defeat
+        checkForDefeat()
+        
     }
     
     func villainBlockPlayed(self villain: Villain, action: Action) {

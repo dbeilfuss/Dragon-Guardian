@@ -144,10 +144,14 @@ struct NarrativeManager {
         return currentRoundNum
     }
     
-    //MARK: - Next Round
+    //MARK: - Victory and Defeat
     
     mutating func declareVictory() {
         gameState = .victory
+    }
+    
+    mutating func declareDefeat() {
+        gameState = .defeat
     }
     
 }

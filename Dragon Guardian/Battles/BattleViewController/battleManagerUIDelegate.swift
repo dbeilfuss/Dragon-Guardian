@@ -1,5 +1,5 @@
 //
-//  battleManagerDelegate.swift
+//  battleManagerUIDelegate.swift
 //  Dragon Guardian
 //
 //  Created by Daniel Beilfuss on 3/9/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension BattleViewController: battleManagerDelegate {
+extension BattleViewController: battleManagerUIDelegate {
 
     //MARK: - Update Characters
     
@@ -34,7 +34,6 @@ extension BattleViewController: battleManagerDelegate {
         for i in 0...herosArray.count - 1 {
             herosArray[i].updateCharacter(herosStatsArray[i])
         }
-        
         
     }
     
@@ -98,6 +97,12 @@ extension BattleViewController: battleManagerDelegate {
     //MARK: - Victory & Defeat
     
     func declareVictory() {
+        gameState = .victory
+        transitionScreen()
+    }
+    
+    func declareDefeat() {
+        gameState = .defeat
         transitionScreen()
     }
     

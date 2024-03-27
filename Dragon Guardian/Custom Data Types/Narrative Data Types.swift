@@ -12,6 +12,7 @@ enum GameState {
     case inProgress
     case victory
     case defeat
+    case ultimateVictory
 }
 
 struct RoundSetup {

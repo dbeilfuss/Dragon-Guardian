@@ -58,6 +58,16 @@ struct HerosList {
         return thisHero
     }
     
+    func minHealth() -> Int {
+        var minHealth = 1000
+        
+        forEach { if $0.stats.health < minHealth {
+            minHealth = $0.stats.health
+        }}
+        
+        return minHealth
+    }
+    
 }
 
 struct TargetHero {

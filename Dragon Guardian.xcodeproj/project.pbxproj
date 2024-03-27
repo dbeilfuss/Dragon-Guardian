@@ -11,9 +11,11 @@
 		77073D3B2B98267F00570C33 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77073D3A2B98267F00570C33 /* Environment.swift */; };
 		770AAB6E2B9CBCA5006298DA /* Custom Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */; };
 		770AAB712B9CBE3C006298DA /* actionCellSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */; };
-		770AAB732B9CC1A7006298DA /* battleManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */; };
+		770AAB732B9CC1A7006298DA /* battleManagerUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770AAB722B9CC1A7006298DA /* battleManagerUIDelegate.swift */; };
 		771C295C2BA9285900289E2E /* Stats Bar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771C295B2BA9285900289E2E /* Stats Bar View.swift */; };
 		772C1D182B9E652E00AF3980 /* Villain Decision Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */; };
+		773B8BE82BB3AF4700C42DBD /* Extension - Hero Hands TableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B8BE72BB3AF4700C42DBD /* Extension - Hero Hands TableViews.swift */; };
+		773B8BEA2BB3AF8A00C42DBD /* Extension - Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773B8BE92BB3AF8A00C42DBD /* Extension - Tips.swift */; };
 		77574B3F2B93F786009CF89A /* Villager View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77574B3E2B93F786009CF89A /* Villager View.xib */; };
 		77574B412B93F7DD009CF89A /* Villager View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77574B402B93F7DD009CF89A /* Villager View.swift */; };
 		776D81772BADBEFC0058C0D5 /* Tips View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81762BADBEFC0058C0D5 /* Tips View.swift */; };
@@ -25,6 +27,8 @@
 		776D81852BB0BAC20058C0D5 /* HugeDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81842BB0BAC20058C0D5 /* HugeDragon.swift */; };
 		776D81872BB0C3070058C0D5 /* Villain Data Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81862BB0C3070058C0D5 /* Villain Data Types.swift */; };
 		776D81892BB0CA280058C0D5 /* Villains List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D81882BB0CA280058C0D5 /* Villains List.swift */; };
+		776D818B2BB3AC3D0058C0D5 /* Extension - Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D818A2BB3AC3D0058C0D5 /* Extension - Actions.swift */; };
+		776D818E2BB3ADD80058C0D5 /* Extension - Victory & Defeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D818D2BB3ADD80058C0D5 /* Extension - Victory & Defeat.swift */; };
 		779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779D16702B99025E00597A30 /* actionTableViewCell.swift */; };
 		779D16732B99025E00597A30 /* actionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 779D16712B99025E00597A30 /* actionTableViewCell.xib */; };
 		77B34F042BA2701D00E799F7 /* BasicBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B34F032BA2701D00E799F7 /* BasicBlock.swift */; };
@@ -61,9 +65,11 @@
 		77073D3A2B98267F00570C33 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		770AAB6D2B9CBCA5006298DA /* Custom Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Data Types.swift"; sourceTree = "<group>"; };
 		770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionCellSelectorDelegate.swift; sourceTree = "<group>"; };
-		770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = battleManagerDelegate.swift; sourceTree = "<group>"; };
+		770AAB722B9CC1A7006298DA /* battleManagerUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = battleManagerUIDelegate.swift; sourceTree = "<group>"; };
 		771C295B2BA9285900289E2E /* Stats Bar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stats Bar View.swift"; sourceTree = "<group>"; };
 		772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villain Decision Manager.swift"; sourceTree = "<group>"; };
+		773B8BE72BB3AF4700C42DBD /* Extension - Hero Hands TableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - Hero Hands TableViews.swift"; sourceTree = "<group>"; };
+		773B8BE92BB3AF8A00C42DBD /* Extension - Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - Tips.swift"; sourceTree = "<group>"; };
 		77574B3E2B93F786009CF89A /* Villager View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Villager View.xib"; sourceTree = "<group>"; };
 		77574B402B93F7DD009CF89A /* Villager View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villager View.swift"; sourceTree = "<group>"; };
 		776D81762BADBEFC0058C0D5 /* Tips View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tips View.swift"; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		776D81842BB0BAC20058C0D5 /* HugeDragon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HugeDragon.swift; sourceTree = "<group>"; };
 		776D81862BB0C3070058C0D5 /* Villain Data Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villain Data Types.swift"; sourceTree = "<group>"; };
 		776D81882BB0CA280058C0D5 /* Villains List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Villains List.swift"; sourceTree = "<group>"; };
+		776D818A2BB3AC3D0058C0D5 /* Extension - Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - Actions.swift"; sourceTree = "<group>"; };
+		776D818D2BB3ADD80058C0D5 /* Extension - Victory & Defeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension - Victory & Defeat.swift"; sourceTree = "<group>"; };
 		779D16702B99025E00597A30 /* actionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = actionTableViewCell.swift; sourceTree = "<group>"; };
 		779D16712B99025E00597A30 /* actionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = actionTableViewCell.xib; sourceTree = "<group>"; };
 		77B34F032BA2701D00E799F7 /* BasicBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBlock.swift; sourceTree = "<group>"; };
@@ -123,13 +131,25 @@
 			isa = PBXGroup;
 			children = (
 				77DB726F2B8AD47C00E410A2 /* BattleViewController.swift */,
+				773B8BE72BB3AF4700C42DBD /* Extension - Hero Hands TableViews.swift */,
+				773B8BE92BB3AF8A00C42DBD /* Extension - Tips.swift */,
 				770AAB702B9CBE3C006298DA /* actionCellSelectorDelegate.swift */,
-				770AAB722B9CC1A7006298DA /* battleManagerDelegate.swift */,
+				770AAB722B9CC1A7006298DA /* battleManagerUIDelegate.swift */,
 				77EDFC882BA8C5B400292E75 /* Tips View.xib */,
 				776D81762BADBEFC0058C0D5 /* Tips View.swift */,
 				776D817A2BAF2DC40058C0D5 /* HeroHandTableView.swift */,
 			);
 			path = BattleViewController;
+			sourceTree = "<group>";
+		};
+		776D818C2BB3ADA20058C0D5 /* Battle Manager */ = {
+			isa = PBXGroup;
+			children = (
+				77DB72942B8BEB5600E410A2 /* BattleManager.swift */,
+				776D818A2BB3AC3D0058C0D5 /* Extension - Actions.swift */,
+				776D818D2BB3ADD80058C0D5 /* Extension - Victory & Defeat.swift */,
+			);
+			path = "Battle Manager";
 			sourceTree = "<group>";
 		};
 		779D166F2B9901F700597A30 /* Action Views */ = {
@@ -241,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				770AAB6F2B9CBDFB006298DA /* BattleViewController */,
-				77DB72942B8BEB5600E410A2 /* BattleManager.swift */,
+				776D818C2BB3ADA20058C0D5 /* Battle Manager */,
 				776D81822BAFC73B0058C0D5 /* Villain Battle Manager.swift */,
 				772C1D172B9E652E00AF3980 /* Villain Decision Manager.swift */,
 			);
@@ -357,6 +377,7 @@
 				776D81892BB0CA280058C0D5 /* Villains List.swift in Sources */,
 				77DB72842B8BCE5200E410A2 /* HeroClass.swift in Sources */,
 				776D81852BB0BAC20058C0D5 /* HugeDragon.swift in Sources */,
+				776D818B2BB3AC3D0058C0D5 /* Extension - Actions.swift in Sources */,
 				77B34F042BA2701D00E799F7 /* BasicBlock.swift in Sources */,
 				77574B412B93F7DD009CF89A /* Villager View.swift in Sources */,
 				77DB72702B8AD47C00E410A2 /* BattleViewController.swift in Sources */,
@@ -371,10 +392,13 @@
 				77DB726E2B8AD47C00E410A2 /* SceneDelegate.swift in Sources */,
 				770AAB712B9CBE3C006298DA /* actionCellSelectorDelegate.swift in Sources */,
 				779D16722B99025E00597A30 /* actionTableViewCell.swift in Sources */,
+				773B8BEA2BB3AF8A00C42DBD /* Extension - Tips.swift in Sources */,
+				773B8BE82BB3AF4700C42DBD /* Extension - Hero Hands TableViews.swift in Sources */,
 				77DB729B2B8C474500E410A2 /* LittleDragon.swift in Sources */,
 				77073D392B96B92400570C33 /* VillagersClass.swift in Sources */,
-				770AAB732B9CC1A7006298DA /* battleManagerDelegate.swift in Sources */,
+				770AAB732B9CC1A7006298DA /* battleManagerUIDelegate.swift in Sources */,
 				77073D3B2B98267F00570C33 /* Environment.swift in Sources */,
+				776D818E2BB3ADD80058C0D5 /* Extension - Victory & Defeat.swift in Sources */,
 				77DB72972B8BF12900E410A2 /* GuardianClass.swift in Sources */,
 				77EDFC852BA646E800292E75 /* Protection.swift in Sources */,
 				77DB72822B8BCDA300E410A2 /* Character.swift in Sources */,
